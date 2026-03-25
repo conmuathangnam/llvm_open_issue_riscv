@@ -1,0 +1,39 @@
+; RUN: opt  %loadNPMPolly '-passes=polly-custom<ast>' --disable-output < %s | FileCheck %s
+
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+
+define void @func(i32 %d, i32 %f, i32 %h) {
+entry:
+  br label %for.cond1
+
+for.cond1:                                        ; preds = %for.cond.cleanup15, %cond.false, %entry
+  br i1 false, label %cond.false, label %for.body
+
+cond.false:                                       ; preds = %for.cond1
+  br label %for.cond1
+
+for.body:                                         ; preds = %for.cond1
+  %rem = urem i32 %h, 3
+  %cmp17 = icmp eq i32 %rem, 0
+  br i1 %cmp17, label %for.cond.cleanup15, label %for.cond12.preheader.split
+
+for.cond12.preheader.split:                       ; preds = %for.body
+  %tobool33.not = icmp eq i32 %d, 0
+  %tobool38.not99 = icmp eq i32 %f, 0
+  %tobool38.not = or i1 %tobool33.not, %tobool38.not99
+  br i1 %tobool38.not, label %for.body16.us102.preheader, label %for.cond.cleanup15
+
+for.body16.us102.preheader:                       ; preds = %for.cond12.preheader.split
+  store i16 0, ptr null, align 2
+  br label %for.cond.cleanup15
+
+for.cond.cleanup15:                               ; preds = %for.body16.us102.preheader, %for.cond12.preheader.split, %for.body
+  %tobool63 = icmp ne i32 %d, 0
+  tail call void @llvm.assume(i1 %tobool63)
+  br label %for.cond1
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #0
+
+attributes #0 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

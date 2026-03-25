@@ -1,0 +1,75 @@
+#include <coroutine>
+#include <utility>
+#include <stdio.h>
+
+// Boilerplate based on https://theshoemaker.de/posts/yet-another-cpp-coroutine-tutorial
+class Task { 
+public:
+    struct FinalAwaiter {
+        bool __attribute__((noinline)) await_ready() const noexcept { return false; }
+        template <typename P> auto __attribute__((noinline)) await_suspend(std::coroutine_handle<P> handle) noexcept {
+            return handle.promise().continuation;
+        }
+        void __attribute__((noinline)) await_resume() const noexcept { }
+    };
+
+    struct Promise {
+        std::coroutine_handle<> continuation;
+        Task __attribute__((noinline)) get_return_object() {
+            return Task { std::coroutine_handle<Promise>::from_promise(*this) };
+        }
+        void __attribute__((noinline)) unhandled_exception() noexcept { }
+        void __attribute__((noinline)) return_void() noexcept { }
+        std::suspend_always __attribute__((noinline)) initial_suspend() noexcept { return {}; }
+        FinalAwaiter __attribute__((noinline)) final_suspend() noexcept { return {}; }
+    };
+    using promise_type = Promise;
+
+    Task() __attribute__((noinline)) = default;
+    ~Task() __attribute__((noinline)) { if (handle_) { handle_.destroy(); } }
+
+    struct Awaiter {
+        std::coroutine_handle<Promise> handle;
+        bool __attribute__((noinline)) await_ready() const noexcept { return !handle || handle.done(); }
+        auto __attribute__((noinline)) await_suspend(std::coroutine_handle<> calling) noexcept {
+            handle.promise().continuation = calling;
+            return handle;
+        }
+        void __attribute__((noinline)) await_resume() const noexcept { }
+    };
+
+    auto __attribute__((noinline)) operator co_await() noexcept { return Awaiter{handle_}; }
+    void __attribute__((noinline)) run() {
+      handle_.promise().continuation = std::noop_coroutine();
+      handle_.resume();
+    }
+
+private:
+    explicit __attribute__((noinline)) Task(std::coroutine_handle<Promise> handle) : handle_(handle) { }
+    std::coroutine_handle<Promise> handle_;
+};
+
+// The interesting part starts here.
+struct Cleanup {
+  Cleanup() __attribute__((noinline)) : is_engaged(true) {}
+
+  Cleanup(Cleanup&& other) { is_engaged = true; other.is_engaged = false; }
+  ~Cleanup() { if (is_engaged) { printf("CLEANUP\n"); } }
+
+#ifdef VOLATILE
+  volatile
+#endif
+  bool is_engaged;
+};
+
+Task __attribute__((noinline)) __attribute__((optnone)) hello(Cleanup c) {
+  printf("HELLO\n");
+  co_return;
+}
+
+Task __attribute__((noinline)) foo(Cleanup c) { co_await hello(std::move(c)); }
+
+int __attribute__((optnone)) main() {
+  Task t = foo(Cleanup());
+  t.run();
+}

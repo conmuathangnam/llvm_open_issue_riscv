@@ -1,0 +1,114 @@
+# [LoongArch] LLVM 22 miscompiles Zig's `std.math.big.int` code
+
+**Author:** alexrp
+**URL:** https://github.com/llvm/llvm-project/issues/176647
+**Status:** Closed
+**Labels:** miscompilation, backend:loongarch, regression:22
+**Closed Date:** 2026-01-21T03:52:09Z
+
+## Body
+
+With LLVM 22, this Zig test is failing (which didn't previously):
+
+```
+test-std
+└─ run test std-loongarch64-linux-gnu-la64v1_0-Debug-libc 64 pass, 1 crash (65 total)
+error: 'math.big.int_test.test.bitAnd #10932' terminated with signal ABRT with stderr:
+       thread 522312 panic: reached unreachable code
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/debug.zig:419:14: 0x106579f in assert (test)
+           if (!ok) unreachable; // assertion failure
+                    ^
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int.zig:391:23: 0x122906f in setString (test)
+                       assert(!llmulLimb(.add, self.limbs[0..len], self.limbs[0..len], constants.big_bases[base] - 1));
+                             ^
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int.zig:2924:24: 0x1228707 in setString (test)
+               try m.setString(base, value);
+                              ^
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int_test.zig:1938:20: 0x122a8a7 in test.bitAnd #10932 (test)
+           try b.setString(10, "55000000000915215865915724129619485917228346934191537590366734850266784978214506142389798064826139649163838075568111457203909393174933092857416500785632012953993352521899237655507306575657169267399324107627651067352600878339870446048204062696260567762088867991835386857942106708741836433444432529637331429212430394179472179237695833247299409249810963487516399177133175950185719220422442438098353430605822151595560743492661038899294517012784306863064670126197566982968906306814338148792888550378533207318063660581924736840687332023636827401670268933229183389040490792300121030647791095178823932734160000000000000000000000000000000000000555555550000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+                          ^
+```
+
+Still trying to figure out a way to reduce this; will update the issue with more info soon.
+
+(Just to clarify, we define `la64v1_0` as `32s+64bit+f+d+lsx+ual`.)
+
+## Comments
+
+### Comment 1 - llvmbot
+
+
+@llvm/issue-subscribers-backend-loongarch
+
+Author: Alex Rønne Petersen (alexrp)
+
+<details>
+With LLVM 22, this Zig test is failing (which didn't previously):
+
+```
+test-std
+└─ run test std-loongarch64-linux-gnu-la64v1_0-Debug-libc 64 pass, 1 crash (65 total)
+error: 'math.big.int_test.test.bitAnd #<!-- -->10932' terminated with signal ABRT with stderr:
+       thread 522312 panic: reached unreachable code
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/debug.zig:419:14: 0x106579f in assert (test)
+           if (!ok) unreachable; // assertion failure
+                    ^
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int.zig:391:23: 0x122906f in setString (test)
+                       assert(!llmulLimb(.add, self.limbs[0..len], self.limbs[0..len], constants.big_bases[base] - 1));
+                             ^
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int.zig:2924:24: 0x1228707 in setString (test)
+               try m.setString(base, value);
+                              ^
+       /home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int_test.zig:1938:20: 0x122a8a7 in test.bitAnd #<!-- -->10932 (test)
+           try b.setString(10, "55000000000915215865915724129619485917228346934191537590366734850266784978214506142389798064826139649163838075568111457203909393174933092857416500785632012953993352521899237655507306575657169267399324107627651067352600878339870446048204062696260567762088867991835386857942106708741836433444432529637331429212430394179472179237695833247299409249810963487516399177133175950185719220422442438098353430605822151595560743492661038899294517012784306863064670126197566982968906306814338148792888550378533207318063660581924736840687332023636827401670268933229183389040490792300121030647791095178823932734160000000000000000000000000000000000000555555550000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+                          ^
+```
+
+Still trying to figure out a way to reduce this; will update the issue with more info soon.
+
+(Just to clarify, we define `la64v1_0` as `32s+64bit+f+d+lsx+ual`.)
+</details>
+
+
+---
+
+### Comment 2 - alexrp
+
+Here are the files to repro, at least:
+
+* https://files.alexrp.com/llvm22/compiler_rt.bc
+* https://files.alexrp.com/llvm22/repro.bc
+
+```
+❯ llc -O0 compiler_rt.bc -o compiler_rt.o -filetype obj
+❯ llc -O0 repro.bc -o repro.o -filetype obj
+❯ ld.lld compiler_rt.o repro.o
+❯ qemu-loongarch64 ./a.out
+thread 531688 panic: reached unreachable code
+/home/alexrp/Sources/ziglang/zig-llvm22/lib/std/debug.zig:419:14: 0x6695f in assert (repro)
+    if (!ok) unreachable; // assertion failure
+             ^
+/home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int.zig:391:23: 0x1a652f in setString (repro)
+                assert(!llmulLimb(.add, self.limbs[0..len], self.limbs[0..len], constants.big_bases[base] - 1));
+                      ^
+/home/alexrp/Sources/ziglang/zig-llvm22/lib/std/math/big/int.zig:2924:24: 0x1a5cbf in setString (repro)
+        try m.setString(base, value);
+                       ^
+/home/alexrp/Sources/scratch/repro.zig:5:20: 0x1a6b93 in main (repro)
+    try b.setString(10, "55000000000915215865915724129619485917228346934191537590366734850266784978214506142389798064826139649163838075568111457203909393174933092857416500785632012953993352521899237655507306575657169267399324107627651067352600878339870446048204062696260567762088867991835386857942106708741836433444432529637331429212430394179472179237695833247299409249810963487516399177133175950185719220422442438098353430605822151595560743492661038899294517012784306863064670126197566982968906306814338148792888550378533207318063660581924736840687332023636827401670268933229183389040490792300121030647791095178823932734160000000000000000000000000000000000000555555550000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+                   ^
+/home/alexrp/Sources/ziglang/zig-llvm22/lib/std/start.zig:718:30: 0x1a5217 in callMain (repro)
+    return wrapMain(root.main(.{
+                             ^
+qemu: uncaught target signal 6 (Aborted) - core dumped
+fish: Job 1, 'qemu-loongarch64 ./a.out' terminated by signal SIGABRT (Abort)
+```
+
+---
+
+### Comment 3 - wangleiat
+
+Same as #176818; fixed by #176874.
+
+---
+

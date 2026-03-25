@@ -1,0 +1,79 @@
+GNU gdb (Ubuntu 15.0.50.20240403-0ubuntu1) 15.0.50.20240403-git
+[?2004h(gdb) r
+[?2004lStarting program: /usr/bin/clang++ -std=c++23 -Wall -Wpedantic -Wextra -c ben-deane-lambda-minimal.cpp
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+Download failed: Invalid argument.  Continuing without source file build-llvm/tools/clang/stage2-bins/build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp.
+0x00007ffffca023a7 in mangleFunctionEncoding () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:838
+[?2004h[?2004l[?2004h(gdb) bt
+[?2004l#0  0x00007ffffca023a7 in mangleFunctionEncoding () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:838
+(lots of repeated stack frames omitted)
+#24969 0x00007ffffca17586 in mangleLocalName () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:1870
+#24970 0x00007ffffca03b37 in mangleType () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:3643
+#24971 0x00007ffffca0b264 in mangleExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:5670
+#24972 0x00007ffffca0c08d in mangleExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:5276
+#24973 0x00007ffffca0c08d in mangleExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:5276
+#24974 0x00007ffffca159fd in mangleRequiresClause () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:2082
+#24975 mangleBareFunctionType () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:3634
+#24976 0x00007ffffca0240a in mangleFunctionEncoding () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:856
+#24977 0x00007ffffca17586 in mangleLocalName () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:1870
+#24978 0x00007ffffca03b37 in mangleType () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:3643
+#24979 0x00007ffffca0b264 in mangleExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:5670
+#24980 0x00007ffffca0c08d in mangleExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:5276
+#24981 0x00007ffffca0c08d in mangleExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:5276
+#24982 0x00007ffffca159fd in mangleRequiresClause () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:2082
+#24983 mangleBareFunctionType () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:3634
+#24984 0x00007ffffca0240a in mangleFunctionEncoding () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:856
+#24985 0x00007ffffc9feff4 in mangleCXXName () at build-llvm/tools/clang/stage2-bins/clang/lib/AST/ItaniumMangle.cpp:7008
+#24986 0x00007ffffd981696 in getMangledNameImpl () at build-llvm/tools/clang/stage2-bins/clang/lib/CodeGen/CodeGenModule.cpp:1823
+#24987 0x00007ffffd97a2d0 in getMangledName () at build-llvm/tools/clang/stage2-bins/clang/lib/CodeGen/CodeGenModule.cpp:1961
+#24988 0x00007ffffd98e018 in EmitGlobal () at build-llvm/tools/clang/stage2-bins/clang/lib/CodeGen/CodeGenModule.cpp:3822
+#24989 0x00007ffffd988de5 in EmitTopLevelDecl () at build-llvm/tools/clang/stage2-bins/clang/lib/CodeGen/CodeGenModule.cpp:6725
+#24990 0x00007ffffda29bec in HandleTopLevelDecl () at build-llvm/tools/clang/stage2-bins/clang/lib/CodeGen/ModuleBuilder.cpp:190
+#24991 0x00007ffffd95f03d in HandleTopLevelDecl () at build-llvm/tools/clang/stage2-bins/clang/lib/CodeGen/CodeGenAction.cpp:206
+#24992 0x00007ffffd562018 in InstantiateFunctionDefinition () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaTemplateInstantiateDecl.cpp:5203
+#24993 0x00007ffffcdacde0 in operator() () at llvm/include/llvm/ADT/STLFunctionalExtras.h:68
+#24994 runWithSufficientStackSpace () at clang/include/clang/Basic/Stack.h:46
+#24995 runWithSufficientStackSpace () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/Sema.cpp:513
+#24996 0x00007ffffd4c280e in DeduceReturnType () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaTemplateDeduction.cpp:5207
+#24997 0x00007ffffd096bc9 in DiagnoseUseOfDecl () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaExpr.cpp:307
+#24998 0x00007ffffd39e3ce in CreateFunctionRefExpr () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaOverload.cpp:72
+#24999 0x00007ffffd3a5884 in BuildCallToObjectOfClassType () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaOverload.cpp:15735
+#25000 0x00007ffffd09bb7d in BuildCallExpr () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaExpr.cpp:7237
+#25001 0x00007ffffd0b60a1 in ActOnCallExpr () at build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaExpr.cpp:7155
+#25002 0x00007ffffc5a1b3f in ParsePostfixExpressionSuffix () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseExpr.cpp:2169
+#25003 0x00007ffffc5a51c8 in ParseCastExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseExpr.cpp:1878
+#25004 0x00007ffffc59ec24 in ParseCastExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseExpr.cpp:693
+#25005 ParseAssignmentExpression () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseExpr.cpp:176
+#25006 0x00007ffffc59eaf2 in clang::Parser::ParseExpression(clang::Parser::TypeCastState) () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseExpr.cpp:127
+#25007 0x00007ffffc605b09 in ParseReturnStatement () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseStmt.cpp:2448
+#25008 0x00007ffffc5ffb12 in ParseStatementOrDeclarationAfterAttributes () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseStmt.cpp:326
+#25009 0x00007ffffc5fedfc in ParseStatementOrDeclaration () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseStmt.cpp:118
+#25010 0x00007ffffc607aa2 in ParseCompoundStatementBody () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseStmt.cpp:1236
+#25011 0x00007ffffc608b77 in ParseFunctionStatementBody () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseStmt.cpp:2514
+#25012 0x00007ffffc6240c7 in ParseFunctionDefinition () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:1516
+#25013 0x00007ffffc56d2a1 in ParseDeclGroup () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseDecl.cpp:2272
+#25014 0x00007ffffc62307f in ParseDeclOrFunctionDefInternal () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:1244
+#25015 0x00007ffffc622a39 in ParseDeclarationOrFunctionDefinition () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:1266
+#25016 0x00007ffffc621c65 in ParseExternalDeclaration () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:1070
+#25017 0x00007ffffc61ff7b in ParseTopLevelDecl () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:760
+#25018 0x00007ffffc61f8b6 in ParseFirstTopLevelDecl () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:607
+#25019 0x00007ffffc557370 in ParseAST () at build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseAST.cpp:162
+#25020 0x00007ffffe3c662c in Execute () at build-llvm/tools/clang/stage2-bins/clang/lib/Frontend/FrontendAction.cpp:1069
+#25021 0x00007ffffe3430b4 in ExecuteAction () at build-llvm/tools/clang/stage2-bins/clang/lib/Frontend/CompilerInstance.cpp:1057
+#25022 0x00007ffffe44263d in ExecuteCompilerInvocation () at build-llvm/tools/clang/stage2-bins/clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp:272
+#25023 0x000000000801442e in cc1_main () at build-llvm/tools/clang/stage2-bins/clang/tools/driver/cc1_main.cpp:294
+#25024 0x0000000008011894 in ExecuteCC1Tool () at build-llvm/tools/clang/stage2-bins/clang/tools/driver/driver.cpp:365
+#25025 0x00007ffffdff3972 in operator() () at llvm/include/llvm/ADT/STLFunctionalExtras.h:68
+#25026 operator() () at build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Job.cpp:440
+#25027 callback_fn<(lambda at clang/lib/Driver/Job.cpp:440:22)>(void) () at llvm/include/llvm/ADT/STLFunctionalExtras.h:45
+#25028 0x00007ffff509ff77 in operator() () at llvm/include/llvm/ADT/STLFunctionalExtras.h:68
+#25029 RunSafely () at build-llvm/tools/clang/stage2-bins/llvm/lib/Support/CrashRecoveryContext.cpp:426
+#25030 0x00007ffffdff3237 in Execute () at build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Job.cpp:440
+#25031 0x00007ffffdfbb518 in ExecuteCommand () at build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Compilation.cpp:199
+#25032 0x00007ffffdfbb77f in ExecuteJobs () at build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Compilation.cpp:253
+#25033 0x00007ffffdfd7c20 in ExecuteCompilation () at build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Driver.cpp:1918
+#25034 0x00000000080111ec in clang_main () at build-llvm/tools/clang/stage2-bins/clang/tools/driver/driver.cpp:540
+#25035 0x000000000801e383 in main () at build-llvm/tools/clang/stage2-bins/build-llvm/tools/clang/stage2-bins/tools/clang/tools/driver/clang-driver.cpp:17

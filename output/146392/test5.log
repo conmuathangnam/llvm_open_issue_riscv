@@ -1,0 +1,90 @@
+Error while trying to load a compilation database:
+Could not auto-detect compilation database for file "test5.c"
+No compilation database found in /tmp or any parent directory
+fixed-compilation-database: Error while opening fixed database: No such file or directory
+json-compilation-database: Error while opening JSON database: No such file or directory
+Running without flags.
+clang-tidy: /home/antipov/projects/llvm/source/clang/include/clang/AST/Expr.h:6345: unsigned int clang::GenericSelectionExpr::getResultIndex() const: Assertion `!isResultDependent() && "Generic selection is result-dependent but getResultIndex called!"' failed.
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+Stack dump:
+0.	Program arguments: /home/antipov/.local/llvm-21.0.0/bin/clang-tidy test5.c
+1.	/tmp/test5.c:132:20: current parser token ')'
+2.	/tmp/test5.c:123:74: parsing function body 'folio_needs_cow_for_dma'
+3.	/tmp/test5.c:123:74: in compound statement ('{}')
+ #0 0x00007f91b07b785d llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) /home/antipov/projects/llvm/source/llvm/lib/Support/Unix/Signals.inc:804:11
+ #1 0x00007f91b07b7d9b PrintStackTraceSignalHandler(void*) /home/antipov/projects/llvm/source/llvm/lib/Support/Unix/Signals.inc:888:1
+ #2 0x00007f91b07b5ebf llvm::sys::RunSignalHandlers() /home/antipov/projects/llvm/source/llvm/lib/Support/Signals.cpp:105:5
+ #3 0x00007f91b07b8409 SignalHandler(int, siginfo_t*, void*) /home/antipov/projects/llvm/source/llvm/lib/Support/Unix/Signals.inc:418:7
+ #4 0x00007f91ac027c30 __restore_rt (/lib64/libc.so.6+0x19c30)
+ #5 0x00007f91ac08111c __pthread_kill_implementation (/lib64/libc.so.6+0x7311c)
+ #6 0x00007f91ac027afe gsignal (/lib64/libc.so.6+0x19afe)
+ #7 0x00007f91ac00f6d0 abort (/lib64/libc.so.6+0x16d0)
+ #8 0x00007f91ac00f639 __assert_perror_fail (/lib64/libc.so.6+0x1639)
+ #9 0x00007f91b8de09a6 clang::GenericSelectionExpr::getResultIndex() const /home/antipov/projects/llvm/source/clang/include/clang/AST/Expr.h:0:5
+#10 0x00007f91b92ee492 clang::GenericSelectionExpr::getResultExpr() const /home/antipov/projects/llvm/source/clang/include/clang/AST/Expr.h:6390:38
+#11 0x00007f91b92d8ac4 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3755:46
+#12 0x00007f91b92d8f94 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3877:17
+#13 0x00007f91b92e5e76 (anonymous namespace)::SideEffectFinder::VisitExpr(clang::Expr const*) /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3579:27
+#14 0x00007f91b92e3d7d clang::EvaluatedExprVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder>::VisitCallExpr(clang::CallExpr const*) /home/antipov/projects/llvm/source/clang/include/clang/AST/EvaluatedExprVisitor.h:90:3
+#15 0x00007f91b92d9a88 clang::StmtVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder, void>::Visit(clang::Stmt const*) /home/antipov/projects/llvm/objdir-x86_64-pc-linux-gnu/21.0.0-Debug/tools/clang/include/clang/AST/StmtNodes.inc:608:1
+#16 0x00007f91b92e5df4 clang::EvaluatedExprVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder>::VisitStmt(clang::Stmt const*) /home/antipov/projects/llvm/source/clang/include/clang/AST/EvaluatedExprVisitor.h:104:5
+#17 0x00007f91b92e61ed clang::StmtVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder, void>::VisitDeclStmt(clang::DeclStmt const*) /home/antipov/projects/llvm/objdir-x86_64-pc-linux-gnu/21.0.0-Debug/tools/clang/include/clang/AST/StmtNodes.inc:1622:1
+#18 0x00007f91b92e5b58 (anonymous namespace)::SideEffectFinder::VisitDeclStmt(clang::DeclStmt const*) /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3576:5
+#19 0x00007f91b92da580 clang::StmtVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder, void>::Visit(clang::Stmt const*) /home/antipov/projects/llvm/objdir-x86_64-pc-linux-gnu/21.0.0-Debug/tools/clang/include/clang/AST/StmtNodes.inc:1622:1
+#20 0x00007f91b92e5df4 clang::EvaluatedExprVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder>::VisitStmt(clang::Stmt const*) /home/antipov/projects/llvm/source/clang/include/clang/AST/EvaluatedExprVisitor.h:104:5
+#21 0x00007f91b92e5c0d clang::StmtVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder, void>::VisitCompoundStmt(clang::CompoundStmt const*) /home/antipov/projects/llvm/objdir-x86_64-pc-linux-gnu/21.0.0-Debug/tools/clang/include/clang/AST/StmtNodes.inc:1646:1
+#22 0x00007f91b92da5c5 clang::StmtVisitorBase<llvm::make_const_ptr, (anonymous namespace)::SideEffectFinder, void>::Visit(clang::Stmt const*) /home/antipov/projects/llvm/objdir-x86_64-pc-linux-gnu/21.0.0-Debug/tools/clang/include/clang/AST/StmtNodes.inc:1646:1
+#23 0x00007f91b92d89ce clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3701:19
+#24 0x00007f91b92d8f94 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3877:17
+#25 0x00007f91b92d8f94 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3877:17
+#26 0x00007f91b92d8f94 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3877:17
+#27 0x00007f91b92d8f94 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3877:17
+#28 0x00007f91b92d8f94 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3877:17
+#29 0x00007f91b92d8f94 clang::Expr::HasSideEffects(clang::ASTContext const&, bool) const /home/antipov/projects/llvm/source/clang/lib/AST/Expr.cpp:3877:17
+#30 0x00007f91ba242fec clang::Sema::CheckUnaryExprOrTypeTraitOperand(clang::Expr*, clang::UnaryExprOrTypeTrait) /home/antipov/projects/llvm/source/clang/lib/Sema/SemaExpr.cpp:4285:10
+#31 0x00007f91ba24507e clang::Sema::CreateUnaryExprOrTypeTraitExpr(clang::Expr*, clang::SourceLocation, clang::UnaryExprOrTypeTrait) /home/antipov/projects/llvm/source/clang/lib/Sema/SemaExpr.cpp:4732:15
+#32 0x00007f91ba24563b clang::Sema::ActOnUnaryExprOrTypeTraitExpr(clang::SourceLocation, clang::UnaryExprOrTypeTrait, bool, void*, clang::SourceRange) /home/antipov/projects/llvm/source/clang/lib/Sema/SemaExpr.cpp:4764:23
+#33 0x00007f91b8b1caa6 clang::Parser::ParseUnaryExprOrTypeTraitExpression() /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:2289:23
+#34 0x00007f91b8b14848 clang::Parser::ParseCastExpression(clang::CastParseKind, bool, bool&, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:1207:11
+#35 0x00007f91b8b0fa9c clang::Parser::ParseCastExpression(clang::CastParseKind, bool, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:564:20
+#36 0x00007f91b8b0e4c6 clang::Parser::ParseAssignmentExpression(clang::TypeCastState) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:88:7
+#37 0x00007f91b8b1d6e3 clang::Parser::ParseSimpleExpressionList(llvm::SmallVectorImpl<clang::Expr*>&) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:3195:23
+#38 0x00007f91b8b19642 clang::Parser::ParseParenExpression(clang::ParenParseOption&, bool, bool, clang::OpaquePtr<clang::QualType>&, clang::SourceLocation&) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:2858:9
+#39 0x00007f91b8b129fc clang::Parser::ParseCastExpression(clang::CastParseKind, bool, bool&, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:760:11
+#40 0x00007f91b8b0fa9c clang::Parser::ParseCastExpression(clang::CastParseKind, bool, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:564:20
+#41 0x00007f91b8b19438 clang::Parser::ParseParenExpression(clang::ParenParseOption&, bool, bool, clang::OpaquePtr<clang::QualType>&, clang::SourceLocation&) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:2834:18
+#42 0x00007f91b8b129fc clang::Parser::ParseCastExpression(clang::CastParseKind, bool, bool&, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:760:11
+#43 0x00007f91b8b0fa9c clang::Parser::ParseCastExpression(clang::CastParseKind, bool, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:564:20
+#44 0x00007f91b8b0e4c6 clang::Parser::ParseAssignmentExpression(clang::TypeCastState) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:88:7
+#45 0x00007f91b8b0e38f clang::Parser::ParseExpression(clang::TypeCastState) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:47:18
+#46 0x00007f91b8b19ae3 clang::Parser::ParseParenExpression(clang::ParenParseOption&, bool, bool, clang::OpaquePtr<clang::QualType>&, clang::SourceLocation&) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:2905:14
+#47 0x00007f91b8b129fc clang::Parser::ParseCastExpression(clang::CastParseKind, bool, bool&, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:760:11
+#48 0x00007f91b8b0fa9c clang::Parser::ParseCastExpression(clang::CastParseKind, bool, clang::TypeCastState, bool, bool*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:564:20
+#49 0x00007f91b8b0e4c6 clang::Parser::ParseAssignmentExpression(clang::TypeCastState) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:88:7
+#50 0x00007f91b8b0e38f clang::Parser::ParseExpression(clang::TypeCastState) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseExpr.cpp:47:18
+#51 0x00007f91b8bb4ad8 clang::Parser::ParseExprStatement(clang::Parser::ParsedStmtContext) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseStmt.cpp:513:19
+#52 0x00007f91b8bb2dc8 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 24u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseStmt.cpp:241:14
+#53 0x00007f91b8bb2553 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 24u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseStmt.cpp:74:20
+#54 0x00007f91b8bbb8f2 clang::Parser::ParseCompoundStatementBody(bool) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseStmt.cpp:1153:11
+#55 0x00007f91b8bbcba2 clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseStmt.cpp:2385:21
+#56 0x00007f91b8be1a93 clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) /home/antipov/projects/llvm/source/clang/lib/Parse/Parser.cpp:1449:3
+#57 0x00007f91b8abf19d clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::ParsedAttributes&, clang::Parser::ParsedTemplateInfo&, clang::SourceLocation*, clang::Parser::ForRangeInit*) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseDecl.cpp:2262:21
+#58 0x00007f91b8be0974 clang::Parser::ParseDeclOrFunctionDefInternal(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec&, clang::AccessSpecifier) /home/antipov/projects/llvm/source/clang/lib/Parse/Parser.cpp:1187:10
+#59 0x00007f91b8bdff37 clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*, clang::AccessSpecifier) /home/antipov/projects/llvm/source/clang/lib/Parse/Parser.cpp:1209:12
+#60 0x00007f91b8bdf83a clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) /home/antipov/projects/llvm/source/clang/lib/Parse/Parser.cpp:1032:14
+#61 0x00007f91b8bdd6d8 clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) /home/antipov/projects/llvm/source/clang/lib/Parse/Parser.cpp:745:12
+#62 0x00007f91b8a9f96c clang::ParseAST(clang::Sema&, bool, bool) /home/antipov/projects/llvm/source/clang/lib/Parse/ParseAST.cpp:170:16
+#63 0x00007f91bc2e3d89 clang::ASTFrontendAction::ExecuteAction() /home/antipov/projects/llvm/source/clang/lib/Frontend/FrontendAction.cpp:1341:1
+#64 0x00007f91bc2e37d6 clang::FrontendAction::Execute() /home/antipov/projects/llvm/source/clang/lib/Frontend/FrontendAction.cpp:1225:7
+#65 0x00007f91bc20b663 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) /home/antipov/projects/llvm/source/clang/lib/Frontend/CompilerInstance.cpp:1055:23
+#66 0x00007f91bc8fd283 clang::tooling::FrontendActionFactory::runInvocation(std::shared_ptr<clang::CompilerInvocation>, clang::FileManager*, std::shared_ptr<clang::PCHContainerOperations>, clang::DiagnosticConsumer*) /home/antipov/projects/llvm/source/clang/lib/Tooling/Tooling.cpp:463:14
+#67 0x0000000000d08c89 clang::tidy::runClangTidy(clang::tidy::ClangTidyContext&, clang::tooling::CompilationDatabase const&, llvm::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>>, llvm::IntrusiveRefCntPtr<llvm::vfs::OverlayFileSystem>, bool, bool, llvm::StringRef)::ActionFactory::runInvocation(std::shared_ptr<clang::CompilerInvocation>, clang::FileManager*, std::shared_ptr<clang::PCHContainerOperations>, clang::DiagnosticConsumer*) /home/antipov/projects/llvm/source/clang-tools-extra/clang-tidy/ClangTidy.cpp:577:37
+#68 0x00007f91bc8fd14b clang::tooling::ToolInvocation::runInvocation(char const*, clang::driver::Compilation*, std::shared_ptr<clang::CompilerInvocation>, std::shared_ptr<clang::PCHContainerOperations>) /home/antipov/projects/llvm/source/clang/lib/Tooling/Tooling.cpp:438:18
+#69 0x00007f91bc8fc1eb clang::tooling::ToolInvocation::run() /home/antipov/projects/llvm/source/clang/lib/Tooling/Tooling.cpp:423:3
+#70 0x00007f91bc8fe5e9 clang::tooling::ClangTool::run(clang::tooling::ToolAction*) /home/antipov/projects/llvm/source/clang/lib/Tooling/Tooling.cpp:621:11
+#71 0x0000000000d04ec8 clang::tidy::runClangTidy(clang::tidy::ClangTidyContext&, clang::tooling::CompilationDatabase const&, llvm::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>>, llvm::IntrusiveRefCntPtr<llvm::vfs::OverlayFileSystem>, bool, bool, llvm::StringRef) /home/antipov/projects/llvm/source/clang-tools-extra/clang-tidy/ClangTidy.cpp:598:8
+#72 0x0000000000cd81c1 clang::tidy::clangTidyMain(int, char const**) /home/antipov/projects/llvm/source/clang-tools-extra/clang-tidy/tool/ClangTidyMain.cpp:713:7
+#73 0x0000000000cd70c2 main /home/antipov/projects/llvm/source/clang-tools-extra/clang-tidy/tool/ClangTidyToolMain.cpp:20:3
+#74 0x00007f91ac0115f5 __libc_start_call_main (/lib64/libc.so.6+0x35f5)
+#75 0x00007f91ac0116a8 __libc_start_main@GLIBC_2.2.5 (/lib64/libc.so.6+0x36a8)
+#76 0x0000000000cd6fd5 _start (/home/antipov/.local/llvm-21.0.0/bin/clang-tidy+0xcd6fd5)

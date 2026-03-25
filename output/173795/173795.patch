@@ -1,0 +1,81 @@
+diff --git a/clang/lib/StaticAnalyzer/Checkers/BuiltinFunctionChecker.cpp b/clang/lib/StaticAnalyzer/Checkers/BuiltinFunctionChecker.cpp
+index 8eb68b1fa638..8bea10ea3735 100644
+--- a/clang/lib/StaticAnalyzer/Checkers/BuiltinFunctionChecker.cpp
++++ b/clang/lib/StaticAnalyzer/Checkers/BuiltinFunctionChecker.cpp
+@@ -93,7 +93,7 @@ QualType getOverflowBuiltinResultType(const CallEvent &Call, CheckerContext &C,
+ class BuiltinFunctionChecker : public Checker<eval::Call> {
+ public:
+   bool evalCall(const CallEvent &Call, CheckerContext &C) const;
+-  void handleOverflowBuiltin(const CallEvent &Call, CheckerContext &C,
++  bool handleOverflowBuiltin(const CallEvent &Call, CheckerContext &C,
+                              BinaryOperator::Opcode Op,
+                              QualType ResultType) const;
+   const NoteTag *createBuiltinOverflowNoteTag(CheckerContext &C,
+@@ -195,7 +195,7 @@ ProgramStateRef BuiltinFunctionChecker::initStateAftetBuiltinOverflow(
+   return NewState;
+ }
+ 
+-void BuiltinFunctionChecker::handleOverflowBuiltin(const CallEvent &Call,
++bool BuiltinFunctionChecker::handleOverflowBuiltin(const CallEvent &Call,
+                                                    CheckerContext &C,
+                                                    BinaryOperator::Opcode Op,
+                                                    QualType ResultType) const {
+@@ -208,8 +208,11 @@ void BuiltinFunctionChecker::handleOverflowBuiltin(const CallEvent &Call,
+   SVal Arg1 = Call.getArgSVal(0);
+   SVal Arg2 = Call.getArgSVal(1);
+ 
+-  SVal RetValMax = SVB.evalBinOp(State, Op, Arg1, Arg2,
+-                                 getSufficientTypeForOverflowOp(C, ResultType));
++  QualType WideResTy = getSufficientTypeForOverflowOp(C, ResultType);
++  if (WideResTy.isNull())
++    return false;
++
++  SVal RetValMax = SVB.evalBinOp(State, Op, Arg1, Arg2, WideResTy);
+   SVal RetVal = SVB.evalBinOp(State, Op, Arg1, Arg2, ResultType);
+ 
+   auto [Overflow, NotOverflow] = checkOverflow(C, RetValMax, ResultType);
+@@ -228,6 +231,8 @@ void BuiltinFunctionChecker::handleOverflowBuiltin(const CallEvent &Call,
+     C.addTransition(NewState, createBuiltinOverflowNoteTag(C, /*overflow=*/true,
+                                                            Arg1, Arg2, RetVal));
+   }
++
++  return true;
+ }
+ 
+ bool BuiltinFunctionChecker::isBuiltinLikeFunction(
+@@ -274,9 +279,8 @@ bool BuiltinFunctionChecker::evalCall(const CallEvent &Call,
+   case Builtin::BI__builtin_umul_overflow:
+   case Builtin::BI__builtin_umull_overflow:
+   case Builtin::BI__builtin_umulll_overflow:
+-    handleOverflowBuiltin(Call, C, BO_Mul,
+-                          getOverflowBuiltinResultType(Call, C, BI));
+-    return true;
++    return handleOverflowBuiltin(Call, C, BO_Mul,
++                                 getOverflowBuiltinResultType(Call, C, BI));
+   case Builtin::BI__builtin_sub_overflow:
+   case Builtin::BI__builtin_ssub_overflow:
+   case Builtin::BI__builtin_ssubl_overflow:
+@@ -284,9 +288,8 @@ bool BuiltinFunctionChecker::evalCall(const CallEvent &Call,
+   case Builtin::BI__builtin_usub_overflow:
+   case Builtin::BI__builtin_usubl_overflow:
+   case Builtin::BI__builtin_usubll_overflow:
+-    handleOverflowBuiltin(Call, C, BO_Sub,
+-                          getOverflowBuiltinResultType(Call, C, BI));
+-    return true;
++    return handleOverflowBuiltin(Call, C, BO_Sub,
++                                 getOverflowBuiltinResultType(Call, C, BI));
+   case Builtin::BI__builtin_add_overflow:
+   case Builtin::BI__builtin_sadd_overflow:
+   case Builtin::BI__builtin_saddl_overflow:
+@@ -294,9 +297,8 @@ bool BuiltinFunctionChecker::evalCall(const CallEvent &Call,
+   case Builtin::BI__builtin_uadd_overflow:
+   case Builtin::BI__builtin_uaddl_overflow:
+   case Builtin::BI__builtin_uaddll_overflow:
+-    handleOverflowBuiltin(Call, C, BO_Add,
+-                          getOverflowBuiltinResultType(Call, C, BI));
+-    return true;
++    return handleOverflowBuiltin(Call, C, BO_Add,
++                                 getOverflowBuiltinResultType(Call, C, BI));
+   case Builtin::BI__builtin_unpredictable:
+   case Builtin::BI__builtin_expect:
+   case Builtin::BI__builtin_expect_with_probability:

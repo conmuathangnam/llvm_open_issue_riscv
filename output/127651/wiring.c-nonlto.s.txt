@@ -1,0 +1,2091 @@
+.set __tmp_reg__, 0
+.set __zero_reg__, 1
+.set __SREG__, 63
+.set __SP_H__, 62
+.set __SP_L__, 61
+.set __EIND__, 60
+.set __RAMPZ__, 59
+	.file	"wiring.c"
+	.file	0 "/home/dakkshesh" "/home/dakkshesh/.arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c" md5 0x994415fa64a48bd96f4d61f0e982be72
+	.file	1 ".arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino" "wiring.c" md5 0x994415fa64a48bd96f4d61f0e982be72
+	.file	2 ".arduino15/packages/ClangBuiltArduino/tools/cba-avr-sysroot/12022025/lib/gcc/avr/14.2.0/../../../../avr/include" "stdint.h" md5 0x348d903c92cfc3abd32b2860a57bc71f
+	.text
+	.globl	__vector_23                     ; -- Begin function __vector_23
+	.p2align	1
+	.type	__vector_23,@function
+__vector_23:                            ; @__vector_23
+.Lfunc_begin0:
+	.loc	1 47 0                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:47:0
+; %bb.0:
+	push	r0
+	in	r0, 63
+	push	r0
+	push	r18
+	push	r19
+	push	r20
+	push	r21
+	push	r22
+	push	r23
+	push	r24
+	push	r25
+	push	r30
+	push	r31
+	.loc	1 51 20 prologue_end            ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:51:20
+	lds	r24, timer0_fract
+.Ltmp0:
+	;DEBUG_VALUE: __vector_23:f <- $r24
+	;DEBUG_VALUE: __vector_23:m <- undef
+	.loc	1 54 4                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:54:4
+	mov	r25, r24
+	subi	r25, -3
+.Ltmp1:
+	;DEBUG_VALUE: __vector_23:f <- $r25
+	.loc	1 55 8                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:55:8
+	cpi	r25, 125
+	brsh	.LBB0_2
+.Ltmp2:
+; %bb.1:
+	;DEBUG_VALUE: __vector_23:f <- $r25
+	.loc	1 0 8 is_stmt 0                 ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:8
+	ldi	r18, 1
+	rjmp	.LBB0_3
+.Ltmp3:
+.LBB0_2:
+	;DEBUG_VALUE: __vector_23:f <- $r25
+	ldi	r18, 2
+.Ltmp4:
+.LBB0_3:
+	;DEBUG_VALUE: __vector_23:f <- $r25
+	ldi	r19, 0
+	.loc	1 50 20 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:50:20
+	lds	r20, timer0_millis
+	lds	r21, timer0_millis+1
+.Ltmp5:
+	;DEBUG_VALUE: __vector_23:m <- [DW_OP_LLVM_fragment 0 16] $r21r20
+	.loc	1 0 20 is_stmt 0                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:20
+	ldi	r22, 0
+	ldi	r23, 0
+	.loc	1 50 20                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:50:20
+	lds	r30, timer0_millis+2
+	lds	r31, timer0_millis+3
+.Ltmp6:
+	;DEBUG_VALUE: __vector_23:m <- [DW_OP_LLVM_fragment 16 16] $r31r30
+	.loc	1 55 8 is_stmt 1                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:55:8
+	add	r20, r18
+.Ltmp7:
+	adc	r21, r19
+	adc	r30, r22
+.Ltmp8:
+	adc	r31, r23
+.Ltmp9:
+	;DEBUG_VALUE: __vector_23:m <- [DW_OP_LLVM_fragment 16 16] $r31r30
+	.loc	1 61 16                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:61:16
+	sts	timer0_millis+3, r31
+	sts	timer0_millis+2, r30
+	sts	timer0_millis+1, r21
+	sts	timer0_millis, r20
+.Ltmp10:
+	.loc	1 55 8                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:55:8
+	subi	r24, 122
+	cpi	r25, 125
+	brsh	.LBB0_5
+.Ltmp11:
+; %bb.4:
+	;DEBUG_VALUE: __vector_23:m <- [DW_OP_LLVM_fragment 16 16] $r31r30
+	;DEBUG_VALUE: __vector_23:f <- $r25
+	.loc	1 0 8 is_stmt 0                 ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:8
+	mov	r24, r25
+.Ltmp12:
+.LBB0_5:
+	;DEBUG_VALUE: __vector_23:m <- [DW_OP_LLVM_fragment 16 16] $r31r30
+	;DEBUG_VALUE: __vector_23:f <- $r25
+	;DEBUG_VALUE: __vector_23:f <- $r24
+	;DEBUG_VALUE: __vector_23:m <- [DW_OP_LLVM_fragment 0 16] undef
+	.loc	1 60 15 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:60:15
+	sts	timer0_fract, r24
+	.loc	1 62 23                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:62:23
+	lds	r24, timer0_overflow_count
+.Ltmp13:
+	lds	r25, timer0_overflow_count+1
+	lds	r18, timer0_overflow_count+2
+	lds	r19, timer0_overflow_count+3
+	subi	r24, 255
+	sbci	r25, 255
+	sbci	r18, 255
+	sbci	r19, 255
+	sts	timer0_overflow_count+3, r19
+	sts	timer0_overflow_count+2, r18
+	sts	timer0_overflow_count+1, r25
+	sts	timer0_overflow_count, r24
+	.loc	1 63 1                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:63:1
+	pop	r31
+.Ltmp14:
+	pop	r30
+	pop	r25
+	pop	r24
+	pop	r23
+	pop	r22
+	pop	r21
+	pop	r20
+	pop	r19
+	pop	r18
+	pop	r0
+	out	63, r0
+	pop	r0
+	reti
+.Ltmp15:
+.Lfunc_end0:
+	.size	__vector_23, .Lfunc_end0-__vector_23
+                                        ; -- End function
+	.globl	millis                          ; -- Begin function millis
+	.p2align	1
+	.type	millis,@function
+millis:                                 ; @millis
+.Lfunc_begin1:
+; %bb.0:
+	.loc	1 68 20 prologue_end            ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:68:20
+	in	r18, 63
+.Ltmp16:
+	;DEBUG_VALUE: millis:oldSREG <- $r18
+	.loc	1 72 2                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:72:2
+	;APP
+	cli
+	;NO_APP
+	.loc	1 73 6                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:73:6
+	lds	r24, timer0_millis+2
+	lds	r25, timer0_millis+3
+.Ltmp17:
+	;DEBUG_VALUE: millis:m <- [DW_OP_LLVM_fragment 16 16] $r25r24
+	lds	r22, timer0_millis
+	lds	r23, timer0_millis+1
+.Ltmp18:
+	;DEBUG_VALUE: millis:m <- [DW_OP_LLVM_fragment 0 16] $r23r22
+	.loc	1 74 7                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:74:7
+	out	63, r18
+	.loc	1 76 2                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:76:2
+	ret
+.Ltmp19:
+.Lfunc_end1:
+	.size	millis, .Lfunc_end1-millis
+                                        ; -- End function
+	.globl	micros                          ; -- Begin function micros
+	.p2align	1
+	.type	micros,@function
+micros:                                 ; @micros
+.Lfunc_begin2:
+; %bb.0:
+	.loc	1 81 20 prologue_end            ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:81:20
+	in	r25, 63
+.Ltmp20:
+	;DEBUG_VALUE: micros:oldSREG <- $r25
+	.loc	1 83 2                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:83:2
+	;APP
+	cli
+	;NO_APP
+	.loc	1 84 6                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:84:6
+	lds	r22, timer0_overflow_count+2
+	lds	r23, timer0_overflow_count+3
+.Ltmp21:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r23r22
+	lds	r20, timer0_overflow_count
+	lds	r21, timer0_overflow_count+1
+.Ltmp22:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r21r20
+	.loc	1 86 6                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:86:6
+	in	r18, 38
+.Ltmp23:
+	.loc	1 94 7                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:7
+	in	r24, 21
+.Ltmp24:
+	.loc	1 101 7                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:101:7
+	out	63, r25
+.Ltmp25:
+	;DEBUG_VALUE: micros:t <- $r18
+	.loc	1 0 7 is_stmt 0                 ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:7
+	ldi	r25, 1
+.Ltmp26:
+	cpi	r18, -1
+	brne	.LBB2_2
+.Ltmp27:
+; %bb.1:
+	;DEBUG_VALUE: micros:t <- $r18
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r21r20
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r23r22
+	mov	r25, r1
+.Ltmp28:
+.LBB2_2:
+	;DEBUG_VALUE: micros:t <- $r18
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r21r20
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r23r22
+	.loc	1 94 26 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:26
+	and	r24, r25
+	mov	r30, r24
+	clr	r31
+	ldi	r24, 0
+	ldi	r25, 0
+	add	r20, r30
+.Ltmp29:
+	adc	r21, r31
+.Ltmp30:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r21r20
+	adc	r22, r24
+.Ltmp31:
+	adc	r23, r25
+.Ltmp32:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r23r22
+	.loc	1 103 24                        ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:24
+	lsl	r20
+.Ltmp33:
+	rol	r21
+	rol	r22
+.Ltmp34:
+	lsl	r20
+	rol	r21
+	rol	r22
+	mov	r31, r22
+	mov	r30, r21
+	mov	r21, r20
+	mov	r20, r1
+	.loc	1 103 21 is_stmt 0              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:21
+	mov	r22, r18
+	clr	r23
+	.loc	1 103 24                        ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:24
+	lsl	r22
+	rol	r23
+	rol	r24
+	rol	r25
+	lsl	r22
+	rol	r23
+	rol	r24
+	rol	r25
+	or	r22, r20
+	or	r23, r21
+	or	r24, r30
+	or	r25, r31
+	.loc	1 103 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:2
+	ret
+.Ltmp35:
+.Lfunc_end2:
+	.size	micros, .Lfunc_end2-micros
+                                        ; -- End function
+	.globl	delay                           ; -- Begin function delay
+	.p2align	1
+	.type	delay,@function
+delay:                                  ; @delay
+.Lfunc_begin3:
+	.loc	1 107 0 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:107:0
+; %bb.0:
+	push	r6
+	push	r7
+	push	r8
+	push	r9
+	push	r10
+	push	r11
+	push	r12
+	push	r13
+	push	r14
+	push	r15
+	push	r16
+	push	r17
+	.loc	1 81 20 prologue_end            ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:81:20 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	in	r26, 63
+.Ltmp36:
+	;DEBUG_VALUE: micros:oldSREG <- $r26
+	.loc	1 83 2                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:83:2 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	;APP
+	cli
+	;NO_APP
+	.loc	1 84 6                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:84:6 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	lds	r20, timer0_overflow_count+2
+	lds	r21, timer0_overflow_count+3
+.Ltmp37:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r21r20
+	lds	r18, timer0_overflow_count
+	lds	r19, timer0_overflow_count+1
+.Ltmp38:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	.loc	1 86 6                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:86:6 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	in	r30, 38
+.Ltmp39:
+	;DEBUG_VALUE: micros:t <- $r30
+	.loc	1 94 7                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:7 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	in	r31, 21
+.Ltmp40:
+	;DEBUG_VALUE: micros:m <- undef
+	.loc	1 101 7                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:101:7 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	out	63, r26
+	ldi	r16, 0
+	ldi	r17, 0
+	ldi	r26, 1
+.Ltmp41:
+	.loc	1 110 12                        ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:110:12
+	cp	r22, r1
+	movw	r12, r22
+	cpc	r23, r1
+	movw	r10, r16
+	cpc	r24, r16
+	cpc	r25, r17
+	breq	.LBB3_2
+.Ltmp42:
+; %bb.1:
+	;DEBUG_VALUE: micros:t <- $r30
+	.loc	1 0 12 is_stmt 0                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:12
+	mov	r26, r1
+.LBB3_2:
+	.loc	1 110 12 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:110:12
+	andi	r26, 1
+.Ltmp43:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r25r24
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 110 2 is_stmt 0               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:110:2
+	cpi	r26, 0
+	breq	.LBB3_3
+	rjmp	.LBB3_16
+.Ltmp44:
+.LBB3_3:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r25r24
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r25r24
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 0 2                           ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:2
+	ldi	r22, 1
+	cpi	r30, -1
+	brne	.LBB3_5
+.Ltmp45:
+; %bb.4:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r25r24
+	mov	r22, r1
+.Ltmp46:
+.LBB3_5:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r25r24
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r25r24
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	movw	r14, r24
+.Ltmp47:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r15r14
+	.loc	1 94 26 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:26 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	and	r31, r22
+.Ltmp48:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_arg 0, DW_OP_LLVM_arg 0, DW_OP_LLVM_convert 1 7, DW_OP_LLVM_convert 32 7, DW_OP_plus, DW_OP_stack_value] undef
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_arg 0, DW_OP_LLVM_arg 0, DW_OP_LLVM_convert 1 7, DW_OP_LLVM_convert 32 7, DW_OP_plus, DW_OP_constu 10, DW_OP_shl, DW_OP_LLVM_arg 0, DW_OP_LLVM_convert 8 7, DW_OP_LLVM_convert 32 7, DW_OP_constu 2, DW_OP_shl, DW_OP_or, DW_OP_stack_value] undef
+	mov	r22, r31
+	clr	r23
+.Ltmp49:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_arg 0, DW_OP_LLVM_arg 0, DW_OP_plus, DW_OP_stack_value] undef
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_arg 0, DW_OP_LLVM_arg 0, DW_OP_plus, DW_OP_constu 10, DW_OP_shl, DW_OP_LLVM_arg 0, DW_OP_LLVM_convert 8 7, DW_OP_LLVM_convert 32 7, DW_OP_constu 2, DW_OP_shl, DW_OP_or, DW_OP_stack_value] undef
+	add	r18, r22
+	adc	r19, r23
+.Ltmp50:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	.loc	1 0 26 is_stmt 0                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:26
+	movw	r16, r10
+	.loc	1 94 26                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:26 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	adc	r20, r16
+	adc	r21, r17
+.Ltmp51:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r21r20
+	;DEBUG_VALUE: delay:start <- undef
+	.loc	1 103 24 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:24 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	lsl	r18
+.Ltmp52:
+	rol	r19
+	rol	r20
+.Ltmp53:
+	lsl	r18
+	rol	r19
+	rol	r20
+	mov	r21, r20
+	mov	r20, r19
+	mov	r19, r18
+	mov	r18, r1
+	.loc	1 103 21 is_stmt 0              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:21 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	mov	r8, r30
+	clr	r9
+	.loc	1 103 24                        ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:24 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:108:19 ]
+	lsl	r8
+	rol	r9
+	rol	r16
+	rol	r17
+	lsl	r8
+	rol	r9
+	rol	r16
+	rol	r17
+.Ltmp54:
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_arg 0, DW_OP_LLVM_arg 1, DW_OP_or, DW_OP_stack_value, DW_OP_LLVM_fragment 0 16] $r19r18, $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_arg 0, DW_OP_LLVM_arg 1, DW_OP_or, DW_OP_stack_value, DW_OP_LLVM_fragment 16 16] $r19r18, $r17r16
+	or	r16, r20
+.Ltmp55:
+	or	r17, r21
+.Ltmp56:
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	or	r8, r18
+.Ltmp57:
+	or	r9, r19
+.Ltmp58:
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+.LBB3_6:                                ; =>This Loop Header: Depth=1
+                                        ;     Child Loop BB3_7 Depth 2
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r15r14
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	.loc	1 111 3 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:111:3
+	call	yield
+.Ltmp59:
+	.loc	1 0 3 is_stmt 0                 ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:3
+	movw	r26, r14
+.Ltmp60:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+.LBB3_7:                                ;   Parent Loop BB3_6 Depth=1
+                                        ; =>  This Inner Loop Header: Depth=2
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	.loc	1 81 20 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:81:20 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	in	r24, 63
+.Ltmp61:
+	;DEBUG_VALUE: micros:oldSREG <- $r24
+	.loc	1 83 2                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:83:2 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	;APP
+	cli
+	;NO_APP
+	.loc	1 84 6                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:84:6 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	lds	r20, timer0_overflow_count+2
+	lds	r21, timer0_overflow_count+3
+.Ltmp62:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r21r20
+	lds	r18, timer0_overflow_count
+	lds	r19, timer0_overflow_count+1
+.Ltmp63:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	.loc	1 86 6                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:86:6 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	in	r25, 38
+.Ltmp64:
+	.loc	1 94 7                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:7 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	in	r22, 21
+.Ltmp65:
+	.loc	1 101 7                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:101:7 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	out	63, r24
+.Ltmp66:
+	;DEBUG_VALUE: micros:t <- $r25
+	.loc	1 0 7 is_stmt 0                 ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:7
+	ldi	r24, 1
+.Ltmp67:
+	cpi	r25, -1
+	ldi	r23, 1
+	brne	.LBB3_9
+.Ltmp68:
+; %bb.8:                                ;   in Loop: Header=BB3_7 Depth=2
+	;DEBUG_VALUE: micros:t <- $r25
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r21r20
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	mov	r23, r1
+.Ltmp69:
+.LBB3_9:                                ;   in Loop: Header=BB3_7 Depth=2
+	;DEBUG_VALUE: micros:t <- $r25
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r21r20
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 94 26 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:26 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	and	r22, r23
+	clr	r23
+	add	r18, r22
+.Ltmp70:
+	adc	r19, r23
+.Ltmp71:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	.loc	1 0 26 is_stmt 0                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:26
+	movw	r14, r10
+	.loc	1 94 26                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:94:26 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	adc	r20, r14
+.Ltmp72:
+	adc	r21, r15
+.Ltmp73:
+	;DEBUG_VALUE: micros:m <- [DW_OP_LLVM_fragment 16 16] $r21r20
+	.loc	1 103 24 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:24 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	lsl	r18
+.Ltmp74:
+	rol	r19
+	rol	r20
+.Ltmp75:
+	lsl	r18
+	rol	r19
+	rol	r20
+	mov	r21, r20
+	mov	r20, r19
+	mov	r23, r18
+	mov	r22, r1
+	.loc	1 103 21 is_stmt 0              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:21 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	mov	r18, r25
+	clr	r19
+	.loc	1 103 24                        ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:103:24 @[ .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:22 ]
+	lsl	r18
+	rol	r19
+	mov	r30, r14
+	rol	r30
+	mov	r31, r15
+	rol	r31
+	lsl	r18
+	rol	r19
+	rol	r30
+	rol	r31
+	movw	r6, r8
+	sub	r18, r6
+	sbc	r19, r7
+	sbc	r30, r16
+	sbc	r31, r17
+.Ltmp76:
+	.loc	1 112 31 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:31
+	add	r18, r22
+	adc	r19, r23
+	adc	r30, r20
+	adc	r31, r21
+	.loc	1 112 40 is_stmt 0              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:40
+	cpi	r18, -24
+	ldi	r25, 3
+.Ltmp77:
+	cpc	r19, r25
+	cpc	r30, r14
+	cpc	r31, r15
+	brlo	.LBB3_11
+.Ltmp78:
+; %bb.10:                               ;   in Loop: Header=BB3_7 Depth=2
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 0 40                          ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:40
+	mov	r24, r1
+.Ltmp79:
+.LBB3_11:                               ;   in Loop: Header=BB3_7 Depth=2
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 112 40 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:40
+	andi	r24, 1
+	.loc	1 112 3 is_stmt 0               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:3
+	cpi	r24, 0
+	brne	.LBB3_15
+.Ltmp80:
+; %bb.12:                               ;   in Loop: Header=BB3_7 Depth=2
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 0 3                           ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:3
+	movw	r18, r12
+.Ltmp81:
+	.loc	1 113 6 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:113:6
+	subi	r18, 1
+	sbci	r19, 0
+.Ltmp82:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	sbci	r26, 0
+.Ltmp83:
+	sbci	r27, 0
+.Ltmp84:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	.loc	1 0 6 is_stmt 0                 ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:6
+	ldi	r24, 1
+.Ltmp85:
+	.loc	1 112 14 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:14
+	cp	r18, r1
+	movw	r12, r18
+.Ltmp86:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	cpc	r19, r1
+	movw	r18, r10
+	cpc	r26, r18
+	cpc	r27, r19
+	brne	.LBB3_14
+.Ltmp87:
+; %bb.13:                               ;   in Loop: Header=BB3_7 Depth=2
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 0 14 is_stmt 0                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:14
+	mov	r24, r1
+.Ltmp88:
+.LBB3_14:                               ;   in Loop: Header=BB3_7 Depth=2
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 112 14 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:14
+	andi	r24, 1
+	movw	r18, r8
+.Ltmp89:
+	.loc	1 114 10                        ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:114:10
+	subi	r18, 24
+	sbci	r19, 252
+.Ltmp90:
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r19r18
+	.loc	1 0 10 is_stmt 0                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:10
+	movw	r8, r18
+.Ltmp91:
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	.loc	1 114 10                        ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:114:10
+	sbci	r16, 255
+.Ltmp92:
+	sbci	r17, 255
+.Ltmp93:
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	.loc	1 112 18 is_stmt 1              ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:112:18
+	cpi	r24, 0
+	breq	.LBB3_16
+	rjmp	.LBB3_7
+.Ltmp94:
+.LBB3_15:                               ;   in Loop: Header=BB3_6 Depth=1
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 16 16] $r27r26
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 0 16] $r9r8
+	;DEBUG_VALUE: delay:start <- [DW_OP_LLVM_fragment 16 16] $r17r16
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 0 18 is_stmt 0                ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:0:18
+	movw	r14, r26
+	rjmp	.LBB3_6
+.Ltmp95:
+.LBB3_16:
+	;DEBUG_VALUE: delay:ms <- [DW_OP_LLVM_fragment 0 16] $r13r12
+	.loc	1 117 1 is_stmt 1               ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:117:1
+	pop	r17
+	pop	r16
+	pop	r15
+	pop	r14
+	pop	r13
+.Ltmp96:
+	pop	r12
+	pop	r11
+	pop	r10
+	pop	r9
+	pop	r8
+	pop	r7
+	pop	r6
+	ret
+.Ltmp97:
+.Lfunc_end3:
+	.size	delay, .Lfunc_end3-delay
+	.file	3 ".arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino" "Arduino.h" md5 0x0f952cec9ebf05f4bfa73b76c9717c0f
+                                        ; -- End function
+	.globl	delayMicroseconds               ; -- Begin function delayMicroseconds
+	.p2align	1
+	.type	delayMicroseconds,@function
+delayMicroseconds:                      ; @delayMicroseconds
+.Lfunc_begin4:
+; %bb.0:
+	;DEBUG_VALUE: delayMicroseconds:us <- $r25r24
+	.loc	1 170 9 prologue_end            ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:170:9
+	cpi	r24, 2
+	cpc	r25, r1
+	brlo	.LBB4_2
+.Ltmp98:
+; %bb.1:
+	;DEBUG_VALUE: delayMicroseconds:us <- $r25r24
+	.loc	1 175 5                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:175:5
+	lsl	r24
+.Ltmp99:
+	rol	r25
+	lsl	r24
+	rol	r25
+.Ltmp100:
+	;DEBUG_VALUE: delayMicroseconds:us <- $r25r24
+	.loc	1 180 5                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:180:5
+	sbiw	r24, 5
+.Ltmp101:
+	;DEBUG_VALUE: delayMicroseconds:us <- $r25r24
+	.loc	1 234 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:234:2
+	;APP
+.Ltmp102:
+	sbiw	r24, 1
+	brne	.Ltmp102
+	;NO_APP
+.Ltmp103:
+.LBB4_2:
+	.loc	1 239 1                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:239:1
+	ret
+.Ltmp104:
+.Lfunc_end4:
+	.size	delayMicroseconds, .Lfunc_end4-delayMicroseconds
+                                        ; -- End function
+	.globl	init                            ; -- Begin function init
+	.p2align	1
+	.type	init,@function
+init:                                   ; @init
+.Lfunc_begin5:
+; %bb.0:
+	.loc	1 245 2 prologue_end            ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:245:2
+	;APP
+	sei
+	;NO_APP
+	.loc	1 251 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:251:2
+	in	r24, 36
+	ori	r24, 2
+	out	36, r24
+	.loc	1 252 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:252:2
+	in	r24, 36
+	ori	r24, 1
+	out	36, r24
+	.loc	1 265 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:265:2
+	in	r24, 37
+	ori	r24, 2
+	out	37, r24
+	.loc	1 266 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:266:2
+	in	r24, 37
+	ori	r24, 1
+	out	37, r24
+	.loc	1 279 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:279:2
+	lds	r24, 110
+	ori	r24, 1
+	sts	110, r24
+	.loc	1 290 9                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:290:9
+	sts	129, r1
+	.loc	1 293 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:293:2
+	lds	r24, 129
+	ori	r24, 2
+	sts	129, r24
+	.loc	1 295 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:295:2
+	lds	r24, 129
+	ori	r24, 1
+	sts	129, r24
+	.loc	1 305 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:305:2
+	lds	r24, 128
+	ori	r24, 1
+	sts	128, r24
+	.loc	1 312 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:312:2
+	lds	r24, 177
+	ori	r24, 4
+	sts	177, r24
+	.loc	1 321 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:321:2
+	lds	r24, 176
+	ori	r24, 1
+	sts	176, r24
+	.loc	1 327 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:327:2
+	lds	r24, 145
+	ori	r24, 2
+	sts	145, r24
+	.loc	1 328 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:328:2
+	lds	r24, 145
+	ori	r24, 1
+	sts	145, r24
+	.loc	1 329 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:329:2
+	lds	r24, 144
+	ori	r24, 1
+	sts	144, r24
+	.loc	1 341 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:341:2
+	lds	r24, 161
+	ori	r24, 2
+	sts	161, r24
+	.loc	1 342 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:342:2
+	lds	r24, 161
+	ori	r24, 1
+	sts	161, r24
+	.loc	1 343 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:343:2
+	lds	r24, 160
+	ori	r24, 1
+	sts	160, r24
+	.loc	1 348 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:348:2
+	lds	r24, 289
+	ori	r24, 2
+	sts	289, r24
+	.loc	1 349 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:349:2
+	lds	r24, 289
+	ori	r24, 1
+	sts	289, r24
+	.loc	1 350 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:350:2
+	lds	r24, 288
+	ori	r24, 1
+	sts	288, r24
+	.loc	1 356 3                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:356:3
+	lds	r24, 122
+	ori	r24, 4
+	sts	122, r24
+	.loc	1 357 3                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:357:3
+	lds	r24, 122
+	ori	r24, 2
+	sts	122, r24
+	.loc	1 358 3                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:358:3
+	lds	r24, 122
+	ori	r24, 1
+	sts	122, r24
+	.loc	1 381 2                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:381:2
+	lds	r24, 122
+	ori	r24, -128
+	sts	122, r24
+	.loc	1 390 9                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:390:9
+	sts	193, r1
+	.loc	1 392 1                         ; .arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c:392:1
+	ret
+.Ltmp105:
+.Lfunc_end5:
+	.size	init, .Lfunc_end5-init
+                                        ; -- End function
+	; Declaring this symbol tells the CRT that it should
+	;clear the zeroed data section on startup
+	.globl	__do_clear_bss
+	.type	timer0_overflow_count,@object   ; @timer0_overflow_count
+	.section	.bss,"aw",@nobits
+	.globl	timer0_overflow_count
+timer0_overflow_count:
+	.long	0                               ; 0x0
+	.size	timer0_overflow_count, 4
+
+	.type	timer0_millis,@object           ; @timer0_millis
+	.globl	timer0_millis
+timer0_millis:
+	.long	0                               ; 0x0
+	.size	timer0_millis, 4
+
+	.type	timer0_fract,@object            ; @timer0_fract
+	.local	timer0_fract
+	.comm	timer0_fract,1,1
+	.section	.debug_loclists,"",@progbits
+	.long	.Ldebug_list_header_end0-.Ldebug_list_header_start0 ; Length
+.Ldebug_list_header_start0:
+	.short	5                               ; Version
+	.byte	2                               ; Address size
+	.byte	0                               ; Segment selector size
+	.long	16                              ; Offset entry count
+.Lloclists_table_base0:
+	.long	.Ldebug_loc0-.Lloclists_table_base0
+	.long	.Ldebug_loc1-.Lloclists_table_base0
+	.long	.Ldebug_loc2-.Lloclists_table_base0
+	.long	.Ldebug_loc3-.Lloclists_table_base0
+	.long	.Ldebug_loc4-.Lloclists_table_base0
+	.long	.Ldebug_loc5-.Lloclists_table_base0
+	.long	.Ldebug_loc6-.Lloclists_table_base0
+	.long	.Ldebug_loc7-.Lloclists_table_base0
+	.long	.Ldebug_loc8-.Lloclists_table_base0
+	.long	.Ldebug_loc9-.Lloclists_table_base0
+	.long	.Ldebug_loc10-.Lloclists_table_base0
+	.long	.Ldebug_loc11-.Lloclists_table_base0
+	.long	.Ldebug_loc12-.Lloclists_table_base0
+	.long	.Ldebug_loc13-.Lloclists_table_base0
+	.long	.Ldebug_loc14-.Lloclists_table_base0
+	.long	.Ldebug_loc15-.Lloclists_table_base0
+.Ldebug_loc0:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp0-.Lfunc_begin0           ;   starting offset
+	.uleb128 .Ltmp1-.Lfunc_begin0           ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	104                             ; DW_OP_reg24
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp1-.Lfunc_begin0           ;   starting offset
+	.uleb128 .Ltmp12-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	105                             ; DW_OP_reg25
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp12-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp13-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	104                             ; DW_OP_reg24
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc1:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp5-.Lfunc_begin0           ;   starting offset
+	.uleb128 .Ltmp6-.Lfunc_begin0           ;   ending offset
+	.byte	3                               ; Loc expr size
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp6-.Lfunc_begin0           ;   starting offset
+	.uleb128 .Ltmp7-.Lfunc_begin0           ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	110                             ; DW_OP_reg30
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp7-.Lfunc_begin0           ;   starting offset
+	.uleb128 .Ltmp8-.Lfunc_begin0           ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	110                             ; DW_OP_reg30
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp9-.Lfunc_begin0           ;   starting offset
+	.uleb128 .Ltmp14-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	110                             ; DW_OP_reg30
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc2:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp16-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Lfunc_end1-.Lfunc_begin0      ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc3:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp17-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp18-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	104                             ; DW_OP_reg24
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp18-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Lfunc_end1-.Lfunc_begin0      ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	102                             ; DW_OP_reg22
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	104                             ; DW_OP_reg24
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc4:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp20-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp26-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	105                             ; DW_OP_reg25
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc5:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp21-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp22-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	102                             ; DW_OP_reg22
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp22-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp29-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	102                             ; DW_OP_reg22
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp29-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp30-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	102                             ; DW_OP_reg22
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp30-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp31-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	102                             ; DW_OP_reg22
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp31-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp32-.Lfunc_begin0          ;   ending offset
+	.byte	3                               ; Loc expr size
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp32-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp33-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	102                             ; DW_OP_reg22
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp33-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp34-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	102                             ; DW_OP_reg22
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc6:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp25-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Lfunc_end2-.Lfunc_begin0      ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc7:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp36-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp41-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	106                             ; DW_OP_reg26
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc8:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp37-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp38-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp38-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp40-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp50-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp51-.Lfunc_begin0          ;   ending offset
+	.byte	3                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp51-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp52-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp52-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp53-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc9:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp39-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp42-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	110                             ; DW_OP_reg30
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc10:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp43-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp47-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	92                              ; DW_OP_reg12
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	104                             ; DW_OP_reg24
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp47-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp60-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	92                              ; DW_OP_reg12
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	94                              ; DW_OP_reg14
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp60-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp82-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	92                              ; DW_OP_reg12
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	106                             ; DW_OP_reg26
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp82-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp83-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	106                             ; DW_OP_reg26
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp83-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp84-.Lfunc_begin0          ;   ending offset
+	.byte	3                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp84-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp86-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	106                             ; DW_OP_reg26
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp86-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp95-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	92                              ; DW_OP_reg12
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	106                             ; DW_OP_reg26
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp95-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp96-.Lfunc_begin0          ;   ending offset
+	.byte	3                               ; Loc expr size
+	.byte	92                              ; DW_OP_reg12
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc11:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp54-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp55-.Lfunc_begin0          ;   ending offset
+	.byte	16                              ; Loc expr size
+	.byte	130                             ; DW_OP_breg18
+	.byte	0                               ; 0
+	.byte	120                             ; DW_OP_breg8
+	.byte	0                               ; 0
+	.byte	33                              ; DW_OP_or
+	.byte	159                             ; DW_OP_stack_value
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	130                             ; DW_OP_breg18
+	.byte	0                               ; 0
+	.byte	128                             ; DW_OP_breg16
+	.byte	0                               ; 0
+	.byte	33                              ; DW_OP_or
+	.byte	159                             ; DW_OP_stack_value
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp55-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp56-.Lfunc_begin0          ;   ending offset
+	.byte	8                               ; Loc expr size
+	.byte	130                             ; DW_OP_breg18
+	.byte	0                               ; 0
+	.byte	120                             ; DW_OP_breg8
+	.byte	0                               ; 0
+	.byte	33                              ; DW_OP_or
+	.byte	159                             ; DW_OP_stack_value
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp56-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp57-.Lfunc_begin0          ;   ending offset
+	.byte	11                              ; Loc expr size
+	.byte	130                             ; DW_OP_breg18
+	.byte	0                               ; 0
+	.byte	120                             ; DW_OP_breg8
+	.byte	0                               ; 0
+	.byte	33                              ; DW_OP_or
+	.byte	159                             ; DW_OP_stack_value
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	96                              ; DW_OP_reg16
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp57-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp58-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	96                              ; DW_OP_reg16
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp58-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp90-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	88                              ; DW_OP_reg8
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	96                              ; DW_OP_reg16
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp90-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp91-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	96                              ; DW_OP_reg16
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp91-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp92-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	88                              ; DW_OP_reg8
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	96                              ; DW_OP_reg16
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp92-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp93-.Lfunc_begin0          ;   ending offset
+	.byte	3                               ; Loc expr size
+	.byte	88                              ; DW_OP_reg8
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp93-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp95-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	88                              ; DW_OP_reg8
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	96                              ; DW_OP_reg16
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc12:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp61-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp67-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	104                             ; DW_OP_reg24
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc13:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp62-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp63-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp63-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp70-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp70-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp71-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp71-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp72-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp72-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp73-.Lfunc_begin0          ;   ending offset
+	.byte	3                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp73-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp74-.Lfunc_begin0          ;   ending offset
+	.byte	6                               ; Loc expr size
+	.byte	98                              ; DW_OP_reg18
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp74-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp75-.Lfunc_begin0          ;   ending offset
+	.byte	5                               ; Loc expr size
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	100                             ; DW_OP_reg20
+	.byte	147                             ; DW_OP_piece
+	.byte	2                               ; 2
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc14:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp66-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp77-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	105                             ; DW_OP_reg25
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_loc15:
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Lfunc_begin4-.Lfunc_begin0    ;   starting offset
+	.uleb128 .Ltmp99-.Lfunc_begin0          ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	104                             ; DW_OP_reg24
+	.byte	4                               ; DW_LLE_offset_pair
+	.uleb128 .Ltmp100-.Lfunc_begin0         ;   starting offset
+	.uleb128 .Ltmp103-.Lfunc_begin0         ;   ending offset
+	.byte	1                               ; Loc expr size
+	.byte	104                             ; DW_OP_reg24
+	.byte	0                               ; DW_LLE_end_of_list
+.Ldebug_list_header_end0:
+	.section	.debug_abbrev,"",@progbits
+	.byte	1                               ; Abbreviation Code
+	.byte	17                              ; DW_TAG_compile_unit
+	.byte	1                               ; DW_CHILDREN_yes
+	.byte	37                              ; DW_AT_producer
+	.byte	37                              ; DW_FORM_strx1
+	.byte	19                              ; DW_AT_language
+	.byte	5                               ; DW_FORM_data2
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	114                             ; DW_AT_str_offsets_base
+	.byte	23                              ; DW_FORM_sec_offset
+	.byte	16                              ; DW_AT_stmt_list
+	.byte	23                              ; DW_FORM_sec_offset
+	.byte	27                              ; DW_AT_comp_dir
+	.byte	37                              ; DW_FORM_strx1
+	.byte	17                              ; DW_AT_low_pc
+	.byte	27                              ; DW_FORM_addrx
+	.byte	18                              ; DW_AT_high_pc
+	.byte	6                               ; DW_FORM_data4
+	.byte	115                             ; DW_AT_addr_base
+	.byte	23                              ; DW_FORM_sec_offset
+	.byte	116                             ; DW_AT_rnglists_base
+	.byte	23                              ; DW_FORM_sec_offset
+	.ascii	"\214\001"                      ; DW_AT_loclists_base
+	.byte	23                              ; DW_FORM_sec_offset
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	2                               ; Abbreviation Code
+	.byte	52                              ; DW_TAG_variable
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	63                              ; DW_AT_external
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	2                               ; DW_AT_location
+	.byte	24                              ; DW_FORM_exprloc
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	3                               ; Abbreviation Code
+	.byte	53                              ; DW_TAG_volatile_type
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	4                               ; Abbreviation Code
+	.byte	36                              ; DW_TAG_base_type
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	62                              ; DW_AT_encoding
+	.byte	11                              ; DW_FORM_data1
+	.byte	11                              ; DW_AT_byte_size
+	.byte	11                              ; DW_FORM_data1
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	5                               ; Abbreviation Code
+	.byte	52                              ; DW_TAG_variable
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	2                               ; DW_AT_location
+	.byte	24                              ; DW_FORM_exprloc
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	6                               ; Abbreviation Code
+	.byte	15                              ; DW_TAG_pointer_type
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	7                               ; Abbreviation Code
+	.byte	22                              ; DW_TAG_typedef
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	8                               ; Abbreviation Code
+	.byte	46                              ; DW_TAG_subprogram
+	.byte	1                               ; DW_CHILDREN_yes
+	.byte	17                              ; DW_AT_low_pc
+	.byte	27                              ; DW_FORM_addrx
+	.byte	18                              ; DW_AT_high_pc
+	.byte	6                               ; DW_FORM_data4
+	.byte	64                              ; DW_AT_frame_base
+	.byte	24                              ; DW_FORM_exprloc
+	.byte	122                             ; DW_AT_call_all_calls
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	39                              ; DW_AT_prototyped
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	63                              ; DW_AT_external
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	9                               ; Abbreviation Code
+	.byte	52                              ; DW_TAG_variable
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	2                               ; DW_AT_location
+	.byte	34                              ; DW_FORM_loclistx
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	10                              ; Abbreviation Code
+	.byte	46                              ; DW_TAG_subprogram
+	.byte	1                               ; DW_CHILDREN_yes
+	.byte	17                              ; DW_AT_low_pc
+	.byte	27                              ; DW_FORM_addrx
+	.byte	18                              ; DW_AT_high_pc
+	.byte	6                               ; DW_FORM_data4
+	.byte	64                              ; DW_AT_frame_base
+	.byte	24                              ; DW_FORM_exprloc
+	.byte	122                             ; DW_AT_call_all_calls
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	39                              ; DW_AT_prototyped
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	63                              ; DW_AT_external
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	11                              ; Abbreviation Code
+	.byte	46                              ; DW_TAG_subprogram
+	.byte	1                               ; DW_CHILDREN_yes
+	.byte	17                              ; DW_AT_low_pc
+	.byte	27                              ; DW_FORM_addrx
+	.byte	18                              ; DW_AT_high_pc
+	.byte	6                               ; DW_FORM_data4
+	.byte	64                              ; DW_AT_frame_base
+	.byte	24                              ; DW_FORM_exprloc
+	.byte	122                             ; DW_AT_call_all_calls
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	49                              ; DW_AT_abstract_origin
+	.byte	19                              ; DW_FORM_ref4
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	12                              ; Abbreviation Code
+	.byte	52                              ; DW_TAG_variable
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	2                               ; DW_AT_location
+	.byte	34                              ; DW_FORM_loclistx
+	.byte	49                              ; DW_AT_abstract_origin
+	.byte	19                              ; DW_FORM_ref4
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	13                              ; Abbreviation Code
+	.byte	46                              ; DW_TAG_subprogram
+	.byte	1                               ; DW_CHILDREN_yes
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	39                              ; DW_AT_prototyped
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	63                              ; DW_AT_external
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	32                              ; DW_AT_inline
+	.byte	33                              ; DW_FORM_implicit_const
+	.byte	1
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	14                              ; Abbreviation Code
+	.byte	52                              ; DW_TAG_variable
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	15                              ; Abbreviation Code
+	.byte	5                               ; DW_TAG_formal_parameter
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	2                               ; DW_AT_location
+	.byte	34                              ; DW_FORM_loclistx
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	73                              ; DW_AT_type
+	.byte	19                              ; DW_FORM_ref4
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	16                              ; Abbreviation Code
+	.byte	29                              ; DW_TAG_inlined_subroutine
+	.byte	1                               ; DW_CHILDREN_yes
+	.byte	49                              ; DW_AT_abstract_origin
+	.byte	19                              ; DW_FORM_ref4
+	.byte	85                              ; DW_AT_ranges
+	.byte	35                              ; DW_FORM_rnglistx
+	.byte	88                              ; DW_AT_call_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	89                              ; DW_AT_call_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	87                              ; DW_AT_call_column
+	.byte	11                              ; DW_FORM_data1
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	17                              ; Abbreviation Code
+	.byte	29                              ; DW_TAG_inlined_subroutine
+	.byte	1                               ; DW_CHILDREN_yes
+	.byte	49                              ; DW_AT_abstract_origin
+	.byte	19                              ; DW_FORM_ref4
+	.byte	17                              ; DW_AT_low_pc
+	.byte	27                              ; DW_FORM_addrx
+	.byte	18                              ; DW_AT_high_pc
+	.byte	6                               ; DW_FORM_data4
+	.byte	88                              ; DW_AT_call_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	89                              ; DW_AT_call_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	87                              ; DW_AT_call_column
+	.byte	11                              ; DW_FORM_data1
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	18                              ; Abbreviation Code
+	.byte	72                              ; DW_TAG_call_site
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	127                             ; DW_AT_call_origin
+	.byte	19                              ; DW_FORM_ref4
+	.byte	125                             ; DW_AT_call_return_pc
+	.byte	27                              ; DW_FORM_addrx
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	19                              ; Abbreviation Code
+	.byte	46                              ; DW_TAG_subprogram
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	39                              ; DW_AT_prototyped
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	60                              ; DW_AT_declaration
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	63                              ; DW_AT_external
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	20                              ; Abbreviation Code
+	.byte	46                              ; DW_TAG_subprogram
+	.byte	0                               ; DW_CHILDREN_no
+	.byte	17                              ; DW_AT_low_pc
+	.byte	27                              ; DW_FORM_addrx
+	.byte	18                              ; DW_AT_high_pc
+	.byte	6                               ; DW_FORM_data4
+	.byte	64                              ; DW_AT_frame_base
+	.byte	24                              ; DW_FORM_exprloc
+	.byte	122                             ; DW_AT_call_all_calls
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	3                               ; DW_AT_name
+	.byte	37                              ; DW_FORM_strx1
+	.byte	58                              ; DW_AT_decl_file
+	.byte	11                              ; DW_FORM_data1
+	.byte	59                              ; DW_AT_decl_line
+	.byte	11                              ; DW_FORM_data1
+	.byte	39                              ; DW_AT_prototyped
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	63                              ; DW_AT_external
+	.byte	25                              ; DW_FORM_flag_present
+	.byte	0                               ; EOM(1)
+	.byte	0                               ; EOM(2)
+	.byte	0                               ; EOM(3)
+	.section	.debug_info,"",@progbits
+.Lcu_begin0:
+	.long	.Ldebug_info_end0-.Ldebug_info_start0 ; Length of Unit
+.Ldebug_info_start0:
+	.short	5                               ; DWARF version number
+	.byte	1                               ; DWARF Unit Type
+	.byte	2                               ; Address Size (in bytes)
+	.long	.debug_abbrev                   ; Offset Into Abbrev. Section
+	.byte	1                               ; Abbrev [1] 0xc:0x17e DW_TAG_compile_unit
+	.byte	0                               ; DW_AT_producer
+	.short	29                              ; DW_AT_language
+	.byte	1                               ; DW_AT_name
+	.long	.Lstr_offsets_base0             ; DW_AT_str_offsets_base
+	.long	.Lline_table_start0             ; DW_AT_stmt_list
+	.byte	2                               ; DW_AT_comp_dir
+	.byte	3                               ; DW_AT_low_pc
+	.long	.Lfunc_end5-.Lfunc_begin0       ; DW_AT_high_pc
+	.long	.Laddr_table_base0              ; DW_AT_addr_base
+	.long	.Lrnglists_table_base0          ; DW_AT_rnglists_base
+	.long	.Lloclists_table_base0          ; DW_AT_loclists_base
+	.byte	2                               ; Abbrev [2] 0x2b:0xb DW_TAG_variable
+	.byte	3                               ; DW_AT_name
+	.long	54                              ; DW_AT_type
+                                        ; DW_AT_external
+	.byte	1                               ; DW_AT_decl_file
+	.byte	38                              ; DW_AT_decl_line
+	.byte	2                               ; DW_AT_location
+	.byte	161
+	.byte	0
+	.byte	3                               ; Abbrev [3] 0x36:0x5 DW_TAG_volatile_type
+	.long	59                              ; DW_AT_type
+	.byte	4                               ; Abbrev [4] 0x3b:0x4 DW_TAG_base_type
+	.byte	4                               ; DW_AT_name
+	.byte	7                               ; DW_AT_encoding
+	.byte	4                               ; DW_AT_byte_size
+	.byte	2                               ; Abbrev [2] 0x3f:0xb DW_TAG_variable
+	.byte	5                               ; DW_AT_name
+	.long	54                              ; DW_AT_type
+                                        ; DW_AT_external
+	.byte	1                               ; DW_AT_decl_file
+	.byte	39                              ; DW_AT_decl_line
+	.byte	2                               ; DW_AT_location
+	.byte	161
+	.byte	1
+	.byte	5                               ; Abbrev [5] 0x4a:0xb DW_TAG_variable
+	.byte	6                               ; DW_AT_name
+	.long	85                              ; DW_AT_type
+	.byte	1                               ; DW_AT_decl_file
+	.byte	40                              ; DW_AT_decl_line
+	.byte	2                               ; DW_AT_location
+	.byte	161
+	.byte	2
+	.byte	4                               ; Abbrev [4] 0x55:0x4 DW_TAG_base_type
+	.byte	7                               ; DW_AT_name
+	.byte	8                               ; DW_AT_encoding
+	.byte	1                               ; DW_AT_byte_size
+	.byte	6                               ; Abbrev [6] 0x59:0x5 DW_TAG_pointer_type
+	.long	94                              ; DW_AT_type
+	.byte	3                               ; Abbrev [3] 0x5e:0x5 DW_TAG_volatile_type
+	.long	99                              ; DW_AT_type
+	.byte	7                               ; Abbrev [7] 0x63:0x8 DW_TAG_typedef
+	.long	85                              ; DW_AT_type
+	.byte	8                               ; DW_AT_name
+	.byte	2                               ; DW_AT_decl_file
+	.byte	126                             ; DW_AT_decl_line
+	.byte	7                               ; Abbrev [7] 0x6b:0x8 DW_TAG_typedef
+	.long	115                             ; DW_AT_type
+	.byte	10                              ; DW_AT_name
+	.byte	2                               ; DW_AT_decl_file
+	.byte	128                             ; DW_AT_decl_line
+	.byte	4                               ; Abbrev [4] 0x73:0x4 DW_TAG_base_type
+	.byte	9                               ; DW_AT_name
+	.byte	7                               ; DW_AT_encoding
+	.byte	2                               ; DW_AT_byte_size
+	.byte	8                               ; Abbrev [8] 0x77:0x1f DW_TAG_subprogram
+	.byte	3                               ; DW_AT_low_pc
+	.long	.Lfunc_end0-.Lfunc_begin0       ; DW_AT_high_pc
+	.byte	2                               ; DW_AT_frame_base
+	.byte	144
+	.byte	32
+                                        ; DW_AT_call_all_calls
+	.byte	16                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	45                              ; DW_AT_decl_line
+                                        ; DW_AT_prototyped
+                                        ; DW_AT_external
+	.byte	9                               ; Abbrev [9] 0x83:0x9 DW_TAG_variable
+	.byte	0                               ; DW_AT_location
+	.byte	21                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	51                              ; DW_AT_decl_line
+	.long	85                              ; DW_AT_type
+	.byte	9                               ; Abbrev [9] 0x8c:0x9 DW_TAG_variable
+	.byte	1                               ; DW_AT_location
+	.byte	13                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	50                              ; DW_AT_decl_line
+	.long	59                              ; DW_AT_type
+	.byte	0                               ; End Of Children Mark
+	.byte	10                              ; Abbrev [10] 0x96:0x23 DW_TAG_subprogram
+	.byte	4                               ; DW_AT_low_pc
+	.long	.Lfunc_end1-.Lfunc_begin1       ; DW_AT_high_pc
+	.byte	2                               ; DW_AT_frame_base
+	.byte	144
+	.byte	32
+                                        ; DW_AT_call_all_calls
+	.byte	17                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	65                              ; DW_AT_decl_line
+                                        ; DW_AT_prototyped
+	.long	59                              ; DW_AT_type
+                                        ; DW_AT_external
+	.byte	9                               ; Abbrev [9] 0xa6:0x9 DW_TAG_variable
+	.byte	2                               ; DW_AT_location
+	.byte	12                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	68                              ; DW_AT_decl_line
+	.long	99                              ; DW_AT_type
+	.byte	9                               ; Abbrev [9] 0xaf:0x9 DW_TAG_variable
+	.byte	3                               ; DW_AT_location
+	.byte	13                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	67                              ; DW_AT_decl_line
+	.long	59                              ; DW_AT_type
+	.byte	0                               ; End Of Children Mark
+	.byte	11                              ; Abbrev [11] 0xb9:0x20 DW_TAG_subprogram
+	.byte	5                               ; DW_AT_low_pc
+	.long	.Lfunc_end2-.Lfunc_begin2       ; DW_AT_high_pc
+	.byte	2                               ; DW_AT_frame_base
+	.byte	144
+	.byte	32
+                                        ; DW_AT_call_all_calls
+	.long	217                             ; DW_AT_abstract_origin
+	.byte	12                              ; Abbrev [12] 0xc6:0x6 DW_TAG_variable
+	.byte	4                               ; DW_AT_location
+	.long	225                             ; DW_AT_abstract_origin
+	.byte	12                              ; Abbrev [12] 0xcc:0x6 DW_TAG_variable
+	.byte	5                               ; DW_AT_location
+	.long	233                             ; DW_AT_abstract_origin
+	.byte	12                              ; Abbrev [12] 0xd2:0x6 DW_TAG_variable
+	.byte	6                               ; DW_AT_location
+	.long	241                             ; DW_AT_abstract_origin
+	.byte	0                               ; End Of Children Mark
+	.byte	13                              ; Abbrev [13] 0xd9:0x21 DW_TAG_subprogram
+	.byte	11                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	79                              ; DW_AT_decl_line
+                                        ; DW_AT_prototyped
+	.long	59                              ; DW_AT_type
+                                        ; DW_AT_external
+                                        ; DW_AT_inline
+	.byte	14                              ; Abbrev [14] 0xe1:0x8 DW_TAG_variable
+	.byte	12                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	81                              ; DW_AT_decl_line
+	.long	99                              ; DW_AT_type
+	.byte	14                              ; Abbrev [14] 0xe9:0x8 DW_TAG_variable
+	.byte	13                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	80                              ; DW_AT_decl_line
+	.long	59                              ; DW_AT_type
+	.byte	14                              ; Abbrev [14] 0xf1:0x8 DW_TAG_variable
+	.byte	14                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	81                              ; DW_AT_decl_line
+	.long	99                              ; DW_AT_type
+	.byte	0                               ; End Of Children Mark
+	.byte	8                               ; Abbrev [8] 0xfa:0x61 DW_TAG_subprogram
+	.byte	6                               ; DW_AT_low_pc
+	.long	.Lfunc_end3-.Lfunc_begin3       ; DW_AT_high_pc
+	.byte	2                               ; DW_AT_frame_base
+	.byte	144
+	.byte	32
+                                        ; DW_AT_call_all_calls
+	.byte	18                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	106                             ; DW_AT_decl_line
+                                        ; DW_AT_prototyped
+                                        ; DW_AT_external
+	.byte	15                              ; Abbrev [15] 0x106:0x9 DW_TAG_formal_parameter
+	.byte	10                              ; DW_AT_location
+	.byte	22                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	106                             ; DW_AT_decl_line
+	.long	59                              ; DW_AT_type
+	.byte	9                               ; Abbrev [9] 0x10f:0x9 DW_TAG_variable
+	.byte	11                              ; DW_AT_location
+	.byte	23                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	108                             ; DW_AT_decl_line
+	.long	385                             ; DW_AT_type
+	.byte	16                              ; Abbrev [16] 0x118:0x1c DW_TAG_inlined_subroutine
+	.long	217                             ; DW_AT_abstract_origin
+	.byte	0                               ; DW_AT_ranges
+	.byte	1                               ; DW_AT_call_file
+	.byte	108                             ; DW_AT_call_line
+	.byte	19                              ; DW_AT_call_column
+	.byte	12                              ; Abbrev [12] 0x121:0x6 DW_TAG_variable
+	.byte	7                               ; DW_AT_location
+	.long	225                             ; DW_AT_abstract_origin
+	.byte	12                              ; Abbrev [12] 0x127:0x6 DW_TAG_variable
+	.byte	8                               ; DW_AT_location
+	.long	233                             ; DW_AT_abstract_origin
+	.byte	12                              ; Abbrev [12] 0x12d:0x6 DW_TAG_variable
+	.byte	9                               ; DW_AT_location
+	.long	241                             ; DW_AT_abstract_origin
+	.byte	0                               ; End Of Children Mark
+	.byte	17                              ; Abbrev [17] 0x134:0x20 DW_TAG_inlined_subroutine
+	.long	217                             ; DW_AT_abstract_origin
+	.byte	7                               ; DW_AT_low_pc
+	.long	.Ltmp76-.Ltmp60                 ; DW_AT_high_pc
+	.byte	1                               ; DW_AT_call_file
+	.byte	112                             ; DW_AT_call_line
+	.byte	22                              ; DW_AT_call_column
+	.byte	12                              ; Abbrev [12] 0x141:0x6 DW_TAG_variable
+	.byte	12                              ; DW_AT_location
+	.long	225                             ; DW_AT_abstract_origin
+	.byte	12                              ; Abbrev [12] 0x147:0x6 DW_TAG_variable
+	.byte	13                              ; DW_AT_location
+	.long	233                             ; DW_AT_abstract_origin
+	.byte	12                              ; Abbrev [12] 0x14d:0x6 DW_TAG_variable
+	.byte	14                              ; DW_AT_location
+	.long	241                             ; DW_AT_abstract_origin
+	.byte	0                               ; End Of Children Mark
+	.byte	18                              ; Abbrev [18] 0x154:0x6 DW_TAG_call_site
+	.long	347                             ; DW_AT_call_origin
+	.byte	8                               ; DW_AT_call_return_pc
+	.byte	0                               ; End Of Children Mark
+	.byte	19                              ; Abbrev [19] 0x15b:0x4 DW_TAG_subprogram
+	.byte	15                              ; DW_AT_name
+	.byte	3                               ; DW_AT_decl_file
+	.byte	38                              ; DW_AT_decl_line
+                                        ; DW_AT_prototyped
+                                        ; DW_AT_declaration
+                                        ; DW_AT_external
+	.byte	8                               ; Abbrev [8] 0x15f:0x16 DW_TAG_subprogram
+	.byte	9                               ; DW_AT_low_pc
+	.long	.Lfunc_end4-.Lfunc_begin4       ; DW_AT_high_pc
+	.byte	2                               ; DW_AT_frame_base
+	.byte	144
+	.byte	32
+                                        ; DW_AT_call_all_calls
+	.byte	19                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	120                             ; DW_AT_decl_line
+                                        ; DW_AT_prototyped
+                                        ; DW_AT_external
+	.byte	15                              ; Abbrev [15] 0x16b:0x9 DW_TAG_formal_parameter
+	.byte	15                              ; DW_AT_location
+	.byte	25                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	120                             ; DW_AT_decl_line
+	.long	115                             ; DW_AT_type
+	.byte	0                               ; End Of Children Mark
+	.byte	20                              ; Abbrev [20] 0x175:0xc DW_TAG_subprogram
+	.byte	10                              ; DW_AT_low_pc
+	.long	.Lfunc_end5-.Lfunc_begin5       ; DW_AT_high_pc
+	.byte	2                               ; DW_AT_frame_base
+	.byte	144
+	.byte	32
+                                        ; DW_AT_call_all_calls
+	.byte	20                              ; DW_AT_name
+	.byte	1                               ; DW_AT_decl_file
+	.byte	241                             ; DW_AT_decl_line
+                                        ; DW_AT_prototyped
+                                        ; DW_AT_external
+	.byte	7                               ; Abbrev [7] 0x181:0x8 DW_TAG_typedef
+	.long	59                              ; DW_AT_type
+	.byte	24                              ; DW_AT_name
+	.byte	2                               ; DW_AT_decl_file
+	.byte	130                             ; DW_AT_decl_line
+	.byte	0                               ; End Of Children Mark
+.Ldebug_info_end0:
+	.section	.debug_rnglists,"",@progbits
+	.long	.Ldebug_list_header_end1-.Ldebug_list_header_start1 ; Length
+.Ldebug_list_header_start1:
+	.short	5                               ; Version
+	.byte	2                               ; Address size
+	.byte	0                               ; Segment selector size
+	.long	1                               ; Offset entry count
+.Lrnglists_table_base0:
+	.long	.Ldebug_ranges0-.Lrnglists_table_base0
+.Ldebug_ranges0:
+	.byte	4                               ; DW_RLE_offset_pair
+	.uleb128 .Lfunc_begin3-.Lfunc_begin0    ;   starting offset
+	.uleb128 .Ltmp41-.Lfunc_begin0          ;   ending offset
+	.byte	4                               ; DW_RLE_offset_pair
+	.uleb128 .Ltmp47-.Lfunc_begin0          ;   starting offset
+	.uleb128 .Ltmp58-.Lfunc_begin0          ;   ending offset
+	.byte	0                               ; DW_RLE_end_of_list
+.Ldebug_list_header_end1:
+	.section	.debug_str_offsets,"",@progbits
+	.long	108                             ; Length of String Offsets Set
+	.short	5
+	.short	0
+.Lstr_offsets_base0:
+	.section	.debug_str,"MS",@progbits,1
+.Linfo_string0:
+	.asciz	"ClangBuiltArduino clang version 20.1.0-rc2" ; string offset=0
+.Linfo_string1:
+	.asciz	"/home/dakkshesh/.arduino15/packages/ClangBuiltArduino/hardware/avr/1.0.0/cores/arduino/wiring.c" ; string offset=43
+.Linfo_string2:
+	.asciz	"/home/dakkshesh"               ; string offset=139
+.Linfo_string3:
+	.asciz	"timer0_overflow_count"         ; string offset=155
+.Linfo_string4:
+	.asciz	"unsigned long"                 ; string offset=177
+.Linfo_string5:
+	.asciz	"timer0_millis"                 ; string offset=191
+.Linfo_string6:
+	.asciz	"timer0_fract"                  ; string offset=205
+.Linfo_string7:
+	.asciz	"unsigned char"                 ; string offset=218
+.Linfo_string8:
+	.asciz	"uint8_t"                       ; string offset=232
+.Linfo_string9:
+	.asciz	"unsigned int"                  ; string offset=240
+.Linfo_string10:
+	.asciz	"uint16_t"                      ; string offset=253
+.Linfo_string11:
+	.asciz	"micros"                        ; string offset=262
+.Linfo_string12:
+	.asciz	"oldSREG"                       ; string offset=269
+.Linfo_string13:
+	.asciz	"m"                             ; string offset=277
+.Linfo_string14:
+	.asciz	"t"                             ; string offset=279
+.Linfo_string15:
+	.asciz	"yield"                         ; string offset=281
+.Linfo_string16:
+	.asciz	"__vector_23"                   ; string offset=287
+.Linfo_string17:
+	.asciz	"millis"                        ; string offset=299
+.Linfo_string18:
+	.asciz	"delay"                         ; string offset=306
+.Linfo_string19:
+	.asciz	"delayMicroseconds"             ; string offset=312
+.Linfo_string20:
+	.asciz	"init"                          ; string offset=330
+.Linfo_string21:
+	.asciz	"f"                             ; string offset=335
+.Linfo_string22:
+	.asciz	"ms"                            ; string offset=337
+.Linfo_string23:
+	.asciz	"start"                         ; string offset=340
+.Linfo_string24:
+	.asciz	"uint32_t"                      ; string offset=346
+.Linfo_string25:
+	.asciz	"us"                            ; string offset=355
+	.section	.debug_str_offsets,"",@progbits
+	.long	.Linfo_string0
+	.long	.Linfo_string1
+	.long	.Linfo_string2
+	.long	.Linfo_string3
+	.long	.Linfo_string4
+	.long	.Linfo_string5
+	.long	.Linfo_string6
+	.long	.Linfo_string7
+	.long	.Linfo_string8
+	.long	.Linfo_string9
+	.long	.Linfo_string10
+	.long	.Linfo_string11
+	.long	.Linfo_string12
+	.long	.Linfo_string13
+	.long	.Linfo_string14
+	.long	.Linfo_string15
+	.long	.Linfo_string16
+	.long	.Linfo_string17
+	.long	.Linfo_string18
+	.long	.Linfo_string19
+	.long	.Linfo_string20
+	.long	.Linfo_string21
+	.long	.Linfo_string22
+	.long	.Linfo_string23
+	.long	.Linfo_string24
+	.long	.Linfo_string25
+	.section	.debug_addr,"",@progbits
+	.long	.Ldebug_addr_end0-.Ldebug_addr_start0 ; Length of contribution
+.Ldebug_addr_start0:
+	.short	5                               ; DWARF version number
+	.byte	2                               ; Address size
+	.byte	0                               ; Segment selector size
+.Laddr_table_base0:
+	.short	timer0_overflow_count
+	.short	timer0_millis
+	.short	timer0_fract
+	.short	.Lfunc_begin0
+	.short	.Lfunc_begin1
+	.short	.Lfunc_begin2
+	.short	.Lfunc_begin3
+	.short	.Ltmp60
+	.short	.Ltmp59
+	.short	.Lfunc_begin4
+	.short	.Lfunc_begin5
+.Ldebug_addr_end0:
+	.section	.debug_line,"",@progbits
+.Lline_table_start0:

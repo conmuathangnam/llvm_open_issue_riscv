@@ -1,0 +1,14 @@
+; ModuleID = './h264dsp_lasx.ll'
+source_filename = "../../third_party/ffmpeg/libavcodec/loongarch/h264dsp_lasx.c"
+target datalayout = "e-m:e-p:64:64-i64:64-i128:128-n32:64-S128"
+target triple = "loongarch64-unknown-linux-gnu"
+
+declare i32 @llvm.loongarch.lasx.xbnz.v(<32 x i8>)
+
+define i1 @ff_h264_v_lpf_luma_8_lasx(<4 x i64> %0) #0 {
+entry:
+  %1 = call i32 @llvm.loongarch.lasx.xbnz.v(<32 x i8> zeroinitializer)
+  %tobool.not = icmp eq i32 %1, 0
+  ret i1 %tobool.not
+}
+attributes #0 = { "target-features"="+lasx" }

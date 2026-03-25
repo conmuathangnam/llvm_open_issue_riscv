@@ -1,0 +1,46 @@
+#include <iterator>
+#include <ranges>
+#include <vector>
+#include <print>
+#include <string>
+
+int main(void)
+{
+	//toto je magicne :D
+	namespace rv = std::ranges::views;
+	std::vector<int> vec{1,2,3,10};
+	auto even_nums = vec | 
+		//VYJMI prvky, ktere podminku splnuji
+		rv::filter([](const int& a) -> bool 
+	     		{ 
+	     			return !(a % 2); 
+	     		})  
+			| rv::reverse;
+
+	//TODO: Najdi si, jak udelat tyto prikazy pro vypis kodove hezci
+	auto size = std::ranges::distance(even_nums);
+	auto count = 0;
+	for(const auto& el : even_nums) 
+	{	
+		std::print("{}", el);
+		if(++count < size)
+			std::print(",");
+	}
+	std::println();
+	//toto je hezci zpusob, jak takove vytisteni provest
+	for(const int& i : vec | rv::take(vec.size()-1))
+	{
+		if(count)
+		{
+			std::print("{}", i);
+		}
+		std::println("{}", i);
+	}
+
+	std::string s
+	{
+		#embed "./.clangd" prefix(0x2c, 0x20, )limit(5)
+	};
+	std::println();
+	//std::print("\b \n");
+}

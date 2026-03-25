@@ -1,0 +1,6 @@
+template<int a>
+__attribute__((global)) __attribute__((amdgpu_max_num_work_groups(a)))
+void sample_kernel_t() {}
+int main() {
+  (void)sample_kernel_t<1>;
+}

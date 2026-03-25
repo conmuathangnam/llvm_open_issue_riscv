@@ -1,0 +1,69 @@
+diff --git a/clang/unittests/Serialization/PreambleInNamedModulesTest.cpp b/clang/unittests/Serialization/PreambleInNamedModulesTest.cpp
+index b826f20ce4d7..b46325e98af8 100644
+--- a/clang/unittests/Serialization/PreambleInNamedModulesTest.cpp
++++ b/clang/unittests/Serialization/PreambleInNamedModulesTest.cpp
+@@ -11,6 +11,7 @@
+ #include "clang/Frontend/CompilerInvocation.h"
+ #include "clang/Frontend/FrontendActions.h"
+ #include "clang/Frontend/PrecompiledPreamble.h"
++#include "clang/Lex/PreprocessorOptions.h"
+ #include "llvm/ADT/SmallString.h"
+ #include "llvm/Support/FileSystem.h"
+ #include "llvm/Support/raw_ostream.h"
+@@ -125,4 +126,56 @@ export using ::E;
+   EXPECT_FALSE(Clang->getDiagnosticsPtr()->hasErrorOccurred());
+ }
+ 
++// Test that preamble building handles BeginSourceFile failure gracefully.
++// This exercises the cleanup path where CompilerInstance::clearOutputFiles()
++// is called after PrecompilePreambleAction::CreateASTConsumer() has created
++// an output file.
++TEST_F(PreambleInNamedModulesTest, PreambleBuildFailureCleanup) {
++  PathType MainFilePath;
++  addFile("test.cpp", R"cpp(
++int main() { return 0; }
++  )cpp",
++          MainFilePath);
++
++  IntrusiveRefCntPtr<llvm::vfs::FileSystem> VFS =
++      llvm::vfs::createPhysicalFileSystem();
++  DiagnosticOptions DiagOpts;
++  IntrusiveRefCntPtr<DiagnosticsEngine> Diags =
++      CompilerInstance::createDiagnostics(*VFS, DiagOpts);
++
++  CreateInvocationOptions CIOpts;
++  CIOpts.Diags = Diags;
++  CIOpts.VFS = VFS;
++
++  const char *Args[] = {"clang++", "-std=c++20", "-working-directory",
++                        TestDir.c_str(), MainFilePath.c_str()};
++  std::shared_ptr<CompilerInvocation> Invocation =
++      createInvocation(Args, CIOpts);
++  ASSERT_TRUE(Invocation);
++
++  // Set ChainedIncludes to a non-existent file to trigger BeginSourceFile
++  // failure after CreateASTConsumer succeeds. This exercises the cleanup
++  // path where FailureCleanup calls CI.clearOutputFiles().
++  Invocation->getPreprocessorOpts().ChainedIncludes.push_back(
++      "/nonexistent/path/to/chained.pch");
++
++  llvm::ErrorOr<std::unique_ptr<MemoryBuffer>> ContentsBuffer =
++      llvm::MemoryBuffer::getFile(MainFilePath, /*IsText=*/true);
++  EXPECT_TRUE(ContentsBuffer);
++  std::unique_ptr<MemoryBuffer> Buffer = std::move(*ContentsBuffer);
++
++  PreambleBounds Bounds =
++      ComputePreambleBounds(Invocation->getLangOpts(), *Buffer, 0);
++
++  PreambleCallbacks Callbacks;
++  // Use StoreInMemory=false to trigger WritePCHFile=true code path.
++  llvm::ErrorOr<PrecompiledPreamble> BuiltPreamble = PrecompiledPreamble::Build(
++      *Invocation, Buffer.get(), Bounds, Diags, VFS,
++      std::make_shared<PCHContainerOperations>(),
++      /*StoreInMemory=*/false, /*StoragePath=*/TestDir, Callbacks);
++
++  // The preamble build should fail due to the invalid ChainedIncludes.
++  EXPECT_FALSE(BuiltPreamble);
++}
++
+ } // namespace

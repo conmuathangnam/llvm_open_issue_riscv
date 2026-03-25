@@ -1,0 +1,26 @@
+# 1 "repro.cpp"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 478 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "repro.cpp" 2
+template<typename Derived>
+struct CRTPBase {
+  auto& self() { return static_cast<Derived&>(*this); }
+};
+
+template<typename T = int>
+struct Foo : CRTPBase<Foo<T>> {
+  int x() const { return 5; }
+
+
+  int callXByDefault(int val = self().x()) { return val; }
+
+private:
+  using CRTPBase<Foo<T>>::self;
+};
+
+int main() {
+  return Foo{}.callXByDefault();
+}

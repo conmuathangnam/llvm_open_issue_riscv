@@ -1,0 +1,3802 @@
+# 1 "<built-in>"
+# 1 "test.c"
+#if defined(__CLANG_REWRITTEN_INCLUDES) || defined(__CLANG_REWRITTEN_SYSTEM_INCLUDES) /* stdint.h expanded by -frewrite-includes */
+#include <stdint.h>
+#else /* stdint.h expanded by -frewrite-includes */
+# 1 "test.c"
+# 1 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 1 3
+/*===---- stdint.h - Standard header for sized integer types --------------===*\
+ *
+ * Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+ * See https://llvm.org/LICENSE.txt for license information.
+ * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+ *
+\*===----------------------------------------------------------------------===*/
+
+#ifndef __CLANG_STDINT_H
+// AIX system headers need stdint.h to be re-enterable while _STD_TYPES_T
+// is defined until an inclusion of it without _STD_TYPES_T occurs, in which
+// case the header guard macro is defined.
+#if 0 /* disabled by -frewrite-includes */
+#if !defined(_AIX) || !defined(_STD_TYPES_T) || !defined(__STDC_HOSTED__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 14 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#define __CLANG_STDINT_H
+#endif
+# 16 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__MVS__) && __has_include_next(<stdint.h>)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 18 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#if 0 /* expanded by -frewrite-includes */
+#include_next <stdint.h>
+#endif /* expanded by -frewrite-includes */
+# 18 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# 19 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#else
+# 20 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* If we're hosted, fall back to the system's stdint.h, which might have
+ * additional definitions.
+ */
+#if 0 /* disabled by -frewrite-includes */
+#if __STDC_HOSTED__ && __has_include_next(<stdint.h>)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 25 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+// C99 7.18.3 Limits of other integer types
+//
+//  Footnote 219, 220: C++ implementations should define these macros only when
+//  __STDC_LIMIT_MACROS is defined before <stdint.h> is included.
+//
+//  Footnote 222: C++ implementations should define these macros only when
+//  __STDC_CONSTANT_MACROS is defined before <stdint.h> is included.
+//
+// C++11 [cstdint.syn]p2:
+//
+//  The macros defined by <cstdint> are provided unconditionally. In particular,
+//  the symbols __STDC_LIMIT_MACROS and __STDC_CONSTANT_MACROS (mentioned in
+//  footnotes 219, 220, and 222 in the C standard) play no role in C++.
+//
+// C11 removed the problematic footnotes.
+//
+// Work around this inconsistency by always defining those macros in C++ mode,
+// so that a C library implementation which follows the C99 standard can be
+// used in C++.
+# ifdef __cplusplus
+#if 0 /* disabled by -frewrite-includes */
+#  if !defined(__STDC_LIMIT_MACROS)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 47 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#   define __STDC_LIMIT_MACROS
+#   define __STDC_LIMIT_MACROS_DEFINED_BY_CLANG
+#  endif
+# 50 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#  if !defined(__STDC_CONSTANT_MACROS)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 51 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#   define __STDC_CONSTANT_MACROS
+#   define __STDC_CONSTANT_MACROS_DEFINED_BY_CLANG
+#  endif
+# 54 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# endif
+# 55 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#if defined(__CLANG_REWRITTEN_INCLUDES) || defined(__CLANG_REWRITTEN_SYSTEM_INCLUDES) /* stdint.h expanded by -frewrite-includes */
+# include_next <stdint.h>
+#else /* stdint.h expanded by -frewrite-includes */
+# 56 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# 1 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 1 3
+/*
+ * Copyright (c) 2004, 2005 by
+ * Ralf Corsepius, Ulm/Germany. All rights reserved.
+ *
+ * Permission to use, copy, modify, and distribute this software
+ * is freely granted, provided that this notice is preserved.
+ */
+
+#ifndef _STDINT_H
+#define _STDINT_H
+
+#if defined(__CLANG_REWRITTEN_INCLUDES) || defined(__CLANG_REWRITTEN_SYSTEM_INCLUDES) /* _default_types.h expanded by -frewrite-includes */
+#include <machine/_default_types.h>
+#else /* _default_types.h expanded by -frewrite-includes */
+# 12 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+# 1 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 1 3
+/*
+ *  $Id$
+ */
+
+#ifndef _MACHINE__DEFAULT_TYPES_H
+#define _MACHINE__DEFAULT_TYPES_H
+
+#if defined(__CLANG_REWRITTEN_INCLUDES) || defined(__CLANG_REWRITTEN_SYSTEM_INCLUDES) /* features.h expanded by -frewrite-includes */
+#include <sys/features.h>
+#else /* features.h expanded by -frewrite-includes */
+# 8 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+# 1 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 1 3
+/*
+ *  Written by Joel Sherrill <joel@OARcorp.com>.
+ *
+ *  COPYRIGHT (c) 1989-2014.
+ *
+ *  On-Line Applications Research Corporation (OAR).
+ *
+ *  Permission to use, copy, modify, and distribute this software for any
+ *  purpose without fee is hereby granted, provided that this entire notice
+ *  is included in all copies of any software which is or includes a copy
+ *  or modification of this software.
+ *
+ *  THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
+ *  WARRANTY.  IN PARTICULAR,  THE AUTHOR MAKES NO REPRESENTATION
+ *  OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY OF THIS
+ *  SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
+ *
+ *  $Id$
+ */
+
+#ifndef _SYS_FEATURES_H
+#define _SYS_FEATURES_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+# 27 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if defined(__CLANG_REWRITTEN_INCLUDES) || defined(__CLANG_REWRITTEN_SYSTEM_INCLUDES) /* _newlib_version.h expanded by -frewrite-includes */
+#include <_newlib_version.h>
+#else /* _newlib_version.h expanded by -frewrite-includes */
+# 28 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+# 1 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/_newlib_version.h" 1 3
+/* _newlib_version.h.  Generated from _newlib_version.hin by configure.  */
+/* Version macros for internal and downstream use. */
+#ifndef _NEWLIB_VERSION_H__
+#define _NEWLIB_VERSION_H__ 1
+
+#define _NEWLIB_VERSION "4.4.0"
+#define __NEWLIB__ 4
+#define __NEWLIB_MINOR__ 4
+#define __NEWLIB_PATCHLEVEL__ 0
+
+#endif /* !_NEWLIB_VERSION_H__ */
+# 12 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/_newlib_version.h" 3
+#endif /* _newlib_version.h expanded by -frewrite-includes */
+# 29 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 2 3
+
+/* Macro to test version of GCC.  Returns 0 for non-GCC or too old GCC. */
+#ifndef __GNUC_PREREQ
+#if 0 /* disabled by -frewrite-includes */
+# if defined __GNUC__ && defined __GNUC_MINOR__
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 33 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#  define __GNUC_PREREQ(maj, min) \
+	((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
+# else
+# 36 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#  define __GNUC_PREREQ(maj, min) 0
+# endif
+# 38 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#endif /* __GNUC_PREREQ */
+# 39 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+/* Version with trailing underscores for BSD compatibility. */
+#define	__GNUC_PREREQ__(ma, mi)	__GNUC_PREREQ(ma, mi)
+
+
+/*
+ * Feature test macros control which symbols are exposed by the system
+ * headers.  Any of these must be defined before including any headers.
+ *
+ * __STRICT_ANSI__ (defined by gcc -ansi, -std=c90, -std=c99, or -std=c11)
+ *	ISO C
+ *
+ * _POSIX_SOURCE (deprecated by _POSIX_C_SOURCE=1)
+ * _POSIX_C_SOURCE >= 1
+ * 	POSIX.1-1990
+ *
+ * _POSIX_C_SOURCE >= 2
+ * 	POSIX.2-1992
+ *
+ * _POSIX_C_SOURCE >= 199309L
+ * 	POSIX.1b-1993 Real-time extensions
+ *
+ * _POSIX_C_SOURCE >= 199506L
+ * 	POSIX.1c-1995 Threads extensions
+ *
+ * _POSIX_C_SOURCE >= 200112L
+ * 	POSIX.1-2001 and C99
+ *
+ * _POSIX_C_SOURCE >= 200809L
+ * 	POSIX.1-2008
+ *
+ * _XOPEN_SOURCE
+ *	POSIX.1-1990 and XPG4
+ *
+ * _XOPEN_SOURCE_EXTENDED
+ *	SUSv1 (POSIX.2-1992 plus XPG4v2)
+ *
+ * _XOPEN_SOURCE >= 500
+ *	SUSv2 (POSIX.1c-1995 plus XSI)
+ *
+ * _XOPEN_SOURCE >= 600
+ *	SUSv3 (POSIX.1-2001 plus XSI) and C99
+ *
+ * _XOPEN_SOURCE >= 700
+ *	SUSv4 (POSIX.1-2008 plus XSI)
+ *
+ * _ISOC99_SOURCE or gcc -std=c99 or g++
+ * 	ISO C99
+ *
+ * _ISOC11_SOURCE or gcc -std=c11 or g++ -std=c++11
+ * 	ISO C11
+ *
+ * _ISOC2x_SOURCE or gcc -std=c2x or g++ -std=c++20
+ * 	ISO C11
+ *
+ * _ATFILE_SOURCE (implied by _POSIX_C_SOURCE >= 200809L)
+ *	"at" functions
+ *
+ * _LARGEFILE_SOURCE (deprecated by _XOPEN_SOURCE >= 500)
+ *	fseeko, ftello
+ *
+ * _GNU_SOURCE
+ * 	All of the above plus GNU extensions
+ *
+ * _BSD_SOURCE (deprecated by _DEFAULT_SOURCE)
+ * _SVID_SOURCE (deprecated by _DEFAULT_SOURCE)
+ * _DEFAULT_SOURCE (or none of the above)
+ * 	POSIX-1.2008 with BSD and SVr4 extensions
+ *
+ * _FORTIFY_SOURCE = 1 or 2
+ * 	Object Size Checking function wrappers
+ */
+
+#ifdef _GNU_SOURCE
+#undef _ATFILE_SOURCE
+#define	_ATFILE_SOURCE		1
+#undef	_DEFAULT_SOURCE
+#define	_DEFAULT_SOURCE		1
+#undef _ISOC99_SOURCE
+#define	_ISOC99_SOURCE		1
+#undef _ISOC11_SOURCE
+#define	_ISOC11_SOURCE		1
+#undef _ISOC2X_SOURCE
+#define	_ISOC2X_SOURCE		1
+#undef _POSIX_SOURCE
+#define	_POSIX_SOURCE		1
+#undef _POSIX_C_SOURCE
+#define	_POSIX_C_SOURCE		200809L
+#undef _XOPEN_SOURCE
+#define	_XOPEN_SOURCE		700
+#undef _XOPEN_SOURCE_EXTENDED
+#define	_XOPEN_SOURCE_EXTENDED	1
+#endif /* _GNU_SOURCE */
+# 131 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(_BSD_SOURCE) || defined(_SVID_SOURCE) || \
+   (!defined(__STRICT_ANSI__) && !defined(_ANSI_SOURCE) && \
+   !defined(_ISOC99_SOURCE) && !defined(_POSIX_SOURCE) && \
+   !defined(_POSIX_C_SOURCE) && !defined(_XOPEN_SOURCE))
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 136 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#undef _DEFAULT_SOURCE
+#define	_DEFAULT_SOURCE		1
+#endif
+# 139 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(_DEFAULT_SOURCE)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 141 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#undef _POSIX_SOURCE
+#define	_POSIX_SOURCE		1
+#undef _POSIX_C_SOURCE
+#define	_POSIX_C_SOURCE		200809L
+#endif
+# 146 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if !defined(_POSIX_SOURCE) && !defined(_POSIX_C_SOURCE) && \
+  ((!defined(__STRICT_ANSI__) && !defined(_ANSI_SOURCE)) || \
+   (_XOPEN_SOURCE - 0) >= 500)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 150 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	_POSIX_SOURCE		1
+#if 0 /* disabled by -frewrite-includes */
+#if !defined(_XOPEN_SOURCE) || (_XOPEN_SOURCE - 0) >= 700
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 152 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	_POSIX_C_SOURCE		200809L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_XOPEN_SOURCE - 0) >= 600
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 154 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	_POSIX_C_SOURCE		200112L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_XOPEN_SOURCE - 0) >= 500
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 156 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	_POSIX_C_SOURCE		199506L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_XOPEN_SOURCE - 0) < 500
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 158 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	_POSIX_C_SOURCE		2
+#endif
+# 160 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#endif
+# 161 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(_POSIX_C_SOURCE) && _POSIX_C_SOURCE >= 200809
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 163 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#undef _ATFILE_SOURCE
+#define	_ATFILE_SOURCE		1
+#endif
+# 166 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+/*
+ * The following private macros are used throughout the headers to control
+ * which symbols should be exposed.  They are for internal use only, as
+ * indicated by the leading double underscore, and must never be used outside
+ * of these headers.
+ *
+ * __POSIX_VISIBLE
+ * 	any version of POSIX.1; enabled by default, or with _POSIX_SOURCE,
+ * 	any value of _POSIX_C_SOURCE, or _XOPEN_SOURCE >= 500.
+ *
+ * __POSIX_VISIBLE >= 2
+ * 	POSIX.2-1992; enabled by default, with _POSIX_C_SOURCE >= 2,
+ * 	or _XOPEN_SOURCE >= 500.
+ *
+ * __POSIX_VISIBLE >= 199309
+ * 	POSIX.1b-1993; enabled by default, with _POSIX_C_SOURCE >= 199309L,
+ * 	or _XOPEN_SOURCE >= 500.
+ *
+ * __POSIX_VISIBLE >= 199506
+ * 	POSIX.1c-1995; enabled by default, with _POSIX_C_SOURCE >= 199506L,
+ * 	or _XOPEN_SOURCE >= 500.
+ *
+ * __POSIX_VISIBLE >= 200112
+ * 	POSIX.1-2001; enabled by default, with _POSIX_C_SOURCE >= 200112L,
+ * 	or _XOPEN_SOURCE >= 600.
+ *
+ * __POSIX_VISIBLE >= 200809
+ * 	POSIX.1-2008; enabled by default, with _POSIX_C_SOURCE >= 200809L,
+ * 	or _XOPEN_SOURCE >= 700.
+ *
+ * __XSI_VISIBLE
+ *	XPG4 XSI extensions; enabled with any version of _XOPEN_SOURCE.
+ *
+ * __XSI_VISIBLE >= 4
+ *	SUSv1 XSI extensions; enabled with both _XOPEN_SOURCE and
+ * 	_XOPEN_SOURCE_EXTENDED together.
+ *
+ * __XSI_VISIBLE >= 500
+ *	SUSv2 XSI extensions; enabled with _XOPEN_SOURCE >= 500.
+ *
+ * __XSI_VISIBLE >= 600
+ *	SUSv3 XSI extensions; enabled with _XOPEN_SOURCE >= 600.
+ *
+ * __XSI_VISIBLE >= 700
+ *	SUSv4 XSI extensions; enabled with _XOPEN_SOURCE >= 700.
+ *
+ * __ISO_C_VISIBLE >= 1999
+ * 	ISO C99; enabled with gcc -std=c99 or newer (on by default since GCC 5),
+ * 	any version of C++, or with _ISOC99_SOURCE, _POSIX_C_SOURCE >= 200112L,
+ * 	or _XOPEN_SOURCE >= 600.
+ *
+ * __ISO_C_VISIBLE >= 2011
+ * 	ISO C11; enabled with gcc -std=c11 or newer (on by default since GCC 5),
+ * 	g++ -std=c++11 or newer (on by default since GCC 6), or with
+ * 	_ISOC11_SOURCE.
+ *
+ * __ISO_C_VISIBLE >= 2020
+ * 	ISO C2x; enabled with gcc -std=c2x or newer,
+ * 	g++ -std=c++20 or newer, or with
+ * 	_ISOC2X_SOURCE.
+ *
+ * __ATFILE_VISIBLE
+ *	"at" functions; enabled by default, with _ATFILE_SOURCE,
+ * 	_POSIX_C_SOURCE >= 200809L, or _XOPEN_SOURCE >= 700.
+ *
+ * __LARGEFILE_VISIBLE
+ *	fseeko, ftello; enabled with _LARGEFILE_SOURCE or _XOPEN_SOURCE >= 500.
+ *
+ * __BSD_VISIBLE
+ * 	BSD extensions; enabled by default, or with _BSD_SOURCE.
+ *
+ * __SVID_VISIBLE
+ * 	SVr4 extensions; enabled by default, or with _SVID_SOURCE.
+ *
+ * __MISC_VISIBLE
+ * 	Extensions found in both BSD and SVr4 (shorthand for
+ * 	(__BSD_VISIBLE || __SVID_VISIBLE)), or newlib-specific
+ * 	extensions; enabled by default.
+ *
+ * __GNU_VISIBLE
+ * 	GNU extensions; enabled with _GNU_SOURCE.
+ *
+ * __SSP_FORTIFY_LEVEL
+ * 	Object Size Checking; defined to 0 (off), 1, or 2.
+ *
+ * In all cases above, "enabled by default" means either by defining
+ * _DEFAULT_SOURCE, or by not defining any of the public feature test macros.
+ */
+
+#ifdef _ATFILE_SOURCE
+#define	__ATFILE_VISIBLE	1
+#else
+# 259 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__ATFILE_VISIBLE	0
+#endif
+# 261 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#ifdef _DEFAULT_SOURCE
+#define	__BSD_VISIBLE		1
+#else
+# 265 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__BSD_VISIBLE		0
+#endif
+# 267 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#ifdef _GNU_SOURCE
+#define	__GNU_VISIBLE		1
+#else
+# 271 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__GNU_VISIBLE		0
+#endif
+# 273 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(_ISOC2X_SOURCE) || \
+  (__STDC_VERSION__ - 0) > 201710L || (__cplusplus - 0) >= 202002L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 276 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define __ISO_C_VISIBLE		2020
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(_ISOC11_SOURCE) || \
+  (__STDC_VERSION__ - 0) >= 201112L || (__cplusplus - 0) >= 201103L
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 1 /* evaluated by -frewrite-includes */
+# 279 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__ISO_C_VISIBLE		2011
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(_ISOC99_SOURCE) || (_POSIX_C_SOURCE - 0) >= 200112L || \
+  (__STDC_VERSION__ - 0) >= 199901L || defined(__cplusplus)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 282 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__ISO_C_VISIBLE		1999
+#else
+# 284 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__ISO_C_VISIBLE		1990
+#endif
+# 286 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(_LARGEFILE_SOURCE) || (_XOPEN_SOURCE - 0) >= 500
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 288 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__LARGEFILE_VISIBLE	1
+#else
+# 290 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__LARGEFILE_VISIBLE	0
+#endif
+# 292 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#ifdef _DEFAULT_SOURCE
+#define	__MISC_VISIBLE		1
+#else
+# 296 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__MISC_VISIBLE		0
+#endif
+# 298 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if (_POSIX_C_SOURCE - 0) >= 200809L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 300 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__POSIX_VISIBLE		200809
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_POSIX_C_SOURCE - 0) >= 200112L
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 302 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__POSIX_VISIBLE		200112
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_POSIX_C_SOURCE - 0) >= 199506L
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 304 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__POSIX_VISIBLE		199506
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_POSIX_C_SOURCE - 0) >= 199309L
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 306 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__POSIX_VISIBLE		199309
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_POSIX_C_SOURCE - 0) >= 2 || defined(_XOPEN_SOURCE)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 308 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__POSIX_VISIBLE		199209
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(_POSIX_SOURCE) || defined(_POSIX_C_SOURCE)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 310 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__POSIX_VISIBLE		199009
+#else
+# 312 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__POSIX_VISIBLE		0
+#endif
+# 314 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#ifdef _DEFAULT_SOURCE
+#define	__SVID_VISIBLE		1
+#else
+# 318 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__SVID_VISIBLE		0
+#endif
+# 320 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if (_XOPEN_SOURCE - 0) >= 700
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 322 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__XSI_VISIBLE		700
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_XOPEN_SOURCE - 0) >= 600
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 324 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__XSI_VISIBLE		600
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (_XOPEN_SOURCE - 0) >= 500
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 326 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__XSI_VISIBLE		500
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(_XOPEN_SOURCE) && defined(_XOPEN_SOURCE_EXTENDED)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 328 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__XSI_VISIBLE		4
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(_XOPEN_SOURCE)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 330 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__XSI_VISIBLE		1
+#else
+# 332 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define	__XSI_VISIBLE		0
+#endif
+# 334 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if _FORTIFY_SOURCE > 0 && !defined(__cplusplus) && !defined(__lint__) && \
+   (__OPTIMIZE__ > 0 || defined(__clang__)) && __GNUC_PREREQ__(4, 1) && \
+   !defined(_LIBC)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 338 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#  if _FORTIFY_SOURCE > 1
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 339 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#    define __SSP_FORTIFY_LEVEL 2
+#  else
+# 341 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#    define __SSP_FORTIFY_LEVEL 1
+#  endif
+# 343 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#else
+# 344 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#  define __SSP_FORTIFY_LEVEL 0
+#endif
+# 346 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+/* RTEMS adheres to POSIX -- 1003.1b with some features from annexes.  */
+
+#ifdef __rtems__
+#define _POSIX_JOB_CONTROL     		1
+#define _POSIX_SAVED_IDS       		1
+#define _POSIX_VERSION			199309L
+#define _POSIX_ASYNCHRONOUS_IO		1
+#define _POSIX_FSYNC			1
+#define _POSIX_MAPPED_FILES		1
+#define _POSIX_MEMLOCK			1
+#define _POSIX_MEMLOCK_RANGE		1
+#define _POSIX_MEMORY_PROTECTION	1
+#define _POSIX_MESSAGE_PASSING		1
+#define _POSIX_MONOTONIC_CLOCK		200112L
+#define _POSIX_CLOCK_SELECTION		200112L
+#define _POSIX_PRIORITIZED_IO		1
+#define _POSIX_PRIORITY_SCHEDULING	1
+#define _POSIX_REALTIME_SIGNALS		1
+#define _POSIX_SEMAPHORES		1
+#define _POSIX_SHARED_MEMORY_OBJECTS	1
+#define _POSIX_SYNCHRONIZED_IO		1
+#define _POSIX_TIMERS			1
+#define _POSIX_BARRIERS                 200112L
+#define _POSIX_READER_WRITER_LOCKS      200112L
+#define _POSIX_SPIN_LOCKS               200112L
+
+
+/* In P1003.1b but defined by drafts at least as early as P1003.1c/D10  */
+#define _POSIX_THREADS				1
+#define _POSIX_THREAD_ATTR_STACKADDR		1
+#define _POSIX_THREAD_ATTR_STACKSIZE		1
+#define _POSIX_THREAD_PRIORITY_SCHEDULING	1
+#define _POSIX_THREAD_PRIO_INHERIT		1
+#define _POSIX_THREAD_PRIO_PROTECT		1
+#define _POSIX_THREAD_PROCESS_SHARED		1
+#define _POSIX_THREAD_SAFE_FUNCTIONS		1
+
+/* P1003.4b/D8 defines the constants below this comment. */
+#define _POSIX_SPAWN				1
+#define _POSIX_TIMEOUTS				1
+#define _POSIX_CPUTIME				1
+#define _POSIX_THREAD_CPUTIME			1
+#define _POSIX_SPORADIC_SERVER			1
+#define _POSIX_THREAD_SPORADIC_SERVER		1
+#define _POSIX_DEVICE_CONTROL			1
+#define _POSIX_DEVCTL_DIRECTION			1
+#define _POSIX_INTERRUPT_CONTROL		1
+#define _POSIX_ADVISORY_INFO			1
+
+/* UNIX98 added some new pthread mutex attributes */
+#define _UNIX98_THREAD_MUTEX_ATTRIBUTES         1
+
+/* POSIX 1003.26-2003 defined device control method */
+#define _POSIX_26_VERSION			200312L
+
+#endif
+# 403 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+/* XMK loosely adheres to POSIX -- 1003.1 */
+#ifdef __XMK__
+#define _POSIX_THREADS				1
+#define _POSIX_THREAD_PRIORITY_SCHEDULING	1
+#endif
+# 409 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+
+#ifdef __svr4__
+# define _POSIX_JOB_CONTROL     1
+# define _POSIX_SAVED_IDS       1
+# define _POSIX_VERSION 199009L
+#endif
+# 416 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#ifdef __CYGWIN__
+
+#if 0 /* disabled by -frewrite-includes */
+#if __POSIX_VISIBLE >= 200809
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 420 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_VERSION				200809L
+#define _POSIX2_VERSION				200809L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __POSIX_VISIBLE >= 200112
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 423 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_VERSION				200112L
+#define _POSIX2_VERSION				200112L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __POSIX_VISIBLE >= 199506
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 426 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_VERSION				199506L
+#define _POSIX2_VERSION				199506L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __POSIX_VISIBLE >= 199309
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 429 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_VERSION				199309L
+#define _POSIX2_VERSION				199209L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __POSIX_VISIBLE >= 199209
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 432 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_VERSION				199009L
+#define _POSIX2_VERSION				199209L
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __POSIX_VISIBLE
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 435 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_VERSION				199009L
+#endif
+# 437 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __XSI_VISIBLE >= 4
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 438 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _XOPEN_VERSION				__XSI_VISIBLE
+#endif
+# 440 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#define _POSIX_ADVISORY_INFO			200809L
+#define _POSIX_ASYNCHRONOUS_IO			200809L
+#define _POSIX_BARRIERS				200809L
+#define _POSIX_CHOWN_RESTRICTED			     1
+#define _POSIX_CLOCK_SELECTION			200809L
+#define _POSIX_CPUTIME				200809L
+#define _POSIX_FSYNC				200809L
+#define _POSIX_IPV6				200809L
+#define _POSIX_JOB_CONTROL			     1
+#define _POSIX_MAPPED_FILES			200809L
+/* #define _POSIX_MEMLOCK			    -1 */
+#define _POSIX_MEMLOCK_RANGE			200809L
+#define _POSIX_MEMORY_PROTECTION		200809L
+#define _POSIX_MESSAGE_PASSING			200809L
+#define _POSIX_MONOTONIC_CLOCK			200809L
+#define _POSIX_NO_TRUNC				     1
+/* #define _POSIX_PRIORITIZED_IO		    -1 */
+#define _POSIX_PRIORITY_SCHEDULING		200809L
+#define _POSIX_RAW_SOCKETS			200809L
+#define _POSIX_READER_WRITER_LOCKS		200809L
+#define _POSIX_REALTIME_SIGNALS			200809L
+#define _POSIX_REGEXP				     1
+#define _POSIX_SAVED_IDS			     1
+#define _POSIX_SEMAPHORES			200809L
+#define _POSIX_SHARED_MEMORY_OBJECTS		200809L
+#define _POSIX_SHELL				     1
+#define _POSIX_SPAWN				200809L
+#define _POSIX_SPIN_LOCKS			200809L
+/* #define _POSIX_SPORADIC_SERVER		    -1 */
+#define _POSIX_SYNCHRONIZED_IO			200809L
+#define _POSIX_THREAD_ATTR_STACKADDR		200809L
+#define _POSIX_THREAD_ATTR_STACKSIZE		200809L
+#define _POSIX_THREAD_CPUTIME			200809L
+/* #define _POSIX_THREAD_PRIO_INHERIT		    -1 */
+/* #define _POSIX_THREAD_PRIO_PROTECT		    -1 */
+#define _POSIX_THREAD_PRIORITY_SCHEDULING	200809L
+#define _POSIX_THREAD_PROCESS_SHARED		200809L
+#define _POSIX_THREAD_SAFE_FUNCTIONS		200809L
+/* #define _POSIX_THREAD_SPORADIC_SERVER	    -1 */
+#define _POSIX_THREADS				200809L
+#define _POSIX_TIMEOUTS				200809L
+#define _POSIX_TIMERS				200809L
+/* #define _POSIX_TRACE				    -1 */
+/* #define _POSIX_TRACE_EVENT_FILTER		    -1 */
+/* #define _POSIX_TRACE_INHERIT			    -1 */
+/* #define _POSIX_TRACE_LOG			    -1 */
+/* #define _POSIX_TYPED_MEMORY_OBJECTS		    -1 */
+#define _POSIX_VDISABLE				   '\0'
+
+#if 0 /* disabled by -frewrite-includes */
+#if __POSIX_VISIBLE >= 2
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 491 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX2_C_VERSION			_POSIX2_VERSION
+#define _POSIX2_C_BIND				_POSIX2_VERSION
+#define _POSIX2_C_DEV				_POSIX2_VERSION
+#define _POSIX2_CHAR_TERM			_POSIX2_VERSION
+/* #define _POSIX2_FORT_DEV			    -1 */
+/* #define _POSIX2_FORT_RUN			    -1 */
+/* #define _POSIX2_LOCALEDEF			    -1 */
+/* #define _POSIX2_PBS				    -1 */
+/* #define _POSIX2_PBS_ACCOUNTING		    -1 */
+/* #define _POSIX2_PBS_CHECKPOINT		    -1 */
+/* #define _POSIX2_PBS_LOCATE			    -1 */
+/* #define _POSIX2_PBS_MESSAGE			    -1 */
+/* #define _POSIX2_PBS_TRACK			    -1 */
+#define _POSIX2_SW_DEV				_POSIX2_VERSION
+#define _POSIX2_UPE				_POSIX2_VERSION
+#endif /* __POSIX_VISIBLE >= 2 */
+# 507 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#define _POSIX_V6_ILP32_OFF32			    -1
+#ifdef __LP64__
+#define _POSIX_V6_ILP32_OFFBIG			    -1
+#define _POSIX_V6_LP64_OFF64			     1
+#define _POSIX_V6_LPBIG_OFFBIG			     1
+#else
+# 514 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_V6_ILP32_OFFBIG			     1
+#define _POSIX_V6_LP64_OFF64			    -1
+#define _POSIX_V6_LPBIG_OFFBIG			    -1
+#endif
+# 518 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _POSIX_V7_ILP32_OFF32			_POSIX_V6_ILP32_OFF32
+#define _POSIX_V7_ILP32_OFFBIG			_POSIX_V6_ILP32_OFFBIG
+#define _POSIX_V7_LP64_OFF64			_POSIX_V6_LP64_OFF64
+#define _POSIX_V7_LPBIG_OFFBIG			_POSIX_V6_LPBIG_OFFBIG
+#define _XBS5_ILP32_OFF32			_POSIX_V6_ILP32_OFF32
+#define _XBS5_ILP32_OFFBIG			_POSIX_V6_ILP32_OFFBIG
+#define _XBS5_LP64_OFF64			_POSIX_V6_LP64_OFF64
+#define _XBS5_LPBIG_OFFBIG			_POSIX_V6_LPBIG_OFFBIG
+
+#if 0 /* disabled by -frewrite-includes */
+#if __XSI_VISIBLE
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 528 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#define _XOPEN_CRYPT				     1
+#define _XOPEN_ENH_I18N				     1
+/* #define _XOPEN_LEGACY			    -1 */
+/* #define _XOPEN_REALTIME			    -1 */
+/* #define _XOPEN_REALTIME_THREADS		    -1 */
+#define _XOPEN_SHM				     1
+/* #define _XOPEN_STREAMS			    -1 */
+/* #define _XOPEN_UNIX				    -1 */
+#endif /* __XSI_VISIBLE */
+# 537 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+/*
+ * newlib's wide char conversion functions were updated on
+ *	2019-01-12
+ * to UNICODE version:
+ *	11.0.0 released 2018-06-05
+ */
+#define __STDC_ISO_10646__ 201806L
+
+#endif /* __CYGWIN__ */
+# 547 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+
+#ifdef __cplusplus
+}
+#endif
+# 551 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#endif /* _SYS_FEATURES_H */
+# 552 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/features.h" 3
+#endif /* features.h expanded by -frewrite-includes */
+# 9 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 2 3
+
+/*
+ * Guess on types by examining *_MIN / *_MAX defines.
+ */
+#if 0 /* disabled by -frewrite-includes */
+#if __GNUC_PREREQ (3, 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 14 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+/* GCC >= 3.3.0 has __<val>__ implicitly defined. */
+#define __EXP(x) __##x##__
+#else
+# 17 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+/* Fall back to POSIX versions from <limits.h> */
+#define __EXP(x) x
+#if 0 /* expanded by -frewrite-includes */
+#include <limits.h>
+#endif /* expanded by -frewrite-includes */
+# 19 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+# 20 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#endif
+# 21 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+/* Check if "long long" is 64bit wide */
+/* Modern GCCs provide __LONG_LONG_MAX__, SUSv3 wants LLONG_MAX */
+#if 0 /* disabled by -frewrite-includes */
+#if ( defined(__LONG_LONG_MAX__) && (__LONG_LONG_MAX__ > 0x7fffffff) ) \
+  || ( defined(LLONG_MAX) && (LLONG_MAX > 0x7fffffff) )
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 26 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define __have_longlong64 1
+#endif
+# 28 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+/* Check if "long" is 64bit or 32bit wide */
+#if 0 /* disabled by -frewrite-includes */
+#if __EXP(LONG_MAX) > 0x7fffffff
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 31 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define __have_long64 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(LONG_MAX) == 0x7fffffff && !defined(__SPU__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 1 /* evaluated by -frewrite-includes */
+# 33 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define __have_long32 1
+#endif
+# 35 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+# 39 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT8_TYPE__
+typedef __INT8_TYPE__ __int8_t;
+#ifdef __UINT8_TYPE__
+typedef __UINT8_TYPE__ __uint8_t;
+#else
+# 45 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT8_TYPE__ __uint8_t;
+#endif
+# 47 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int8_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(SCHAR_MAX) == 0x7f
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 49 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed char __int8_t ;
+typedef unsigned char __uint8_t ;
+#define ___int8_t_defined 1
+#endif
+# 53 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT16_TYPE__
+typedef __INT16_TYPE__ __int16_t;
+#ifdef __UINT16_TYPE__
+typedef __UINT16_TYPE__ __uint16_t;
+#else
+# 59 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT16_TYPE__ __uint16_t;
+#endif
+# 61 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int16_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(INT_MAX) == 0x7fff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 63 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed int __int16_t;
+typedef unsigned int __uint16_t;
+#define ___int16_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(SHRT_MAX) == 0x7fff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 67 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed short __int16_t;
+typedef unsigned short __uint16_t;
+#define ___int16_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(SCHAR_MAX) == 0x7fff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 71 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed char __int16_t;
+typedef unsigned char __uint16_t;
+#define ___int16_t_defined 1
+#endif
+# 75 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT32_TYPE__
+typedef __INT32_TYPE__ __int32_t;
+#ifdef __UINT32_TYPE__
+typedef __UINT32_TYPE__ __uint32_t;
+#else
+# 81 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT32_TYPE__ __uint32_t;
+#endif
+# 83 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int32_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(INT_MAX) == 0x7fffffffL
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 85 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+#define ___int32_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(LONG_MAX) == 0x7fffffffL
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 89 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed long __int32_t;
+typedef unsigned long __uint32_t;
+#define ___int32_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(SHRT_MAX) == 0x7fffffffL
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 93 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed short __int32_t;
+typedef unsigned short __uint32_t;
+#define ___int32_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(SCHAR_MAX) == 0x7fffffffL
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 97 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed char __int32_t;
+typedef unsigned char __uint32_t;
+#define ___int32_t_defined 1
+#endif
+# 101 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT64_TYPE__
+typedef __INT64_TYPE__ __int64_t;
+#ifdef __UINT64_TYPE__
+typedef __UINT64_TYPE__ __uint64_t;
+#else
+# 107 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT64_TYPE__ __uint64_t;
+#endif
+# 109 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int64_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __EXP(LONG_MAX) > 0x7fffffff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 111 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed long __int64_t;
+typedef unsigned long __uint64_t;
+#define ___int64_t_defined 1
+
+/* GCC has __LONG_LONG_MAX__ */
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif  defined(__LONG_LONG_MAX__) && (__LONG_LONG_MAX__ > 0x7fffffff)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 117 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed long long __int64_t;
+typedef unsigned long long __uint64_t;
+#define ___int64_t_defined 1
+
+/* POSIX mandates LLONG_MAX in <limits.h> */
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif  defined(LLONG_MAX) && (LLONG_MAX > 0x7fffffff)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 123 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed long long __int64_t;
+typedef unsigned long long __uint64_t;
+#define ___int64_t_defined 1
+
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif  __EXP(INT_MAX) > 0x7fffffff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 128 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed int __int64_t;
+typedef unsigned int __uint64_t;
+#define ___int64_t_defined 1
+#endif
+# 132 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT_LEAST8_TYPE__
+typedef __INT_LEAST8_TYPE__ __int_least8_t;
+#ifdef __UINT_LEAST8_TYPE__
+typedef __UINT_LEAST8_TYPE__ __uint_least8_t;
+#else
+# 138 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT_LEAST8_TYPE__ __uint_least8_t;
+#endif
+# 140 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int_least8_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int8_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 142 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+#define ___int_least8_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int16_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 146 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int16_t __int_least8_t;
+typedef __uint16_t __uint_least8_t;
+#define ___int_least8_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int32_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 150 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int32_t __int_least8_t;
+typedef __uint32_t __uint_least8_t;
+#define ___int_least8_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int64_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 154 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int64_t __int_least8_t;
+typedef __uint64_t __uint_least8_t;
+#define ___int_least8_t_defined 1
+#endif
+# 158 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT_LEAST16_TYPE__
+typedef __INT_LEAST16_TYPE__ __int_least16_t;
+#ifdef __UINT_LEAST16_TYPE__
+typedef __UINT_LEAST16_TYPE__ __uint_least16_t;
+#else
+# 164 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT_LEAST16_TYPE__ __uint_least16_t;
+#endif
+# 166 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int_least16_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int16_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 168 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+#define ___int_least16_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int32_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 172 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int32_t __int_least16_t;
+typedef __uint32_t __uint_least16_t;
+#define ___int_least16_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int64_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 176 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int64_t __int_least16_t;
+typedef __uint64_t __uint_least16_t;
+#define ___int_least16_t_defined 1
+#endif
+# 180 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT_LEAST32_TYPE__
+typedef __INT_LEAST32_TYPE__ __int_least32_t;
+#ifdef __UINT_LEAST32_TYPE__
+typedef __UINT_LEAST32_TYPE__ __uint_least32_t;
+#else
+# 186 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT_LEAST32_TYPE__ __uint_least32_t;
+#endif
+# 188 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int_least32_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int32_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 190 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+#define ___int_least32_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int64_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 194 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int64_t __int_least32_t;
+typedef __uint64_t __uint_least32_t;
+#define ___int_least32_t_defined 1
+#endif
+# 198 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INT_LEAST64_TYPE__
+typedef __INT_LEAST64_TYPE__ __int_least64_t;
+#ifdef __UINT_LEAST64_TYPE__
+typedef __UINT_LEAST64_TYPE__ __uint_least64_t;
+#else
+# 204 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INT_LEAST64_TYPE__ __uint_least64_t;
+#endif
+# 206 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#define ___int_least64_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(___int64_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 208 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
+#define ___int_least64_t_defined 1
+#endif
+# 212 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__INTMAX_TYPE__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 214 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __INTMAX_TYPE__ __intmax_t;
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __have_longlong64
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 216 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed long long __intmax_t;
+#else
+# 218 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef signed long __intmax_t;
+#endif
+# 220 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__UINTMAX_TYPE__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 222 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __UINTMAX_TYPE__ __uintmax_t;
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __have_longlong64
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 224 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned long long __uintmax_t;
+#else
+# 226 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned long __uintmax_t;
+#endif
+# 228 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#ifdef __INTPTR_TYPE__
+typedef __INTPTR_TYPE__ __intptr_t;
+#ifdef __UINTPTR_TYPE__
+typedef __UINTPTR_TYPE__ __uintptr_t;
+#else
+# 234 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef unsigned __INTPTR_TYPE__ __uintptr_t;
+#endif
+# 236 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__PTRDIFF_TYPE__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 237 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef __PTRDIFF_TYPE__ __intptr_t;
+typedef unsigned __PTRDIFF_TYPE__ __uintptr_t;
+#else
+# 240 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+typedef long __intptr_t;
+typedef unsigned long __uintptr_t;
+#endif
+# 243 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#undef __EXP
+
+#ifdef __cplusplus
+}
+#endif
+# 249 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+
+#endif /* _MACHINE__DEFAULT_TYPES_H */
+# 251 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/machine/_default_types.h" 3
+#endif /* _default_types.h expanded by -frewrite-includes */
+# 13 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 2 3
+#if defined(__CLANG_REWRITTEN_INCLUDES) || defined(__CLANG_REWRITTEN_SYSTEM_INCLUDES) /* _intsup.h expanded by -frewrite-includes */
+#include <sys/_intsup.h>
+#else /* _intsup.h expanded by -frewrite-includes */
+# 13 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+# 1 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 1 3
+/*
+ * Copyright (c) 2004, 2005 by
+ * Ralf Corsepius, Ulm/Germany. All rights reserved.
+ *
+ * Permission to use, copy, modify, and distribute this software
+ * is freely granted, provided that this notice is preserved.
+ */
+
+#ifndef _SYS__INTSUP_H
+#define _SYS__INTSUP_H
+
+#if 0 /* expanded by -frewrite-includes */
+#include <sys/features.h>
+#endif /* expanded by -frewrite-includes */
+# 12 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+# 13 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if __GNUC_PREREQ (3, 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 15 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+/* gcc > 3.2 implicitly defines the values we are interested */
+#define __STDINT_EXP(x) __##x##__
+#else
+# 18 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __STDINT_EXP(x) x
+#if 0 /* expanded by -frewrite-includes */
+#include <limits.h>
+#endif /* expanded by -frewrite-includes */
+# 19 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+# 20 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#endif
+# 21 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+
+/* Determine how intptr_t and intN_t fastN_t and leastN_t are defined by gcc
+   for this target.  This is used to determine the correct printf() constant in
+   inttypes.h and other  constants in stdint.h.
+   So we end up with
+   ?(signed|unsigned) char == 0
+   ?(signed|unsigned) short == 1
+   ?(signed|unsigned) int == 2
+   ?(signed|unsigned) short int == 3
+   ?(signed|unsigned) long == 4
+   ?(signed|unsigned) long int == 6
+   ?(signed|unsigned) long long == 8
+   ?(signed|unsigned) long long int == 10
+ */
+#pragma push_macro("signed")
+#pragma push_macro("unsigned")
+#pragma push_macro("char")
+#pragma push_macro("short")
+#pragma push_macro("__int20")
+#pragma push_macro("__int20__")
+#pragma push_macro("int")
+#pragma push_macro("long")
+#undef signed
+#undef unsigned
+#undef char
+#undef short
+#undef int
+#undef __int20
+#undef __int20__
+#undef long
+#define signed +0
+#define unsigned +0
+#define char +0
+#define short +1
+#define __int20 +2
+#define __int20__ +2
+#define int +2
+#define long +4
+#if 0 /* disabled by -frewrite-includes */
+#if (__INTPTR_TYPE__ == 8 || __INTPTR_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 60 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define _INTPTR_EQ_LONGLONG
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INTPTR_TYPE__ == 4 || __INTPTR_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 62 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define _INTPTR_EQ_LONG
+/* Note - the tests for _INTPTR_EQ_INT and _INTPTR_EQ_SHORT are currently
+   redundant as the values are not used.  But one day they may be needed
+   and so the tests remain.  */
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __INTPTR_TYPE__ == 2
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 1 /* evaluated by -frewrite-includes */
+# 67 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define _INTPTR_EQ_INT
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INTPTR_TYPE__ == 1 || __INTPTR_TYPE__ == 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 69 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define _INTPTR_EQ_SHORT
+#else
+# 71 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#error "Unable to determine type definition of intptr_t"
+#endif
+# 73 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT32_TYPE__ == 4 || __INT32_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 74 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define _INT32_EQ_LONG
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __INT32_TYPE__ == 2
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 1 /* evaluated by -frewrite-includes */
+# 76 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+/* Nothing to define because int32_t is safe to print as an int. */
+#else
+# 78 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#error "Unable to determine type definition of int32_t"
+#endif
+# 80 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT8_TYPE__ == 0)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 82 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT8 "hh"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT8_TYPE__ == 1 || __INT8_TYPE__ == 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 84 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT8 "h"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT8_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 86 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT8
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT8_TYPE__ == 4 || __INT8_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 88 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT8 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT8_TYPE__ == 8 || __INT8_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 90 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT8 "ll"
+#endif
+# 92 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT16_TYPE__ == 1 || __INT16_TYPE__ == 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 93 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT16 "h"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT16_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 95 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT16
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT16_TYPE__ == 4 || __INT16_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 97 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT16 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT16_TYPE__ == 8 || __INT16_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 99 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT16 "ll"
+#endif
+# 101 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT32_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 102 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT32
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT32_TYPE__ == 4 || __INT32_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 104 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT32 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT32_TYPE__ == 8 || __INT32_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 106 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT32 "ll"
+#endif
+# 108 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT64_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 109 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT64
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT64_TYPE__ == 4 || __INT64_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 111 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT64 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT64_TYPE__ == 8 || __INT64_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 1 /* evaluated by -frewrite-includes */
+# 113 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __INT64 "ll"
+#endif
+# 115 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_FAST8_TYPE__ == 0)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 116 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST8 "hh"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST8_TYPE__ == 1 || __INT_FAST8_TYPE__ == 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 118 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST8 "h"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST8_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 120 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST8
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST8_TYPE__ == 4 || __INT_FAST8_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 122 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST8 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST8_TYPE__ == 8 || __INT_FAST8_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 124 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST8 "ll"
+#endif
+# 126 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_FAST16_TYPE__ == 1 || __INT_FAST16_TYPE__ == 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 127 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST16 "h"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST16_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 129 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST16
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST16_TYPE__ == 4 || __INT_FAST16_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 131 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST16 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST16_TYPE__ == 8 || __INT_FAST16_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 133 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST16 "ll"
+#endif
+# 135 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_FAST32_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 136 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST32
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST32_TYPE__ == 4 || __INT_FAST32_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 138 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST32 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST32_TYPE__ == 8 || __INT_FAST32_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 140 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST32 "ll"
+#endif
+# 142 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_FAST64_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 143 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST64
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST64_TYPE__ == 4 || __INT_FAST64_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 145 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST64 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_FAST64_TYPE__ == 8 || __INT_FAST64_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 1 /* evaluated by -frewrite-includes */
+# 147 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __FAST64 "ll"
+#endif
+# 149 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_LEAST8_TYPE__ == 0)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 151 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST8 "hh"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST8_TYPE__ == 1 || __INT_LEAST8_TYPE__ == 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 153 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST8 "h"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST8_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 155 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST8
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST8_TYPE__ == 4 || __INT_LEAST8_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 157 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST8 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST8_TYPE__ == 8 || __INT_LEAST8_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 159 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST8 "ll"
+#endif
+# 161 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_LEAST16_TYPE__ == 1 || __INT_LEAST16_TYPE__ == 3)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 162 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST16 "h"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST16_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 164 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST16
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST16_TYPE__ == 4 || __INT_LEAST16_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 166 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST16 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST16_TYPE__ == 8 || __INT_LEAST16_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 168 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST16 "ll"
+#endif
+# 170 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_LEAST32_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 1 /* evaluated by -frewrite-includes */
+# 171 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST32
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST32_TYPE__ == 4 || __INT_LEAST32_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 173 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST32 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST32_TYPE__ == 8 || __INT_LEAST32_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 175 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST32 "ll"
+#endif
+# 177 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if (__INT_LEAST64_TYPE__ == 2)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 178 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST64
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST64_TYPE__ == 4 || __INT_LEAST64_TYPE__ == 6)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 180 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST64 "l"
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif (__INT_LEAST64_TYPE__ == 8 || __INT_LEAST64_TYPE__ == 10)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 1 /* evaluated by -frewrite-includes */
+# 182 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#define __LEAST64 "ll"
+#endif
+# 184 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#undef signed
+#undef unsigned
+#undef char
+#undef short
+#undef int
+#undef long
+#pragma pop_macro("signed")
+#pragma pop_macro("unsigned")
+#pragma pop_macro("char")
+#pragma pop_macro("short")
+#pragma pop_macro("__int20")
+#pragma pop_macro("__int20__")
+#pragma pop_macro("int")
+#pragma pop_macro("long")
+
+#endif /* _SYS__INTSUP_H */
+# 200 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_intsup.h" 3
+#endif /* _intsup.h expanded by -frewrite-includes */
+# 14 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 2 3
+#if defined(__CLANG_REWRITTEN_INCLUDES) || defined(__CLANG_REWRITTEN_SYSTEM_INCLUDES) /* _stdint.h expanded by -frewrite-includes */
+#include <sys/_stdint.h>
+#else /* _stdint.h expanded by -frewrite-includes */
+# 14 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+# 1 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 1 3
+/*
+ * Copyright (c) 2004, 2005 by
+ * Ralf Corsepius, Ulm/Germany. All rights reserved.
+ *
+ * Permission to use, copy, modify, and distribute this software
+ * is freely granted, provided that this notice is preserved.
+ */
+
+#ifndef _SYS__STDINT_H
+#define _SYS__STDINT_H
+
+#if 0 /* expanded by -frewrite-includes */
+#include <machine/_default_types.h>
+#endif /* expanded by -frewrite-includes */
+# 12 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+# 13 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+# 17 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifdef ___int8_t_defined
+#ifndef _INT8_T_DECLARED
+typedef __int8_t int8_t ;
+#define _INT8_T_DECLARED
+#endif
+# 23 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#ifndef _UINT8_T_DECLARED
+typedef __uint8_t uint8_t ;
+#define _UINT8_T_DECLARED
+#endif
+# 27 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#define __int8_t_defined 1
+#endif /* ___int8_t_defined */
+# 29 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifdef ___int16_t_defined
+#ifndef _INT16_T_DECLARED
+typedef __int16_t int16_t ;
+#define _INT16_T_DECLARED
+#endif
+# 35 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#ifndef _UINT16_T_DECLARED
+typedef __uint16_t uint16_t ;
+#define _UINT16_T_DECLARED
+#endif
+# 39 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#define __int16_t_defined 1
+#endif /* ___int16_t_defined */
+# 41 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifdef ___int32_t_defined
+#ifndef _INT32_T_DECLARED
+typedef __int32_t int32_t ;
+#define _INT32_T_DECLARED
+#endif
+# 47 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#ifndef _UINT32_T_DECLARED
+typedef __uint32_t uint32_t ;
+#define _UINT32_T_DECLARED
+#endif
+# 51 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#define __int32_t_defined 1
+#endif /* ___int32_t_defined */
+# 53 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifdef ___int64_t_defined
+#ifndef _INT64_T_DECLARED
+typedef __int64_t int64_t ;
+#define _INT64_T_DECLARED
+#endif
+# 59 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#ifndef _UINT64_T_DECLARED
+typedef __uint64_t uint64_t ;
+#define _UINT64_T_DECLARED
+#endif
+# 63 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#define __int64_t_defined 1
+#endif /* ___int64_t_defined */
+# 65 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifndef _INTMAX_T_DECLARED
+typedef __intmax_t intmax_t;
+#define _INTMAX_T_DECLARED
+#endif
+# 70 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifndef _UINTMAX_T_DECLARED
+typedef __uintmax_t uintmax_t;
+#define _UINTMAX_T_DECLARED
+#endif
+# 75 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifndef _INTPTR_T_DECLARED
+typedef __intptr_t intptr_t;
+#define _INTPTR_T_DECLARED
+#endif
+# 80 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifndef _UINTPTR_T_DECLARED
+typedef __uintptr_t uintptr_t;
+#define _UINTPTR_T_DECLARED
+#endif
+# 85 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#ifdef __cplusplus
+}
+#endif
+# 89 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+
+#endif /* _SYS__STDINT_H */
+# 91 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/sys/_stdint.h" 3
+#endif /* _stdint.h expanded by -frewrite-includes */
+# 15 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 2 3
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+# 19 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef ___int_least8_t_defined
+typedef __int_least8_t int_least8_t;
+typedef __uint_least8_t uint_least8_t;
+#define __int_least8_t_defined 1
+#endif
+# 25 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef ___int_least16_t_defined
+typedef __int_least16_t int_least16_t;
+typedef __uint_least16_t uint_least16_t;
+#define __int_least16_t_defined 1
+#endif
+# 31 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef ___int_least32_t_defined
+typedef __int_least32_t int_least32_t;
+typedef __uint_least32_t uint_least32_t;
+#define __int_least32_t_defined 1
+#endif
+# 37 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef ___int_least64_t_defined
+typedef __int_least64_t int_least64_t;
+typedef __uint_least64_t uint_least64_t;
+#define __int_least64_t_defined 1
+#endif
+# 43 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/*
+ * Fastest minimum-width integer types
+ *
+ * Assume int to be the fastest type for all types with a width 
+ * less than __INT_MAX__ rsp. INT_MAX
+ */
+#ifdef __INT_FAST8_TYPE__
+  typedef __INT_FAST8_TYPE__ int_fast8_t;
+  typedef __UINT_FAST8_TYPE__ uint_fast8_t;
+#define __int_fast8_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __STDINT_EXP(INT_MAX) >= 0x7f
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 55 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef signed int int_fast8_t;
+  typedef unsigned int uint_fast8_t;
+#define __int_fast8_t_defined 1
+#endif
+# 59 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_FAST16_TYPE__
+  typedef __INT_FAST16_TYPE__ int_fast16_t;
+  typedef __UINT_FAST16_TYPE__ uint_fast16_t;
+#define __int_fast16_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __STDINT_EXP(INT_MAX) >= 0x7fff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 65 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef signed int int_fast16_t;
+  typedef unsigned int uint_fast16_t;
+#define __int_fast16_t_defined 1
+#endif
+# 69 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_FAST32_TYPE__
+  typedef __INT_FAST32_TYPE__ int_fast32_t;
+  typedef __UINT_FAST32_TYPE__ uint_fast32_t;
+#define __int_fast32_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __STDINT_EXP(INT_MAX) >= 0x7fffffff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 75 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef signed int int_fast32_t;
+  typedef unsigned int uint_fast32_t;
+#define __int_fast32_t_defined 1
+#endif
+# 79 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_FAST64_TYPE__
+  typedef __INT_FAST64_TYPE__ int_fast64_t;
+  typedef __UINT_FAST64_TYPE__ uint_fast64_t;
+#define __int_fast64_t_defined 1
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __STDINT_EXP(INT_MAX) > 0x7fffffff
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 85 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef signed int int_fast64_t;
+  typedef unsigned int uint_fast64_t;
+#define __int_fast64_t_defined 1
+#endif
+# 89 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/*
+ * Fall back to [u]int_least<N>_t for [u]int_fast<N>_t types
+ * not having been defined, yet.
+ * Leave undefined, if [u]int_least<N>_t should not be available.
+ */
+#if 0 /* disabled by -frewrite-includes */
+#if !__int_fast8_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 96 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __int_least8_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 97 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef int_least8_t int_fast8_t;
+  typedef uint_least8_t uint_fast8_t;
+#define __int_fast8_t_defined 1
+#endif
+# 101 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 102 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if !__int_fast16_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 104 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __int_least16_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 105 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef int_least16_t int_fast16_t;
+  typedef uint_least16_t uint_fast16_t;
+#define __int_fast16_t_defined 1
+#endif
+# 109 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 110 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if !__int_fast32_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 112 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __int_least32_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 113 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef int_least32_t int_fast32_t;
+  typedef uint_least32_t uint_fast32_t;
+#define __int_fast32_t_defined 1
+#endif
+# 117 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 118 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#if 0 /* disabled by -frewrite-includes */
+#if !__int_fast64_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 120 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __int_least64_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 121 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+  typedef int_least64_t int_fast64_t;
+  typedef uint_least64_t uint_fast64_t;
+#define __int_fast64_t_defined 1
+#endif
+# 125 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 126 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INTPTR_TYPE__
+#define INTPTR_MIN (-__INTPTR_MAX__ - 1)
+#define INTPTR_MAX (__INTPTR_MAX__)
+#define UINTPTR_MAX (__UINTPTR_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__PTRDIFF_TYPE__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 132 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INTPTR_MAX PTRDIFF_MAX
+#define INTPTR_MIN PTRDIFF_MIN
+#ifdef __UINTPTR_MAX__
+#define UINTPTR_MAX (__UINTPTR_MAX__)
+#else
+# 137 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define UINTPTR_MAX (2UL * PTRDIFF_MAX + 1)
+#endif
+# 139 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#else
+# 140 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+/*
+ * Fallback to hardcoded values, 
+ * should be valid on cpu's with 32bit int/32bit void*
+ */
+#define INTPTR_MAX (__STDINT_EXP(LONG_MAX))
+#define INTPTR_MIN (-__STDINT_EXP(LONG_MAX) - 1)
+#define UINTPTR_MAX (__STDINT_EXP(LONG_MAX) * 2UL + 1)
+#endif
+# 148 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/* Limits of Specified-Width Integer Types */
+
+#ifdef __INT8_MAX__
+#define INT8_MIN (-__INT8_MAX__ - 1)
+#define INT8_MAX (__INT8_MAX__)
+#define UINT8_MAX (__UINT8_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int8_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 156 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT8_MIN 	(-128)
+#define INT8_MAX 	 (127)
+#define UINT8_MAX 	 (255)
+#endif
+# 160 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_LEAST8_MAX__
+#define INT_LEAST8_MIN (-__INT_LEAST8_MAX__ - 1)
+#define INT_LEAST8_MAX (__INT_LEAST8_MAX__)
+#define UINT_LEAST8_MAX (__UINT_LEAST8_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_least8_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 166 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_LEAST8_MIN 	(-128)
+#define INT_LEAST8_MAX 	 (127)
+#define UINT_LEAST8_MAX	 (255)
+#else
+# 170 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#error required type int_least8_t missing
+#endif
+# 172 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT16_MAX__
+#define INT16_MIN (-__INT16_MAX__ - 1)
+#define INT16_MAX (__INT16_MAX__)
+#define UINT16_MAX (__UINT16_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int16_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 178 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT16_MIN 	(-32768)
+#define INT16_MAX 	 (32767)
+#define UINT16_MAX 	 (65535)
+#endif
+# 182 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_LEAST16_MAX__
+#define INT_LEAST16_MIN (-__INT_LEAST16_MAX__ - 1)
+#define INT_LEAST16_MAX (__INT_LEAST16_MAX__)
+#define UINT_LEAST16_MAX (__UINT_LEAST16_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_least16_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 188 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_LEAST16_MIN	(-32768)
+#define INT_LEAST16_MAX	 (32767)
+#define UINT_LEAST16_MAX (65535)
+#else
+# 192 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#error required type int_least16_t missing
+#endif
+# 194 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT32_MAX__
+#define INT32_MIN (-__INT32_MAX__ - 1)
+#define INT32_MAX (__INT32_MAX__)
+#define UINT32_MAX (__UINT32_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int32_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 200 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if defined (_INT32_EQ_LONG)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 201 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT32_MIN 	 (-2147483647L-1)
+#define INT32_MAX 	 (2147483647L)
+#define UINT32_MAX       (4294967295UL)
+#else
+# 205 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT32_MIN 	 (-2147483647-1)
+#define INT32_MAX 	 (2147483647)
+#define UINT32_MAX       (4294967295U)
+#endif
+# 209 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 210 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_LEAST32_MAX__
+#define INT_LEAST32_MIN (-__INT_LEAST32_MAX__ - 1)
+#define INT_LEAST32_MAX (__INT_LEAST32_MAX__)
+#define UINT_LEAST32_MAX (__UINT_LEAST32_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_least32_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 216 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if defined (_INT32_EQ_LONG)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 217 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_LEAST32_MIN  (-2147483647L-1)
+#define INT_LEAST32_MAX  (2147483647L)
+#define UINT_LEAST32_MAX (4294967295UL)
+#else
+# 221 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_LEAST32_MIN  (-2147483647-1)
+#define INT_LEAST32_MAX  (2147483647)
+#define UINT_LEAST32_MAX (4294967295U)
+#endif
+# 225 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#else
+# 226 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#error required type int_least32_t missing
+#endif
+# 228 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT64_MAX__
+#define INT64_MIN (-__INT64_MAX__ - 1)
+#define INT64_MAX (__INT64_MAX__)
+#define UINT64_MAX (__UINT64_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int64_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 234 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __have_long64
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 235 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT64_MIN 	(-9223372036854775807L-1L)
+#define INT64_MAX 	 (9223372036854775807L)
+#define UINT64_MAX 	(18446744073709551615U)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __have_longlong64
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 239 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT64_MIN 	(-9223372036854775807LL-1LL)
+#define INT64_MAX 	 (9223372036854775807LL)
+#define UINT64_MAX 	(18446744073709551615ULL)
+#endif
+# 243 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 244 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_LEAST64_MAX__
+#define INT_LEAST64_MIN (-__INT_LEAST64_MAX__ - 1)
+#define INT_LEAST64_MAX (__INT_LEAST64_MAX__)
+#define UINT_LEAST64_MAX (__UINT_LEAST64_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_least64_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 250 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __have_long64
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 251 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_LEAST64_MIN  (-9223372036854775807L-1L)
+#define INT_LEAST64_MAX  (9223372036854775807L)
+#define UINT_LEAST64_MAX (18446744073709551615U)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif __have_longlong64
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 255 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_LEAST64_MIN  (-9223372036854775807LL-1LL)
+#define INT_LEAST64_MAX  (9223372036854775807LL)
+#define UINT_LEAST64_MAX (18446744073709551615ULL)
+#endif
+# 259 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 260 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_FAST8_MAX__
+#define INT_FAST8_MIN (-__INT_FAST8_MAX__ - 1)
+#define INT_FAST8_MAX (__INT_FAST8_MAX__)
+#define UINT_FAST8_MAX (__UINT_FAST8_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_fast8_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 266 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __STDINT_EXP(INT_MAX) >= 0x7f
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 267 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST8_MIN	(-__STDINT_EXP(INT_MAX)-1)
+#define INT_FAST8_MAX	(__STDINT_EXP(INT_MAX))
+#define UINT_FAST8_MAX	(__STDINT_EXP(INT_MAX)*2U+1U)
+#else
+# 271 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST8_MIN	INT_LEAST8_MIN
+#define INT_FAST8_MAX	INT_LEAST8_MAX
+#define UINT_FAST8_MAX	UINT_LEAST8_MAX
+#endif
+# 275 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 276 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_FAST16_MAX__
+#define INT_FAST16_MIN (-__INT_FAST16_MAX__ - 1)
+#define INT_FAST16_MAX (__INT_FAST16_MAX__)
+#define UINT_FAST16_MAX (__UINT_FAST16_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_fast16_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 282 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __STDINT_EXP(INT_MAX) >= 0x7fff
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 283 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST16_MIN	(-__STDINT_EXP(INT_MAX)-1)
+#define INT_FAST16_MAX	(__STDINT_EXP(INT_MAX))
+#define UINT_FAST16_MAX	(__STDINT_EXP(INT_MAX)*2U+1U)
+#else
+# 287 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST16_MIN	INT_LEAST16_MIN
+#define INT_FAST16_MAX	INT_LEAST16_MAX
+#define UINT_FAST16_MAX	UINT_LEAST16_MAX
+#endif
+# 291 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 292 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_FAST32_MAX__
+#define INT_FAST32_MIN (-__INT_FAST32_MAX__ - 1)
+#define INT_FAST32_MAX (__INT_FAST32_MAX__)
+#define UINT_FAST32_MAX (__UINT_FAST32_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_fast32_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 298 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __STDINT_EXP(INT_MAX) >= 0x7fffffff
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 299 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST32_MIN	(-__STDINT_EXP(INT_MAX)-1)
+#define INT_FAST32_MAX	(__STDINT_EXP(INT_MAX))
+#define UINT_FAST32_MAX	(__STDINT_EXP(INT_MAX)*2U+1U)
+#else
+# 303 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST32_MIN	INT_LEAST32_MIN
+#define INT_FAST32_MAX	INT_LEAST32_MAX
+#define UINT_FAST32_MAX	UINT_LEAST32_MAX
+#endif
+# 307 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 308 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT_FAST64_MAX__
+#define INT_FAST64_MIN (-__INT_FAST64_MAX__ - 1)
+#define INT_FAST64_MAX (__INT_FAST64_MAX__)
+#define UINT_FAST64_MAX (__UINT_FAST64_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__int_fast64_t_defined)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 314 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __STDINT_EXP(INT_MAX) > 0x7fffffff
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 315 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST64_MIN	(-__STDINT_EXP(INT_MAX)-1)
+#define INT_FAST64_MAX	(__STDINT_EXP(INT_MAX))
+#define UINT_FAST64_MAX	(__STDINT_EXP(INT_MAX)*2U+1U)
+#else
+# 319 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT_FAST64_MIN	INT_LEAST64_MIN
+#define INT_FAST64_MAX	INT_LEAST64_MAX
+#define UINT_FAST64_MAX	UINT_LEAST64_MAX
+#endif
+# 323 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 324 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INTMAX_MAX__
+#define INTMAX_MAX (__INTMAX_MAX__)
+#define INTMAX_MIN (-INTMAX_MAX - 1)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__INTMAX_TYPE__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 329 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+/* All relevant GCC versions prefer long to long long for intmax_t.  */
+#define INTMAX_MAX INT64_MAX
+#define INTMAX_MIN INT64_MIN
+#endif
+# 333 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __UINTMAX_MAX__
+#define UINTMAX_MAX (__UINTMAX_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__UINTMAX_TYPE__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 337 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+/* All relevant GCC versions prefer long to long long for intmax_t.  */
+#define UINTMAX_MAX UINT64_MAX
+#endif
+# 340 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/* This must match size_t in stddef.h, currently long unsigned int */
+#ifdef __SIZE_MAX__
+#define SIZE_MAX (__SIZE_MAX__)
+#else
+# 345 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define SIZE_MAX (__STDINT_EXP(LONG_MAX) * 2UL + 1)
+#endif
+# 347 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/* This must match sig_atomic_t in <signal.h> (currently int) */
+#define SIG_ATOMIC_MIN (-__STDINT_EXP(INT_MAX) - 1)
+#define SIG_ATOMIC_MAX (__STDINT_EXP(INT_MAX))
+
+/* This must match ptrdiff_t  in <stddef.h> (currently long int) */
+#ifdef __PTRDIFF_MAX__
+#define PTRDIFF_MAX (__PTRDIFF_MAX__)
+#else
+# 356 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define PTRDIFF_MAX (__STDINT_EXP(LONG_MAX))
+#endif
+# 358 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define PTRDIFF_MIN (-PTRDIFF_MAX - 1)
+
+/* This must match definition in <wchar.h> */
+#ifndef WCHAR_MIN
+#ifdef __WCHAR_MIN__
+#define WCHAR_MIN (__WCHAR_MIN__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__WCHAR_UNSIGNED__) || (L'\0' - 1 > 0)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 365 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define WCHAR_MIN (0 + L'\0')
+#else
+# 367 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define WCHAR_MIN (-0x7fffffff - 1 + L'\0')
+#endif
+# 369 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 370 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/* This must match definition in <wchar.h> */
+#ifndef WCHAR_MAX
+#ifdef __WCHAR_MAX__
+#define WCHAR_MAX (__WCHAR_MAX__)
+#if 0 /* disabled by -frewrite-includes */
+#if 0
+#elif defined(__WCHAR_UNSIGNED__) || (L'\0' - 1 > 0)
+#endif
+#endif /* disabled by -frewrite-includes */
+#elif 0 /* evaluated by -frewrite-includes */
+# 376 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define WCHAR_MAX (0xffffffffu + L'\0')
+#else
+# 378 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define WCHAR_MAX (0x7fffffff + L'\0')
+#endif
+# 380 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 381 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/* wint_t is unsigned int on almost all GCC targets.  */
+#ifdef __WINT_MAX__
+#define WINT_MAX (__WINT_MAX__)
+#else
+# 386 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define WINT_MAX (__STDINT_EXP(INT_MAX) * 2U + 1U)
+#endif
+# 388 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#ifdef __WINT_MIN__
+#define WINT_MIN (__WINT_MIN__)
+#else
+# 391 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define WINT_MIN (0U)
+#endif
+# 393 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/** Macros for minimum-width integer constant expressions */
+#ifdef __INT8_C
+#define INT8_C(x) __INT8_C(x)
+#define UINT8_C(x) __UINT8_C(x)
+#else
+# 399 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT8_C(x)	x
+#if 0 /* disabled by -frewrite-includes */
+#if __STDINT_EXP(INT_MAX) > 0x7f
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 401 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define UINT8_C(x)	x
+#else
+# 403 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define UINT8_C(x)	x##U
+#endif
+# 405 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 406 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT16_C
+#define INT16_C(x) __INT16_C(x)
+#define UINT16_C(x) __UINT16_C(x)
+#else
+# 411 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT16_C(x)	x
+#if 0 /* disabled by -frewrite-includes */
+#if __STDINT_EXP(INT_MAX) > 0x7fff
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 413 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define UINT16_C(x)	x
+#else
+# 415 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define UINT16_C(x)	x##U
+#endif
+# 417 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 418 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT32_C
+#define INT32_C(x) __INT32_C(x)
+#define UINT32_C(x) __UINT32_C(x)
+#else
+# 423 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if defined (_INT32_EQ_LONG)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 424 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT32_C(x)	x##L
+#define UINT32_C(x)	x##UL
+#else
+# 427 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT32_C(x)	x
+#define UINT32_C(x)	x##U
+#endif
+# 430 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 431 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#ifdef __INT64_C
+#define INT64_C(x) __INT64_C(x)
+#define UINT64_C(x) __UINT64_C(x)
+#else
+# 436 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __int64_t_defined
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 437 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __have_long64
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 438 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT64_C(x)	x##L
+#define UINT64_C(x)	x##UL
+#else
+# 441 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INT64_C(x)	x##LL
+#define UINT64_C(x)	x##ULL
+#endif
+# 444 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 445 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 446 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+/** Macros for greatest-width integer constant expression */
+#ifdef __INTMAX_C
+#define INTMAX_C(x) __INTMAX_C(x)
+#define UINTMAX_C(x) __UINTMAX_C(x)
+#else
+# 452 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#if 0 /* disabled by -frewrite-includes */
+#if __have_long64
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 453 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INTMAX_C(x)	x##L
+#define UINTMAX_C(x)	x##UL
+#else
+# 456 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#define INTMAX_C(x)	x##LL
+#define UINTMAX_C(x)	x##ULL
+#endif
+# 459 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif
+# 460 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+
+#ifdef __cplusplus
+}
+#endif
+# 465 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+
+#endif /* _STDINT_H */
+# 467 "/home/thebigclub/riscv/llvm/rv32ec/bin/../lib/gcc/riscv32-unknown-elf/14.2.0/../../../../riscv32-unknown-elf/include/stdint.h" 3
+#endif /* stdint.h expanded by -frewrite-includes */
+# 57 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 2 3
+
+# ifdef __STDC_LIMIT_MACROS_DEFINED_BY_CLANG
+#  undef __STDC_LIMIT_MACROS
+#  undef __STDC_LIMIT_MACROS_DEFINED_BY_CLANG
+# endif
+# 62 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# ifdef __STDC_CONSTANT_MACROS_DEFINED_BY_CLANG
+#  undef __STDC_CONSTANT_MACROS
+#  undef __STDC_CONSTANT_MACROS_DEFINED_BY_CLANG
+# endif
+# 66 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#else
+# 68 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* C99 7.18.1.1 Exact-width integer types.
+ * C99 7.18.1.2 Minimum-width integer types.
+ * C99 7.18.1.3 Fastest minimum-width integer types.
+ *
+ * The standard requires that exact-width type be defined for 8-, 16-, 32-, and
+ * 64-bit types if they are implemented. Other exact width types are optional.
+ * This implementation defines an exact-width types for every integer width
+ * that is represented in the standard integer types.
+ *
+ * The standard also requires minimum-width types be defined for 8-, 16-, 32-,
+ * and 64-bit widths regardless of whether there are corresponding exact-width
+ * types.
+ *
+ * To accommodate targets that are missing types that are exactly 8, 16, 32, or
+ * 64 bits wide, this implementation takes an approach of cascading
+ * redefinitions, redefining __int_leastN_t to successively smaller exact-width
+ * types. It is therefore important that the types are defined in order of
+ * descending widths.
+ *
+ * We currently assume that the minimum-width types and the fastest
+ * minimum-width types are the same. This is allowed by the standard, but is
+ * suboptimal.
+ *
+ * In violation of the standard, some targets do not implement a type that is
+ * wide enough to represent all of the required widths (8-, 16-, 32-, 64-bit).
+ * To accommodate these targets, a required minimum-width type is only
+ * defined if there exists an exact-width type of equal or greater width.
+ */
+
+#ifdef __INT64_TYPE__
+# ifndef __int8_t_defined /* glibc sys/types.h also defines int64_t*/
+typedef __INT64_TYPE__ int64_t;
+# endif /* __int8_t_defined */
+# 102 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+typedef __UINT64_TYPE__ uint64_t;
+# undef __int_least64_t
+# define __int_least64_t int64_t
+# undef __uint_least64_t
+# define __uint_least64_t uint64_t
+# undef __int_least32_t
+# define __int_least32_t int64_t
+# undef __uint_least32_t
+# define __uint_least32_t uint64_t
+# undef __int_least16_t
+# define __int_least16_t int64_t
+# undef __uint_least16_t
+# define __uint_least16_t uint64_t
+# undef __int_least8_t
+# define __int_least8_t int64_t
+# undef __uint_least8_t
+# define __uint_least8_t uint64_t
+#endif /* __INT64_TYPE__ */
+# 120 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __int_least64_t
+typedef __int_least64_t int_least64_t;
+typedef __uint_least64_t uint_least64_t;
+typedef __int_least64_t int_fast64_t;
+typedef __uint_least64_t uint_fast64_t;
+#endif /* __int_least64_t */
+# 127 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __INT56_TYPE__
+typedef __INT56_TYPE__ int56_t;
+typedef __UINT56_TYPE__ uint56_t;
+typedef int56_t int_least56_t;
+typedef uint56_t uint_least56_t;
+typedef int56_t int_fast56_t;
+typedef uint56_t uint_fast56_t;
+# undef __int_least32_t
+# define __int_least32_t int56_t
+# undef __uint_least32_t
+# define __uint_least32_t uint56_t
+# undef __int_least16_t
+# define __int_least16_t int56_t
+# undef __uint_least16_t
+# define __uint_least16_t uint56_t
+# undef __int_least8_t
+# define __int_least8_t int56_t
+# undef __uint_least8_t
+# define __uint_least8_t uint56_t
+#endif /* __INT56_TYPE__ */
+# 148 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT48_TYPE__
+typedef __INT48_TYPE__ int48_t;
+typedef __UINT48_TYPE__ uint48_t;
+typedef int48_t int_least48_t;
+typedef uint48_t uint_least48_t;
+typedef int48_t int_fast48_t;
+typedef uint48_t uint_fast48_t;
+# undef __int_least32_t
+# define __int_least32_t int48_t
+# undef __uint_least32_t
+# define __uint_least32_t uint48_t
+# undef __int_least16_t
+# define __int_least16_t int48_t
+# undef __uint_least16_t
+# define __uint_least16_t uint48_t
+# undef __int_least8_t
+# define __int_least8_t int48_t
+# undef __uint_least8_t
+# define __uint_least8_t uint48_t
+#endif /* __INT48_TYPE__ */
+# 170 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT40_TYPE__
+typedef __INT40_TYPE__ int40_t;
+typedef __UINT40_TYPE__ uint40_t;
+typedef int40_t int_least40_t;
+typedef uint40_t uint_least40_t;
+typedef int40_t int_fast40_t;
+typedef uint40_t uint_fast40_t;
+# undef __int_least32_t
+# define __int_least32_t int40_t
+# undef __uint_least32_t
+# define __uint_least32_t uint40_t
+# undef __int_least16_t
+# define __int_least16_t int40_t
+# undef __uint_least16_t
+# define __uint_least16_t uint40_t
+# undef __int_least8_t
+# define __int_least8_t int40_t
+# undef __uint_least8_t
+# define __uint_least8_t uint40_t
+#endif /* __INT40_TYPE__ */
+# 192 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT32_TYPE__
+
+# ifndef __int8_t_defined /* glibc sys/types.h also defines int32_t*/
+typedef __INT32_TYPE__ int32_t;
+# endif /* __int8_t_defined */
+# 199 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+# ifndef __uint32_t_defined  /* more glibc compatibility */
+# define __uint32_t_defined
+typedef __UINT32_TYPE__ uint32_t;
+# endif /* __uint32_t_defined */
+# 204 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+# undef __int_least32_t
+# define __int_least32_t int32_t
+# undef __uint_least32_t
+# define __uint_least32_t uint32_t
+# undef __int_least16_t
+# define __int_least16_t int32_t
+# undef __uint_least16_t
+# define __uint_least16_t uint32_t
+# undef __int_least8_t
+# define __int_least8_t int32_t
+# undef __uint_least8_t
+# define __uint_least8_t uint32_t
+#endif /* __INT32_TYPE__ */
+# 218 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __int_least32_t
+typedef __int_least32_t int_least32_t;
+typedef __uint_least32_t uint_least32_t;
+typedef __int_least32_t int_fast32_t;
+typedef __uint_least32_t uint_fast32_t;
+#endif /* __int_least32_t */
+# 225 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __INT24_TYPE__
+typedef __INT24_TYPE__ int24_t;
+typedef __UINT24_TYPE__ uint24_t;
+typedef int24_t int_least24_t;
+typedef uint24_t uint_least24_t;
+typedef int24_t int_fast24_t;
+typedef uint24_t uint_fast24_t;
+# undef __int_least16_t
+# define __int_least16_t int24_t
+# undef __uint_least16_t
+# define __uint_least16_t uint24_t
+# undef __int_least8_t
+# define __int_least8_t int24_t
+# undef __uint_least8_t
+# define __uint_least8_t uint24_t
+#endif /* __INT24_TYPE__ */
+# 242 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __INT16_TYPE__
+#ifndef __int8_t_defined /* glibc sys/types.h also defines int16_t*/
+typedef __INT16_TYPE__ int16_t;
+#endif /* __int8_t_defined */
+# 247 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+typedef __UINT16_TYPE__ uint16_t;
+# undef __int_least16_t
+# define __int_least16_t int16_t
+# undef __uint_least16_t
+# define __uint_least16_t uint16_t
+# undef __int_least8_t
+# define __int_least8_t int16_t
+# undef __uint_least8_t
+# define __uint_least8_t uint16_t
+#endif /* __INT16_TYPE__ */
+# 257 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __int_least16_t
+typedef __int_least16_t int_least16_t;
+typedef __uint_least16_t uint_least16_t;
+typedef __int_least16_t int_fast16_t;
+typedef __uint_least16_t uint_fast16_t;
+#endif /* __int_least16_t */
+# 264 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT8_TYPE__
+#ifndef __int8_t_defined  /* glibc sys/types.h also defines int8_t*/
+typedef __INT8_TYPE__ int8_t;
+#endif /* __int8_t_defined */
+# 270 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+typedef __UINT8_TYPE__ uint8_t;
+# undef __int_least8_t
+# define __int_least8_t int8_t
+# undef __uint_least8_t
+# define __uint_least8_t uint8_t
+#endif /* __INT8_TYPE__ */
+# 276 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __int_least8_t
+typedef __int_least8_t int_least8_t;
+typedef __uint_least8_t uint_least8_t;
+typedef __int_least8_t int_fast8_t;
+typedef __uint_least8_t uint_fast8_t;
+#endif /* __int_least8_t */
+# 283 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* prevent glibc sys/types.h from defining conflicting types */
+#ifndef __int8_t_defined
+# define __int8_t_defined
+#endif /* __int8_t_defined */
+# 288 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* C99 7.18.1.4 Integer types capable of holding object pointers.
+ */
+#define __stdint_join3(a,b,c) a ## b ## c
+
+#ifndef _INTPTR_T
+#ifndef __intptr_t_defined
+typedef __INTPTR_TYPE__ intptr_t;
+#define __intptr_t_defined
+#define _INTPTR_T
+#endif
+# 299 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif
+# 300 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifndef _UINTPTR_T
+typedef __UINTPTR_TYPE__ uintptr_t;
+#define _UINTPTR_T
+#endif
+# 305 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* C99 7.18.1.5 Greatest-width integer types.
+ */
+typedef __INTMAX_TYPE__  intmax_t;
+typedef __UINTMAX_TYPE__ uintmax_t;
+
+/* C99 7.18.4 Macros for minimum-width integer constants.
+ *
+ * The standard requires that integer constant macros be defined for all the
+ * minimum-width types defined above. As 8-, 16-, 32-, and 64-bit minimum-width
+ * types are required, the corresponding integer constant macros are defined
+ * here. This implementation also defines minimum-width types for every other
+ * integer width that the target implements, so corresponding macros are
+ * defined below, too.
+ *
+ * Note that C++ should not check __STDC_CONSTANT_MACROS here, contrary to the
+ * claims of the C standard (see C++ 18.3.1p2, [cstdint.syn]).
+ */
+
+#ifdef __int_least64_t
+#define INT64_C(v) __INT64_C(v)
+#define UINT64_C(v) __UINT64_C(v)
+#endif /* __int_least64_t */
+# 328 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT56_TYPE__
+#define INT56_C(v) __INT56_C(v)
+#define UINT56_C(v) __UINT56_C(v)
+#endif /* __INT56_TYPE__ */
+# 334 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT48_TYPE__
+#define INT48_C(v) __INT48_C(v)
+#define UINT48_C(v) __UINT48_C(v)
+#endif /* __INT48_TYPE__ */
+# 340 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT40_TYPE__
+#define INT40_C(v) __INT40_C(v)
+#define UINT40_C(v) __UINT40_C(v)
+#endif /* __INT40_TYPE__ */
+# 346 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __int_least32_t
+#define INT32_C(v) __INT32_C(v)
+#define UINT32_C(v) __UINT32_C(v)
+#endif /* __int_least32_t */
+# 352 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT24_TYPE__
+#define INT24_C(v) __INT24_C(v)
+#define UINT24_C(v) __UINT24_C(v)
+#endif /* __INT24_TYPE__ */
+# 358 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __int_least16_t
+#define INT16_C(v) __INT16_C(v)
+#define UINT16_C(v) __UINT16_C(v)
+#endif /* __int_least16_t */
+# 364 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __int_least8_t
+#define INT8_C(v) __INT8_C(v)
+#define UINT8_C(v) __UINT8_C(v)
+#endif /* __int_least8_t */
+# 370 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+/* C99 7.18.2.1 Limits of exact-width integer types.
+ * C99 7.18.2.2 Limits of minimum-width integer types.
+ * C99 7.18.2.3 Limits of fastest minimum-width integer types.
+ *
+ * The presence of limit macros are completely optional in C99.  This
+ * implementation defines limits for all of the types (exact- and
+ * minimum-width) that it defines above, using the limits of the minimum-width
+ * type for any types that do not have exact-width representations.
+ *
+ * As in the type definitions, this section takes an approach of
+ * successive-shrinking to determine which limits to use for the standard (8,
+ * 16, 32, 64) bit widths when they don't have exact representations. It is
+ * therefore important that the definitions be kept in order of decending
+ * widths.
+ *
+ * Note that C++ should not check __STDC_LIMIT_MACROS here, contrary to the
+ * claims of the C standard (see C++ 18.3.1p2, [cstdint.syn]).
+ */
+
+#ifdef __INT64_TYPE__
+# define INT64_MAX           INT64_C( 9223372036854775807)
+# define INT64_MIN         (-INT64_C( 9223372036854775807)-1)
+# define UINT64_MAX         UINT64_C(18446744073709551615)
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 397 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT64_WIDTH         64
+# define INT64_WIDTH          UINT64_WIDTH
+
+# define __UINT_LEAST64_WIDTH UINT64_WIDTH
+# undef __UINT_LEAST32_WIDTH
+# define __UINT_LEAST32_WIDTH UINT64_WIDTH
+# undef __UINT_LEAST16_WIDTH
+# define __UINT_LEAST16_WIDTH UINT64_WIDTH
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX UINT64_MAX
+#endif /* __STDC_VERSION__ */
+# 408 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+# define __INT_LEAST64_MIN   INT64_MIN
+# define __INT_LEAST64_MAX   INT64_MAX
+# define __UINT_LEAST64_MAX UINT64_MAX
+# undef __INT_LEAST32_MIN
+# define __INT_LEAST32_MIN   INT64_MIN
+# undef __INT_LEAST32_MAX
+# define __INT_LEAST32_MAX   INT64_MAX
+# undef __UINT_LEAST32_MAX
+# define __UINT_LEAST32_MAX UINT64_MAX
+# undef __INT_LEAST16_MIN
+# define __INT_LEAST16_MIN   INT64_MIN
+# undef __INT_LEAST16_MAX
+# define __INT_LEAST16_MAX   INT64_MAX
+# undef __UINT_LEAST16_MAX
+# define __UINT_LEAST16_MAX UINT64_MAX
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT64_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT64_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT64_MAX
+#endif /* __INT64_TYPE__ */
+# 431 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __INT_LEAST64_MIN
+# define INT_LEAST64_MIN   __INT_LEAST64_MIN
+# define INT_LEAST64_MAX   __INT_LEAST64_MAX
+# define UINT_LEAST64_MAX __UINT_LEAST64_MAX
+# define INT_FAST64_MIN    __INT_LEAST64_MIN
+# define INT_FAST64_MAX    __INT_LEAST64_MAX
+# define UINT_FAST64_MAX  __UINT_LEAST64_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) &&  __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 441 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT_LEAST64_WIDTH __UINT_LEAST64_WIDTH
+# define INT_LEAST64_WIDTH  UINT_LEAST64_WIDTH
+# define UINT_FAST64_WIDTH  __UINT_LEAST64_WIDTH
+# define INT_FAST64_WIDTH   UINT_FAST64_WIDTH
+#endif /* __STDC_VERSION__ */
+# 446 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT_LEAST64_MIN */
+# 447 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT56_TYPE__
+# define INT56_MAX           INT56_C(36028797018963967)
+# define INT56_MIN         (-INT56_C(36028797018963967)-1)
+# define UINT56_MAX         UINT56_C(72057594037927935)
+# define INT_LEAST56_MIN     INT56_MIN
+# define INT_LEAST56_MAX     INT56_MAX
+# define UINT_LEAST56_MAX   UINT56_MAX
+# define INT_FAST56_MIN      INT56_MIN
+# define INT_FAST56_MAX      INT56_MAX
+# define UINT_FAST56_MAX    UINT56_MAX
+
+# undef __INT_LEAST32_MIN
+# define __INT_LEAST32_MIN   INT56_MIN
+# undef __INT_LEAST32_MAX
+# define __INT_LEAST32_MAX   INT56_MAX
+# undef __UINT_LEAST32_MAX
+# define __UINT_LEAST32_MAX UINT56_MAX
+# undef __INT_LEAST16_MIN
+# define __INT_LEAST16_MIN   INT56_MIN
+# undef __INT_LEAST16_MAX
+# define __INT_LEAST16_MAX   INT56_MAX
+# undef __UINT_LEAST16_MAX
+# define __UINT_LEAST16_MAX UINT56_MAX
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT56_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT56_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT56_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 480 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT56_WIDTH         56
+# define INT56_WIDTH          UINT56_WIDTH
+# define UINT_LEAST56_WIDTH   UINT56_WIDTH
+# define INT_LEAST56_WIDTH    UINT_LEAST56_WIDTH
+# define UINT_FAST56_WIDTH    UINT56_WIDTH
+# define INT_FAST56_WIDTH     UINT_FAST56_WIDTH
+# undef __UINT_LEAST32_WIDTH
+# define __UINT_LEAST32_WIDTH UINT56_WIDTH
+# undef __UINT_LEAST16_WIDTH
+# define __UINT_LEAST16_WIDTH UINT56_WIDTH
+# undef __UINT_LEAST8_WIDTH
+# define __UINT_LEAST8_WIDTH  UINT56_WIDTH
+#endif /* __STDC_VERSION__ */
+# 493 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT56_TYPE__ */
+# 494 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT48_TYPE__
+# define INT48_MAX           INT48_C(140737488355327)
+# define INT48_MIN         (-INT48_C(140737488355327)-1)
+# define UINT48_MAX         UINT48_C(281474976710655)
+# define INT_LEAST48_MIN     INT48_MIN
+# define INT_LEAST48_MAX     INT48_MAX
+# define UINT_LEAST48_MAX   UINT48_MAX
+# define INT_FAST48_MIN      INT48_MIN
+# define INT_FAST48_MAX      INT48_MAX
+# define UINT_FAST48_MAX    UINT48_MAX
+
+# undef __INT_LEAST32_MIN
+# define __INT_LEAST32_MIN   INT48_MIN
+# undef __INT_LEAST32_MAX
+# define __INT_LEAST32_MAX   INT48_MAX
+# undef __UINT_LEAST32_MAX
+# define __UINT_LEAST32_MAX UINT48_MAX
+# undef __INT_LEAST16_MIN
+# define __INT_LEAST16_MIN   INT48_MIN
+# undef __INT_LEAST16_MAX
+# define __INT_LEAST16_MAX   INT48_MAX
+# undef __UINT_LEAST16_MAX
+# define __UINT_LEAST16_MAX UINT48_MAX
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT48_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT48_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT48_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 527 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#define UINT48_WIDTH         48
+#define INT48_WIDTH          UINT48_WIDTH
+#define UINT_LEAST48_WIDTH   UINT48_WIDTH
+#define INT_LEAST48_WIDTH    UINT_LEAST48_WIDTH
+#define UINT_FAST48_WIDTH    UINT48_WIDTH
+#define INT_FAST48_WIDTH     UINT_FAST48_WIDTH
+#undef __UINT_LEAST32_WIDTH
+#define __UINT_LEAST32_WIDTH UINT48_WIDTH
+# undef __UINT_LEAST16_WIDTH
+#define __UINT_LEAST16_WIDTH UINT48_WIDTH
+# undef __UINT_LEAST8_WIDTH
+#define __UINT_LEAST8_WIDTH  UINT48_WIDTH
+#endif /* __STDC_VERSION__ */
+# 540 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT48_TYPE__ */
+# 541 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT40_TYPE__
+# define INT40_MAX           INT40_C(549755813887)
+# define INT40_MIN         (-INT40_C(549755813887)-1)
+# define UINT40_MAX         UINT40_C(1099511627775)
+# define INT_LEAST40_MIN     INT40_MIN
+# define INT_LEAST40_MAX     INT40_MAX
+# define UINT_LEAST40_MAX   UINT40_MAX
+# define INT_FAST40_MIN      INT40_MIN
+# define INT_FAST40_MAX      INT40_MAX
+# define UINT_FAST40_MAX    UINT40_MAX
+
+# undef __INT_LEAST32_MIN
+# define __INT_LEAST32_MIN   INT40_MIN
+# undef __INT_LEAST32_MAX
+# define __INT_LEAST32_MAX   INT40_MAX
+# undef __UINT_LEAST32_MAX
+# define __UINT_LEAST32_MAX UINT40_MAX
+# undef __INT_LEAST16_MIN
+# define __INT_LEAST16_MIN   INT40_MIN
+# undef __INT_LEAST16_MAX
+# define __INT_LEAST16_MAX   INT40_MAX
+# undef __UINT_LEAST16_MAX
+# define __UINT_LEAST16_MAX UINT40_MAX
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT40_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT40_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT40_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 574 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT40_WIDTH         40
+# define INT40_WIDTH          UINT40_WIDTH
+# define UINT_LEAST40_WIDTH   UINT40_WIDTH
+# define INT_LEAST40_WIDTH    UINT_LEAST40_WIDTH
+# define UINT_FAST40_WIDTH    UINT40_WIDTH
+# define INT_FAST40_WIDTH     UINT_FAST40_WIDTH
+# undef __UINT_LEAST32_WIDTH
+# define __UINT_LEAST32_WIDTH UINT40_WIDTH
+# undef __UINT_LEAST16_WIDTH
+# define __UINT_LEAST16_WIDTH UINT40_WIDTH
+# undef __UINT_LEAST8_WIDTH
+# define __UINT_LEAST8_WIDTH  UINT40_WIDTH
+#endif /* __STDC_VERSION__ */
+# 587 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT40_TYPE__ */
+# 588 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT32_TYPE__
+# define INT32_MAX           INT32_C(2147483647)
+# define INT32_MIN         (-INT32_C(2147483647)-1)
+# define UINT32_MAX         UINT32_C(4294967295)
+
+# undef __INT_LEAST32_MIN
+# define __INT_LEAST32_MIN   INT32_MIN
+# undef __INT_LEAST32_MAX
+# define __INT_LEAST32_MAX   INT32_MAX
+# undef __UINT_LEAST32_MAX
+# define __UINT_LEAST32_MAX UINT32_MAX
+# undef __INT_LEAST16_MIN
+# define __INT_LEAST16_MIN   INT32_MIN
+# undef __INT_LEAST16_MAX
+# define __INT_LEAST16_MAX   INT32_MAX
+# undef __UINT_LEAST16_MAX
+# define __UINT_LEAST16_MAX UINT32_MAX
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT32_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT32_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT32_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 615 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT32_WIDTH         32
+# define INT32_WIDTH          UINT32_WIDTH
+# undef __UINT_LEAST32_WIDTH
+# define __UINT_LEAST32_WIDTH UINT32_WIDTH
+# undef __UINT_LEAST16_WIDTH
+# define __UINT_LEAST16_WIDTH UINT32_WIDTH
+# undef __UINT_LEAST8_WIDTH
+# define __UINT_LEAST8_WIDTH  UINT32_WIDTH
+#endif /* __STDC_VERSION__ */
+# 624 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT32_TYPE__ */
+# 625 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __INT_LEAST32_MIN
+# define INT_LEAST32_MIN   __INT_LEAST32_MIN
+# define INT_LEAST32_MAX   __INT_LEAST32_MAX
+# define UINT_LEAST32_MAX __UINT_LEAST32_MAX
+# define INT_FAST32_MIN    __INT_LEAST32_MIN
+# define INT_FAST32_MAX    __INT_LEAST32_MAX
+# define UINT_FAST32_MAX  __UINT_LEAST32_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 635 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT_LEAST32_WIDTH __UINT_LEAST32_WIDTH
+# define INT_LEAST32_WIDTH  UINT_LEAST32_WIDTH
+# define UINT_FAST32_WIDTH  __UINT_LEAST32_WIDTH
+# define INT_FAST32_WIDTH   UINT_FAST32_WIDTH
+#endif /* __STDC_VERSION__ */
+# 640 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT_LEAST32_MIN */
+# 641 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT24_TYPE__
+# define INT24_MAX           INT24_C(8388607)
+# define INT24_MIN         (-INT24_C(8388607)-1)
+# define UINT24_MAX         UINT24_C(16777215)
+# define INT_LEAST24_MIN     INT24_MIN
+# define INT_LEAST24_MAX     INT24_MAX
+# define UINT_LEAST24_MAX   UINT24_MAX
+# define INT_FAST24_MIN      INT24_MIN
+# define INT_FAST24_MAX      INT24_MAX
+# define UINT_FAST24_MAX    UINT24_MAX
+
+# undef __INT_LEAST16_MIN
+# define __INT_LEAST16_MIN   INT24_MIN
+# undef __INT_LEAST16_MAX
+# define __INT_LEAST16_MAX   INT24_MAX
+# undef __UINT_LEAST16_MAX
+# define __UINT_LEAST16_MAX UINT24_MAX
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT24_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT24_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT24_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 668 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT24_WIDTH         24
+# define INT24_WIDTH          UINT24_WIDTH
+# define UINT_LEAST24_WIDTH   UINT24_WIDTH
+# define INT_LEAST24_WIDTH    UINT_LEAST24_WIDTH
+# define UINT_FAST24_WIDTH    UINT24_WIDTH
+# define INT_FAST24_WIDTH     UINT_FAST24_WIDTH
+# undef __UINT_LEAST16_WIDTH
+# define __UINT_LEAST16_WIDTH UINT24_WIDTH
+# undef __UINT_LEAST8_WIDTH
+# define __UINT_LEAST8_WIDTH  UINT24_WIDTH
+#endif /* __STDC_VERSION__ */
+# 679 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT24_TYPE__ */
+# 680 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT16_TYPE__
+#define INT16_MAX            INT16_C(32767)
+#define INT16_MIN          (-INT16_C(32767)-1)
+#define UINT16_MAX          UINT16_C(65535)
+
+# undef __INT_LEAST16_MIN
+# define __INT_LEAST16_MIN   INT16_MIN
+# undef __INT_LEAST16_MAX
+# define __INT_LEAST16_MAX   INT16_MAX
+# undef __UINT_LEAST16_MAX
+# define __UINT_LEAST16_MAX UINT16_MAX
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT16_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT16_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT16_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 701 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT16_WIDTH         16
+# define INT16_WIDTH          UINT16_WIDTH
+# undef __UINT_LEAST16_WIDTH
+# define __UINT_LEAST16_WIDTH UINT16_WIDTH
+# undef __UINT_LEAST8_WIDTH
+# define __UINT_LEAST8_WIDTH  UINT16_WIDTH
+#endif /* __STDC_VERSION__ */
+# 708 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT16_TYPE__ */
+# 709 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __INT_LEAST16_MIN
+# define INT_LEAST16_MIN   __INT_LEAST16_MIN
+# define INT_LEAST16_MAX   __INT_LEAST16_MAX
+# define UINT_LEAST16_MAX __UINT_LEAST16_MAX
+# define INT_FAST16_MIN    __INT_LEAST16_MIN
+# define INT_FAST16_MAX    __INT_LEAST16_MAX
+# define UINT_FAST16_MAX  __UINT_LEAST16_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 719 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT_LEAST16_WIDTH __UINT_LEAST16_WIDTH
+# define INT_LEAST16_WIDTH  UINT_LEAST16_WIDTH
+# define UINT_FAST16_WIDTH  __UINT_LEAST16_WIDTH
+# define INT_FAST16_WIDTH   UINT_FAST16_WIDTH
+#endif /* __STDC_VERSION__ */
+# 724 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT_LEAST16_MIN */
+# 725 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+
+#ifdef __INT8_TYPE__
+# define INT8_MAX            INT8_C(127)
+# define INT8_MIN          (-INT8_C(127)-1)
+# define UINT8_MAX          UINT8_C(255)
+
+# undef __INT_LEAST8_MIN
+# define __INT_LEAST8_MIN    INT8_MIN
+# undef __INT_LEAST8_MAX
+# define __INT_LEAST8_MAX    INT8_MAX
+# undef __UINT_LEAST8_MAX
+# define __UINT_LEAST8_MAX  UINT8_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 740 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT8_WIDTH         8
+# define INT8_WIDTH          UINT8_WIDTH
+# undef __UINT_LEAST8_WIDTH
+# define __UINT_LEAST8_WIDTH UINT8_WIDTH
+#endif /* __STDC_VERSION__ */
+# 745 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT8_TYPE__ */
+# 746 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifdef __INT_LEAST8_MIN
+# define INT_LEAST8_MIN   __INT_LEAST8_MIN
+# define INT_LEAST8_MAX   __INT_LEAST8_MAX
+# define UINT_LEAST8_MAX __UINT_LEAST8_MAX
+# define INT_FAST8_MIN    __INT_LEAST8_MIN
+# define INT_FAST8_MAX    __INT_LEAST8_MAX
+# define UINT_FAST8_MAX  __UINT_LEAST8_MAX
+
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 756 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define UINT_LEAST8_WIDTH __UINT_LEAST8_WIDTH
+# define INT_LEAST8_WIDTH  UINT_LEAST8_WIDTH
+# define UINT_FAST8_WIDTH  __UINT_LEAST8_WIDTH
+# define INT_FAST8_WIDTH   UINT_FAST8_WIDTH
+#endif /* __STDC_VERSION__ */
+# 761 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __INT_LEAST8_MIN */
+# 762 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* Some utility macros */
+#define  __INTN_MIN(n)  __stdint_join3( INT, n, _MIN)
+#define  __INTN_MAX(n)  __stdint_join3( INT, n, _MAX)
+#define __UINTN_MAX(n)  __stdint_join3(UINT, n, _MAX)
+#define  __INTN_C(n, v) __stdint_join3( INT, n, _C(v))
+#define __UINTN_C(n, v) __stdint_join3(UINT, n, _C(v))
+
+/* C99 7.18.2.4 Limits of integer types capable of holding object pointers. */
+/* C99 7.18.3 Limits of other integer types. */
+
+#define  INTPTR_MIN  (-__INTPTR_MAX__-1)
+#define  INTPTR_MAX    __INTPTR_MAX__
+#define UINTPTR_MAX   __UINTPTR_MAX__
+#define PTRDIFF_MIN (-__PTRDIFF_MAX__-1)
+#define PTRDIFF_MAX   __PTRDIFF_MAX__
+#define    SIZE_MAX      __SIZE_MAX__
+
+/* C23 7.22.2.4 Width of integer types capable of holding object pointers. */
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 782 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+/* NB: The C standard requires that these be the same value, but the compiler
+   exposes separate internal width macros. */
+#define INTPTR_WIDTH  __INTPTR_WIDTH__
+#define UINTPTR_WIDTH __UINTPTR_WIDTH__
+#endif
+# 787 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* ISO9899:2011 7.20 (C11 Annex K): Define RSIZE_MAX if __STDC_WANT_LIB_EXT1__
+ * is enabled. */
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_WANT_LIB_EXT1__) && __STDC_WANT_LIB_EXT1__ >= 1
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 791 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#define   RSIZE_MAX            (SIZE_MAX >> 1)
+#endif
+# 793 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* C99 7.18.2.5 Limits of greatest-width integer types. */
+#define  INTMAX_MIN (-__INTMAX_MAX__-1)
+#define  INTMAX_MAX   __INTMAX_MAX__
+#define UINTMAX_MAX  __UINTMAX_MAX__
+
+/* C23 7.22.2.5 Width of greatest-width integer types. */
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 801 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+/* NB: The C standard requires that these be the same value, but the compiler
+   exposes separate internal width macros. */
+#define INTMAX_WIDTH __INTMAX_WIDTH__
+#define UINTMAX_WIDTH __UINTMAX_WIDTH__
+#endif
+# 806 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* C99 7.18.3 Limits of other integer types. */
+#define SIG_ATOMIC_MIN __INTN_MIN(__SIG_ATOMIC_WIDTH__)
+#define SIG_ATOMIC_MAX __INTN_MAX(__SIG_ATOMIC_WIDTH__)
+#ifdef __WINT_UNSIGNED__
+# define WINT_MIN       __UINTN_C(__WINT_WIDTH__, 0)
+# define WINT_MAX       __UINTN_MAX(__WINT_WIDTH__)
+#else
+# 814 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+# define WINT_MIN       __INTN_MIN(__WINT_WIDTH__)
+# define WINT_MAX       __INTN_MAX(__WINT_WIDTH__)
+#endif
+# 817 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#ifndef WCHAR_MAX
+# define WCHAR_MAX __WCHAR_MAX__
+#endif
+# 821 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#ifndef WCHAR_MIN
+#if 0 /* disabled by -frewrite-includes */
+# if __WCHAR_MAX__ == __INTN_MAX(__WCHAR_WIDTH__)
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 823 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#  define WCHAR_MIN __INTN_MIN(__WCHAR_WIDTH__)
+# else
+# 825 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#  define WCHAR_MIN __UINTN_C(__WCHAR_WIDTH__, 0)
+# endif
+# 827 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif
+# 828 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+/* 7.18.4.2 Macros for greatest-width integer constants. */
+#define  INTMAX_C(v) __INTMAX_C(v)
+#define UINTMAX_C(v) __UINTMAX_C(v)
+
+/* C23 7.22.3.x Width of other integer types. */
+#if 0 /* disabled by -frewrite-includes */
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L
+#endif
+#endif /* disabled by -frewrite-includes */
+#if 0 /* evaluated by -frewrite-includes */
+# 835 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#define PTRDIFF_WIDTH    __PTRDIFF_WIDTH__
+#define SIG_ATOMIC_WIDTH __SIG_ATOMIC_WIDTH__
+#define SIZE_WIDTH       __SIZE_WIDTH__
+#define WCHAR_WIDTH      __WCHAR_WIDTH__
+#define WINT_WIDTH       __WINT_WIDTH__
+#endif
+# 841 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+
+#endif /* __STDC_HOSTED__ */
+# 843 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __MVS__ */
+# 844 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* __CLANG_STDINT_H */
+# 845 "/home/thebigclub/riscv/llvm/rv32ec/lib/clang/21/include/stdint.h" 3
+#endif /* stdint.h expanded by -frewrite-includes */
+# 2 "test.c" 2
+
+int fn(void *arg1, int arg2, int arg3, int arg4, int arg5) {
+        uint32_t val[2];
+
+        asm volatile ("c.ld %0, 0(%1)"
+                      : "=R" (val[0])
+                      : "r" (arg1)
+        );
+
+        return val[1] + arg2 + arg3 + arg4 + arg5;
+}

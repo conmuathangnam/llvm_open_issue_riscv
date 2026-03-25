@@ -1,0 +1,144 @@
+typedef struct seqcount {
+  unsigned sequence;
+} seqcount_t;
+
+typedef struct seqcount_mutex {
+  seqcount_t seqcount;
+} seqcount_mutex_t;
+
+static inline __attribute__((__gnu_inline__))
+__attribute__((no_instrument_function))
+__attribute__((__always_inline__)) unsigned
+__seqprop_mutex_sequence(const seqcount_mutex_t *s) {
+  unsigned seq = ({
+    typeof(*&s->seqcount.sequence) ___p1 = ({
+      do {
+        __attribute__((__noreturn__)) extern void __compiletime_assert_293(void)
+            __attribute__((
+                __error__("Unsupported access size for {READ,WRITE}_ONCE().")));
+        if (!((sizeof(*&s->seqcount.sequence) == sizeof(char) ||
+               sizeof(*&s->seqcount.sequence) == sizeof(short) ||
+               sizeof(*&s->seqcount.sequence) == sizeof(int) ||
+               sizeof(*&s->seqcount.sequence) == sizeof(long)) ||
+              sizeof(*&s->seqcount.sequence) == sizeof(long long)))
+          __compiletime_assert_293();
+      } while (0);
+      (*(const volatile typeof(_Generic((*&s->seqcount.sequence),
+                                   char: (char)0,
+                                   unsigned char: (unsigned char)0,
+                                   signed char: (signed char)0,
+                                   unsigned short: (unsigned short)0,
+                                   signed short: (signed short)0,
+                                   unsigned int: (unsigned int)0,
+                                   signed int: (signed int)0,
+                                   unsigned long: (unsigned long)0,
+                                   signed long: (signed long)0,
+                                   unsigned long long: (unsigned long long)0,
+                                   signed long long: (signed long long)0,
+                                   default: (*&s->seqcount.sequence)))
+             *)&(*&s->seqcount.sequence));
+    });
+    do {
+      __attribute__((__noreturn__)) extern void __compiletime_assert_294(void)
+          __attribute__((
+              __error__("Need native word sized stores/loads for atomicity.")));
+      if (!((sizeof(*&s->seqcount.sequence) == sizeof(char) ||
+             sizeof(*&s->seqcount.sequence) == sizeof(short) ||
+             sizeof(*&s->seqcount.sequence) == sizeof(int) ||
+             sizeof(*&s->seqcount.sequence) == sizeof(long))))
+        __compiletime_assert_294();
+    } while (0);
+    __asm__ __volatile__("" : : : "memory");
+    ___p1;
+  });
+  if (!0)
+    return seq;
+  if (true && __builtin_expect(!!(seq & 1), 0)) {
+    ;
+    ;
+    seq = ({
+      typeof(*&s->seqcount.sequence) ___p1 = ({
+        do {
+          __attribute__((__noreturn__)) extern void __compiletime_assert_295(
+              void)
+              __attribute__((__error__(
+                  "Unsupported access size for {READ,WRITE}_ONCE().")));
+          if (!((sizeof(*&s->seqcount.sequence) == sizeof(char) ||
+                 sizeof(*&s->seqcount.sequence) == sizeof(short) ||
+                 sizeof(*&s->seqcount.sequence) == sizeof(int) ||
+                 sizeof(*&s->seqcount.sequence) == sizeof(long)) ||
+                sizeof(*&s->seqcount.sequence) == sizeof(long long)))
+            __compiletime_assert_295();
+        } while (0);
+        (*(const volatile typeof(_Generic((*&s->seqcount.sequence),
+                                     char: (char)0,
+                                     unsigned char: (unsigned char)0,
+                                     signed char: (signed char)0,
+                                     unsigned short: (unsigned short)0,
+                                     signed short: (signed short)0,
+                                     unsigned int: (unsigned int)0,
+                                     signed int: (signed int)0,
+                                     unsigned long: (unsigned long)0,
+                                     signed long: (signed long)0,
+                                     unsigned long long: (unsigned long long)0,
+                                     signed long long: (signed long long)0,
+                                     default: (*&s->seqcount.sequence)))
+               *)&(*&s->seqcount.sequence));
+      });
+      do {
+        __attribute__((__noreturn__)) extern void __compiletime_assert_296(void)
+            __attribute__((__error__(
+                "Need native word sized stores/loads for atomicity.")));
+        if (!((sizeof(*&s->seqcount.sequence) == sizeof(char) ||
+               sizeof(*&s->seqcount.sequence) == sizeof(short) ||
+               sizeof(*&s->seqcount.sequence) == sizeof(int) ||
+               sizeof(*&s->seqcount.sequence) == sizeof(long))))
+          __compiletime_assert_296();
+      } while (0);
+      __asm__ __volatile__("" : : : "memory");
+      ___p1;
+    });
+  }
+  return seq;
+}
+
+static inline __attribute__((__gnu_inline__))
+__attribute__((no_instrument_function)) bool
+folio_has_pincount(const struct folio *folio) {
+  if (1)
+    return folio_test_large(folio);
+  return folio_order(folio) > 1;
+}
+
+static inline __attribute__((__gnu_inline__))
+__attribute__((no_instrument_function)) bool
+folio_maybe_dma_pinned(struct folio *folio) {
+  if (folio_has_pincount(folio))
+    return atomic_read(&folio->_pincount) > 0;
+  return ((unsigned int)folio_ref_count(folio)) >= (1U << 10);
+}
+
+static inline __attribute__((__gnu_inline__))
+__attribute__((no_instrument_function)) bool
+folio_needs_cow_for_dma(struct vm_area_struct *vma, struct folio *folio) {
+  ((void)(sizeof(
+      (long)(!(({
+                 unsigned __seq = _Generic(*(&vma->vm_mm->write_protect_seq),
+                     seqcount_mutex_t: __seqprop_mutex_sequence)(
+                     &vma->vm_mm->write_protect_seq);
+                 kcsan_atomic_next(1000);
+                 __seq;
+               }) &
+               1)))));
+
+  if (!((__builtin_constant_p(27) &&
+         __builtin_constant_p((uintptr_t)(&vma->vm_mm->flags) !=
+                              (uintptr_t)((void *)0)) &&
+         (uintptr_t)(&vma->vm_mm->flags) != (uintptr_t)((void *)0) &&
+         __builtin_constant_p(*(const unsigned long *)(&vma->vm_mm->flags)))
+            ? const_test_bit(27, &vma->vm_mm->flags)
+            : _test_bit(27, &vma->vm_mm->flags)))
+    return false;
+
+  return true;
+}

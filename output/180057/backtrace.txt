@@ -1,0 +1,70 @@
+shastings@localhost:/home/nvidia/shastings$ /home/nvidia/shastings/do-assert.sh
+clang++: /home/nvidia/shastings/llvm-project/llvm/include/llvm/CodeGen/ValueTypes.h:310: bool llvm::EVT::bitsLE(llvm::EVT) const: Assertion `isScalableVector() == VT.isScalableVector() && "Comparison between scalable and fixed types"' failed.
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: /home/nvidia/shastings/llvm/install/bin/clang++ -DAT_BUILD_ARM_VEC256_WITH_SLEEF -DAT_PER_OPERATOR_HEADERS -DCAFFE2_BUILD_MAIN_LIB -DCAFFE2_PERF_WITH_SVE=1 -DCPUINFO_SUPPORTED_PLATFORM=1 -DENABLE_IPC_FABRIC -DFBGEMM_ENABLE_KLEIDIAI -DFBGEMM_FP16_FALLBACK_TO_REF_KERNEL -DFBGEMM_FP32_FALLBACK_TO_REF_KERNEL -DFBGEMM_STATIC -DFMT_HEADER_ONLY=1 -DFXDIV_USE_INLINE_ASSEMBLY=0 -DHAVE_MALLOC_USABLE_SIZE=1 -DHAVE_MMAP=1 -DHAVE_POSIX_FALLOCATE=1 -DHAVE_SHM_OPEN=1 -DHAVE_SHM_UNLINK=1 -DKINETO_NAMESPACE=libkineto -DMINIZ_DISABLE_ZIP_READER_CRC32_CHECKS -DNNP_CONVOLUTION_ONLY=0 -DNNP_INFERENCE_ONLY=0 -DONNXIFI_ENABLE_EXT=1 -DONNX_ML=1 -DONNX_NAMESPACE=onnx_torch -DUSE_C10D_GLOO -DUSE_DISTRIBUTED -DUSE_EXTERNAL_MZCRC -DUSE_MIMALLOC -DUSE_RPC -DUSE_TENSORPIPE -DXNN_LOG_LEVEL=0 -D_FILE_OFFSET_BITS=64 -Dtorch_cpu_EXPORTS -I/home/nvidia/shastings/outliner/pytorch.llvm/build/aten/src -I/home/nvidia/shastings/outliner/pytorch.llvm/aten/src -I/home/nvidia/shastings/outliner/pytorch.llvm/build -I/home/nvidia/shastings/outliner/pytorch.llvm -I/home/nvidia/shastings/outliner/pytorch.llvm/nlohmann -I/home/nvidia/shastings/outliner/pytorch.llvm/moodycamel -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/mimalloc/include -I/home/nvidia/shastings/outliner/pytorch.llvm/torch/csrc/api -I/home/nvidia/shastings/outliner/pytorch.llvm/torch/csrc/api/include -I/home/nvidia/shastings/outliner/pytorch.llvm/caffe2/aten/src/TH -I/home/nvidia/shastings/outliner/pytorch.llvm/build/caffe2/aten/src/TH -I/home/nvidia/shastings/outliner/pytorch.llvm/build/caffe2/aten/src -I/home/nvidia/shastings/outliner/pytorch.llvm/build/caffe2/../aten/src -I/home/nvidia/shastings/outliner/pytorch.llvm/torch/csrc -I/home/nvidia/shastings/outliner/pytorch.llvm/torch/headeronly -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/miniz-3.0.2 -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/kineto/libkineto/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/kineto/libkineto/src -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/cpp-httplib -I/home/nvidia/shastings/outliner/pytorch.llvm/aten/src/ATen/.. -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/FXdiv/include -I/home/nvidia/shastings/outliner/pytorch.llvm/c10/.. -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/pthreadpool/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/cpuinfo/include -I/home/nvidia/shastings/outliner/pytorch.llvm/aten/src/ATen/native/quantized/cpu/qnnpack/include -I/home/nvidia/shastings/outliner/pytorch.llvm/aten/src/ATen/native/quantized/cpu/qnnpack/src -I/home/nvidia/shastings/outliner/pytorch.llvm/aten/src/ATen/native/quantized/cpu/qnnpack/deps/clog/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/NNPACK/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/fbgemm -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/fbgemm/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/fbgemm/bench -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/fbgemm/external/asmjit/src -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/FP16/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/tensorpipe -I/home/nvidia/shastings/outliner/pytorch.llvm/build/third_party/tensorpipe -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/tensorpipe/third_party/libnop/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/kleidiai -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/fmt/include -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/onnx -I/home/nvidia/shastings/outliner/pytorch.llvm/build/third_party/onnx -I/home/nvidia/shastings/outliner/pytorch.llvm/third_party/flatbuffers/include -isystem /home/nvidia/shastings/outliner/pytorch.llvm/build/third_party/gloo -isystem /home/nvidia/shastings/outliner/pytorch.llvm/cmake/../third_party/gloo -isystem /home/nvidia/shastings/outliner/pytorch.llvm/cmake/../third_party/tensorpipe/third_party/libuv/include -isystem /home/nvidia/shastings/outliner/pytorch.llvm/cmake/../third_party/googletest/googlemock/include -isystem /home/nvidia/shastings/outliner/pytorch.llvm/cmake/../third_party/googletest/googletest/include -isystem /home/nvidia/shastings/outliner/pytorch.llvm/third_party/protobuf/src -isystem /home/nvidia/shastings/outliner/pytorch.llvm/third_party/XNNPACK/include -isystem /home/nvidia/shastings/outliner/pytorch.llvm/cmake/../third_party/eigen -isystem /home/nvidia/shastings/outliner/pytorch.llvm/INTERFACE -isystem /home/nvidia/shastings/outliner/pytorch.llvm/third_party/nlohmann/include -isystem /home/nvidia/shastings/outliner/pytorch.llvm/third_party/concurrentqueue -isystem /home/nvidia/shastings/outliner/pytorch.llvm/build/include -O2 -g -Wno-c2y-extensions -ffunction-sections -fdata-sections -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DAT_BUILD_ARM_VEC256_WITH_SLEEF -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -DHAVE_SVE_CPU_DEFINITION -DHAVE_SVE256_CPU_DEFINITION -DHAVE_ARM_BF16_CPU_DEFINITION -O3 -DNDEBUG -DNDEBUG -fPIC -fcolor-diagnostics -DTORCH_USE_LIBUV -DCAFFE2_USE_GLOO -D__NEON__ -Wall -Wextra -Wdeprecated -Wunused -Wno-unused-parameter -Wno-missing-field-initializers -Wno-array-bounds -Wno-unknown-pragmas -Wno-strict-overflow -Wno-strict-aliasing -Wextra-semi -Wmove -fvisibility=hidden -Wmissing-prototypes -Werror=missing-prototypes -pthread -DASMJIT_STATIC -fopenmp=libomp -fopenmp=libomp -O3 -O2 -march=armv8-a+sve+bf16 -D__ARM_FEATURE_BF16 -DCPU_CAPABILITY_SVE -msve-vector-bits=256 -DCPU_CAPABILITY=SVE256 -DCPU_CAPABILITY_SVE256 -Wno-missing-prototypes -Wno-error=missing-prototypes -MD -MT caffe2/CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/BinaryOpsKernel.cpp.SVE256.cpp.o -MF CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/BinaryOpsKernel.cpp.SVE256.cpp.o.d -o CMakeFiles/torch_cpu.dir/__/aten/src/ATen/native/cpu/BinaryOpsKernel.cpp.SVE256.cpp.o -c /home/nvidia/shastings/outliner/pytorch.llvm/build/aten/src/ATen/native/cpu/BinaryOpsKernel.cpp.SVE256.cpp
+1.	<eof> parser at end of file
+2.	Code generation
+3.	Running pass 'Function Pass Manager' on module '/home/nvidia/shastings/outliner/pytorch.llvm/build/aten/src/ATen/native/cpu/BinaryOpsKernel.cpp.SVE256.cpp'.
+4.	Running pass 'AArch64 Instruction Selection' on function '@"_ZN3c1012function_refIFvPPcPKlllEE11callback_fnIN2at6native6SVE25616VectorizedLoop2dIZZZNS9_12_GLOBAL__N_113lshift_kernelERNS8_18TensorIteratorBaseEENK3$_0clEvENKUlvE3_clEvEUlssE_ZZZNSC_13lshift_kernelESE_ENKSF_clEvENKSG_clEvEUlNS8_3vec6SVE25610VectorizedIsEESL_E_EEEEvlS2_S4_ll"'
+Stack dump without symbol names (ensure you have llvm-symbolizer in your PATH or set the environment var `LLVM_SYMBOLIZER_PATH` to point to it):
+0  clang++         0x000000000390ca1c llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) + 52
+1  clang++         0x000000000390a9c0 llvm::sys::RunSignalHandlers() + 60
+2  clang++         0x000000000386cc34
+3  linux-vdso.so.1 0x0000e179df0009d0 __kernel_rt_sigreturn + 0
+4  libc.so.6       0x0000e179deb72008
+5  libc.so.6       0x0000e179deb2a83c raise + 28
+6  libc.so.6       0x0000e179deb17134 abort + 232
+7  libc.so.6       0x0000e179deb24114
+8  libc.so.6       0x0000e179deb2418c
+9  clang++         0x000000000213aa08
+10 clang++         0x00000000021c4220
+11 clang++         0x0000000004a33464 llvm::SelectionDAG::getZeroExtendInReg(llvm::SDValue, llvm::SDLoc const&, llvm::EVT) + 1088
+12 clang++         0x0000000004b24c20
+13 clang++         0x0000000004b8abec
+14 clang++         0x0000000004b921e4
+15 clang++         0x0000000004ad47b0
+16 clang++         0x0000000004ad536c llvm::SelectionDAG::LegalizeTypes() + 588
+17 clang++         0x0000000004a65a64 llvm::SelectionDAGISel::CodeGenAndEmitDAG() + 664
+18 clang++         0x0000000004a69524 llvm::SelectionDAGISel::SelectAllBasicBlocks(llvm::Function const&) + 2368
+19 clang++         0x0000000004a6aaac llvm::SelectionDAGISel::runOnMachineFunction(llvm::MachineFunction&) + 220
+20 clang++         0x0000000004a58220 llvm::SelectionDAGISelLegacy::runOnMachineFunction(llvm::MachineFunction&) + 160
+21 clang++         0x0000000002d867a8
+22 clang++         0x00000000032d5b54 llvm::FPPassManager::runOnFunction(llvm::Function&) + 660
+23 clang++         0x00000000032d5d5c llvm::FPPassManager::runOnModule(llvm::Module&) + 60
+24 clang++         0x00000000032d6514 llvm::legacy::PassManagerImpl::run(llvm::Module&) + 884
+25 clang++         0x0000000003b51c20 clang::emitBackendOutput(clang::CompilerInstance&, clang::CodeGenOptions&, llvm::StringRef, llvm::Module*, clang::BackendAction, llvm::IntrusiveRefCntPtr<llvm::vfs::FileSystem>, std::unique_ptr<llvm::raw_pwrite_stream, std::default_delete<llvm::raw_pwrite_stream>>, clang::BackendConsumer*) + 8608
+26 clang++         0x00000000040bf128 clang::BackendConsumer::HandleTranslationUnit(clang::ASTContext&) + 1224
+27 clang++         0x00000000056abe30 clang::ParseAST(clang::Sema&, bool, bool) + 1040
+28 clang++         0x0000000004310408 clang::FrontendAction::Execute() + 36
+29 clang++         0x00000000042b3828 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 932
+30 clang++         0x00000000043d2908 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 520
+31 clang++         0x0000000000cdfc88 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) + 6296
+32 clang++         0x0000000000cda240
+33 clang++         0x0000000000cda404
+34 clang++         0x0000000004120960
+35 clang++         0x000000000386cd98 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) + 152
+36 clang++         0x000000000412120c
+37 clang++         0x00000000040ec680 clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const + 124
+38 clang++         0x00000000040eccdc clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const + 120
+39 clang++         0x00000000040f7984 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) + 312
+40 clang++         0x0000000000cdc44c clang_main(int, char**, llvm::ToolContext const&) + 6596
+41 clang++         0x0000000000bee8c4 main + 68
+42 libc.so.6       0x0000e179deb17400
+43 libc.so.6       0x0000e179deb174d8 __libc_start_main + 152
+44 clang++         0x0000000000cd9370 _start + 48
+clang++: error: clang frontend command failed with exit code 134 (use -v to see invocation)
+clang version 23.0.0git (https://github.com/llvm/llvm-project.git d27d75ee945943698b247393a7f7449f76efafe4)
+Target: aarch64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/nvidia/shastings/llvm/install/bin
+Build config: +assertions
+clang++: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang++: note: diagnostic msg: /tmp/BinaryOpsKernel-755e76.cpp
+clang++: note: diagnostic msg: /tmp/BinaryOpsKernel-755e76.sh
+clang++: note: diagnostic msg: 
+

@@ -1,0 +1,69 @@
+    [BasicBlockUtils] Fixed LoopInfo update in UpdateAnalysisInformation()
+    
+    When UpdateAnalysisInformation() detects an irreducible loop created
+    then the loop is removed from LoopInfo.
+
+diff --git a/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp b/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp
+index 71849b8da14c..b1c591d5efb1 100644
+--- a/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp
++++ b/llvm/lib/Transforms/Utils/BasicBlockUtils.cpp
+@@ -1143,6 +1143,28 @@ BasicBlock *llvm::splitBlockBefore(BasicBlock *Old, BasicBlock::iterator SplitPt
+   return New;
+ }
+ 
++static bool HasReachableLoopEntry(const Loop &L, const DominatorTree &DT) {
++  for (const auto Pred : inverse_children<const BasicBlock *>(L.getHeader()))
++    if (!L.contains(Pred) && DT.isReachableFromEntry(Pred))
++      return true;
++
++  return false;
++}
++
++// Destroy the loop.
++static void Destroy(Loop *L, LoopInfo &LI) {
++  auto *PerentL = L->getParentLoop();
++  for (auto *BB : L->getBlocks())
++    LI.changeLoopFor(BB, PerentL);
++
++  if (PerentL)
++    PerentL->removeChildLoop(L);
++  else
++    LI.removeLoop(llvm::find(LI, L));
++
++  LI.destroy(L);
++}
++
+ /// Update DominatorTree, LoopInfo, and LCCSA analysis information.
+ /// Invalidates DFS Numbering when DTU or DT is provided.
+ static void UpdateAnalysisInformation(BasicBlock *OldBB, BasicBlock *NewBB,
+@@ -1252,8 +1274,14 @@ static void UpdateAnalysisInformation(BasicBlock *OldBB, BasicBlock *NewBB,
+       InnermostPredLoop->addBasicBlockToLoop(NewBB, *LI);
+   } else {
+     L->addBasicBlockToLoop(NewBB, *LI);
+-    if (SplitMakesNewLoopHeader)
+-      L->moveToHeader(NewBB);
++    if (SplitMakesNewLoopHeader) {
++      if (!HasReachableLoopEntry(*L, *DT))
++        // Old header lost all entries.
++        L->moveToHeader(NewBB);
++      else
++        // Both OldBB and NewBB have loop entries.
++        Destroy(L, *LI);
++    }
+   }
+ }
+ 
+diff --git a/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp b/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp
+index 5068dd6cf653..f6e58de494ad 100644
+--- a/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp
++++ b/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp
+@@ -440,7 +440,8 @@ exit:
+ 
+   EXPECT_TRUE(DT.verify());
+   LLVM_DEBUG(F->dump(); LI.print(dbgs()));
+-  EXPECT_DEATH({LI.verify(DT);}, "Assertion.*Loop has multiple entry points!");
++  LI.verify(DT);
++  EXPECT_EQ(LI.getLoopFor(getBasicBlockByName(*F, "catch_dest")), nullptr);
+ }
+ 
+ TEST(BasicBlockUtils, SplitCriticalEdge) {

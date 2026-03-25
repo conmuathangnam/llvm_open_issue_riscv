@@ -1,0 +1,159 @@
+{"app_name":"clang-18","timestamp":"2025-10-08 10:48:48.00 +0530","app_version":"18.1.8","slice_uuid":"05db7b61-68bd-35b3-82f9-87eb4f8a1279","build_version":"18.1","platform":1,"share_with_app_devs":0,"is_first_party":1,"bug_type":"309","os_version":"macOS 26.0.1 (25A362)","roots_installed":0,"incident_id":"051F9F8A-AA55-48D7-BCE2-836A9509275F","name":"clang-18"}
+{
+  "uptime" : 5600,
+  "procRole" : "Unspecified",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "MacBookAir10,1",
+  "coalitionID" : 1498,
+  "osVersion" : {
+    "train" : "macOS 26.0.1",
+    "build" : "25A362",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2025-10-08 10:48:40.5727 +0530",
+  "codeSigningMonitor" : 1,
+  "incident" : "051F9F8A-AA55-48D7-BCE2-836A9509275F",
+  "pid" : 13978,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "roots_installed" : 0,
+  "bug_type" : "309",
+  "procLaunch" : "2025-10-08 10:48:24.8013 +0530",
+  "procStartAbsTime" : 135603492467,
+  "procExitAbsTime" : 135981782883,
+  "procName" : "clang-18",
+  "procPath" : "\/Users\/USER\/Desktop\/*\/clang-18",
+  "bundleInfo" : {"CFBundleVersion":"18.1","CFBundleShortVersionString":"18.1.8"},
+  "parentProc" : "clang++",
+  "parentPid" : 13977,
+  "coalitionName" : "com.microsoft.VSCode",
+  "crashReporterKey" : "6A429F54-52E0-CF2B-C273-68372337CF2C",
+  "lowPowerMode" : 1,
+  "developerMode" : 1,
+  "bootProgressRegister" : "0x2f000000",
+  "responsiblePid" : 8251,
+  "responsibleProc" : "Electron",
+  "codeSigningID" : "clang-18",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570556929,
+  "codeSigningValidationCategory" : 10,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"6AcAuQEAABToB0C5AAEAEv17Qan\/gwCRwANf1v9DANHgBwD56AdA+Q==","atPC":"AAFAOf9DAJHAA1\/W\/0MA0eAHAPngB0D5\/0MAkcADX9b\/QwDR4AcA+Q=="},
+  "bootSessionUUID" : "B86A3186-5126-4F21-96FE-02441C909A01",
+  "wakeTime" : 5323,
+  "sleepWakeUUID" : "01F198A7-FA1E-4514-BA4C-FDAE34B84AA6",
+  "sip" : "enabled",
+  "vmRegionInfo" : "0 is not in any region.  Bytes before following region: 4308942848\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      UNUSED SPACE AT START\n--->  \n      __TEXT                      100d54000-10b164000    [164.1M] r-x\/r-x SM=COW  \/Users\/USER\/Desktop\/*\/clang-18",
+  "exception" : {"codes":"0x0000000000000001, 0x0000000000000000","rawCodes":[1,0],"type":"EXC_BAD_ACCESS","signal":"SIGSEGV","subtype":"KERN_INVALID_ADDRESS at 0x0000000000000000"},
+  "termination" : {"flags":0,"code":11,"namespace":"SIGNAL","indicator":"Segmentation fault: 11","byProc":"exc handler","byPid":13978},
+  "vmregioninfo" : "0 is not in any region.  Bytes before following region: 4308942848\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      UNUSED SPACE AT START\n--->  \n      __TEXT                      100d54000-10b164000    [164.1M] r-x\/r-x SM=COW  \/Users\/USER\/Desktop\/*\/clang-18",
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":130223,"threadState":{"x":[{"value":0},{"value":4743616264},{"value":18446726483666796544},{"value":1},{"value":22079471936},{"value":9},{"value":10},{"value":6157881487},{"value":0},{"value":56092371591682},{"value":0},{"value":1},{"value":862120204124172},{"value":844448561182720},{"value":344064},{"value":31},{"sourceLine":337,"value":4460630800,"sourceFile":"Stmt.cpp","symbol":"clang::Stmt::getBeginLoc() const","symbolLocation":0},{"value":805328896},{"value":0},{"value":12941164581618977125},{"value":6157882584},{"value":8296546304,"symbolLocation":16352,"symbol":"__libdispatch_workerfunction"},{"value":4735025152},{"value":4473845882},{"value":8261832704,"symbolLocation":8,"symbol":"_OBJC_PROTOCOL_$_OS_dispatch_source_data_or"},{"value":6157934112},{"value":8296423664,"symbolLocation":0,"symbol":"mach_task_self_"},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4460630828},"cpsr":{"value":536875008},"fp":{"value":6157881824},"sp":{"value":6157881776},"esr":{"value":2449473542,"description":"(Data Abort) byte read Translation fault"},"pc":{"value":4359622448,"matchesCrashFrame":1},"far":{"value":0}},"frames":[{"imageOffset":50679600,"sourceLine":1357,"sourceFile":"Stmt.h","symbol":"clang::Stmt::getStmtClass() const","imageIndex":0,"symbolLocation":12},{"imageOffset":151687980,"sourceLine":338,"sourceFile":"Stmt.cpp","symbol":"clang::Stmt::getBeginLoc() const","imageIndex":0,"symbolLocation":28},{"imageOffset":9370900,"sourceLine":1071,"sourceFile":"VisitorBase.cpp","symbol":"clad::PrettyStackTraceDerivative::print(llvm::raw_ostream&) const","imageIndex":2,"symbolLocation":168},{"imageOffset":42268004,"sourceLine":92,"sourceFile":"PrettyStackTrace.cpp","symbol":"PrintStack(llvm::raw_ostream&)","imageIndex":0,"symbolLocation":180},{"imageOffset":42267800,"sourceLine":108,"sourceFile":"PrettyStackTrace.cpp","symbol":"PrintCurStackTrace(llvm::raw_ostream&)","imageIndex":0,"symbolLocation":72},{"imageOffset":42268400,"sourceLine":183,"sourceFile":"PrettyStackTrace.cpp","symbol":"CrashHandler(void*)","imageIndex":0,"symbolLocation":92},{"imageOffset":43188248,"sourceLine":104,"sourceFile":"Signals.cpp","symbol":"llvm::sys::RunSignalHandlers()","imageIndex":0,"symbolLocation":148},{"imageOffset":43201176,"sourceLine":403,"sourceFile":"Signals.inc","symbol":"SignalHandler(int)","imageIndex":0,"symbolLocation":244},{"imageOffset":14148,"symbol":"_sigtramp","symbolLocation":56,"imageIndex":3},{"imageOffset":26760,"symbol":"pthread_kill","symbolLocation":296,"imageIndex":4},{"imageOffset":497672,"symbol":"abort","symbolLocation":124,"imageIndex":5},{"imageOffset":494140,"symbol":"__assert_rtn","symbolLocation":284,"imageIndex":5},{"imageOffset":69285068,"sourceLine":1937,"sourceFile":"DeclTemplate.h","symbol":"clang::ClassTemplateSpecializationDecl::setPointOfInstantiation(clang::SourceLocation)","imageIndex":0,"symbolLocation":116},{"imageOffset":136048468,"sourceLine":3278,"sourceFile":"SemaTemplateInstantiate.cpp","symbol":"clang::Sema::InstantiateClass(clang::SourceLocation, clang::CXXRecordDecl*, clang::CXXRecordDecl*, clang::MultiLevelTemplateArgumentList const&, clang::TemplateSpecializationKind, bool)","imageIndex":0,"symbolLocation":400},{"imageOffset":136056052,"sourceLine":3832,"sourceFile":"SemaTemplateInstantiate.cpp","symbol":"clang::Sema::InstantiateClassTemplateSpecialization(clang::SourceLocation, clang::ClassTemplateSpecializationDecl*, clang::TemplateSpecializationKind, bool)","imageIndex":0,"symbolLocation":344},{"imageOffset":137849940,"sourceLine":9490,"sourceFile":"SemaType.cpp","symbol":"clang::Sema::RequireCompleteTypeImpl(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser*)::$_0::operator()() const","imageIndex":0,"symbolLocation":80},{"imageOffset":137849848,"sourceLine":45,"sourceFile":"STLFunctionalExtras.h","symbol":"void llvm::function_ref<void ()>::callback_fn<clang::Sema::RequireCompleteTypeImpl(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser*)::$_0>(long)","imageIndex":0,"symbolLocation":24},{"imageOffset":13521932,"sourceLine":68,"sourceFile":"STLFunctionalExtras.h","symbol":"llvm::function_ref<void ()>::operator()() const","imageIndex":0,"symbolLocation":32},{"imageOffset":115723748,"sourceLine":46,"sourceFile":"Stack.h","symbol":"clang::runWithSufficientStackSpace(llvm::function_ref<void ()>, llvm::function_ref<void ()>)","imageIndex":0,"symbolLocation":88},{"imageOffset":115723648,"sourceLine":513,"sourceFile":"Sema.cpp","symbol":"clang::Sema::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>)","imageIndex":0,"symbolLocation":96},{"imageOffset":137671000,"sourceLine":9489,"sourceFile":"SemaType.cpp","symbol":"clang::Sema::RequireCompleteTypeImpl(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser*)","imageIndex":0,"symbolLocation":1468},{"imageOffset":137669208,"sourceLine":9214,"sourceFile":"SemaType.cpp","symbol":"clang::Sema::RequireCompleteType(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser&)","imageIndex":0,"symbolLocation":100},{"imageOffset":117803664,"sourceLine":2536,"sourceFile":"Sema.h","symbol":"clang::Sema::RequireCompleteType(clang::SourceLocation, clang::QualType, clang::Sema::TypeDiagnoser&)","imageIndex":0,"symbolLocation":92},{"imageOffset":124306964,"sourceLine":21029,"sourceFile":"SemaExpr.cpp","symbol":"clang::Sema::CheckCallReturnType(clang::QualType, clang::SourceLocation, clang::CallExpr*, clang::FunctionDecl*)","imageIndex":0,"symbolLocation":256},{"imageOffset":124303024,"sourceLine":7629,"sourceFile":"SemaExpr.cpp","symbol":"clang::Sema::BuildResolvedCallExpr(clang::Expr*, clang::NamedDecl*, clang::SourceLocation, llvm::ArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*, bool, clang::CallExpr::ADLCallKind)","imageIndex":0,"symbolLocation":3876},{"imageOffset":124160336,"sourceLine":7380,"sourceFile":"SemaExpr.cpp","symbol":"clang::Sema::BuildCallExpr(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*, bool, bool)","imageIndex":0,"symbolLocation":5012},{"imageOffset":124295452,"sourceLine":7155,"sourceFile":"SemaExpr.cpp","symbol":"clang::Sema::ActOnCallExpr(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*)","imageIndex":0,"symbolLocation":144},{"imageOffset":9361140,"sourceLine":653,"sourceFile":"VisitorBase.cpp","symbol":"clad::VisitorBase::BuildCallExprToFunction(clang::FunctionDecl*, llvm::MutableArrayRef<clang::Expr*>, clang::Expr*, bool)","imageIndex":2,"symbolLocation":732},{"imageOffset":6924612,"sourceLine":671,"sourceFile":"ReverseModeVisitor.cpp","symbol":"clad::ReverseModeVisitor::DifferentiateWithEnzyme()","imageIndex":2,"symbolLocation":1836},{"imageOffset":6919236,"sourceLine":342,"sourceFile":"ReverseModeVisitor.cpp","symbol":"clad::ReverseModeVisitor::Derive()","imageIndex":2,"symbolLocation":1624},{"imageOffset":4993676,"sourceLine":591,"sourceFile":"DerivativeBuilder.cpp","symbol":"clad::DerivativeBuilder::Derive(clad::DiffRequest const&)","imageIndex":2,"symbolLocation":2592},{"imageOffset":6416,"sourceLine":287,"sourceFile":"ClangPlugin.cpp","symbol":"clad::plugin::CladPlugin::ProcessDiffRequest(clad::DiffRequest&)","imageIndex":2,"symbolLocation":1276},{"imageOffset":14556,"sourceLine":496,"sourceFile":"ClangPlugin.cpp","symbol":"clad::plugin::CladPlugin::FinalizeTranslationUnit()","imageIndex":2,"symbolLocation":284},{"imageOffset":21696,"sourceLine":534,"sourceFile":"ClangPlugin.cpp","symbol":"clad::plugin::CladPlugin::HandleTranslationUnit(clang::ASTContext&)","imageIndex":2,"symbolLocation":468},{"imageOffset":66984260,"sourceLine":298,"sourceFile":"MultiplexConsumer.cpp","symbol":"clang::MultiplexConsumer::HandleTranslationUnit(clang::ASTContext&)","imageIndex":0,"symbolLocation":116},{"imageOffset":112701936,"sourceLine":176,"sourceFile":"ParseAST.cpp","symbol":"clang::ParseAST(clang::Sema&, bool, bool)","imageIndex":0,"symbolLocation":780},{"imageOffset":66755268,"sourceLine":1183,"sourceFile":"FrontendAction.cpp","symbol":"clang::ASTFrontendAction::ExecuteAction()","imageIndex":0,"symbolLocation":292},{"imageOffset":59573344,"sourceLine":1153,"sourceFile":"CodeGenAction.cpp","symbol":"clang::CodeGenAction::ExecuteAction()","imageIndex":0,"symbolLocation":92},{"imageOffset":66753224,"sourceLine":1069,"sourceFile":"FrontendAction.cpp","symbol":"clang::FrontendAction::Execute()","imageIndex":0,"symbolLocation":124},{"imageOffset":65849992,"sourceLine":1057,"sourceFile":"CompilerInstance.cpp","symbol":"clang::CompilerInstance::ExecuteAction(clang::FrontendAction&)","imageIndex":0,"symbolLocation":848},{"imageOffset":67870028,"sourceLine":272,"sourceFile":"ExecuteCompilerInvocation.cpp","symbol":"clang::ExecuteCompilerInvocation(clang::CompilerInstance*)","imageIndex":0,"symbolLocation":932},{"imageOffset":82260,"sourceLine":294,"sourceFile":"cc1_main.cpp","symbol":"cc1_main(llvm::ArrayRef<char const*>, char const*, void*)","imageIndex":0,"symbolLocation":1220},{"imageOffset":14668,"sourceLine":365,"sourceFile":"driver.cpp","symbol":"ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&)","imageIndex":0,"symbolLocation":392},{"imageOffset":9976,"sourceLine":405,"sourceFile":"driver.cpp","symbol":"clang_main(int, char**, llvm::ToolContext const&)","imageIndex":0,"symbolLocation":648},{"imageOffset":226364,"sourceLine":17,"sourceFile":"clang-driver.cpp","symbol":"main","imageIndex":0,"symbolLocation":108},{"imageOffset":36180,"symbol":"start","symbolLocation":7184,"imageIndex":6}]}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4308942848,
+    "size" : 172032000,
+    "uuid" : "05db7b61-68bd-35b3-82f9-87eb4f8a1279",
+    "path" : "\/Users\/USER\/Desktop\/*\/clang-18",
+    "name" : "clang-18"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4735385600,
+    "size" : 573440,
+    "uuid" : "afd03688-5fac-3b3d-96aa-9d88c034ff23",
+    "path" : "\/opt\/homebrew\/*\/libzstd.1.5.7.dylib",
+    "name" : "libzstd.1.5.7.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4838359040,
+    "size" : 9601024,
+    "uuid" : "a003cbfc-0d50-3ed6-befc-16aae5e16e6c",
+    "path" : "\/Users\/USER\/Desktop\/*\/clad.dylib",
+    "name" : "clad.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6474362880,
+    "size" : 33728,
+    "uuid" : "36396b66-54eb-30fa-8e3b-e71ae63da30c",
+    "path" : "\/usr\/lib\/system\/libsystem_platform.dylib",
+    "name" : "libsystem_platform.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6474309632,
+    "size" : 51900,
+    "uuid" : "5d31d65c-2ecf-36da-84f5-ba4caab06adb",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6472814592,
+    "size" : 532472,
+    "uuid" : "1e2fc910-e211-3a48-90c1-402c82129ea8",
+    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
+    "name" : "libsystem_c.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6470373376,
+    "size" : 651124,
+    "uuid" : "abfd3247-50ac-3c8e-b72a-83710166e982",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  }
+],
+  "sharedCache" : {
+  "base" : 6469304320,
+  "size" : 5557583872,
+  "uuid" : "4300eabe-4963-34ab-a648-3d68753cf4e1"
+},
+  "legacyInfo" : {
+  "threadTriggered" : {
+
+  }
+},
+  "logWritingSignature" : "ac0dc83d7418d4ce82d8fa7d297ca9c9d4c91e5f",
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "64c025b28b7f0e739e4fbe58",
+      "factorPackIds" : [
+        "657ba0a39ec5da283662e9d2"
+      ],
+      "deploymentId" : 240000044
+    },
+    {
+      "rolloutId" : "67648e5334a82511f4acf879",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000008
+    }
+  ],
+  "experiments" : [
+
+  ]
+}
+}

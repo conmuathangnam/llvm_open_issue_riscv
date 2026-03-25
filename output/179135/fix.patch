@@ -1,0 +1,38 @@
+diff --git a/polly/lib/CodeGen/BlockGenerators.cpp b/polly/lib/CodeGen/BlockGenerators.cpp
+index b87c40c942..9c5d0585e2 100644
+--- a/polly/lib/CodeGen/BlockGenerators.cpp
++++ b/polly/lib/CodeGen/BlockGenerators.cpp
+@@ -778,12 +778,12 @@ void BlockGenerator::generateScalarStores(
+ 
+           Val = getNewValue(Stmt, Val, BBMap, LTS, L);
+           assert((!isa<Instruction>(Val) ||
+-                  DT.dominates(cast<Instruction>(Val)->getParent(),
+-                               Builder.GetInsertBlock())) &&
++                  GenDT->dominates(cast<Instruction>(Val)->getParent(),
++                                   Builder.GetInsertBlock())) &&
+                  "Domination violation");
+           assert((!isa<Instruction>(Address) ||
+-                  DT.dominates(cast<Instruction>(Address)->getParent(),
+-                               Builder.GetInsertBlock())) &&
++                  GenDT->dominates(cast<Instruction>(Address)->getParent(),
++                                   Builder.GetInsertBlock())) &&
+                  "Domination violation");
+ 
+           Builder.CreateStore(Val, Address);
+@@ -1319,12 +1319,12 @@ void RegionGenerator::generateScalarStores(
+           Value *Address = getImplicitAddress(*MA, getLoopForStmt(Stmt), LTS,
+                                               BBMap, NewAccesses);
+           assert((!isa<Instruction>(NewVal) ||
+-                  DT.dominates(cast<Instruction>(NewVal)->getParent(),
+-                               Builder.GetInsertBlock())) &&
++                  GenDT->dominates(cast<Instruction>(NewVal)->getParent(),
++                                   Builder.GetInsertBlock())) &&
+                  "Domination violation");
+           assert((!isa<Instruction>(Address) ||
+-                  DT.dominates(cast<Instruction>(Address)->getParent(),
+-                               Builder.GetInsertBlock())) &&
++                  GenDT->dominates(cast<Instruction>(Address)->getParent(),
++                                   Builder.GetInsertBlock())) &&
+                  "Domination violation");
+           Builder.CreateStore(NewVal, Address);
+         });

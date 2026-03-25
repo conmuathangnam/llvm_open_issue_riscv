@@ -1,0 +1,654 @@
+[0KRunning with gitlab-runner 17.6.0 (374d34fd)[0;m
+[0K  on aom-avm-runner11 t3_fv84z, system ID: s_3a80d0114a33[0;m
+[0K[36;1mResolving secrets[0;m[0;m
+section_start:1760388124:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image registry.gitlab.com/aomediacodec/aom-testing/ubuntu2404:20250820001241 ...[0;m
+[0KAuthenticating with credentials from job payload (GitLab Registry)[0;m
+[0KPulling docker image registry.gitlab.com/aomediacodec/aom-testing/ubuntu2404:20250820001241 ...[0;m
+[0KUsing docker image sha256:8fc4e7d6af83b1573e6c99e2d705032bda6bb19fc0d99d0abeb10fda99d4b193 for registry.gitlab.com/aomediacodec/aom-testing/ubuntu2404:20250820001241 with digest registry.gitlab.com/aomediacodec/aom-testing/ubuntu2404@sha256:d5c8fbe20b854b654ad3052713b702d0e8a5317a73880e9c470d7295437c5060 ...[0;m
+section_end:1760388129:prepare_executor[0Ksection_start:1760388129:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-t3fv84z-project-28773770-concurrent-2 via ip-172-31-8-137...
+section_end:1760388131:prepare_script[0Ksection_start:1760388131:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 50...[0;m
+Initialized empty Git repository in /builds/AOMediaCodec/avm/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out 965fe3f6 as detached HEAD (ref is refs/merge-requests/2525/head)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1760388148:get_sources[0Ksection_start:1760388148:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:8fc4e7d6af83b1573e6c99e2d705032bda6bb19fc0d99d0abeb10fda99d4b193 for registry.gitlab.com/aomediacodec/aom-testing/ubuntu2404:20250820001241 with digest registry.gitlab.com/aomediacodec/aom-testing/ubuntu2404@sha256:d5c8fbe20b854b654ad3052713b702d0e8a5317a73880e9c470d7295437c5060 ...[0;m
+[32;1m$ export PATH="/usr/lib/llvm-18/bin:${PATH}"[0;m
+[32;1m$ SANITIZER_BLACKLIST_FLAG="-fsanitize-blacklist=${PWD}/${SANITIZER_IGNORES_FILE}" # collapsed multi-line command[0;m
+CMake Flags: -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DENABLE_CCACHE=1 -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DENABLE_EXAMPLES=0 -DSANITIZE=thread -DENABLE_ASSERTS=1 -DAOM_EXTRA_C_FLAGS=-fsanitize-blacklist=/builds/AOMediaCodec/avm/.gitlab/SanitizerIgnores.txt -DAOM_EXTRA_CXX_FLAGS=-fsanitize-blacklist=/builds/AOMediaCodec/avm/.gitlab/SanitizerIgnores.txt
+[32;1m$ cmake -B "aom_build/$AOM_SANITIZER_TYPE" -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo $CMAKE_FLAGS[0;m
+-- The C compiler identification is Clang 18.1.8
+-- The CXX compiler identification is Clang 18.1.8
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: /usr/lib/llvm-18/bin/clang
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/lib/llvm-18/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/lib/llvm-18/bin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Git: /usr/bin/git (found version "2.43.0")
+-- Found Perl: /usr/bin/perl (found version "5.38.2")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+--- aom_configure: Detected CPU: x86_64
+-- The ASM_NASM compiler identification is YASM
+-- Found assembler: /usr/bin/yasm
+CMake Warning at build/cmake/util.cmake:60 (message):
+  --- Enabled CONFIG_TENSORFLOW_LITE, required for CONFIG_ML_PART_SPLIT.
+Call Stack (most recent call first):
+  build/cmake/aom_experiment_deps.cmake:56 (change_config_and_warn)
+  build/cmake/aom_configure.cmake:232 (fix_experiment_configs)
+  CMakeLists.txt:50 (include)
+
+
+CMake Warning at build/cmake/util.cmake:60 (message):
+  --- Enabled CONFIG_LR_FRAMEFILTERS_IN_HEADER, required for
+  CONFIG_CONTROL_LOOPFILTERS_ACROSS_TILES.
+Call Stack (most recent call first):
+  build/cmake/aom_experiment_deps.cmake:64 (change_config_and_warn)
+  build/cmake/aom_configure.cmake:232 (fix_experiment_configs)
+  CMakeLists.txt:50 (include)
+
+
+CMake Warning at build/cmake/util.cmake:60 (message):
+  --- Enabled CONFIG_MINIMUM_LR_UNIT_SIZE_64x64, required for
+  CONFIG_CONTROL_LOOPFILTERS_ACROSS_TILES.
+Call Stack (most recent call first):
+  build/cmake/aom_experiment_deps.cmake:73 (change_config_and_warn)
+  build/cmake/aom_configure.cmake:232 (fix_experiment_configs)
+  CMakeLists.txt:50 (include)
+
+
+Running C compiler test: inline_check_1
+-- Performing Test C_TEST_COMPILED
+-- Performing Test C_TEST_COMPILED - Success
+Running CXX compiler test: inline_check_1
+-- Performing Test CXX_TEST_COMPILED
+-- Performing Test CXX_TEST_COMPILED - Success
+Running C compiler test: unistd_check
+-- Performing Test C_TEST_COMPILED
+-- Performing Test C_TEST_COMPILED - Success
+Running CXX compiler test: unistd_check
+-- Performing Test CXX_TEST_COMPILED
+-- Performing Test CXX_TEST_COMPILED - Success
+Running C compiler test: fenv_check
+-- Performing Test C_TEST_COMPILED
+-- Performing Test C_TEST_COMPILED - Success
+--- Using ccache as compiler launcher.
+Checking C compiler flag support for: -std=c99
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -std=c++17
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+Checking C compiler flag support for: -Wall
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wall
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wdisabled-optimization
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wdisabled-optimization
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wextra
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wextra
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wfloat-conversion
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wfloat-conversion
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wlogical-op
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Failed
+Checking C++ compiler flag support for: -Wlogical-op
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Failed
+Checking C compiler flag support for: -Wno-comment
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wno-comment
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wpointer-arith
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wpointer-arith
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wshorten-64-to-32
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wshorten-64-to-32
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wsign-compare
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wsign-compare
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wstring-conversion
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wstring-conversion
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wtype-limits
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wtype-limits
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wuninitialized
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wuninitialized
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wunused
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wunused
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wvla
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -Wvla
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wimplicit-function-declaration
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wshadow
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -Wundef
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -UNDEBUG
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -UNDEBUG
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -D_LARGEFILE_SOURCE
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -D_LARGEFILE_SOURCE
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Checking C compiler flag support for: -D_FILE_OFFSET_BITS=64
+-- Performing Test C_FLAG_SUPPORTED
+-- Performing Test C_FLAG_SUPPORTED - Success
+Checking C++ compiler flag support for: -D_FILE_OFFSET_BITS=64
+-- Performing Test CXX_FLAG_SUPPORTED
+-- Performing Test CXX_FLAG_SUPPORTED - Success
+Running C compiler test: LINKER_FLAG_C_TEST(-fsanitize=thread)
+-- Performing Test C_TEST_COMPILED
+-- Performing Test C_TEST_COMPILED - Success
+Running CXX compiler test: LINKER_FLAG_CXX_TEST(-fsanitize=thread)
+-- Performing Test CXX_TEST_COMPILED
+-- Performing Test CXX_TEST_COMPILED - Success
+Checking C compiler flag support for: -fsanitize=thread
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -fsanitize=thread
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+Checking C compiler flag support for: -fno-omit-frame-pointer -fno-optimize-sibling-calls
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -fno-omit-frame-pointer -fno-optimize-sibling-calls
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+-- Found Python: /usr/bin/python3.12 (found version "3.12.3") found components: Interpreter
+-- Performing Test FLAG_SUPPORTED
+-- Performing Test FLAG_SUPPORTED - Failed
+Checking C compiler flag support for: -msse2
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -msse2
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+Checking C compiler flag support for: -msse3
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -msse3
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+Checking C compiler flag support for: -mssse3
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -mssse3
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+Checking C compiler flag support for: -msse4.1
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -msse4.1
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+Checking C compiler flag support for: -msse4.2
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -msse4.2
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+Checking C compiler flag support for: -mavx2
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -mavx2
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+-- Building TFLite from local sources...
+patching file tensorflow/lite/core/c/operator.cc
+patching file tensorflow/lite/delegates/xnnpack/weight_cache.cc
+patching file tensorflow/lite/delegates/xnnpack/weight_cache.h
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(abseil-cpp) is deprecated, call
+  FetchContent_MakeAvailable(abseil-cpp) instead.  Policy CMP0169 can be set
+  to OLD to allow FetchContent_Populate(abseil-cpp) to be called directly for
+  now, but the ability to call it with declared details will be removed
+  completely in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/abseil-cpp.cmake:37 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/Findabsl.cmake:18 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:149 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning at aom_build/thread/abseil-cpp/CMakeLists.txt:77 (message):
+  A future Abseil release will default ABSL_PROPAGATE_CXX_STD to ON for CMake
+  3.8 and up.  We recommend enabling this option to ensure your project still
+  builds correctly.
+
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(eigen) is deprecated, call
+  FetchContent_MakeAvailable(eigen) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(eigen) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/eigen.cmake:40 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/FindEigen3.cmake:18 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:150 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(farmhash) is deprecated, call
+  FetchContent_MakeAvailable(farmhash) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(farmhash) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/farmhash.cmake:39 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/Findfarmhash.cmake:34 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:151 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(fft2d) is deprecated, call
+  FetchContent_MakeAvailable(fft2d) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(fft2d) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/fft2d.cmake:34 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/Findfft2d.cmake:18 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:152 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(flatbuffers) is deprecated, call
+  FetchContent_MakeAvailable(flatbuffers) instead.  Policy CMP0169 can be set
+  to OLD to allow FetchContent_Populate(flatbuffers) to be called directly
+  for now, but the ability to call it with declared details will be removed
+  completely in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/flatbuffers.cmake:37 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/FindFlatBuffers.cmake:18 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:153 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+fatal: detected dubious ownership in repository at '/builds/AOMediaCodec/avm/aom_build/thread/flatbuffers'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /builds/AOMediaCodec/avm/aom_build/thread/flatbuffers
+CMake Warning at aom_build/thread/flatbuffers/CMake/Version.cmake:32 (message):
+  git describe failed with exit code: 128
+
+  Make sure you cloned with tags or run 'git fetch --tags'.
+Call Stack (most recent call first):
+  aom_build/thread/flatbuffers/CMakeLists.txt:5 (include)
+
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(gemmlowp) is deprecated, call
+  FetchContent_MakeAvailable(gemmlowp) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(gemmlowp) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/gemmlowp.cmake:40 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/Findgemmlowp.cmake:18 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:154 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Deprecation Warning at aom_build/thread/gemmlowp/contrib/CMakeLists.txt:5 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(neon2sse) is deprecated, call
+  FetchContent_MakeAvailable(neon2sse) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(neon2sse) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/neon2sse.cmake:39 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/FindNEON_2_SSE.cmake:18 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:156 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Deprecation Warning at aom_build/thread/neon2sse/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(cpuinfo) is deprecated, call
+  FetchContent_MakeAvailable(cpuinfo) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(cpuinfo) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/cpuinfo.cmake:34 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/Findcpuinfo.cmake:16 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:159 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Deprecation Warning at aom_build/thread/cpuinfo/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(ml_dtypes) is deprecated, call
+  FetchContent_MakeAvailable(ml_dtypes) instead.  Policy CMP0169 can be set
+  to OLD to allow FetchContent_Populate(ml_dtypes) to be called directly for
+  now, but the ability to call it with declared details will be removed
+  completely in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/ml_dtypes.cmake:39 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/Findml_dtypes.cmake:19 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:160 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(ruy) is deprecated, call
+  FetchContent_MakeAvailable(ruy) instead.  Policy CMP0169 can be set to OLD
+  to allow FetchContent_Populate(ruy) to be called directly for now, but the
+  ability to call it with declared details will be removed completely in a
+  future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/ruy.cmake:34 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/Findruy.cmake:16 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:161 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Deprecation Warning at aom_build/thread/pthreadpool/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at aom_build/thread/FXdiv/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(xnnpack) is deprecated, call
+  FetchContent_MakeAvailable(xnnpack) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(xnnpack) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/xnnpack.cmake:34 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/FindXNNPACK.cmake:16 (include)
+  third_party/tensorflow/tensorflow/lite/CMakeLists.txt:493 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Deprecation Warning at aom_build/thread/fp16/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at aom_build/thread/psimd/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Warning (dev) at /usr/share/cmake-4.1/Modules/FetchContent.cmake:1953 (message):
+  Calling FetchContent_Populate(protobuf) is deprecated, call
+  FetchContent_MakeAvailable(protobuf) instead.  Policy CMP0169 can be set to
+  OLD to allow FetchContent_Populate(protobuf) to be called directly for now,
+  but the ability to call it with declared details will be removed completely
+  in a future version.
+Call Stack (most recent call first):
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/OverridableFetchContent.cmake:537 (FetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/protobuf.cmake:38 (OverridableFetchContent_Populate)
+  third_party/tensorflow/tensorflow/lite/tools/cmake/modules/FindProtobuf.cmake:16 (include)
+  third_party/tensorflow/tensorflow/lite/profiling/proto/CMakeLists.txt:15 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Deprecation Warning at aom_build/thread/protobuf/CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+Checking C compiler flag support for: -fsanitize-blacklist=/builds/AOMediaCodec/avm/.gitlab/SanitizerIgnores.txt
+-- Performing Test HAVE_C_FLAG
+-- Performing Test HAVE_C_FLAG - Success
+Checking C compiler flag support for: -fsanitize-blacklist=/builds/AOMediaCodec/avm/.gitlab/SanitizerIgnores.txt
+-- Performing Test HAVE_CXX_FLAG
+-- Performing Test HAVE_CXX_FLAG - Success
+-- Found Doxygen: /usr/bin/doxygen (found version "1.9.8") found components: doxygen dot
+-- Configuring done (46.7s)
+-- Generating done (1.9s)
+-- Build files have been written to: /builds/AOMediaCodec/avm/aom_build/thread
+[32;1m$ exit_code=0[0;m
+[32;1m$ cmake --build "aom_build/$AOM_SANITIZER_TYPE" --target test_libaom 2>&1 | tee build.log || exit_code=$?[0;m
+[1/1141] Building C object CMakeFiles/aom_common_app_util.dir/common/y4menc.c.o
+[2/1141] Building C object CMakeFiles/aom_encoder_app_util.dir/common/warnings.c.o
+[3/1141] Building C object CMakeFiles/aom_encoder_app_util.dir/common/video_writer.c.o
+[4/1141] Building C object CMakeFiles/aom_encoder_app_util.dir/common/stream_iter.c.o
+[5/1141] Building C object CMakeFiles/aom_encoder_app_util.dir/common/ivfenc.c.o
+[6/1141] Building C object CMakeFiles/aom_common_app_util.dir/av1/arg_defs.c.o
+[7/1141] Building C object CMakeFiles/aom_common_app_util.dir/common/args_helper.c.o
+[8/1141] Building C object CMakeFiles/aom_common_app_util.dir/common/rawenc.c.o
+[9/1141] Building C object CMakeFiles/aom_common_app_util.dir/common/md5_utils.c.o
+[10/1141] Building C object CMakeFiles/aom_encoder_app_util.dir/examples/encoder_util.c.o
+[11/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/cpu_id.cc.o
+[12/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/row_mips.cc.o
+[13/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/row_win.cc.o
+[14/1141] Building C object CMakeFiles/aom_common_app_util.dir/common/args.c.o
+[15/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/row_neon.cc.o
+[16/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/row_neon64.cc.o
+[17/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale_gcc.cc.o
+[18/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale_any.cc.o
+[19/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale_mips.cc.o
+[20/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale_neon.cc.o
+[21/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale_neon64.cc.o
+[22/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale_win.cc.o
+[23/1141] Updating version info if necessary.
+[24/1141] Writing aom_version.h
+[25/1141] Building C object CMakeFiles/aom_version.dir/gen_src/aom_version_dummy.c.o
+[26/1141] Linking C static library libaom_version.a
+[27/1141] Building C object CMakeFiles/aom_common_app_util.dir/common/tools_common.c.o
+[28/1141] Building CXX object CMakeFiles/webm.dir/third_party/libwebm/mkvparser/mkvreader.cc.o
+[29/1141] Generating /builds/AOMediaCodec/avm/aom_build/thread/config/aom_scale_rtcd.h
+[30/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/row_gcc.cc.o
+[31/1141] Generating /builds/AOMediaCodec/avm/aom_build/thread/config/av1_rtcd.h
+[32/1141] Building C object CMakeFiles/aom_encoder_app_util.dir/common/y4minput.c.o
+[33/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/api/error_reporter.cc.o
+[34/1141] Building CXX object CMakeFiles/webm.dir/third_party/libwebm/mkvmuxer/mkvwriter.cc.o
+[35/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale.cc.o
+[36/1141] Building CXX object CMakeFiles/aom_encoder_app_util.dir/common/webmenc.cc.o
+[37/1141] Generating /builds/AOMediaCodec/avm/aom_build/thread/config/aom_dsp_rtcd.h
+[38/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/api/tensor_utils.cc.o
+[39/1141] Building C object CMakeFiles/aom_rtcd.dir/aom_scale/aom_scale_rtcd.c.o
+[40/1141] Building C object CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o
+FAILED: CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o 
+/usr/bin/ccache /usr/lib/llvm-18/bin/clang  -I/builds/AOMediaCodec/avm/third_party/googletest/src/googletest/include -I/builds/AOMediaCodec/avm/third_party/googletest/src/googletest -I/builds/AOMediaCodec/avm -I/builds/AOMediaCodec/avm/aom_build/thread -I/builds/AOMediaCodec/avm/apps -I/builds/AOMediaCodec/avm/common -I/builds/AOMediaCodec/avm/examples -I/builds/AOMediaCodec/avm/stats -I/builds/AOMediaCodec/avm/third_party/abseil-cpp -I/builds/AOMediaCodec/avm/third_party/tensorflow -I/builds/AOMediaCodec/avm/aom_build/thread/flatbuffers/include -I/builds/AOMediaCodec/avm/third_party/libyuv/include -I/builds/AOMediaCodec/avm/third_party/libwebm -O2 -g -DNDEBUG -std=c99 -Wall -Wdisabled-optimization -Wextra -Wfloat-conversion -Wno-comment -Wpointer-arith -Wshorten-64-to-32 -Wsign-compare -Wstring-conversion -Wtype-limits -Wuninitialized -Wunused -Wvla -Wimplicit-function-declaration -Wshadow -Wundef -UNDEBUG -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -fsanitize=thread -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize-blacklist=/builds/AOMediaCodec/avm/.gitlab/SanitizerIgnores.txt -MD -MT CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o -MF CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o.d -o CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o -c /builds/AOMediaCodec/avm/common/av1_config.c
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: /usr/lib/llvm-18/bin/clang -O2 -g -std=c99 -Wall -Wdisabled-optimization -Wextra -Wfloat-conversion -Wno-comment -Wpointer-arith -Wshorten-64-to-32 -Wsign-compare -Wstring-conversion -Wtype-limits -Wuninitialized -Wunused -Wvla -Wimplicit-function-declaration -Wshadow -Wundef -fsanitize=thread -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize-blacklist=/builds/AOMediaCodec/avm/.gitlab/SanitizerIgnores.txt -I/builds/AOMediaCodec/avm/third_party/googletest/src/googletest/include -I/builds/AOMediaCodec/avm/third_party/googletest/src/googletest -I/builds/AOMediaCodec/avm -I/builds/AOMediaCodec/avm/aom_build/thread -I/builds/AOMediaCodec/avm/apps -I/builds/AOMediaCodec/avm/common -I/builds/AOMediaCodec/avm/examples -I/builds/AOMediaCodec/avm/stats -I/builds/AOMediaCodec/avm/third_party/abseil-cpp -I/builds/AOMediaCodec/avm/third_party/tensorflow -I/builds/AOMediaCodec/avm/aom_build/thread/flatbuffers/include -I/builds/AOMediaCodec/avm/third_party/libyuv/include -I/builds/AOMediaCodec/avm/third_party/libwebm -DNDEBUG -UNDEBUG -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -MD -MT CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o -MF CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o.d -fcolor-diagnostics -o CMakeFiles/aom_common_app_util.dir/common/av1_config.c.o /builds/AOMediaCodec/avm/common/av1_config.c
+1.	<unknown> parser at unknown location
+2.	/builds/AOMediaCodec/avm/av1/common/restoration.h:828:75: parsing function body 'get_ru_index_for_tile_start'
+3.	/builds/AOMediaCodec/avm/av1/common/restoration.h:828:75: in compound statement ('{}')
+ #0 0x000055646d3af922 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/lib/llvm-18/bin/clang+0x3773922)
+ #1 0x000055646d3ad6ac llvm::sys::CleanupOnSignal(unsigned long) (/usr/lib/llvm-18/bin/clang+0x37716ac)
+ #2 0x000055646d2e66d8 CrashRecoverySignalHandler(int) CrashRecoveryContext.cpp:0:0
+ #3 0x00007f30dc5d3330 (/lib/x86_64-linux-gnu/libc.so.6+0x45330)
+ #4 0x000055647057590c clang::Lexer::LexTokenInternal(clang::Token&, bool) (/usr/lib/llvm-18/bin/clang+0x693990c)
+ #5 0x00005564705f155c clang::Preprocessor::Lex(clang::Token&) (/usr/lib/llvm-18/bin/clang+0x69b555c)
+ #6 0x000055646f33259f clang::Parser::ConsumeBrace() (/usr/lib/llvm-18/bin/clang+0x56f659f)
+ #7 0x000055646f33ee4a clang::BalancedDelimiterTracker::consumeClose() (/usr/lib/llvm-18/bin/clang+0x5702e4a)
+ #8 0x000055646f41cbd0 clang::Parser::ParseCompoundStatementBody(bool) (/usr/lib/llvm-18/bin/clang+0x57e0bd0)
+ #9 0x000055646f41d5ba clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) (/usr/lib/llvm-18/bin/clang+0x57e15ba)
+#10 0x000055646f33dea1 clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) (/usr/lib/llvm-18/bin/clang+0x5701ea1)
+#11 0x000055646f378e17 clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::ParsedAttributes&, clang::SourceLocation*, clang::Parser::ForRangeInit*) (/usr/lib/llvm-18/bin/clang+0x573ce17)
+#12 0x000055646f338543 clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*, clang::AccessSpecifier) (/usr/lib/llvm-18/bin/clang+0x56fc543)
+#13 0x000055646f33f8e5 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/lib/llvm-18/bin/clang+0x57038e5)
+#14 0x000055646f3412e5 clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) (/usr/lib/llvm-18/bin/clang+0x57052e5)
+#15 0x000055646f331efa clang::ParseAST(clang::Sema&, bool, bool) (/usr/lib/llvm-18/bin/clang+0x56f5efa)
+#16 0x000055646de0dc19 clang::FrontendAction::Execute() (/usr/lib/llvm-18/bin/clang+0x41d1c19)
+#17 0x000055646dd8fe09 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/lib/llvm-18/bin/clang+0x4153e09)
+#18 0x000055646decdcab clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/usr/lib/llvm-18/bin/clang+0x4291cab)
+#19 0x000055646aac8f76 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/usr/lib/llvm-18/bin/clang+0xe8cf76)
+#20 0x000055646aac14ca ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&) driver.cpp:0:0
+#21 0x000055646dbc19ed void llvm::function_ref<void ()>::callback_fn<clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const::'lambda'()>(long) Job.cpp:0:0
+#22 0x000055646d2e6b27 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/usr/lib/llvm-18/bin/clang+0x36aab27)
+#23 0x000055646dbc20b1 clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const (.part.0) Job.cpp:0:0
+#24 0x000055646db8ae5a clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const (/usr/lib/llvm-18/bin/clang+0x3f4ee5a)
+#25 0x000055646db8b90d clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const (/usr/lib/llvm-18/bin/clang+0x3f4f90d)
+#26 0x000055646db9d00c clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) (/usr/lib/llvm-18/bin/clang+0x3f6100c)
+#27 0x000055646aac6648 clang_main(int, char**, llvm::ToolContext const&) (/usr/lib/llvm-18/bin/clang+0xe8a648)
+#28 0x000055646a9b1e9a main (/usr/lib/llvm-18/bin/clang+0xd75e9a)
+#29 0x00007f30dc5b81ca __libc_start_call_main ./csu/../sysdeps/nptl/libc_start_call_main.h:74:3
+#30 0x00007f30dc5b828b call_init ./csu/../csu/libc-start.c:128:20
+#31 0x00007f30dc5b828b __libc_start_main ./csu/../csu/libc-start.c:347:5
+#32 0x000055646aac08b5 _start (/usr/lib/llvm-18/bin/clang+0xe848b5)
+clang: error: clang frontend command failed with exit code 135 (use -v to see invocation)
+clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/lib/llvm-18/bin
+clang: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang: note: diagnostic msg: /tmp/av1_config-260c0e.c
+clang: note: diagnostic msg: /tmp/av1_config-260c0e.sh
+clang: note: diagnostic msg: 
+
+********************
+[41/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/row_any.cc.o
+[42/1141] Building CXX object CMakeFiles/webm.dir/third_party/libwebm/common/hdr_util.cc.o
+[43/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/planar_functions.cc.o
+[44/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/scale_common.cc.o
+[45/1141] Building C object CMakeFiles/aom_rtcd.dir/av1/common/av1_rtcd.c.o
+[46/1141] Building CXX object CMakeFiles/webm.dir/third_party/libwebm/mkvmuxer/mkvmuxerutil.cc.o
+[47/1141] Building C object CMakeFiles/aom_rtcd.dir/aom_dsp/aom_dsp_rtcd.c.o
+[48/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/acceleration/configuration/stable_delegate_registry.cc.o
+[49/1141] Building CXX object CMakeFiles/yuv.dir/third_party/libyuv/source/row_common.cc.o
+[50/1141] Building CXX object CMakeFiles/webm.dir/third_party/libwebm/mkvmuxer/mkvmuxer.cc.o
+[51/1141] Building CXX object CMakeFiles/webm.dir/third_party/libwebm/mkvparser/mkvparser.cc.o
+[52/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/acceleration/configuration/nnapi_plugin.cc.o
+[53/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/acceleration/configuration/delegate_registry.cc.o
+[54/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/api/op_resolver.cc.o
+[55/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/c/c_api.cc.o
+[56/1141] Building CXX object third_party/tensorflow/tensorflow/lite/c/tensorflow-lite/CMakeFiles/tensorflow-lite.dir/core/api/flatbuffer_conversions.cc.o
+[57/1141] Building CXX object CMakeFiles/aom_gtest.dir/third_party/googletest/src/googletest/src/gtest-all.cc.o
+ninja: build stopped: subcommand failed.
+[32;1m$ COMPILER_CRASH_EXIT_CODE=135 # collapsed multi-line command[0;m
+Compiler crashed with exit code 135
+Saving diagnostic files and asking gitlab to retry...
+section_end:1760388267:step_script[0Ksection_start:1760388267:upload_artifacts_on_failure[0K[0K[36;1mUploading artifacts for failed job[0;m[0;m
+[32;1mUploading artifacts...[0;m
+[0;33mWARNING: aom_build/*/test_libaom: no matching files. Ensure that the artifact path is relative to the working directory (/builds/AOMediaCodec/avm)[0;m 
+clang_diagnostic_files/*: found 2 matching artifact files and directories[0;m 
+Uploading artifacts as "archive" to coordinator... 201 Created[0;m  id[0;m=11702400258 responseStatus[0;m=201 Created token[0;m=glcbt-6b
+section_end:1760388271:upload_artifacts_on_failure[0Ksection_start:1760388271:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1760388273:cleanup_file_variables[0K[31;1mERROR: Job failed: exit code 135
+[0;m

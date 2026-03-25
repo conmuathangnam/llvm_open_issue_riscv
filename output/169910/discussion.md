@@ -1,0 +1,196 @@
+# Clang frontend assertion failure when parsing function with certain pragma combinations
+
+**Author:** AbyssStaror
+**URL:** https://github.com/llvm/llvm-project/issues/169910
+**Status:** Closed
+**Labels:** duplicate, clang:frontend, crash
+**Closed Date:** 2025-12-09T02:57:05Z
+
+## Body
+
+### Link for quick verification: https://godbolt.org/z/EvsxTrnbj
+```c
+typedef struct {
+    int m_keys[8]; 
+} map;
+
+map create_map() {
+    map result;
+
+    #pragma clang loop unroll(disable)
+    #pragma STDC FENV_ACCESS ON
+    
+    for (int i = 0; i < 8; i++) {
+            result.m_keys[i] = 0;
+    }
+    
+    return result;
+}
+```
+When I put `#pragma STDC FENV_ACCESS ON` at the wrong place, the compiler went crash.
+
+## The stack dump:
+```
+clang-21: /workspace/install/llvm/src/llvm-project/clang/lib/Parse/ParseStmt.cpp:81: clang::StmtResult clang::Parser::ParseStatementOrDeclaration(StmtVector&, ParsedStmtContext, clang::SourceLocation*): Assertion `(CXX11Attrs.empty() || Res.isInvalid() || Res.isUsable()) && "attributes on empty statement"' failed.
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.      Program arguments: /workspace/install/llvm/build_21.1.4/bin/clang-21 -cc1 -triple x86_64-unknown-linux-gnu -O3 -emit-obj -dumpdir a- -disable-free -clear-ast-before-backend -main-file-name 34412.fuzz -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/workspace/exps -fcoverage-compilation-dir=/workspace/exps -resource-dir /workspace/install/llvm/build_21.1.4/lib/clang/21 -internal-isystem /workspace/install/llvm/build_21.1.4/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -ferror-limit 19 -fmessage-length=167 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcolor-diagnostics -vectorize-loops -vectorize-slp -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /tmp/34412-039020.o -x c /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz
+1.      /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz:35:14: at annotation token
+2.      /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz:30:18: parsing function body 'create_map'
+3.      /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz:30:18: in compound statement ('{}')
+ #0 0x00006181b3047c2a llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x9691c2a)
+ #1 0x00006181b3048457 PrintStackTraceSignalHandler(void*) Signals.cpp:0:0
+ #2 0x00006181b3041f57 llvm::sys::RunSignalHandlers() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x968bf57)
+ #3 0x00006181b30421c7 SignalHandler(int, siginfo_t*, void*) Signals.cpp:0:0
+ #4 0x0000711b9b10e330 (/lib/x86_64-linux-gnu/libc.so.6+0x45330)
+ #5 0x0000711b9b167b2c __pthread_kill_implementation ./nptl/pthread_kill.c:44:76
+ #6 0x0000711b9b167b2c __pthread_kill_internal ./nptl/pthread_kill.c:78:10
+ #7 0x0000711b9b167b2c pthread_kill ./nptl/pthread_kill.c:89:10
+ #8 0x0000711b9b10e27e raise ./signal/../sysdeps/posix/raise.c:27:6
+ #9 0x0000711b9b0f18ff abort ./stdlib/abort.c:81:7
+#10 0x0000711b9b0f181b _nl_load_domain ./intl/loadmsgcat.c:1177:9
+#11 0x0000711b9b104517 (/lib/x86_64-linux-gnu/libc.so.6+0x3b517)
+#12 0x00006181b6697607 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 24u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcce1607)
+#13 0x00006181b6698e9e clang::Parser::ParseCompoundStatementBody(bool) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcce2e9e)
+#14 0x00006181b66998c2 clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcce38c2)
+#15 0x00006181b653d337 clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb87337)
+#16 0x00006181b6596d18 clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::ParsedAttributes&, clang::Parser::ParsedTemplateInfo&, clang::SourceLocation*, clang::Parser::ForRangeInit*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcbe0d18)
+#17 0x00006181b6533307 clang::Parser::ParseDeclOrFunctionDefInternal(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec&, clang::AccessSpecifier) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb7d307)
+#18 0x00006181b6533e9e clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*, clang::AccessSpecifier) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb7de9e)
+#19 0x00006181b653ff98 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb89f98)
+#20 0x00006181b654159d clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb8b59d)
+#21 0x00006181b65279d0 clang::ParseAST(clang::Sema&, bool, bool) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb719d0)
+#22 0x00006181b426f92b clang::ASTFrontendAction::ExecuteAction() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa8b992b)
+#23 0x00006181b3e5d360 clang::CodeGenAction::ExecuteAction() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa4a7360)
+#24 0x00006181b42779cf clang::FrontendAction::Execute() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa8c19cf)
+#25 0x00006181b41bdf46 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa807f46)
+#26 0x00006181b43fff7b clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xaa49f7b)
+#27 0x00006181ae16e523 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x47b8523)
+#28 0x00006181ae15ec58 ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&) driver.cpp:0:0
+#29 0x00006181ae164b28 clang_main(int, char**, llvm::ToolContext const&) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x47aeb28)
+#30 0x00006181adfbfb4a main (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x4609b4a)
+#31 0x0000711b9b0f31ca __libc_start_call_main ./csu/../sysdeps/nptl/libc_start_call_main.h:74:3
+#32 0x0000711b9b0f328b call_init ./csu/../csu/libc-start.c:128:20
+#33 0x0000711b9b0f328b __libc_start_main ./csu/../csu/libc-start.c:347:5
+#34 0x00006181ae15cf55 _start (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x47a6f55)
+clang: error: unable to execute command: Aborted (core dumped)
+```
+## The Clang version:
+```
+clang version 21.1.4 (https://github.com/llvm/llvm-project.git 222fc11f2b8f25f6a0f4976272ef1bb7bf49521d)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /workspace/install/llvm/build_21.1.4/bin
+Build config: +assertions
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/13
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/13
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+```
+
+## Comments
+
+### Comment 1 - llvmbot
+
+
+@llvm/issue-subscribers-clang-frontend
+
+Author: None (AbyssStaror)
+
+<details>
+### Link for quick verification: https://godbolt.org/z/EvsxTrnbj
+```c
+typedef struct {
+    int m_keys[8]; 
+} map;
+
+map create_map() {
+    map result;
+
+    #pragma clang loop unroll(disable)
+    #pragma STDC FENV_ACCESS ON
+    
+    for (int i = 0; i &lt; 8; i++) {
+            result.m_keys[i] = 0;
+    }
+    
+    return result;
+}
+```
+When I put `#pragma STDC FENV_ACCESS ON` at the wrong place, the compiler went crash.
+
+## The stack dump:
+```
+clang-21: /workspace/install/llvm/src/llvm-project/clang/lib/Parse/ParseStmt.cpp:81: clang::StmtResult clang::Parser::ParseStatementOrDeclaration(StmtVector&amp;, ParsedStmtContext, clang::SourceLocation*): Assertion `(CXX11Attrs.empty() || Res.isInvalid() || Res.isUsable()) &amp;&amp; "attributes on empty statement"' failed.
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.      Program arguments: /workspace/install/llvm/build_21.1.4/bin/clang-21 -cc1 -triple x86_64-unknown-linux-gnu -O3 -emit-obj -dumpdir a- -disable-free -clear-ast-before-backend -main-file-name 34412.fuzz -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/workspace/exps -fcoverage-compilation-dir=/workspace/exps -resource-dir /workspace/install/llvm/build_21.1.4/lib/clang/21 -internal-isystem /workspace/install/llvm/build_21.1.4/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -ferror-limit 19 -fmessage-length=167 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcolor-diagnostics -vectorize-loops -vectorize-slp -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /tmp/34412-039020.o -x c /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz
+1.      /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz:35:14: at annotation token
+2.      /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz:30:18: parsing function body 'create_map'
+3.      /workspace/exps/featurefuzz/generate_feature_fine_tuning_qwen_4b_choose_3_1_exp/cases/34412.fuzz:30:18: in compound statement ('{}')
+ #<!-- -->0 0x00006181b3047c2a llvm::sys::PrintStackTrace(llvm::raw_ostream&amp;, int) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x9691c2a)
+ #<!-- -->1 0x00006181b3048457 PrintStackTraceSignalHandler(void*) Signals.cpp:0:0
+ #<!-- -->2 0x00006181b3041f57 llvm::sys::RunSignalHandlers() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x968bf57)
+ #<!-- -->3 0x00006181b30421c7 SignalHandler(int, siginfo_t*, void*) Signals.cpp:0:0
+ #<!-- -->4 0x0000711b9b10e330 (/lib/x86_64-linux-gnu/libc.so.6+0x45330)
+ #<!-- -->5 0x0000711b9b167b2c __pthread_kill_implementation ./nptl/pthread_kill.c:44:76
+ #<!-- -->6 0x0000711b9b167b2c __pthread_kill_internal ./nptl/pthread_kill.c:78:10
+ #<!-- -->7 0x0000711b9b167b2c pthread_kill ./nptl/pthread_kill.c:89:10
+ #<!-- -->8 0x0000711b9b10e27e raise ./signal/../sysdeps/posix/raise.c:27:6
+ #<!-- -->9 0x0000711b9b0f18ff abort ./stdlib/abort.c:81:7
+#<!-- -->10 0x0000711b9b0f181b _nl_load_domain ./intl/loadmsgcat.c:1177:9
+#<!-- -->11 0x0000711b9b104517 (/lib/x86_64-linux-gnu/libc.so.6+0x3b517)
+#<!-- -->12 0x00006181b6697607 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector&lt;clang::Stmt*, 24u&gt;&amp;, clang::Parser::ParsedStmtContext, clang::SourceLocation*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcce1607)
+#<!-- -->13 0x00006181b6698e9e clang::Parser::ParseCompoundStatementBody(bool) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcce2e9e)
+#<!-- -->14 0x00006181b66998c2 clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&amp;) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcce38c2)
+#<!-- -->15 0x00006181b653d337 clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&amp;, clang::Parser::ParsedTemplateInfo const&amp;, clang::Parser::LateParsedAttrList*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb87337)
+#<!-- -->16 0x00006181b6596d18 clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&amp;, clang::DeclaratorContext, clang::ParsedAttributes&amp;, clang::Parser::ParsedTemplateInfo&amp;, clang::SourceLocation*, clang::Parser::ForRangeInit*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcbe0d18)
+#<!-- -->17 0x00006181b6533307 clang::Parser::ParseDeclOrFunctionDefInternal(clang::ParsedAttributes&amp;, clang::ParsedAttributes&amp;, clang::ParsingDeclSpec&amp;, clang::AccessSpecifier) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb7d307)
+#<!-- -->18 0x00006181b6533e9e clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributes&amp;, clang::ParsedAttributes&amp;, clang::ParsingDeclSpec*, clang::AccessSpecifier) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb7de9e)
+#<!-- -->19 0x00006181b653ff98 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&amp;, clang::ParsedAttributes&amp;, clang::ParsingDeclSpec*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb89f98)
+#<!-- -->20 0x00006181b654159d clang::Parser::ParseTopLevelDecl(clang::OpaquePtr&lt;clang::DeclGroupRef&gt;&amp;, clang::Sema::ModuleImportState&amp;) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb8b59d)
+#<!-- -->21 0x00006181b65279d0 clang::ParseAST(clang::Sema&amp;, bool, bool) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xcb719d0)
+#<!-- -->22 0x00006181b426f92b clang::ASTFrontendAction::ExecuteAction() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa8b992b)
+#<!-- -->23 0x00006181b3e5d360 clang::CodeGenAction::ExecuteAction() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa4a7360)
+#<!-- -->24 0x00006181b42779cf clang::FrontendAction::Execute() (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa8c19cf)
+#<!-- -->25 0x00006181b41bdf46 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&amp;) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xa807f46)
+#<!-- -->26 0x00006181b43fff7b clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0xaa49f7b)
+#<!-- -->27 0x00006181ae16e523 cc1_main(llvm::ArrayRef&lt;char const*&gt;, char const*, void*) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x47b8523)
+#<!-- -->28 0x00006181ae15ec58 ExecuteCC1Tool(llvm::SmallVectorImpl&lt;char const*&gt;&amp;, llvm::ToolContext const&amp;) driver.cpp:0:0
+#<!-- -->29 0x00006181ae164b28 clang_main(int, char**, llvm::ToolContext const&amp;) (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x47aeb28)
+#<!-- -->30 0x00006181adfbfb4a main (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x4609b4a)
+#<!-- -->31 0x0000711b9b0f31ca __libc_start_call_main ./csu/../sysdeps/nptl/libc_start_call_main.h:74:3
+#<!-- -->32 0x0000711b9b0f328b call_init ./csu/../csu/libc-start.c:128:20
+#<!-- -->33 0x0000711b9b0f328b __libc_start_main ./csu/../csu/libc-start.c:347:5
+#<!-- -->34 0x00006181ae15cf55 _start (/workspace/install/llvm/build_21.1.4/bin/clang-21+0x47a6f55)
+clang: error: unable to execute command: Aborted (core dumped)
+```
+## The Clang version:
+```
+clang version 21.1.4 (https://github.com/llvm/llvm-project.git 222fc11f2b8f25f6a0f4976272ef1bb7bf49521d)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /workspace/install/llvm/build_21.1.4/bin
+Build config: +assertions
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/13
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/13
+Candidate multilib: .;@<!-- -->m64
+Selected multilib: .;@<!-- -->m64
+```
+</details>
+
+
+---
+
+### Comment 2 - shafik
+
+You need to check for duplicates before posting reports. We have had a lot of folks fuzzing clang, so invariably you all will hit the same bugs over and over again. Opening duplicate bugs is just not helpful.
+
+---
+
+### Comment 3 - AbyssStaror
+
+I apologize for the duplicate submission. And I'll make sure to carefully verify against outputs before submitting any future bug reports.
+
+---
+

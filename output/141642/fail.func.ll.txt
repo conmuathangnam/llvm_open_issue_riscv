@@ -1,0 +1,329 @@
+define linkonce_odr dso_local void @_ZN3hwy8N_EMU1288TestPackINS0_6Pack16ELm16ELm3EEclItNS0_4SimdItLm2ELi0EEEEEvT_T0_(ptr noundef nonnull align 1 dereferenceable(1) %0, i16 noundef zeroext %1, i8 %2) local_unnamed_addr #22 comdat {
+  %4 = alloca %"class.hwy::RandomState", align 8
+  %5 = alloca %"class.hwy::N_EMU128::Checker", align 8
+  %6 = alloca %"class.std::unique_ptr.75", align 8
+  %7 = alloca %"class.std::unique_ptr.75", align 8
+  %8 = alloca %"class.std::unique_ptr.75", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #28
+  call void @_ZN3hwy11RandomStateC2Em(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 258)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
+  call void @_ZN3hwy8N_EMU1287CheckerItEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 512)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
+  call void @_ZN3hwy15AllocateAlignedItEESt10unique_ptrIA_T_NS_12AlignedFreerEEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.75") align 8 %6, i64 noundef 512)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
+  call void @_ZN3hwy15AllocateAlignedItEESt10unique_ptrIA_T_NS_12AlignedFreerEEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.75") align 8 %7, i64 noundef 512)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #28
+  call void @_ZN3hwy15AllocateAlignedItEESt10unique_ptrIA_T_NS_12AlignedFreerEEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.75") align 8 %8, i64 noundef 96)
+  %9 = call noundef zeroext i1 @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEEcvbEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = call noundef zeroext i1 @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEEcvbEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %10
+  %13 = call noundef zeroext i1 @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEEcvbEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  br i1 %13, label %.preheader5919, label %14
+
+14:                                               ; preds = %12, %10, %3
+  call void (ptr, i32, ptr, ...) @_ZN3hwy5AbortEPKciS1_z(ptr noundef nonnull @.str.2, i32 noundef signext 79, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #33
+  unreachable
+
+15:                                               ; preds = %.preheader5919
+  %16 = load i64, ptr @_ZN3hwy11best_targetE, align 8, !tbaa !10
+  %17 = call i64 @llvm.umin.i64(i64 %16, i64 2305843009213693952)
+  store i64 %17, ptr @_ZN3hwy11best_targetE, align 8, !tbaa !10
+  store i64 3, ptr @_ZN3hwy9last_bitsE, align 8, !tbaa !10
+  br label %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit54
+
+.preheader5919:                                   ; preds = %12, %.preheader5919
+  %.0225920 = phi i64 [ %22, %.preheader5919 ], [ 0, %12 ]
+  %18 = call noundef zeroext i16 @_ZN3hwy8N_EMU1286RandomILm3EtEET0_RNS_11RandomStateE(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %19 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %.0225920)
+  store i16 %18, ptr %19, align 2, !tbaa !19
+  %20 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %.0225920)
+  %21 = load i16, ptr %20, align 2, !tbaa !19
+  call void @_ZN3hwy8N_EMU1287CheckerItE9NotifyRawEt(ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %21)
+  %22 = add nuw nsw i64 %.0225920, 1
+  %exitcond.not = icmp eq i64 %22, 512
+  br i1 %exitcond.not, label %15, label %.preheader5919, !llvm.loop !6015
+
+23:                                               ; preds = %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit54
+  %24 = call noundef ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  %25 = load i64, ptr %4, align 8, !tbaa !422
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !424
+  %28 = add i64 %27, %25
+  store i64 %27, ptr %4, align 8, !tbaa !422
+  %29 = shl i64 %25, 23
+  %30 = xor i64 %29, %25
+  %31 = lshr i64 %30, 18
+  %32 = lshr i64 %27, 5
+  %33 = xor i64 %32, %31
+  %34 = xor i64 %33, %27
+  %35 = xor i64 %34, %30
+  store i64 %35, ptr %26, align 8, !tbaa !424
+  %36 = trunc i64 %28 to i32
+  %37 = urem i32 %36, 96
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds nuw i16, ptr %24, i64 %38
+  %40 = call noundef signext i32 @_ZN3hwy14Unpredictable1Ev() #28
+  %41 = load i16, ptr %39, align 2, !tbaa !19
+  %42 = trunc i32 %40 to i16
+  %43 = add i16 %42, -1
+  %44 = add i16 %43, %41
+  store i16 %44, ptr %39, align 2, !tbaa !19
+  br label %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader
+
+_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit54:        ; preds = %15, %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit54
+  %.0255955 = phi i64 [ 0, %15 ], [ %146, %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit54 ]
+  %.0265954 = phi i64 [ 0, %15 ], [ %147, %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit54 ]
+  %45 = call noundef ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
+  %46 = call noundef ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  %47 = getelementptr inbounds nuw i16, ptr %45, i64 %.0255955
+  %48 = load i32, ptr %47, align 2
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %50 = load i32, ptr %49, align 2
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %52 = load i32, ptr %51, align 2
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %54 = load i32, ptr %53, align 2
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %56 = load i32, ptr %55, align 2
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %58 = load i32, ptr %57, align 2
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %60 = load i32, ptr %59, align 2
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 28
+  %62 = load i32, ptr %61, align 2
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %64 = load i32, ptr %63, align 2
+  %65 = getelementptr inbounds nuw i8, ptr %47, i64 36
+  %66 = load i32, ptr %65, align 2
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %68 = load i32, ptr %67, align 2
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 44
+  %70 = load i32, ptr %69, align 2
+  %71 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %72 = load i32, ptr %71, align 2
+  %73 = getelementptr inbounds nuw i8, ptr %47, i64 52
+  %74 = load i32, ptr %73, align 2
+  %75 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %76 = load i32, ptr %75, align 2
+  %77 = getelementptr inbounds nuw i8, ptr %47, i64 60
+  %78 = load i32, ptr %77, align 2
+  %79 = shl i32 %60, 6
+  %80 = shl i32 %60, 6
+  %81 = shl i32 %54, 3
+  %82 = shl i32 %54, 3
+  %83 = and i32 %82, -524288
+  %84 = xor i32 %81, %79
+  %85 = and i32 %80, -4194304
+  %86 = xor i32 %83, %85
+  %87 = shl i32 %62, 6
+  %88 = shl i32 %62, 6
+  %89 = shl i32 %56, 3
+  %90 = shl i32 %56, 3
+  %91 = and i32 %90, -524288
+  %92 = xor i32 %89, %87
+  %93 = and i32 %88, -4194304
+  %94 = xor i32 %91, %93
+  %95 = shl i32 %64, 6
+  %96 = shl i32 %64, 6
+  %97 = shl i32 %58, 3
+  %98 = shl i32 %58, 3
+  %99 = and i32 %98, -524288
+  %100 = xor i32 %97, %95
+  %101 = and i32 %96, -4194304
+  %102 = xor i32 %99, %101
+  %103 = shl i32 %72, 12
+  %104 = shl i32 %72, 12
+  %105 = shl i32 %66, 9
+  %106 = xor i32 %103, %105
+  %107 = and i32 %104, -268435456
+  %108 = shl i32 %66, 9
+  %.sroa.06131.2.insert.ext63156316 = and i32 %108, -33554432
+  %.sroa.06131.2.extract.shift6317 = xor i32 %107, %.sroa.06131.2.insert.ext63156316
+  %109 = xor i32 %84, %106
+  %110 = xor i32 %109, %48
+  %.masked = and i32 %48, -65536
+  %111 = xor i32 %86, %.masked
+  %.sroa.06126.2.extract.shift6318 = xor i32 %111, %.sroa.06131.2.extract.shift6317
+  %112 = shl i32 %74, 12
+  %113 = shl i32 %74, 12
+  %114 = shl i32 %68, 9
+  %115 = xor i32 %112, %114
+  %116 = and i32 %113, -268435456
+  %117 = shl i32 %68, 9
+  %.sroa.06141.2.insert.ext63196320 = and i32 %117, -33554432
+  %.sroa.06141.2.extract.shift6321 = xor i32 %116, %.sroa.06141.2.insert.ext63196320
+  %118 = xor i32 %92, %115
+  %119 = xor i32 %118, %50
+  %.masked6322 = and i32 %50, -65536
+  %120 = xor i32 %94, %.masked6322
+  %.sroa.06136.2.extract.shift6323 = xor i32 %120, %.sroa.06141.2.extract.shift6321
+  %121 = shl i32 %76, 12
+  %122 = shl i32 %76, 12
+  %123 = shl i32 %70, 9
+  %124 = xor i32 %121, %123
+  %125 = and i32 %122, -268435456
+  %126 = shl i32 %70, 9
+  %.sroa.06151.2.insert.ext63246325 = and i32 %126, -33554432
+  %.sroa.06151.2.extract.shift6326 = xor i32 %125, %.sroa.06151.2.insert.ext63246325
+  %127 = xor i32 %100, %124
+  %128 = xor i32 %127, %52
+  %.masked6327 = and i32 %52, -65536
+  %129 = xor i32 %102, %.masked6327
+  %.sroa.06146.2.extract.shift6328 = xor i32 %129, %.sroa.06151.2.extract.shift6326
+  %130 = shl i32 %78, 15
+  %131 = or i32 %110, %130
+  %132 = and i32 %131, 65535
+  %133 = shl i32 %78, 15
+  %.sroa.06034.2.insert.ext63296330 = and i32 %133, -2147483648
+  %.sroa.06034.2.extract.shift6331 = or i32 %.sroa.06126.2.extract.shift6318, %.sroa.06034.2.insert.ext63296330
+  %.sroa.06034.2.insert.insert = or disjoint i32 %132, %.sroa.06034.2.extract.shift6331
+  %134 = shl i32 %78, 14
+  %135 = and i32 %134, 32768
+  %136 = and i32 %119, 65535
+  %137 = or i32 %136, %135
+  %138 = shl i32 %78, 14
+  %.sroa.06047.2.insert.ext63346335 = and i32 %138, -2147483648
+  %.sroa.06047.2.extract.shift6336 = or i32 %.sroa.06136.2.extract.shift6323, %.sroa.06047.2.insert.ext63346335
+  %.sroa.06047.2.insert.insert = or disjoint i32 %137, %.sroa.06047.2.extract.shift6336
+  %139 = shl i32 %78, 13
+  %.sroa.06171.0.insert.ext = and i32 %139, 32768
+  %140 = and i32 %128, 65535
+  %141 = or i32 %140, %.sroa.06171.0.insert.ext
+  %142 = shl i32 %78, 13
+  %.sroa.06042.2.insert.ext63376338 = and i32 %142, -2147483648
+  %.sroa.06042.2.extract.shift6339 = or i32 %.sroa.06146.2.extract.shift6328, %.sroa.06042.2.insert.ext63376338
+  %.sroa.06042.2.insert.insert = or disjoint i32 %141, %.sroa.06042.2.extract.shift6339
+  %143 = getelementptr inbounds nuw i16, ptr %46, i64 %.0265954
+  store i32 %.sroa.06034.2.insert.insert, ptr %143, align 2
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
+  store i32 %.sroa.06047.2.insert.insert, ptr %144, align 2
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  store i32 %.sroa.06042.2.insert.insert, ptr %145, align 2
+  %146 = add nuw nsw i64 %.0255955, 32
+  %147 = add nuw nsw i64 %.0265954, 6
+  %148 = icmp samesign ult i64 %.0255955, 480
+  br i1 %148, label %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit54, label %23, !llvm.loop !6016
+
+_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader: ; preds = %23, %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader
+  %.0235992 = phi i64 [ 0, %23 ], [ %2060, %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader ]
+  %.0245991 = phi i64 [ 0, %23 ], [ %2050, %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader ]
+  %149 = call noundef ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  %150 = call noundef ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEE3getEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
+  %151 = getelementptr inbounds nuw i16, ptr %149, i64 %.0235992
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %154 = load i32, ptr %153, align 2
+  %155 = getelementptr inbounds nuw i16, ptr %150, i64 %.0245991
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  %157 = and i32 %154, 458759
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 12
+  %160 = load <2 x i32>, ptr %151, align 2
+  %161 = shufflevector <2 x i32> %160, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 0>
+  %162 = insertelement <4 x i32> %161, i32 %154, i64 2
+  %163 = lshr <4 x i32> %162, <i32 3, i32 3, i32 3, i32 6>
+  %164 = lshr <4 x i32> %162, <i32 3, i32 3, i32 3, i32 6>
+  %165 = and <4 x i32> %164, <i32 7, i32 458752, i32 7, i32 458752>
+  %166 = and <4 x i32> %163, <i32 458752, i32 7, i32 458752, i32 7>
+  %167 = or disjoint <4 x i32> %166, %165
+  %168 = getelementptr inbounds nuw i8, ptr %155, i64 28
+  %169 = load <2 x i32>, ptr %151, align 2
+  %1610 = load i32, ptr %152, align 2
+  %1620 = load i32, ptr %151, align 2
+  %1630 = and i32 %1620, 458759
+  store i32 %1630, ptr %155, align 2
+  %1640 = and i32 %1610, 458759
+  store i32 %1640, ptr %156, align 2
+  store i32 %157, ptr %158, align 2
+  store <4 x i32> %167, ptr %159, align 2
+  %1650 = shufflevector <2 x i32> %169, <2 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 0, i32 1>
+  %1660 = insertelement <4 x i32> %1650, i32 %154, i64 1
+
+  %1680 = lshr <4 x i32> %1660, <i32 6, i32 6, i32 9, i32 9>
+  %1690 = lshr <4 x i32> %1660, <i32 6, i32 6, i32 9, i32 9>
+  %1700 = and <4 x i32> %1690, <i32 7, i32 458752, i32 7, i32 458752>
+  %1710 = and <4 x i32> %1680, <i32 458752, i32 7, i32 458752, i32 7>
+  %1720 = or disjoint <4 x i32> %1710, %1700
+  store <4 x i32> %1720, ptr %168, align 2
+  %1730 = lshr i32 %154, 9
+  %1740 = lshr i32 %154, 9
+  %1750 = and i32 %1740, 458752
+  %1760 = and i32 %1730, 7
+  %.sroa.06191.2.insert.insert6348 = or disjoint i32 %1760, %1750
+  %1770 = getelementptr inbounds nuw i8, ptr %155, i64 44
+  store i32 %.sroa.06191.2.insert.insert6348, ptr %1770, align 2
+  %1780 = lshr i32 %1620, 12
+  %1790 = lshr i32 %1620, 12
+  %1800 = and i32 %1790, 458752
+  %1810 = and i32 %1780, 7
+  %.sroa.06186.2.insert.insert6349 = or disjoint i32 %1810, %1800
+  %1820 = getelementptr inbounds nuw i8, ptr %155, i64 48
+  store i32 %.sroa.06186.2.insert.insert6349, ptr %1820, align 2
+  %1830 = lshr i32 %1610, 12
+  %1840 = lshr i32 %1610, 12
+  %1850 = and i32 %1840, 458752
+  %1860 = and i32 %1830, 7
+  %.sroa.06181.2.insert.insert6350 = or disjoint i32 %1860, %1850
+  %1870 = getelementptr inbounds nuw i8, ptr %155, i64 52
+  store i32 %.sroa.06181.2.insert.insert6350, ptr %1870, align 2
+  %1880 = lshr i32 %154, 12
+  %1890 = lshr i32 %154, 12
+  %1900 = and i32 %1890, 458752
+  %1910 = and i32 %1880, 7
+  %.sroa.06176.2.insert.insert6351 = or disjoint i32 %1910, %1900
+  %1920 = getelementptr inbounds nuw i8, ptr %155, i64 56
+  store i32 %.sroa.06176.2.insert.insert6351, ptr %1920, align 2
+  %1930 = lshr i32 %1620, 15
+  %1940 = and i32 %1930, 1
+  %.sroa.06291.2.insert.insert6353 = lshr i32 %1620, 31
+  %1950 = lshr i32 %154, 13
+  %1960 = lshr i32 %154, 13
+  %1970 = and i32 %1950, 4
+  %1980 = lshr i32 %1610, 14
+  %.sroa.06299.2.extract.shift = lshr i32 %1610, 31
+  %.sroa.06297.2.extract.shift = lshr i32 %1610, 31
+  %narrow = add nuw nsw i32 %.sroa.06297.2.extract.shift, %.sroa.06299.2.extract.shift
+  %1990 = and i32 %1980, 2
+  %.sroa.06161.0.insert.insert6362 = or disjoint i32 %1990, %1940
+  %2000 = xor i32 %narrow, %.sroa.06291.2.insert.insert6353
+  %2010 = and i32 %1960, 262144
+  %2020 = or disjoint i32 %1970, %.sroa.06161.0.insert.insert6362
+  %2030 = shl nuw nsw i32 %2000, 16
+  %.sroa.06156.2.extract.shift6365 = or disjoint i32 %2010, %2030
+  %.sroa.06156.2.insert.insert6366 = or disjoint i32 %2020, %.sroa.06156.2.extract.shift6365
+  %2040 = getelementptr inbounds nuw i8, ptr %155, i64 60
+  store i32 %.sroa.06156.2.insert.insert6366, ptr %2040, align 2
+  %2050 = add nuw nsw i64 %.0245991, 32
+  %2060 = add nuw nsw i64 %.0235992, 6
+  %2070 = icmp samesign ult i64 %.0245991, 480
+  br i1 %2070, label %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader, label %.preheader, !llvm.loop !6017
+
+2080:                                              ; preds = %.preheader
+  call void @_ZNSt10unique_ptrIA_tN3hwy12AlignedFreerEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #28
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #28
+  call void @_ZNSt10unique_ptrIA_tN3hwy12AlignedFreerEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
+  call void @_ZNSt10unique_ptrIA_tN3hwy12AlignedFreerEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
+  call void @_ZN3hwy8N_EMU1287CheckerItED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
+  ret void
+
+.preheader:                                       ; preds = %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader, %.preheader
+  %.05993 = phi i64 [ %2110, %.preheader ], [ 0, %_ZN3hwy8N_EMU1286Vec128ItLm2EEC2Ev.exit56.preheader ]
+  %2090 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt10unique_ptrIA_tN3hwy12AlignedFreerEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %.05993)
+  %2100 = load i16, ptr %2090, align 2, !tbaa !19
+  call void @_ZN3hwy8N_EMU1287CheckerItE15NotifyRawOutputEmt(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 3, i16 noundef zeroext %2100)
+  %2110 = add nuw nsw i64 %.05993, 1
+  %exitcond5994.not = icmp eq i64 %2110, 512
+  br i1 %exitcond5994.not, label %2080, label %.preheader, !llvm.loop !6018
+}
+
+; Function Attrs: mustprogress noinline nounwind optnone uwtable
+define linkonce_odr dso_local void @_ZN3hwy8N_EMU1286detail14ForeachCappedRItLm0ELm2ENS0_8TestPackINS0_6Pack16ELm16ELm3EEELi0EE2DoEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 comdat {

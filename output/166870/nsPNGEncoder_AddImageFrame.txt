@@ -1,0 +1,1467 @@
+******
+MachineInstr::eraseFromParent(UseCopyInstr 1):
+
+renamable $w9 = ORRWrs $wzr, killed renamable $w9, 0
+
+******
+MachineInstr::eraseFromParent(UseCopyInstr 1):
+
+renamable $w8 = ORRWrs $wzr, killed renamable $w8, 0, debug-location !11642; image/encoders/png/nsPNGEncoder.cpp:299:28
+
+******
+# Machine code for function _ZN12nsPNGEncoder13AddImageFrameEPKhjjjjjRK12nsTSubstringIDsE: NoPHIs, TracksLiveness, NoVRegs, TiedOpsRewritten, TracksDebugUserValues
+Frame Objects:
+  fi#0: size=8, align=8, at location [SP-112]
+  fi#1: size=1, align=1, at location [SP-113]
+  fi#2: size=4, align=4, at location [SP-120]
+  fi#3: size=4, align=4, at location [SP-124]
+  fi#4: size=4, align=4, at location [SP-128]
+  fi#5: size=4, align=4, at location [SP-132]
+  fi#6: size=4, align=4, at location [SP-136]
+  fi#7: size=4, align=4, at location [SP-140]
+  fi#8: size=8, align=8, at location [SP-152]
+  fi#9: size=8, align=8, at location [SP-160]
+  fi#10: size=8, align=8, at location [SP-168]
+  fi#11: size=8, align=8, at location [SP-176]
+  fi#12: size=8, align=8, at location [SP-184]
+  fi#13: size=16, align=16, at location [SP-208]
+  fi#14: size=16, align=16, at location [SP-224]
+  fi#15: size=16, align=16, at location [SP-240]
+  fi#16: size=16, align=16, at location [SP-256]
+  fi#17: size=16, align=16, at location [SP-272]
+  fi#18: size=16, align=16, at location [SP-288]
+  fi#19: size=8, align=8, at location [SP-296]
+  fi#20: size=8, align=8, at location [SP-304]
+  fi#21: size=8, align=8, at location [SP-312]
+  fi#22: size=8, align=8, at location [SP-104]
+  fi#23: size=8, align=8, at location [SP-8]
+  fi#24: size=8, align=8, at location [SP-16]
+  fi#25: size=8, align=8, at location [SP-24]
+  fi#26: size=8, align=8, at location [SP-32]
+  fi#27: size=8, align=8, at location [SP-40]
+  fi#28: size=8, align=8, at location [SP-48]
+  fi#29: size=8, align=8, at location [SP-56]
+  fi#30: size=8, align=8, at location [SP-64]
+  fi#31: size=8, align=8, at location [SP-72]
+  fi#32: size=8, align=8, at location [SP-80]
+  fi#33: size=8, align=8, at location [SP-88]
+  fi#34: size=8, align=8, at location [SP-96]
+Constant Pool:
+  cp#0: <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 0, i8 4, i8 8, i8 12, i8 16, i8 20, i8 24, i8 28>, align=16
+  cp#1: <i8 0, i8 4, i8 8, i8 12, i8 16, i8 20, i8 24, i8 28, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>, align=16
+  cp#2: <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 1, i8 5, i8 9, i8 13, i8 17, i8 21, i8 25, i8 29>, align=16
+  cp#3: <i8 1, i8 5, i8 9, i8 13, i8 17, i8 21, i8 25, i8 29, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>, align=16
+  cp#4: <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 2, i8 6, i8 10, i8 14, i8 18, i8 22, i8 26, i8 30>, align=16
+  cp#5: <i8 2, i8 6, i8 10, i8 14, i8 18, i8 22, i8 26, i8 30, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>, align=16
+Function Live Ins: $x0, $x1, $w3, $w4, $w5, $w6, $x7
+
+bb.0 (%ir-block.8):
+  successors: %bb.4(0x30000000), %bb.1(0x50000000); %bb.4(37.50%), %bb.1(62.50%)
+  liveins: $w3, $w4, $w5, $w6, $x0, $x1, $x7, $x27, $x28, $x25, $x26, $x23, $x24, $x21, $x22, $x19, $x20, $lr
+  DBG_VALUE $x0, $noreg, !"this", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:0
+  DBG_VALUE $x1, $noreg, !"aData", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:221
+  DBG_VALUE $w3, $noreg, !"aWidth", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:223
+  DBG_VALUE $w4, $noreg, !"aHeight", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:223
+  DBG_VALUE $w5, $noreg, !"aStride", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:223
+  DBG_VALUE $w6, $noreg, !"aInputFormat", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:224
+  DBG_VALUE $x7, $noreg, !"aFrameOptions", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:225
+  $sp = frame-setup SUBXri $sp, 352, 0
+  frame-setup STPXi killed $x28, killed $x27, $sp, 32 :: (store (s64) into %stack.34), (store (s64) into %stack.33)
+  frame-setup STPXi killed $x26, killed $x25, $sp, 34 :: (store (s64) into %stack.32), (store (s64) into %stack.31)
+  frame-setup STPXi killed $x24, killed $x23, $sp, 36 :: (store (s64) into %stack.30), (store (s64) into %stack.29)
+  frame-setup STPXi killed $x22, killed $x21, $sp, 38 :: (store (s64) into %stack.28), (store (s64) into %stack.27)
+  frame-setup STPXi killed $x20, killed $x19, $sp, 40 :: (store (s64) into %stack.26), (store (s64) into %stack.25)
+  frame-setup STPXi killed $fp, killed $lr, $sp, 42 :: (store (s64) into %stack.24), (store (s64) into %stack.23)
+  $fp = frame-setup ADDXri $sp, 336, 0
+  frame-setup CFI_INSTRUCTION def_cfa $w29, 16
+  frame-setup CFI_INSTRUCTION offset $w30, -8
+  frame-setup CFI_INSTRUCTION offset $w29, -16
+  frame-setup CFI_INSTRUCTION offset $w19, -24
+  frame-setup CFI_INSTRUCTION offset $w20, -32
+  frame-setup CFI_INSTRUCTION offset $w21, -40
+  frame-setup CFI_INSTRUCTION offset $w22, -48
+  frame-setup CFI_INSTRUCTION offset $w23, -56
+  frame-setup CFI_INSTRUCTION offset $w24, -64
+  frame-setup CFI_INSTRUCTION offset $w25, -72
+  frame-setup CFI_INSTRUCTION offset $w26, -80
+  frame-setup CFI_INSTRUCTION offset $w27, -88
+  frame-setup CFI_INSTRUCTION offset $w28, -96
+  DBG_VALUE 0, $noreg, !"dispose_op", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:230
+  $x9 = ADRP target-flags(aarch64-page, aarch64-got) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, 0 :: (dereferenceable invariant load (s64) from @__stack_chk_guard)
+  STURXi killed renamable $x9, $fp, -96 :: (volatile store (s64) into %stack.0)
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11504; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:618:7 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11525; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11526; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11527; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11528; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:618:7 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11533; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11534; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11535; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:304:3 ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11540; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:296:9 ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11543; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:618:7 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11548; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11549; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11550; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11551; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:618:7 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11556; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11557; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11558; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:314:3 ] line no:0
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11559; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:307:9 ] line no:0
+  DBG_VALUE $noreg, $noreg, !"aLength", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:222
+  renamable $w9 = MOVZWi 1, 0
+  DBG_VALUE 1, $noreg, !"useTransparency", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:226
+  STURBBi killed renamable $w9, $fp, -97, debug-location !11564 :: (store (s8) into %ir.11); image/encoders/png/nsPNGEncoder.cpp:226:8
+  $w8 = MOVZWi 16, 0
+  DBG_VALUE 16, $noreg, !"filters", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:227
+  renamable $w9 = MOVZWi 500, 0
+  DBG_VALUE 500, $noreg, !"delay_ms", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:228
+  STPWi killed renamable $w9, killed $w8, $fp, -27, debug-location !11566 :: (store (s32) into %ir.12), (store (s32) into %ir.13); image/encoders/png/nsPNGEncoder.cpp:227:7
+  STURXi $xzr, $fp, -116, debug-location !11570 :: (store (s32) into %ir.14), (store (s32) into %ir.15); image/encoders/png/nsPNGEncoder.cpp:230:12
+  DBG_VALUE 0, $noreg, !"blend_op", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:231
+  DBG_VALUE 0, $noreg, !"x_offset", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:236
+  STURXi $xzr, $fp, -124, debug-location !11574 :: (store (s32) into %ir.16), (store (s32) into %ir.17); image/encoders/png/nsPNGEncoder.cpp:236:12
+  DBG_VALUE 0, $noreg, !"y_offset", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:236
+  renamable $x8 = LDRXui renamable $x0, 5, debug-location !11576 :: (dereferenceable load (s64) from %ir.18); image/encoders/png/nsPNGEncoder.cpp:239:7
+  CBZX killed renamable $x8, %bb.4, debug-location !11578; image/encoders/png/nsPNGEncoder.cpp:239:20
+
+bb.1 (%ir-block.21):
+; predecessors: %bb.0
+  successors: %bb.5(0x30000000), %bb.2(0x50000000); %bb.5(37.50%), %bb.2(62.50%)
+  liveins: $w3, $w4, $w5, $w6, $x0, $x1, $x7
+  $x19 = ORRXrs $xzr, $x0, 0, debug-location !11579; image/encoders/png/nsPNGEncoder.cpp:244:8
+  early-clobber renamable $x19, renamable $x8 = LDRXpre killed renamable $x19(tied-def 0), 16, debug-location !11579 :: (load (s64) from %ir.22); image/encoders/png/nsPNGEncoder.cpp:244:8
+  CBZX renamable $x8, %bb.5, debug-location !11581; image/encoders/png/nsPNGEncoder.cpp:244:7
+
+bb.2 (%ir-block.25):
+; predecessors: %bb.1
+  successors: %bb.3(0x40000000), %bb.6(0x40000000); %bb.3(50.00%), %bb.6(50.00%)
+  liveins: $w3, $w4, $w5, $w6, $x0, $x1, $x7, $x8, $x19
+  renamable $w27 = MOVZWi 87, 0
+  renamable $w27 = MOVKWi $w27(tied-def 0), 32775, 16
+  $x28 = ORRXrs $xzr, undef $x27, 0, implicit $w27
+  dead $wzr = SUBSWri renamable $w6, 2, 0, implicit-def $nzcv, debug-location !11582; image/encoders/png/nsPNGEncoder.cpp:249:40
+  Bcc 9, %bb.6, implicit $nzcv, debug-location !11582; image/encoders/png/nsPNGEncoder.cpp:249:40
+
+bb.3:
+; predecessors: %bb.2, %bb.12
+  successors: %bb.61(0x7ffff800), %bb.63(0x000007ff); %bb.61(100.00%), %bb.63(0.00%)
+  liveins: $w28
+  $x1 = ORRXrs $xzr, undef $x28, 0, implicit killed $w28
+  renamable $x8 = LDURXi $fp, -96 :: (volatile load (s64) from %stack.0)
+  $x9 = ADRP target-flags(aarch64-page, aarch64-got) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, 0 :: (dereferenceable invariant load (s64) from @__stack_chk_guard)
+  $xzr = SUBSXrs killed renamable $x9, killed renamable $x8, 0, implicit-def $nzcv
+  Bcc 0, %bb.61, implicit $nzcv
+  B %bb.63
+
+bb.4:
+; predecessors: %bb.0
+  successors: %bb.61(0x7ffff800), %bb.63(0x00000800); %bb.61(100.00%), %bb.63(0.00%)
+
+  renamable $w1 = MOVZWi 1, 0
+  renamable $w1 = MOVKWi $w1(tied-def 0), 49651, 16
+  renamable $x8 = LDURXi $fp, -96 :: (volatile load (s64) from %stack.0)
+  $x9 = ADRP target-flags(aarch64-page, aarch64-got) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, 0 :: (dereferenceable invariant load (s64) from @__stack_chk_guard)
+  $xzr = SUBSXrs killed renamable $x9, killed renamable $x8, 0, implicit-def $nzcv
+  Bcc 0, %bb.61, implicit $nzcv
+
+bb.63 (%ir-block.306):
+; predecessors: %bb.60, %bb.7, %bb.4, %bb.5, %bb.54, %bb.3
+
+  BL &__stack_chk_fail, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit-def $sp
+
+bb.5:
+; predecessors: %bb.1
+  successors: %bb.61(0x7ffff800), %bb.63(0x00000800); %bb.61(100.00%), %bb.63(0.00%)
+
+  renamable $w1 = MOVZWi 2, 0
+  renamable $w1 = MOVKWi $w1(tied-def 0), 32839, 16
+  renamable $x8 = LDURXi $fp, -96 :: (volatile load (s64) from %stack.0)
+  $x9 = ADRP target-flags(aarch64-page, aarch64-got) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, 0 :: (dereferenceable invariant load (s64) from @__stack_chk_guard)
+  $xzr = SUBSXrs killed renamable $x9, killed renamable $x8, 0, implicit-def $nzcv
+  Bcc 0, %bb.61, implicit $nzcv
+  B %bb.63
+
+bb.6 (%ir-block.28):
+; predecessors: %bb.2
+  successors: %bb.8(0x30000000), %bb.7(0x50000000); %bb.8(37.50%), %bb.7(62.50%)
+  liveins: $w3, $w4, $w5, $w6, $w27, $w28, $x0, $x1, $x7, $x8, $x19
+  $x21 = ORRXrs $xzr, killed $x7, 0
+  $x22 = ORRXrs $xzr, undef $x6, 0, implicit killed $w6
+  $x23 = ORRXrs $xzr, undef $x4, 0, implicit killed $w4
+  $x20 = ORRXrs $xzr, undef $x3, 0, implicit killed $w3
+  $x26 = ORRXrs $xzr, killed $x1, 0
+  $x25 = ORRXrs $xzr, undef $x5, 0, implicit killed $w5
+  $x24 = ORRXrs $xzr, killed $x0, 0
+  $x0 = ORRXrs $xzr, killed $x8, 0
+  $x1 = ADRP target-flags(aarch64-page, aarch64-got) @longjmp, debug-location !11584; image/encoders/png/nsPNGEncoder.cpp:254:14
+  renamable $x1 = LDRXui killed $x1, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @longjmp, debug-location !11584; image/encoders/png/nsPNGEncoder.cpp:254:14
+  renamable $w8 = MOVZWi 192, 0
+  $x2 = ORRXrs $xzr, undef $x8, 0, implicit killed $w8
+  BL @MOZ_PNG_set_longjmp_fn, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit $x2, implicit-def $sp, implicit-def $x0, debug-location !11584; image/encoders/png/nsPNGEncoder.cpp:254:14
+  BL @setjmp, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit-def $sp, implicit-def $w0, debug-location !11586; image/encoders/png/nsPNGEncoder.cpp:254:7
+  CBZW killed renamable $w0, %bb.8, debug-location !11586; image/encoders/png/nsPNGEncoder.cpp:254:7
+
+bb.7 (%ir-block.32):
+; predecessors: %bb.6
+  successors: %bb.61(0x7ffff800), %bb.63(0x00000800); %bb.61(100.00%), %bb.63(0.00%)
+  liveins: $x19, $x24
+  $x1 = nuw ADDXri killed renamable $x24, 24, 0, debug-location !11587; image/encoders/png/nsPNGEncoder.cpp:255:38
+  $x0 = ORRXrs $xzr, killed $x19, 0, debug-location !11589; image/encoders/png/nsPNGEncoder.cpp:255:5
+  BL @MOZ_PNG_dest_write_str, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, debug-location !11589; image/encoders/png/nsPNGEncoder.cpp:255:5
+  renamable $w1 = MOVZWi 16389, 0
+  renamable $w1 = MOVKWi $w1(tied-def 0), 32768, 16
+  renamable $x8 = LDURXi $fp, -96 :: (volatile load (s64) from %stack.0)
+  $x9 = ADRP target-flags(aarch64-page, aarch64-got) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, 0 :: (dereferenceable invariant load (s64) from @__stack_chk_guard)
+  $xzr = SUBSXrs killed renamable $x9, killed renamable $x8, 0, implicit-def $nzcv
+  Bcc 0, %bb.61, implicit $nzcv
+  B %bb.63
+
+bb.8 (%ir-block.34):
+; predecessors: %bb.6
+  successors: %bb.9(0x30000000), %bb.60(0x50000000); %bb.9(37.50%), %bb.60(62.50%)
+  liveins: $w20, $w22, $w23, $w25, $w27, $w28, $x19, $x21, $x24, $x26
+  DBG_VALUE $fp, $noreg, !"dispose_op", !DIExpression(DW_OP_constu, 112, DW_OP_minus, DW_OP_deref), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:230
+  DBG_VALUE $fp, $noreg, !"useTransparency", !DIExpression(DW_OP_constu, 97, DW_OP_minus, DW_OP_deref), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:226
+  DBG_VALUE $fp, $noreg, !"filters", !DIExpression(DW_OP_constu, 104, DW_OP_minus, DW_OP_deref), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:227
+  DBG_VALUE $fp, $noreg, !"delay_ms", !DIExpression(DW_OP_constu, 108, DW_OP_minus, DW_OP_deref), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:228
+  DBG_VALUE $fp, $noreg, !"blend_op", !DIExpression(DW_OP_constu, 116, DW_OP_minus, DW_OP_deref), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:231
+  DBG_VALUE $fp, $noreg, !"x_offset", !DIExpression(DW_OP_constu, 120, DW_OP_minus, DW_OP_deref), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:236
+  DBG_VALUE $fp, $noreg, !"y_offset", !DIExpression(DW_OP_constu, 124, DW_OP_minus, DW_OP_deref), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:236
+  $x8 = ADDXri $sp, 0, 0, debug-location !11591; image/encoders/png/nsPNGEncoder.cpp:260:17
+  $x3 = MOVZXi 0, 0
+  $x9 = SUBXri $fp, 124, 0
+  STRXui killed renamable $x9, renamable $x8, 4, debug-location !11591 :: (store (s64) into stack + 32); image/encoders/png/nsPNGEncoder.cpp:260:17
+  $x9 = SUBXri $fp, 120, 0
+  $x10 = SUBXri $fp, 108, 0
+  STPXi killed renamable $x10, killed renamable $x9, renamable $x8, 2, debug-location !11591 :: (store (s64) into stack + 24), (store (s64) into stack + 16); image/encoders/png/nsPNGEncoder.cpp:260:17
+  $x9 = SUBXri $fp, 116, 0
+  $x10 = SUBXri $fp, 112, 0
+  $x2 = SUBXri $fp, 97, 0
+  $x7 = SUBXri $fp, 104, 0
+  STPXi killed renamable $x10, killed renamable $x9, renamable $x8, 0, debug-location !11591 :: (store (s64) into stack + 8), (store (s64) into stack); image/encoders/png/nsPNGEncoder.cpp:260:17
+  $x1 = ORRXrs $xzr, killed $x21, 0, debug-location !11591; image/encoders/png/nsPNGEncoder.cpp:260:17
+  $x4 = MOVZXi 0, 0, debug-location !11591; image/encoders/png/nsPNGEncoder.cpp:260:17
+  $x5 = MOVZXi 0, 0, debug-location !11591; image/encoders/png/nsPNGEncoder.cpp:260:17
+  $x6 = MOVZXi 0, 0, debug-location !11591; image/encoders/png/nsPNGEncoder.cpp:260:17
+  BL @_ZN12nsPNGEncoder12ParseOptionsERK12nsTSubstringIDsEPbS4_PjS5_PiS6_S5_S5_S5_S5_S5_, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit undef $x0, implicit $x1, implicit $x2, implicit $x3, implicit $x4, implicit $x5, implicit $x6, implicit $x7, implicit-def $sp, implicit-def $w0, debug-location !11591; image/encoders/png/nsPNGEncoder.cpp:260:17
+  DBG_VALUE $w0, $noreg, !"rv", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:260
+  $x1 = ORRXrs $xzr, undef $x0, 0, implicit $w0, debug-location !11591; image/encoders/png/nsPNGEncoder.cpp:260:17
+  CBZW killed renamable $w0, %bb.9, debug-location !11592; image/encoders/png/nsPNGEncoder.cpp:263:10
+
+bb.60 (%ir-block.306):
+; predecessors: %bb.8, %bb.15, %bb.59
+  successors: %bb.61(0x7ffff800), %bb.63(0x00000800); %bb.61(100.00%), %bb.63(0.00%)
+  liveins: $w1
+  renamable $x8 = LDURXi $fp, -96 :: (volatile load (s64) from %stack.0)
+  $x9 = ADRP target-flags(aarch64-page, aarch64-got) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, 0 :: (dereferenceable invariant load (s64) from @__stack_chk_guard)
+  $xzr = SUBSXrs killed renamable $x9, killed renamable $x8, 0, implicit-def $nzcv
+  Bcc 1, %bb.63, implicit $nzcv
+
+bb.61 (%ir-block.306):
+; predecessors: %bb.60, %bb.7, %bb.4, %bb.5, %bb.54, %bb.3
+  liveins: $w1
+  $x0 = ORRXrs $xzr, undef $x1, 0, implicit killed $w1, debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0
+  $fp, $lr = frame-destroy LDPXi $sp, 42, debug-location !11811 :: (load (s64) from %stack.24), (load (s64) from %stack.23); image/encoders/png/nsPNGEncoder.cpp:333:1
+  $x20, $x19 = frame-destroy LDPXi $sp, 40, debug-location !11811 :: (load (s64) from %stack.26), (load (s64) from %stack.25); image/encoders/png/nsPNGEncoder.cpp:333:1
+  $x22, $x21 = frame-destroy LDPXi $sp, 38, debug-location !11811 :: (load (s64) from %stack.28), (load (s64) from %stack.27); image/encoders/png/nsPNGEncoder.cpp:333:1
+  $x24, $x23 = frame-destroy LDPXi $sp, 36, debug-location !11811 :: (load (s64) from %stack.30), (load (s64) from %stack.29); image/encoders/png/nsPNGEncoder.cpp:333:1
+  $x26, $x25 = frame-destroy LDPXi $sp, 34, debug-location !11811 :: (load (s64) from %stack.32), (load (s64) from %stack.31); image/encoders/png/nsPNGEncoder.cpp:333:1
+  $x28, $x27 = frame-destroy LDPXi $sp, 32, debug-location !11811 :: (load (s64) from %stack.34), (load (s64) from %stack.33); image/encoders/png/nsPNGEncoder.cpp:333:1
+  $sp = frame-destroy ADDXri $sp, 352, 0, debug-location !11811; image/encoders/png/nsPNGEncoder.cpp:333:1
+  RET undef $lr, implicit $w0, debug-location !11811; image/encoders/png/nsPNGEncoder.cpp:333:1
+
+bb.9 (%ir-block.37):
+; predecessors: %bb.8
+  successors: %bb.10(0x40000000), %bb.11(0x40000000); %bb.10(50.00%), %bb.11(50.00%)
+  liveins: $w20, $w22, $w23, $w25, $w27, $w28, $x19, $x24, $x26
+  renamable $w9 = LDRBBui $x24, 33, debug-location !11594 :: (dereferenceable load (s8) from %ir.38, !range !11438); image/encoders/png/nsPNGEncoder.cpp:268:7
+  dead $wzr = SUBSWri killed renamable $w9, 1, 0, implicit-def $nzcv, debug-location !11594; image/encoders/png/nsPNGEncoder.cpp:268:7
+  Bcc 1, %bb.11, implicit $nzcv, debug-location !11594; image/encoders/png/nsPNGEncoder.cpp:268:7
+
+bb.10 (%ir-block.41):
+; predecessors: %bb.9
+  successors: %bb.11(0x80000000); %bb.11(100.00%)
+  liveins: $w20, $w22, $w23, $w25, $w27, $w28, $x19, $x24, $x26
+  renamable $x0, renamable $x1 = LDPXi $x24, 2, debug-location !11596 :: (dereferenceable load (s64) from %ir.42), (dereferenceable load (s64) from %ir.44); image/encoders/png/nsPNGEncoder.cpp:270:26
+  renamable $w6, renamable $w5 = LDPWi $fp, -31, debug-location !11599 :: (dereferenceable load (s32) from %ir.16), (dereferenceable load (s32) from %ir.17); image/encoders/png/nsPNGEncoder.cpp:270:68
+  DBG_VALUE $w5, $noreg, !"x_offset", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:236
+  DBG_VALUE $w6, $noreg, !"y_offset", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:236
+  renamable $w7 = LDURHHi $fp, -108, debug-location !11601 :: (dereferenceable load (s16) from %ir.13, align 4); image/encoders/png/nsPNGEncoder.cpp:271:36
+  DBG_VALUE $noreg, $noreg, !"delay_ms", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:228
+  renamable $w9, renamable $w8 = LDPWi $fp, -29, debug-location !11602 :: (dereferenceable load (s32) from %ir.14), (dereferenceable load (s32) from %ir.15); image/encoders/png/nsPNGEncoder.cpp:271:52
+  DBG_VALUE $w8, $noreg, !"dispose_op", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:230
+  DBG_VALUE $w9, $noreg, !"blend_op", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:231
+  $x10 = ADDXri $sp, 0, 0, debug-location !11604; image/encoders/png/nsPNGEncoder.cpp:270:5
+  $x2 = MOVZXi 0, 0
+  STRBBui killed renamable $w9, renamable $x10, 3, debug-location !11604 :: (store (s8) into stack + 3); image/encoders/png/nsPNGEncoder.cpp:270:5
+  STRBBui killed renamable $w8, renamable $x10, 2, debug-location !11604 :: (store (s8) into stack + 2); image/encoders/png/nsPNGEncoder.cpp:270:5
+  renamable $w8 = MOVZWi 1000, 0
+  STRHHui killed renamable $w8, killed renamable $x10, 0, debug-location !11604 :: (store (s16) into stack); image/encoders/png/nsPNGEncoder.cpp:270:5
+  $x3 = ORRXrs $xzr, undef $x20, 0, implicit $w20, debug-location !11604; image/encoders/png/nsPNGEncoder.cpp:270:5
+  $x4 = ORRXrs $xzr, undef $x23, 0, implicit $w23, debug-location !11604; image/encoders/png/nsPNGEncoder.cpp:270:5
+  BL @MOZ_APNG_write_frame_head, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit $x2, implicit $w3, implicit $w4, implicit $w5, implicit $w6, implicit $w7, implicit-def $sp, debug-location !11604; image/encoders/png/nsPNGEncoder.cpp:270:5
+
+bb.11 (%ir-block.54):
+; predecessors: %bb.9, %bb.10
+  successors: %bb.12(0x60000000), %bb.14(0x20000000); %bb.12(75.00%), %bb.14(25.00%)
+  liveins: $w20, $w22, $w23, $w25, $w27, $w28, $x19, $x24, $x26
+  $x9 = ORRXrs $xzr, undef $x20, 0, implicit $w20
+  renamable $w10 = ADDWrs $w20, $w20, 1
+  $x8 = ORRXrs $xzr, undef $x25, 0, implicit $w25
+  $wzr = SUBSWrs $w25, killed renamable $w10, 0, implicit-def $nzcv, debug-location !11608; image/encoders/png/nsPNGEncoder.cpp:278:41
+  Bcc 2, %bb.14, implicit $nzcv, debug-location !11608; image/encoders/png/nsPNGEncoder.cpp:278:41
+
+bb.12 (%ir-block.54):
+; predecessors: %bb.11
+  successors: %bb.3(0x55555555), %bb.14(0x2aaaaaab); %bb.3(66.67%), %bb.14(33.33%)
+  liveins: $w8, $w9, $w20, $w22, $w23, $w25, $w27, $w28, $x19, $x24, $x26
+  CBZW $w22, %bb.3, debug-location !11608; image/encoders/png/nsPNGEncoder.cpp:278:41
+
+bb.14 (%ir-block.59):
+; predecessors: %bb.11, %bb.12
+  successors: %bb.15(0x60000000), %bb.16(0x20000000); %bb.15(75.00%), %bb.16(25.00%)
+  liveins: $w8, $w9, $w20, $w22, $w23, $w25, $w27, $w28, $x19, $x24, $x26
+  renamable $w21 = UBFMWri killed renamable $w9, 30, 29
+  $wzr = SUBSWrs killed renamable $w8, renamable $w21, 0, implicit-def $nzcv, debug-location !11609; image/encoders/png/nsPNGEncoder.cpp:279:43
+  Bcc 2, %bb.16, implicit $nzcv, debug-location !11609; image/encoders/png/nsPNGEncoder.cpp:279:43
+
+bb.15 (%ir-block.59):
+; predecessors: %bb.14
+  successors: %bb.60(0x55555555), %bb.16(0x2aaaaaab); %bb.60(66.67%), %bb.16(33.33%)
+  liveins: $w20, $w21, $w22, $w23, $w25, $w27, $w28, $x19, $x24, $x26
+  renamable $w8 = nsw SUBWri renamable $w22, 1, 0, debug-location !11609; image/encoders/png/nsPNGEncoder.cpp:279:43
+  $x1 = ORRXrs $xzr, undef $x28, 0, implicit killed $w28
+  dead $wzr = SUBSWri killed renamable $w8, 2, 0, implicit-def $nzcv, debug-location !11609; image/encoders/png/nsPNGEncoder.cpp:279:43
+  Bcc 3, %bb.60, implicit $nzcv, debug-location !11609; image/encoders/png/nsPNGEncoder.cpp:279:43
+
+bb.16 (%ir-block.65):
+; predecessors: %bb.14, %bb.15
+  successors: %bb.17(0x40000000), %bb.30(0x40000000); %bb.17(50.00%), %bb.30(50.00%)
+  liveins: $w20, $w21, $w22, $w23, $w25, $w27, $x19, $x24, $x26
+  renamable $x0 = LDRXui renamable $x19, 0, debug-location !11610 :: (dereferenceable load (s64) from %ir.22); image/encoders/png/nsPNGEncoder.cpp:287:18
+  renamable $w2 = LDURWi $fp, -104, debug-location !11611 :: (dereferenceable load (s32) from %ir.12); image/encoders/png/nsPNGEncoder.cpp:287:46
+  DBG_VALUE $w2, $noreg, !"filters", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:227
+  $w1 = MOVZWi 0, 0
+  BL @MOZ_PNG_set_filter, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $w1, implicit $w2, implicit-def $sp, debug-location !11612; image/encoders/png/nsPNGEncoder.cpp:287:3
+  dead $wzr = SUBSWri renamable $w22, 2, 0, implicit-def $nzcv, debug-location !11613; image/encoders/png/nsPNGEncoder.cpp:292:20
+  Bcc 1, %bb.30, implicit $nzcv, debug-location !11613; image/encoders/png/nsPNGEncoder.cpp:292:20
+
+bb.17 (%ir-block.69):
+; predecessors: %bb.16
+  successors: %bb.54(0x30000000), %bb.18(0x50000000); %bb.54(37.50%), %bb.18(62.50%)
+  liveins: $w20, $w21, $w23, $w25, $w27, $x19, $x24, $x26
+  $x1 = ORRXrs $xzr, undef $x21, 0, implicit killed $w21, debug-location !11614; image/encoders/png/nsPNGEncoder.cpp:295:62
+  DBG_VALUE $x1, $noreg, !"aN", !DIExpression(), debug-location !11625; dist/include/mozilla/UniquePtrExtensions.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:295:32 ] line no:41
+  DBG_VALUE $x1, $noreg, !"size", !DIExpression(), debug-location !11635; dist/include/mozilla/cxxalloc.h:0 @[ dist/include/mozilla/UniquePtrExtensions.h:43:23 @[ image/encoders/png/nsPNGEncoder.cpp:295:32 ] ] line no:46
+  DBG_VALUE $noreg, $noreg, !11634, !DIExpression(), debug-location !11635; dist/include/mozilla/cxxalloc.h:0 @[ dist/include/mozilla/UniquePtrExtensions.h:43:23 @[ image/encoders/png/nsPNGEncoder.cpp:295:32 ] ] line no:47
+  renamable $w8 = MOVZWi 1, 0
+  $x0 = ORRXrs $xzr, undef $x8, 0, implicit killed $w8
+  BL @calloc, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, implicit-def $x0, debug-location !11637; dist/include/mozilla/cxxalloc.h:56:10 @[ dist/include/mozilla/UniquePtrExtensions.h:43:23 @[ image/encoders/png/nsPNGEncoder.cpp:295:32 ] ]
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11540; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:296:9 ] line no:0
+  DBG_VALUE $x0, $noreg, !"row", !DIExpression(), debug-location !11638; image/encoders/png/nsPNGEncoder.cpp:0 line no:295
+  CBZX $x0, %bb.54, debug-location !11640; image/encoders/png/nsPNGEncoder.cpp:296:9
+
+bb.18 (%ir-block.74):
+; predecessors: %bb.17
+  successors: %bb.50(0x30000000), %bb.19(0x50000000); %bb.50(37.50%), %bb.19(62.50%)
+  liveins: $w20, $w23, $w25, $x0, $x19, $x24, $x26
+  $x22 = ORRXrs $xzr, $x0, 0, debug-location !11638; image/encoders/png/nsPNGEncoder.cpp:0
+  DBG_VALUE $x22, $noreg, !"row", !DIExpression(), debug-location !11638; image/encoders/png/nsPNGEncoder.cpp:0 line no:295
+  $x21 = ORRXrs $xzr, $x0, 0, debug-location !11638; image/encoders/png/nsPNGEncoder.cpp:0
+  DBG_VALUE 0, $noreg, !"y", !DIExpression(), debug-location !11641; image/encoders/png/nsPNGEncoder.cpp:0 line no:299
+  CBZW $w23, %bb.50, debug-location !11644; image/encoders/png/nsPNGEncoder.cpp:299:5
+
+bb.19 (%ir-block.76):
+; predecessors: %bb.18
+  successors: %bb.29(0x30000000), %bb.20(0x50000000); %bb.29(37.50%), %bb.20(62.50%)
+  liveins: $w20, $w23, $w25, $x19, $x21, $x22, $x24, $x26
+  $x8 = ORRXrs $xzr, undef $x23, 0, implicit $w23
+  renamable $w9 = LDURBBi $fp, -97 :: (dereferenceable load (s8) from %ir.11, !range !11438)
+  dead $wzr = SUBSWri killed renamable $w9, 0, 0, implicit-def $nzcv
+  renamable $w9 = MOVZWi 3, 0
+  renamable $w10 = CSINCWr killed renamable $w9, renamable $w9, 0, implicit $nzcv
+  CBZW $w20, %bb.29
+
+bb.20 (%ir-block.84):
+; predecessors: %bb.19
+  successors: %bb.22(0x80000000); %bb.22(100.00%)
+  liveins: $w8, $w10, $w20, $w25, $x19, $x21, $x22, $x24, $x26
+  $x9 = ORRXrs $xzr, undef $x20, 0, implicit $w20
+  STRXui killed renamable $x21, $sp, 7 :: (store (s64) into %stack.19)
+  $x21 = MOVZXi 0, 0
+  $w20 = MOVZWi 0, 0
+  $x23 = ORRXrs $xzr, undef $x10, 0, implicit killed $w10
+  renamable $w9 = ORRWrs $wzr, killed renamable $w9, 0
+  renamable $x9 = KILL killed renamable $w9
+  renamable $w8 = ORRWrs $wzr, killed renamable $w8, 0, debug-location !11642; image/encoders/png/nsPNGEncoder.cpp:299:28
+  renamable $x8 = KILL killed renamable $w8, debug-location !11642; image/encoders/png/nsPNGEncoder.cpp:299:28
+  STPXi killed renamable $x8, killed renamable $x9, $sp, 5 :: (store (s64) into %stack.20), (store (s64) into %stack.21)
+  $w28 = MOVZWi 0, 0
+  $x27 = ORRXrs $xzr, undef $x23, 0, implicit $w23
+  B %bb.22
+
+bb.21 (%ir-block.153):
+; predecessors: %bb.24
+  successors: %bb.55(0x04000000), %bb.22(0x7c000000); %bb.55(3.12%), %bb.22(96.88%)
+  liveins: $w20, $w25, $w27, $w28, $x19, $x21, $x22, $x23, $x24, $x26
+  renamable $x0 = LDRXui renamable $x19, 0, debug-location !11665 :: (dereferenceable load (s64) from %ir.22); image/encoders/png/nsPNGEncoder.cpp:302:21
+  $x1 = LDRXui $sp, 7 :: (load (s64) from %stack.19)
+  BL @MOZ_PNG_write_row, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, debug-location !11666; image/encoders/png/nsPNGEncoder.cpp:302:7
+  renamable $x21 = nuw nsw ADDXri killed renamable $x21, 1, 0, debug-location !11727; image/encoders/png/nsPNGEncoder.cpp:299:40
+  DBG_VALUE $x21, $noreg, !"y", !DIExpression(), debug-location !11641; image/encoders/png/nsPNGEncoder.cpp:0 line no:299
+  $w28 = ADDWrs killed renamable $w28, $w25, 0, debug-location !11644; image/encoders/png/nsPNGEncoder.cpp:299:5
+  renamable $x9 = LDRXui $sp, 5 :: (load (s64) from %stack.21)
+  $xzr = SUBSXrs renamable $x21, killed renamable $x9, 0, implicit-def $nzcv, debug-location !11644; image/encoders/png/nsPNGEncoder.cpp:299:5
+  Bcc 0, %bb.55, implicit $nzcv, debug-location !11644; image/encoders/png/nsPNGEncoder.cpp:299:5
+
+bb.22 (%ir-block.91):
+; predecessors: %bb.20, %bb.21
+  successors: %bb.25(0x80000000); %bb.25(100.00%)
+  liveins: $w20, $w25, $w27, $w28, $x19, $x21, $x22, $x23, $x24, $x26
+  renamable $x10 = nuw ADDXrx $x26, renamable $w28, 16, debug-location !11670; image/encoders/png/nsPNGEncoder.cpp:300:35
+  DBG_VALUE $noreg, $noreg, !"useTransparency", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:226
+  DBG_VALUE $x21, $noreg, !"y", !DIExpression(), debug-location !11641; image/encoders/png/nsPNGEncoder.cpp:0 line no:299
+  DBG_VALUE $x24, $noreg, !"this", !DIExpression(), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:0
+  DBG_VALUE_LIST !"aSrc", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 2, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_mul, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_plus, DW_OP_stack_value), $x26, $w25, $x21, debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:725
+  DBG_VALUE $sp, 0, !"aDest", !DIExpression(DW_OP_plus_uconst, 56), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:725 indirect
+  DBG_VALUE $noreg, $noreg, !"aPixelWidth", !DIExpression(), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:726
+  DBG_VALUE 0, $noreg, !"x", !DIExpression(), debug-location !11664; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:729
+  DBG_VALUE $noreg, $noreg, !"aUseTransparency", !DIExpression(DW_OP_LLVM_convert, 8, DW_ATE_unsigned, DW_OP_LLVM_convert, 1, DW_ATE_unsigned, DW_OP_LLVM_convert, 1, DW_ATE_unsigned, DW_OP_LLVM_convert, 8, DW_ATE_unsigned, DW_OP_stack_value), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:727
+  DBG_VALUE $noreg, $noreg, !"pixelStride", !DIExpression(), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:728
+  $w9 = MOVZWi 0, 0
+  renamable $x8 = LDRXui $sp, 6 :: (load (s64) from %stack.20)
+  B %bb.25
+
+bb.23 (%ir-block.109):
+; predecessors: %bb.25
+  successors: %bb.24(0x80000000); %bb.24(100.00%)
+  liveins: $w9, $w12, $w20, $w25, $w27, $w28, $x8, $x10, $x11, $x19, $x21, $x22, $x23, $x24, $x26
+  $x13 = ORRXrs $xzr, undef $x12, 0, implicit $w12, debug-location !11672; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = UBFMWri renamable $w12, 16, 31, debug-location !11681; image/encoders/png/nsPNGEncoder.cpp:736:42 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  STRBBui killed renamable $w14, renamable $x11, 0, debug-location !11684 :: (store (s8) into %ir.101); image/encoders/png/nsPNGEncoder.cpp:736:19 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w12 = UBFMWri killed renamable $w12, 8, 31, debug-location !11685; image/encoders/png/nsPNGEncoder.cpp:737:42 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  STRBBui killed renamable $w12, renamable $x11, 1, debug-location !11688 :: (store (s8) into %ir.114); image/encoders/png/nsPNGEncoder.cpp:737:19 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  STRBBui killed renamable $w13, killed renamable $x11, 2, debug-location !11691 :: (store (s8) into %ir.116); image/encoders/png/nsPNGEncoder.cpp:738:19 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+
+bb.24 (%ir-block.148):
+; predecessors: %bb.28, %bb.27, %bb.23
+  successors: %bb.21(0x04000000), %bb.25(0x7c000000); %bb.21(3.12%), %bb.25(96.88%)
+  liveins: $w9, $w20, $w25, $w27, $w28, $x8, $x10, $x19, $x21, $x22, $x23, $x24, $x26
+  DBG_VALUE_LIST !"x", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), $noreg, debug-location !11664; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:729
+  $w9 = ADDWrs killed renamable $w9, renamable $w27, 0, debug-location !11724; image/encoders/png/nsPNGEncoder.cpp:729:26 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $x8 = nsw SUBSXri killed renamable $x8, 1, 0, implicit-def $nzcv, debug-location !11724; image/encoders/png/nsPNGEncoder.cpp:729:26 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  Bcc 0, %bb.21, implicit $nzcv, debug-location !11671; image/encoders/png/nsPNGEncoder.cpp:729:3 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+
+bb.25 (%ir-block.96):
+; predecessors: %bb.22, %bb.24
+  successors: %bb.23(0x40000000), %bb.26(0x40000000); %bb.23(50.00%), %bb.26(50.00%)
+  liveins: $w9, $w20, $w25, $w27, $w28, $x8, $x10, $x19, $x21, $x22, $x23, $x24, $x26
+  DBG_VALUE_LIST !"x", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_stack_value), $noreg, debug-location !11664; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:729
+  DBG_VALUE $noreg, $noreg, !"pixelIn", !DIExpression(), debug-location !11672; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:730
+  renamable $x11 = nuw ADDXrx renamable $x22, renamable $w9, 16, debug-location !11673; image/encoders/png/nsPNGEncoder.cpp:731:26 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  DBG_VALUE $x11, $noreg, !"pixelOut", !DIExpression(), debug-location !11672; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:731
+  $x14 = ADDXrs renamable $x11, renamable $x23, 0, debug-location !11677; image/encoders/png/nsPNGEncoder.cpp:734:5 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  early-clobber renamable $x10, renamable $w12 = LDRWpost killed renamable $x10(tied-def 0), 4, debug-location !11674 :: (load (s32) from %ir.97); image/encoders/png/nsPNGEncoder.cpp:733:22 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w13 = UBFMWri renamable $w12, 24, 31, debug-location !11675; image/encoders/png/nsPNGEncoder.cpp:733:44 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  DBG_VALUE $noreg, $noreg, !"alpha", !DIExpression(), debug-location !11672; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:733
+  STURBBi renamable $w13, killed renamable $x14, -1, debug-location !11678 :: (store (s8) into %ir.106); image/encoders/png/nsPNGEncoder.cpp:734:31 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  dead $wzr = SUBSWri renamable $w13, 255, 0, implicit-def $nzcv, debug-location !11679; image/encoders/png/nsPNGEncoder.cpp:735:15 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  Bcc 0, %bb.23, implicit $nzcv, debug-location !11679; image/encoders/png/nsPNGEncoder.cpp:735:15 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+
+bb.26 (%ir-block.117):
+; predecessors: %bb.25
+  successors: %bb.27(0x40000000), %bb.28(0x40000000); %bb.27(50.00%), %bb.28(50.00%)
+  liveins: $w9, $w12, $w13, $w20, $w25, $w27, $w28, $x8, $x10, $x11, $x19, $x21, $x22, $x23, $x24, $x26
+  CBNZW renamable $w13, %bb.28, debug-location !11693; image/encoders/png/nsPNGEncoder.cpp:739:22 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+
+bb.27 (%ir-block.119):
+; predecessors: %bb.26
+  successors: %bb.24(0x80000000); %bb.24(100.00%)
+  liveins: $w9, $w20, $w25, $w27, $w28, $x8, $x10, $x11, $x19, $x21, $x22, $x23, $x24, $x26
+  STRBBui renamable $w20, renamable $x11, 2, debug-location !11697 :: (store (s8) into %ir.120); image/encoders/png/nsPNGEncoder.cpp:740:47 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  STRHHui renamable $w20, killed renamable $x11, 0, debug-location !11700 :: (store (s16) into %ir.101, align 1); image/encoders/png/nsPNGEncoder.cpp:740:19 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  B %bb.24, debug-location !11701; image/encoders/png/nsPNGEncoder.cpp:741:5 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+
+bb.28 (%ir-block.122):
+; predecessors: %bb.26
+  successors: %bb.24(0x80000000); %bb.24(100.00%)
+  liveins: $w9, $w12, $w13, $w20, $w25, $w27, $w28, $x8, $x10, $x11, $x19, $x21, $x22, $x23, $x24, $x26
+  renamable $w14 = UBFMWri renamable $w12, 16, 31, debug-location !11702; image/encoders/png/nsPNGEncoder.cpp:742:44 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w15 = UBFMWri renamable $w12, 25, 31, debug-location !11705; image/encoders/png/nsPNGEncoder.cpp:742:65 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w16 = SUBWrx renamable $w15, renamable $w14, 0, debug-location !11706; image/encoders/png/nsPNGEncoder.cpp:742:57 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = ADDWrs killed renamable $w16, killed renamable $w14, 8, debug-location !11706; image/encoders/png/nsPNGEncoder.cpp:742:57 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = ANDWri killed renamable $w14, 15, debug-location !11707; image/encoders/png/nsPNGEncoder.cpp:742:70 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = UDIVWr killed renamable $w14, renamable $w13, debug-location !11707; image/encoders/png/nsPNGEncoder.cpp:742:70 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  STRBBui killed renamable $w14, renamable $x11, 0, debug-location !11709 :: (store (s8) into %ir.101); image/encoders/png/nsPNGEncoder.cpp:742:19 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = UBFMWri renamable $w12, 8, 31, debug-location !11710; image/encoders/png/nsPNGEncoder.cpp:743:44 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w16 = SUBWrx renamable $w15, renamable $w14, 0, debug-location !11712; image/encoders/png/nsPNGEncoder.cpp:743:56 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = ADDWrs killed renamable $w16, killed renamable $w14, 8, debug-location !11712; image/encoders/png/nsPNGEncoder.cpp:743:56 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = ANDWri killed renamable $w14, 15, debug-location !11713; image/encoders/png/nsPNGEncoder.cpp:743:69 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = UDIVWr killed renamable $w14, renamable $w13, debug-location !11713; image/encoders/png/nsPNGEncoder.cpp:743:69 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  STRBBui killed renamable $w14, renamable $x11, 1, debug-location !11716 :: (store (s8) into %ir.140); image/encoders/png/nsPNGEncoder.cpp:743:19 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w14 = SUBWrx killed renamable $w15, renamable $w12, 0, debug-location !11719; image/encoders/png/nsPNGEncoder.cpp:744:51 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w12 = ADDWrs killed renamable $w14, killed renamable $w12, 8, debug-location !11719; image/encoders/png/nsPNGEncoder.cpp:744:51 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w12 = ANDWri killed renamable $w12, 15, debug-location !11720; image/encoders/png/nsPNGEncoder.cpp:744:64 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  renamable $w12 = UDIVWr killed renamable $w12, killed renamable $w13, debug-location !11720; image/encoders/png/nsPNGEncoder.cpp:744:64 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  STRBBui killed renamable $w12, killed renamable $x11, 2, debug-location !11723 :: (store (s8) into %ir.147); image/encoders/png/nsPNGEncoder.cpp:744:19 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ]
+  B %bb.24
+
+bb.29 (%ir-block.86):
+; predecessors: %bb.29, %bb.19
+  successors: %bb.50(0x04000000), %bb.29(0x7c000000); %bb.50(3.12%), %bb.29(96.88%)
+  liveins: $w8, $x19, $x21, $x24
+  $x20 = ORRXrs $xzr, undef $x8, 0, implicit killed $w8
+  DBG_VALUE_LIST !"y", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_stack_value), $noreg, debug-location !11641; image/encoders/png/nsPNGEncoder.cpp:0 line no:299
+  DBG_VALUE $x24, $noreg, !"this", !DIExpression(), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:0
+  DBG_VALUE_LIST !"aSrc", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_LLVM_arg, 0, DW_OP_mul, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_plus, DW_OP_stack_value), $noreg, debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:725
+  DBG_VALUE $x21, $noreg, !"aDest", !DIExpression(), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:725
+  DBG_VALUE $noreg, $noreg, !"aPixelWidth", !DIExpression(), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:726
+  DBG_VALUE 0, $noreg, !"x", !DIExpression(), debug-location !11664; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:729
+  renamable $x0 = LDRXui renamable $x19, 0, debug-location !11665 :: (dereferenceable load (s64) from %ir.22); image/encoders/png/nsPNGEncoder.cpp:302:21
+  $x1 = ORRXrs $xzr, $x21, 0, debug-location !11666; image/encoders/png/nsPNGEncoder.cpp:302:7
+  BL @MOZ_PNG_write_row, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, debug-location !11666; image/encoders/png/nsPNGEncoder.cpp:302:7
+  DBG_VALUE_LIST !"y", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), $noreg, debug-location !11641; image/encoders/png/nsPNGEncoder.cpp:0 line no:299
+  renamable $w8 = SUBSWri killed renamable $w20, 1, 0, implicit-def $nzcv, debug-location !11642; image/encoders/png/nsPNGEncoder.cpp:299:28
+  DBG_VALUE $noreg, $noreg, !"useTransparency", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:226
+  DBG_VALUE $noreg, $noreg, !"aUseTransparency", !DIExpression(DW_OP_LLVM_convert, 8, DW_ATE_unsigned, DW_OP_LLVM_convert, 1, DW_ATE_unsigned, DW_OP_LLVM_convert, 1, DW_ATE_unsigned, DW_OP_LLVM_convert, 8, DW_ATE_unsigned, DW_OP_stack_value), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:727
+  DBG_VALUE $noreg, $noreg, !"pixelStride", !DIExpression(), debug-location !11661; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:300:7 ] line no:728
+  Bcc 1, %bb.29, implicit $nzcv, debug-location !11644; image/encoders/png/nsPNGEncoder.cpp:299:5
+  B %bb.50, debug-location !11644; image/encoders/png/nsPNGEncoder.cpp:299:5
+
+bb.30 (%ir-block.158):
+; predecessors: %bb.16
+  successors: %bb.51(0x20000000), %bb.31(0x60000000); %bb.51(25.00%), %bb.31(75.00%)
+  liveins: $w20, $w21, $w22, $w23, $w25, $w27, $x19, $x24, $x26
+  DBG_VALUE $noreg, $noreg, !"useTransparency", !DIExpression(), debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0 line no:226
+  dead $wzr = SUBSWri killed renamable $w22, 1, 0, implicit-def $nzcv, debug-location !11728; image/encoders/png/nsPNGEncoder.cpp:304:48
+  Bcc 1, %bb.51, implicit $nzcv, debug-location !11728; image/encoders/png/nsPNGEncoder.cpp:304:48
+
+bb.31 (%ir-block.158):
+; predecessors: %bb.30
+  successors: %bb.51(0x2aaaaaab), %bb.32(0x55555555); %bb.51(33.33%), %bb.32(66.67%)
+  liveins: $w20, $w21, $w23, $w25, $w27, $x19, $x24, $x26
+  renamable $w8 = LDURBBi $fp, -97, debug-location !11728 :: (dereferenceable load (s8) from %ir.11, !range !11438); image/encoders/png/nsPNGEncoder.cpp:304:48
+  TBNZW killed renamable $w8, 0, %bb.51, debug-location !11728; image/encoders/png/nsPNGEncoder.cpp:304:48
+
+bb.32 (%ir-block.167):
+; predecessors: %bb.31
+  successors: %bb.54(0x30000000), %bb.33(0x50000000); %bb.54(37.50%), %bb.33(62.50%)
+  liveins: $w20, $w21, $w23, $w25, $w27, $x19, $x24, $x26
+  $x1 = ORRXrs $xzr, undef $x21, 0, implicit killed $w21, debug-location !11733; image/encoders/png/nsPNGEncoder.cpp:306:62
+  DBG_VALUE $x1, $noreg, !"aN", !DIExpression(), debug-location !11734; dist/include/mozilla/UniquePtrExtensions.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:306:32 ] line no:41
+  DBG_VALUE $x1, $noreg, !"size", !DIExpression(), debug-location !11736; dist/include/mozilla/cxxalloc.h:0 @[ dist/include/mozilla/UniquePtrExtensions.h:43:23 @[ image/encoders/png/nsPNGEncoder.cpp:306:32 ] ] line no:46
+  DBG_VALUE $noreg, $noreg, !11634, !DIExpression(), debug-location !11736; dist/include/mozilla/cxxalloc.h:0 @[ dist/include/mozilla/UniquePtrExtensions.h:43:23 @[ image/encoders/png/nsPNGEncoder.cpp:306:32 ] ] line no:47
+  renamable $w8 = MOVZWi 1, 0
+  $x0 = ORRXrs $xzr, undef $x8, 0, implicit killed $w8
+  BL @calloc, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, implicit-def $x0, debug-location !11738; dist/include/mozilla/cxxalloc.h:56:10 @[ dist/include/mozilla/UniquePtrExtensions.h:43:23 @[ image/encoders/png/nsPNGEncoder.cpp:306:32 ] ]
+  DBG_VALUE $noreg, $noreg, !"this", !DIExpression(), debug-location !11559; /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:0 @[ image/encoders/png/nsPNGEncoder.cpp:307:9 ] line no:0
+  DBG_VALUE $x0, $noreg, !"row", !DIExpression(), debug-location !11739; image/encoders/png/nsPNGEncoder.cpp:0 line no:306
+  CBZX $x0, %bb.54, debug-location !11741; image/encoders/png/nsPNGEncoder.cpp:307:9
+
+bb.33 (%ir-block.172):
+; predecessors: %bb.32
+  successors: %bb.50(0x30000000), %bb.34(0x50000000); %bb.50(37.50%), %bb.34(62.50%)
+  liveins: $w20, $w23, $w25, $x0, $x19, $x24, $x26
+  $x22 = ORRXrs $xzr, $x0, 0, debug-location !11739; image/encoders/png/nsPNGEncoder.cpp:0
+  DBG_VALUE $x22, $noreg, !"row", !DIExpression(), debug-location !11739; image/encoders/png/nsPNGEncoder.cpp:0 line no:306
+  $x21 = ORRXrs $xzr, $x0, 0, debug-location !11739; image/encoders/png/nsPNGEncoder.cpp:0
+  DBG_VALUE 0, $noreg, !"y", !DIExpression(), debug-location !11742; image/encoders/png/nsPNGEncoder.cpp:0 line no:310
+  CBZW $w23, %bb.50, debug-location !11745; image/encoders/png/nsPNGEncoder.cpp:310:5
+
+bb.34 (%ir-block.174):
+; predecessors: %bb.33
+  successors: %bb.49(0x30000000), %bb.35(0x50000000); %bb.49(37.50%), %bb.35(62.50%)
+  liveins: $w20, $w23, $w25, $x19, $x21, $x22, $x24, $x26
+  $x8 = ORRXrs $xzr, undef $x23, 0, implicit $w23
+  CBZW $w20, %bb.49
+
+bb.35 (%ir-block.178):
+; predecessors: %bb.34
+  successors: %bb.36(0x80000000); %bb.36(100.00%)
+  liveins: $w8, $w20, $w25, $x19, $x21, $x22, $x24, $x26
+  $x9 = ORRXrs $xzr, undef $x20, 0, implicit $w20
+  $x27 = MOVZXi 0, 0
+  renamable $w10 = ORRWrs $wzr, $w20, 0
+  $x23 = ORRXrs $xzr, undef $x10, 0, implicit killed $w10
+  renamable $w8 = ORRWrs $wzr, killed renamable $w8, 0, debug-location !11743; image/encoders/png/nsPNGEncoder.cpp:310:28
+  renamable $x8 = KILL killed renamable $w8, debug-location !11743; image/encoders/png/nsPNGEncoder.cpp:310:28
+  STURXi killed renamable $x8, $fp, -136 :: (store (s64) into %stack.8)
+  renamable $x8 = nsw SUBXri renamable $x23, 1, 0, debug-location !11745; image/encoders/png/nsPNGEncoder.cpp:310:5
+  dead $xzr = ANDSXri renamable $x8, 6175, implicit-def $nzcv
+  renamable $w8 = KILL renamable $w8, implicit killed $x8
+  renamable $w10 = ORRWri $wzr, 60
+  CCMPWr killed renamable $w8, killed renamable $w10, 2, 0, implicit-def $nzcv, implicit $nzcv
+  renamable $w28 = CSINCWr $wzr, $wzr, 9, implicit $nzcv
+  renamable $x8 = ANDSXri renamable $x23, 4099, implicit-def $nzcv
+  renamable $w10 = MOVZWi 16, 0
+  renamable $x10 = KILL killed renamable $w10
+  renamable $x8 = CSELXr killed renamable $x10, killed renamable $x8, 0, implicit $nzcv
+  STURXi renamable $x8, $fp, -144 :: (store (s64) into %stack.9)
+  $x8 = SUBXrs renamable $x23, killed renamable $x8, 0
+  STURXi killed renamable $x8, $fp, -152 :: (store (s64) into %stack.10)
+  renamable $x8 = ANDSXri renamable $x23, 4098, implicit-def $nzcv
+  renamable $w10 = MOVZWi 8, 0
+  renamable $x10 = KILL killed renamable $w10
+  renamable $x8 = CSELXr killed renamable $x10, killed renamable $x8, 0, implicit $nzcv
+  $x10 = SUBXrs renamable $x23, renamable $x8, 0
+  STURXi killed renamable $x10, $fp, -160 :: (store (s64) into %stack.11)
+  $x8 = SUBXrs killed renamable $x8, renamable $x23, 0, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  STRXui killed renamable $x8, $sp, 21 :: (store (s64) into %stack.12)
+  renamable $x8 = ADRP target-flags(aarch64-page) %const.0
+  renamable $q7 = LDRQui killed renamable $x8, target-flags(aarch64-pageoff, aarch64-nc) %const.0 :: (load (s128) from constant-pool)
+  renamable $x8 = ADRP target-flags(aarch64-page) %const.1
+  renamable $q16 = LDRQui killed renamable $x8, target-flags(aarch64-pageoff, aarch64-nc) %const.1 :: (load (s128) from constant-pool)
+  renamable $x8 = ADRP target-flags(aarch64-page) %const.2
+  renamable $q17 = LDRQui killed renamable $x8, target-flags(aarch64-pageoff, aarch64-nc) %const.2 :: (load (s128) from constant-pool)
+  renamable $x8 = ADRP target-flags(aarch64-page) %const.3
+  renamable $q18 = LDRQui killed renamable $x8, target-flags(aarch64-pageoff, aarch64-nc) %const.3 :: (load (s128) from constant-pool)
+  renamable $x8 = ADRP target-flags(aarch64-page) %const.4
+  renamable $q19 = LDRQui killed renamable $x8, target-flags(aarch64-pageoff, aarch64-nc) %const.4 :: (load (s128) from constant-pool)
+  renamable $x8 = ADRP target-flags(aarch64-page) %const.5
+  renamable $q20 = LDRQui killed renamable $x8, target-flags(aarch64-pageoff, aarch64-nc) %const.5 :: (load (s128) from constant-pool)
+  STPQi renamable $q16, renamable $q7, $sp, 8 :: (store (s128) into %stack.13), (store (s128) into %stack.14)
+  STPQi renamable $q18, renamable $q17, $sp, 6 :: (store (s128) into %stack.15), (store (s128) into %stack.16)
+  STPQi renamable $q20, renamable $q19, $sp, 4 :: (store (s128) into %stack.17), (store (s128) into %stack.18)
+
+bb.36 (%ir-block.199):
+; predecessors: %bb.35, %bb.48
+  successors: %bb.37(0x40000000), %bb.38(0x40000000); %bb.37(50.00%), %bb.38(50.00%)
+  liveins: $q7, $q16, $q17, $q18, $q19, $q20, $w9, $w20, $w25, $w28, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  dead $wzr = SUBSWri renamable $w9, 9, 0, implicit-def $nzcv
+  renamable $w10 = CSINCWr $wzr, $wzr, 2, implicit $nzcv
+  DBG_VALUE $x27, $noreg, !"y", !DIExpression(), debug-location !11742; image/encoders/png/nsPNGEncoder.cpp:0 line no:310
+  renamable $w8 = MADDWrrr $w25, $w27, $wzr, debug-location !11767; image/encoders/png/nsPNGEncoder.cpp:311:27
+  renamable $x8 = KILL killed renamable $w8, debug-location !11768; image/encoders/png/nsPNGEncoder.cpp:311:19
+  $x8 = ADDXrs $x26, killed renamable $x8, 0, debug-location !11768; image/encoders/png/nsPNGEncoder.cpp:311:19
+  DBG_VALUE $x24, $noreg, !"this", !DIExpression(), debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:0
+  DBG_VALUE $x8, $noreg, !"aSrc", !DIExpression(), debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:753
+  DBG_VALUE $x21, $noreg, !"aDest", !DIExpression(), debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:753
+  DBG_VALUE $w20, $noreg, !"aPixelWidth", !DIExpression(), debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:754
+  DBG_VALUE 0, $noreg, !"x", !DIExpression(), debug-location !11762; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:755
+  $w10 = ORRWrs killed renamable $w10, renamable $w28, 0, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  TBZW killed renamable $w10, 0, %bb.38, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.37:
+; predecessors: %bb.36
+  successors: %bb.46(0x80000000); %bb.46(100.00%)
+  liveins: $w20, $w25, $w28, $x8, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  $x10 = MOVZXi 0, 0
+  B %bb.46, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.38 (%ir-block.207):
+; predecessors: %bb.36
+  successors: %bb.39(0x40000000), %bb.40(0x40000000); %bb.39(50.00%), %bb.40(50.00%)
+  liveins: $q7, $q16, $q17, $q18, $q19, $q20, $w9, $w20, $w25, $w28, $x8, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  dead $wzr = SUBSWri killed renamable $w9, 17, 0, implicit-def $nzcv, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  Bcc 2, %bb.40, implicit $nzcv, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.39:
+; predecessors: %bb.38
+  successors: %bb.43(0x80000000); %bb.43(100.00%)
+  liveins: $w20, $w25, $w28, $x8, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  $x9 = MOVZXi 0, 0
+  B %bb.43, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.40 (%ir-block.209):
+; predecessors: %bb.38
+  successors: %bb.41(0x80000000); %bb.41(100.00%)
+  liveins: $q7, $q16, $q17, $q18, $q19, $q20, $w20, $w25, $w28, $x8, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  $x11 = MOVZXi 0, 0
+  $x10 = MOVZXi 0, 0
+  renamable $x9 = LDURXi $fp, -152 :: (load (s64) from %stack.10)
+
+bb.41 (%ir-block.210):
+; predecessors: %bb.40, %bb.41
+  successors: %bb.42(0x04000000), %bb.41(0x7c000000); %bb.42(3.12%), %bb.41(96.88%)
+  liveins: $q7, $q16, $q17, $q18, $q19, $q20, $w20, $w25, $w28, $x8, $x9, $x10, $x11, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  renamable $x12 = ANDXri renamable $x10, 7833, debug-location !11770; image/encoders/png/nsPNGEncoder.cpp:756:31 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $x12 = ADDXrs renamable $x8, killed renamable $x12, 0, debug-location !11770; image/encoders/png/nsPNGEncoder.cpp:756:31 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x13 = ANDXri renamable $x11, 7963, debug-location !11771; image/encoders/png/nsPNGEncoder.cpp:757:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $x13 = ADDXrs renamable $x22, killed renamable $x13, 0, debug-location !11771; image/encoders/png/nsPNGEncoder.cpp:757:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q1, renamable $q0 = LDPQi renamable $x12, 0, debug-location !11772 :: (load (s128) from %ir.215 + 16, align 1), (load (s128) from %ir.215, align 1); image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q1 = KILL killed renamable $q1, implicit-def $q1_q2, debug-location !11772; image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $q2 = ORRv16i8 $q0, killed $q0, implicit $q1_q2, implicit-def $q1_q2, debug-location !11772; image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q3, renamable $q0 = LDPQi renamable $x12, 2, debug-location !11772 :: (load (s128) from %ir.215 + 48, align 1), (load (s128) from %ir.215 + 32, align 1); image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q3 = KILL killed renamable $q3, implicit-def $q3_q4, debug-location !11772; image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $q4 = ORRv16i8 $q0, killed $q0, implicit $q3_q4, implicit-def $q3_q4, debug-location !11772; image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q0 = TBLv16i8Two renamable $q3_q4, renamable $q7, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q5 = TBLv16i8Two renamable $q1_q2, renamable $q16, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q5 = INSvi64lane killed renamable $q5(tied-def 0), 1, killed renamable $q0, 1, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q0 = TBLv16i8Two renamable $q3_q4, renamable $q17, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q6 = TBLv16i8Two renamable $q1_q2, renamable $q18, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q6 = INSvi64lane killed renamable $q6(tied-def 0), 1, killed renamable $q0, 1, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q0 = TBLv16i8Two killed renamable $q3_q4, renamable $q19, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q1 = TBLv16i8Two killed renamable $q1_q2, renamable $q20, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $q1 = INSvi64lane killed renamable $q1(tied-def 0), 1, killed renamable $q0, 1, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $q2 = ORRv16i8 $q5, killed $q5, implicit-def $q2_q3_q4, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $q3 = ORRv16i8 $q6, killed $q6, implicit $q2_q3_q4, implicit-def $q2_q3_q4, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $q4 = ORRv16i8 $q1, killed $q1, implicit $q2_q3_q4, implicit-def $q2_q3_q4, debug-location !11773; image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  ST3Threev16b killed renamable $q2_q3_q4, killed renamable $x13, debug-location !11773 :: (store (s384) into %ir.217, align 64); image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x11 = ADDXri killed renamable $x11, 48, 0, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x10 = ADDXri killed renamable $x10, 64, 0, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x9 = SUBSXri killed renamable $x9, 16, 0, implicit-def $nzcv, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  Bcc 1, %bb.41, implicit $nzcv, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.42 (%ir-block.230):
+; predecessors: %bb.41
+  successors: %bb.46(0x40000000), %bb.43(0x40000000); %bb.46(50.00%), %bb.43(50.00%)
+  liveins: $w20, $w25, $w28, $x8, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  renamable $x10, renamable $x11 = LDPXi $fp, -19 :: (load (s64) from %stack.10), (load (s64) from %stack.9)
+  $x9 = ORRXrs $xzr, $x10, 0
+  dead $xzr = SUBSXri killed renamable $x11, 9, 0, implicit-def $nzcv, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  Bcc 3, %bb.46, implicit $nzcv, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.43 (%ir-block.232):
+; predecessors: %bb.42, %bb.39
+  successors: %bb.44(0x80000000); %bb.44(100.00%)
+  liveins: $w20, $w25, $w28, $x8, $x9, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  renamable $x10 = LDRXui $sp, 21 :: (load (s64) from %stack.12)
+  $x11 = ADDXrs killed renamable $x10, renamable $x9, 0, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x10 = ADDXrs renamable $x9, renamable $x9, 1, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x9 = nsw UBFMXri killed renamable $x9, 62, 61, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.44 (%ir-block.237):
+; predecessors: %bb.43, %bb.44
+  successors: %bb.45(0x04000000), %bb.44(0x7c000000); %bb.45(3.12%), %bb.44(96.88%)
+  liveins: $w20, $w25, $w28, $x8, $x9, $x10, $x11, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  renamable $x12 = ANDXri renamable $x9, 8093, debug-location !11770; image/encoders/png/nsPNGEncoder.cpp:756:31 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $x12 = ADDXrs renamable $x8, killed renamable $x12, 0, debug-location !11770; image/encoders/png/nsPNGEncoder.cpp:756:31 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $d0_d1_d2_d3 = LD4Fourv8b killed renamable $x12, debug-location !11772 :: (load (s256) from %ir.242); image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x12 = ADDXri renamable $x10, 24, 0, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $w10 = KILL renamable $w10, implicit killed $x10, debug-location !11771; image/encoders/png/nsPNGEncoder.cpp:757:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x10 = nuw ADDXrx renamable $x22, killed renamable $w10, 16, debug-location !11771; image/encoders/png/nsPNGEncoder.cpp:757:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $d4 = FMOVDr $d0, implicit-def $d4_d5_d6, debug-location !11772; image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $d5 = FMOVDr $d1, implicit $d4_d5_d6, implicit-def $d4_d5_d6, debug-location !11772; image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $d6 = FMOVDr $d2, implicit killed $d0_d1_d2_d3, implicit $d4_d5_d6, implicit-def $d4_d5_d6, debug-location !11772; image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  ST3Threev8b killed renamable $d4_d5_d6, killed renamable $x10, debug-location !11773 :: (store (s192) into %ir.244, align 32); image/encoders/png/nsPNGEncoder.cpp:760:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x9 = ADDXri killed renamable $x9, 32, 0, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $x10 = ORRXrs $xzr, killed $x12, 0
+  renamable $x11 = ADDSXri killed renamable $x11, 8, 0, implicit-def $nzcv, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  Bcc 1, %bb.44, implicit $nzcv, debug-location !11769; image/encoders/png/nsPNGEncoder.cpp:755:42 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.45:
+; predecessors: %bb.44
+  successors: %bb.46(0x80000000); %bb.46(100.00%)
+  liveins: $w20, $w25, $w28, $x8, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  renamable $x10 = LDURXi $fp, -160 :: (load (s64) from %stack.11)
+
+bb.46 (%ir-block.258):
+; predecessors: %bb.42, %bb.37, %bb.45
+  successors: %bb.47(0x80000000); %bb.47(100.00%)
+  liveins: $w20, $w25, $w28, $x8, $x10, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  $x11 = SUBXrs renamable $x23, renamable $x10, 0, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x0 = ADDXrs renamable $x10, renamable $x10, 1, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x9 = nsw UBFMXri killed renamable $x10, 62, 61, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $x10 = ORRXrs $xzr, killed $x0, 0
+
+bb.47 (%ir-block.263):
+; predecessors: %bb.46, %bb.47
+  successors: %bb.48(0x04000000), %bb.47(0x7c000000); %bb.48(3.12%), %bb.47(96.88%)
+  liveins: $w20, $w25, $w28, $x8, $x9, $x10, $x11, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  DBG_VALUE_LIST !"x", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_consts, 18446744073709551615, DW_OP_LLVM_arg, 0, DW_OP_mul, DW_OP_plus, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_LLVM_arg, 0, DW_OP_plus, DW_OP_stack_value), $noreg, debug-location !11762; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:755
+  renamable $x12 = ANDXri renamable $x9, 8093, debug-location !11770; image/encoders/png/nsPNGEncoder.cpp:756:31 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $x12 = ADDXrs renamable $x8, killed renamable $x12, 0, debug-location !11770; image/encoders/png/nsPNGEncoder.cpp:756:31 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  DBG_VALUE $x12, $noreg, !"pixelIn", !DIExpression(), debug-location !11779; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:756
+  renamable $x13 = ADDXri renamable $x10, 3, 0, debug-location !11786; image/encoders/png/nsPNGEncoder.cpp:755:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $w10 = KILL renamable $w10, implicit killed $x10, debug-location !11771; image/encoders/png/nsPNGEncoder.cpp:757:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $x10 = nuw ADDXrx renamable $x22, killed renamable $w10, 16, debug-location !11771; image/encoders/png/nsPNGEncoder.cpp:757:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  DBG_VALUE $x10, $noreg, !"pixelOut", !DIExpression(), debug-location !11779; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:757
+  renamable $w14 = LDRBBui renamable $x12, 0, debug-location !11772 :: (load (s8) from %ir.268); image/encoders/png/nsPNGEncoder.cpp:758:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  STRBBui killed renamable $w14, renamable $x10, 0, debug-location !11780 :: (store (s8) into %ir.270); image/encoders/png/nsPNGEncoder.cpp:758:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  renamable $w12 = LDURHHi killed renamable $x12, 1, debug-location !11781 :: (load (s16) from %ir.272, align 1); image/encoders/png/nsPNGEncoder.cpp:759:19 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  STURHHi killed renamable $w12, killed renamable $x10, 1, debug-location !11783 :: (store (s16) into %ir.274, align 1); image/encoders/png/nsPNGEncoder.cpp:759:17 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  DBG_VALUE_LIST !"x", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_consts, 18446744073709551615, DW_OP_LLVM_arg, 0, DW_OP_mul, DW_OP_plus, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_LLVM_arg, 0, DW_OP_plus, DW_OP_plus, DW_OP_stack_value), $noreg, debug-location !11762; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:755
+  renamable $x9 = ADDXri killed renamable $x9, 4, 0, debug-location !11786; image/encoders/png/nsPNGEncoder.cpp:755:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  $x10 = ORRXrs $xzr, killed $x13, 0
+  renamable $x11 = SUBSXri killed renamable $x11, 1, 0, implicit-def $nzcv, debug-location !11786; image/encoders/png/nsPNGEncoder.cpp:755:26 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+  Bcc 1, %bb.47, implicit $nzcv, debug-location !11746; image/encoders/png/nsPNGEncoder.cpp:755:3 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ]
+
+bb.48 (%ir-block.282):
+; predecessors: %bb.47
+  successors: %bb.50(0x04000000), %bb.36(0x7c000000); %bb.50(3.12%), %bb.36(96.88%)
+  liveins: $w20, $w25, $w28, $x19, $x21, $x22, $x23, $x24, $x26, $x27
+  renamable $x0 = LDRXui renamable $x19, 0, debug-location !11763 :: (dereferenceable load (s64) from %ir.22); image/encoders/png/nsPNGEncoder.cpp:312:21
+  $x1 = ORRXrs $xzr, $x21, 0, debug-location !11764; image/encoders/png/nsPNGEncoder.cpp:312:7
+  BL @MOZ_PNG_write_row, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, debug-location !11764; image/encoders/png/nsPNGEncoder.cpp:312:7
+  renamable $x27 = nuw nsw ADDXri killed renamable $x27, 1, 0, debug-location !11788; image/encoders/png/nsPNGEncoder.cpp:310:40
+  DBG_VALUE $x27, $noreg, !"y", !DIExpression(), debug-location !11742; image/encoders/png/nsPNGEncoder.cpp:0 line no:310
+  renamable $x9 = LDURXi $fp, -136 :: (load (s64) from %stack.8)
+  $xzr = SUBSXrs renamable $x27, killed renamable $x9, 0, implicit-def $nzcv, debug-location !11745; image/encoders/png/nsPNGEncoder.cpp:310:5
+  $x9 = ORRXrs $xzr, undef $x20, 0, implicit $w20
+  renamable $q16, renamable $q7 = LDPQi $sp, 8 :: (load (s128) from %stack.13), (load (s128) from %stack.14)
+  renamable $q18, renamable $q17 = LDPQi $sp, 6 :: (load (s128) from %stack.15), (load (s128) from %stack.16)
+  renamable $q20, renamable $q19 = LDPQi $sp, 4 :: (load (s128) from %stack.17), (load (s128) from %stack.18)
+  Bcc 1, %bb.36, implicit $nzcv, debug-location !11745; image/encoders/png/nsPNGEncoder.cpp:310:5
+  B %bb.50, debug-location !11745; image/encoders/png/nsPNGEncoder.cpp:310:5
+
+bb.49 (%ir-block.194):
+; predecessors: %bb.49, %bb.34
+  successors: %bb.50(0x04000000), %bb.49(0x7c000000); %bb.50(3.12%), %bb.49(96.88%)
+  liveins: $w8, $x19, $x21, $x24
+  $x20 = ORRXrs $xzr, undef $x8, 0, implicit killed $w8
+  DBG_VALUE_LIST !"y", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_stack_value), $noreg, debug-location !11742; image/encoders/png/nsPNGEncoder.cpp:0 line no:310
+  DBG_VALUE $x24, $noreg, !"this", !DIExpression(), debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:0
+  DBG_VALUE_LIST !"aSrc", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_LLVM_arg, 0, DW_OP_mul, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_plus, DW_OP_stack_value), $noreg, debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:753
+  DBG_VALUE $x21, $noreg, !"aDest", !DIExpression(), debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:753
+  DBG_VALUE $noreg, $noreg, !"aPixelWidth", !DIExpression(), debug-location !11761; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:754
+  DBG_VALUE 0, $noreg, !"x", !DIExpression(), debug-location !11762; image/encoders/png/nsPNGEncoder.cpp:0 @[ image/encoders/png/nsPNGEncoder.cpp:311:7 ] line no:755
+  renamable $x0 = LDRXui renamable $x19, 0, debug-location !11763 :: (dereferenceable load (s64) from %ir.22); image/encoders/png/nsPNGEncoder.cpp:312:21
+  $x1 = ORRXrs $xzr, $x21, 0, debug-location !11764; image/encoders/png/nsPNGEncoder.cpp:312:7
+  BL @MOZ_PNG_write_row, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, debug-location !11764; image/encoders/png/nsPNGEncoder.cpp:312:7
+  DBG_VALUE_LIST !"y", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 0, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), $noreg, debug-location !11742; image/encoders/png/nsPNGEncoder.cpp:0 line no:310
+  renamable $w8 = SUBSWri killed renamable $w20, 1, 0, implicit-def $nzcv, debug-location !11743; image/encoders/png/nsPNGEncoder.cpp:310:28
+  Bcc 1, %bb.49, implicit $nzcv, debug-location !11745; image/encoders/png/nsPNGEncoder.cpp:310:5
+
+bb.50:
+; predecessors: %bb.48, %bb.18, %bb.29, %bb.33, %bb.49
+  successors: %bb.56(0x80000000); %bb.56(100.00%)
+  liveins: $x24, $x21
+  $x0 = ORRXrs $xzr, killed $x21, 0
+  B %bb.56
+
+bb.54:
+; predecessors: %bb.17, %bb.32
+  successors: %bb.61(0x7ffff800), %bb.63(0x00000800); %bb.61(100.00%), %bb.63(0.00%)
+  liveins: $w27
+  renamable $w1 = SUBWri killed renamable $w27, 73, 0, debug-location !11562; image/encoders/png/nsPNGEncoder.cpp:0
+  renamable $x8 = LDURXi $fp, -96 :: (volatile load (s64) from %stack.0)
+  $x9 = ADRP target-flags(aarch64-page, aarch64-got) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, target-flags(aarch64-pageoff, aarch64-got, aarch64-nc) @__stack_chk_guard
+  $x9 = LDRXui killed $x9, 0 :: (dereferenceable invariant load (s64) from @__stack_chk_guard)
+  $xzr = SUBSXrs killed renamable $x9, killed renamable $x8, 0, implicit-def $nzcv
+  Bcc 0, %bb.61, implicit $nzcv
+  B %bb.63
+
+bb.51 (%ir-block.163):
+; predecessors: %bb.30, %bb.31
+  successors: %bb.57(0x30000000), %bb.52(0x50000000); %bb.57(37.50%), %bb.52(62.50%)
+  liveins: $w23, $w25, $x19, $x24, $x26
+  DBG_VALUE 0, $noreg, !"y", !DIExpression(), debug-location !11729; image/encoders/png/nsPNGEncoder.cpp:0 line no:317
+  CBZW renamable $w23, %bb.57, debug-location !11732; image/encoders/png/nsPNGEncoder.cpp:317:5
+
+bb.52 (%ir-block.165):
+; predecessors: %bb.51
+  successors: %bb.53(0x80000000); %bb.53(100.00%)
+  liveins: $w23, $w25, $x19, $x24, $x26
+  renamable $w23 = ORRWrs $wzr, killed renamable $w23, 0, debug-location !11730; image/encoders/png/nsPNGEncoder.cpp:317:28
+  $x9 = ORRXrs $xzr, undef $x23, 0, implicit killed $w23, debug-location !11730; image/encoders/png/nsPNGEncoder.cpp:317:28
+  $w8 = MOVZWi 0, 0
+
+bb.53 (%ir-block.286):
+; predecessors: %bb.52, %bb.53
+  successors: %bb.57(0x04000000), %bb.53(0x7c000000); %bb.57(3.12%), %bb.53(96.88%)
+  liveins: $w8, $w25, $x9, $x19, $x24, $x26
+  $x20 = ORRXrs $xzr, undef $x8, 0, implicit $w8
+  $x21 = ORRXrs $xzr, killed $x9, 0
+  DBG_VALUE_LIST !"y", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_div, DW_OP_stack_value), $w20, $w25, debug-location !11729; image/encoders/png/nsPNGEncoder.cpp:0 line no:317
+  renamable $x0 = LDRXui renamable $x19, 0, debug-location !11789 :: (dereferenceable load (s64) from %ir.22); image/encoders/png/nsPNGEncoder.cpp:318:21
+  renamable $x1 = nuw ADDXrx renamable $x26, $w8, 16, debug-location !11791; image/encoders/png/nsPNGEncoder.cpp:318:38
+  BL @MOZ_PNG_write_row, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, debug-location !11792; image/encoders/png/nsPNGEncoder.cpp:318:7
+  DBG_VALUE_LIST !"y", !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), $w20, $w25, debug-location !11729; image/encoders/png/nsPNGEncoder.cpp:0 line no:317
+  $w8 = ADDWrs killed renamable $w20, renamable $w25, 0, debug-location !11730; image/encoders/png/nsPNGEncoder.cpp:317:28
+  renamable $x9 = nsw SUBSXri killed renamable $x21, 1, 0, implicit-def $nzcv, debug-location !11730; image/encoders/png/nsPNGEncoder.cpp:317:28
+  Bcc 1, %bb.53, implicit $nzcv, debug-location !11732; image/encoders/png/nsPNGEncoder.cpp:317:5
+  B %bb.57, debug-location !11732; image/encoders/png/nsPNGEncoder.cpp:317:5
+
+bb.55:
+; predecessors: %bb.21
+  successors: %bb.56(0x80000000); %bb.56(100.00%)
+  liveins: $x24
+  renamable $x0 = LDRXui $sp, 7 :: (load (s64) from %stack.19)
+
+bb.56 (%ir-block.295):
+; predecessors: %bb.50, %bb.55
+  successors: %bb.57(0x80000000); %bb.57(100.00%)
+  liveins: $x0, $x24
+  BL @free, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit-def $sp, debug-location !11795; dist/include/mozilla/cxxalloc.h:73:10 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:91:5 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:618:7 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:71 @[ /usr/local/llvm-project-good/bin/../include/c++/v1/__memory/unique_ptr.h:573:69 @[ image/encoders/png/nsPNGEncoder.cpp:0 ] ] ] ] ]
+
+bb.57 (%ir-block.297):
+; predecessors: %bb.51, %bb.53, %bb.56
+  successors: %bb.58(0x40000000), %bb.59(0x40000000); %bb.58(50.00%), %bb.59(50.00%)
+  liveins: $x24
+  renamable $w8 = LDRBBui renamable $x24, 33, debug-location !11804 :: (dereferenceable load (s8) from %ir.298, !range !11438); image/encoders/png/nsPNGEncoder.cpp:327:7
+  dead $wzr = SUBSWri killed renamable $w8, 1, 0, implicit-def $nzcv, debug-location !11804; image/encoders/png/nsPNGEncoder.cpp:327:7
+  Bcc 1, %bb.59, implicit $nzcv, debug-location !11804; image/encoders/png/nsPNGEncoder.cpp:327:7
+
+bb.58 (%ir-block.301):
+; predecessors: %bb.57
+  successors: %bb.59(0x80000000); %bb.59(100.00%)
+  liveins: $x24
+  renamable $x0, renamable $x1 = LDPXi renamable $x24, 2, debug-location !11806 :: (dereferenceable load (s64) from %ir.302), (dereferenceable load (s64) from %ir.304); image/encoders/png/nsPNGEncoder.cpp:328:26
+  BL @MOZ_APNG_write_frame_tail, <regmask $fp $lr $wzr $wzr_hi $xzr $b8 $b9 $b10 $b11 $b12 $b13 $b14 $b15 $d8 $d9 $d10 $d11 $d12 $d13 $d14 $d15 $h8 $h9 $h10 $h11 $h12 $h13 $h14 $h15 $s8 $s9 $s10 $s11 and 92 more...>, implicit-def dead $lr, implicit $sp, implicit $x0, implicit $x1, implicit-def $sp, debug-location !11809; image/encoders/png/nsPNGEncoder.cpp:328:5
+
+bb.59 (%ir-block.306):
+; predecessors: %bb.58, %bb.57
+  successors: %bb.60(0x80000000); %bb.60(100.00%)
+
+  $w1 = MOVZWi 0, 0
+  B %bb.60
+
+# End machine code for function _ZN12nsPNGEncoder13AddImageFrameEPKhjjjjjRK12nsTSubstringIDsE.
+
+******
+; Function Attrs: mustprogress nounwind sspstrong uwtable(sync)
+define hidden noundef range(i32 -2147467259, 1) i32 @_ZN12nsPNGEncoder13AddImageFrameEPKhjjjjjRK12nsTSubstringIDsE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %7) unnamed_addr #0 !dbg !9916 {
+  %9 = alloca ptr, align 8
+  %10 = call ptr @llvm.stackguard()
+  call void @llvm.stackprotector(ptr %10, ptr %9)
+  %11 = alloca i8, align 1
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+    #dbg_value(ptr poison, !9948, !DIExpression(), !9961)
+    #dbg_value(ptr poison, !9966, !DIExpression(), !9982)
+    #dbg_value(ptr poison, !9976, !DIExpression(), !9983)
+    #dbg_value(ptr poison, !9980, !DIExpression(), !9984)
+    #dbg_value(ptr poison, !9948, !DIExpression(), !9985)
+    #dbg_value(ptr poison, !9966, !DIExpression(), !9990)
+    #dbg_value(ptr poison, !9976, !DIExpression(), !9991)
+    #dbg_value(ptr poison, !9980, !DIExpression(), !9992)
+    #dbg_value(ptr poison, !9993, !DIExpression(), !9997)
+    #dbg_value(ptr poison, !9948, !DIExpression(), !10000)
+    #dbg_value(ptr poison, !9966, !DIExpression(), !10005)
+    #dbg_value(ptr poison, !9976, !DIExpression(), !10006)
+    #dbg_value(ptr poison, !9980, !DIExpression(), !10007)
+    #dbg_value(ptr poison, !9948, !DIExpression(), !10008)
+    #dbg_value(ptr poison, !9966, !DIExpression(), !10013)
+    #dbg_value(ptr poison, !9976, !DIExpression(), !10014)
+    #dbg_value(ptr poison, !9980, !DIExpression(), !10015)
+    #dbg_value(ptr poison, !9993, !DIExpression(), !10016)
+    #dbg_value(ptr %0, !9918, !DIExpression(), !10019)
+    #dbg_value(ptr %1, !9919, !DIExpression(), !10019)
+    #dbg_value(i32 poison, !9920, !DIExpression(), !10019)
+    #dbg_value(i32 %3, !9921, !DIExpression(), !10019)
+    #dbg_value(i32 %4, !9922, !DIExpression(), !10019)
+    #dbg_value(i32 %5, !9923, !DIExpression(), !10019)
+    #dbg_value(i32 %6, !9924, !DIExpression(), !10019)
+    #dbg_value(ptr %7, !9925, !DIExpression(), !10019)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #25, !dbg !10020
+    #dbg_value(i8 1, !9926, !DIExpression(), !10019)
+  store i8 1, ptr %11, align 1, !dbg !10021
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #25, !dbg !10022
+    #dbg_value(i32 16, !9927, !DIExpression(), !10019)
+  store i32 16, ptr %12, align 4, !dbg !10023
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #25, !dbg !10024
+    #dbg_value(i32 500, !9928, !DIExpression(), !10019)
+  store i32 500, ptr %13, align 4, !dbg !10025
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #25, !dbg !10026
+    #dbg_value(i32 0, !9929, !DIExpression(), !10019)
+  store i32 0, ptr %14, align 4, !dbg !10027
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #25, !dbg !10028
+    #dbg_value(i32 0, !9930, !DIExpression(), !10019)
+  store i32 0, ptr %15, align 4, !dbg !10029
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25, !dbg !10030
+    #dbg_value(i32 0, !9931, !DIExpression(), !10019)
+  store i32 0, ptr %16, align 4, !dbg !10031
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #25, !dbg !10030
+    #dbg_value(i32 0, !9932, !DIExpression(), !10019)
+  store i32 0, ptr %17, align 4, !dbg !10032
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40, !dbg !10033
+  %19 = load ptr, ptr %18, align 8, !dbg !10033
+  %20 = icmp eq ptr %19, null, !dbg !10035
+  br i1 %20, label %306, label %21, !dbg !10035
+
+21:                                               ; preds = %8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16, !dbg !10036
+  %23 = load ptr, ptr %22, align 8, !dbg !10036
+  %24 = icmp eq ptr %23, null, !dbg !10036
+  br i1 %24, label %306, label %25, !dbg !10038
+
+25:                                               ; preds = %21
+  %26 = bitcast i32 -2147024809 to i32
+  %27 = icmp ugt i32 %6, 2, !dbg !10039
+  br i1 %27, label %306, label %28, !dbg !10039
+
+28:                                               ; preds = %25
+  %29 = call ptr @MOZ_PNG_set_longjmp_fn(ptr noundef nonnull %23, ptr noundef nonnull @longjmp, i64 noundef 192) #25, !dbg !10041
+  %30 = call i32 @setjmp(ptr noundef %29) #26, !dbg !10043
+  %31 = icmp eq i32 %30, 0, !dbg !10043
+  br i1 %31, label %34, label %32, !dbg !10043
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24, !dbg !10044
+  call void @MOZ_PNG_dest_write_str(ptr noundef nonnull %22, ptr noundef nonnull %33) #25, !dbg !10046
+  br label %306, !dbg !10047
+
+34:                                               ; preds = %28
+    #dbg_value(ptr %11, !9926, !DIExpression(DW_OP_deref), !10019)
+    #dbg_value(ptr %12, !9927, !DIExpression(DW_OP_deref), !10019)
+    #dbg_value(ptr %13, !9928, !DIExpression(DW_OP_deref), !10019)
+    #dbg_value(ptr %14, !9929, !DIExpression(DW_OP_deref), !10019)
+    #dbg_value(ptr %15, !9930, !DIExpression(DW_OP_deref), !10019)
+    #dbg_value(ptr %16, !9931, !DIExpression(DW_OP_deref), !10019)
+    #dbg_value(ptr %17, !9932, !DIExpression(DW_OP_deref), !10019)
+  %35 = call noundef i32 @_ZN12nsPNGEncoder12ParseOptionsERK12nsTSubstringIDsEPbS4_PjS5_PiS6_S5_S5_S5_S5_S5_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %11, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %17), !dbg !10048
+    #dbg_value(i32 %35, !9933, !DIExpression(), !10019)
+  %36 = icmp eq i32 %35, 0, !dbg !10049
+  br i1 %36, label %37, label %306, !dbg !10049
+
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 33, !dbg !10051
+  %39 = load i8, ptr %38, align 1, !dbg !10051, !range !10053, !noundef !722
+  %40 = trunc nuw i8 %39 to i1, !dbg !10051
+  br i1 %40, label %41, label %54, !dbg !10051
+
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %0, i64 16, !dbg !10054
+  %43 = load ptr, ptr %42, align 8, !dbg !10054
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24, !dbg !10056
+  %45 = load ptr, ptr %44, align 8, !dbg !10056
+  %46 = load i32, ptr %16, align 4, !dbg !10057
+    #dbg_value(i32 %46, !9931, !DIExpression(), !10019)
+  %47 = load i32, ptr %17, align 4, !dbg !10058
+    #dbg_value(i32 %47, !9932, !DIExpression(), !10019)
+  %48 = load i32, ptr %13, align 4, !dbg !10059
+    #dbg_value(i32 %48, !9928, !DIExpression(), !10019)
+  %49 = trunc i32 %48 to i16, !dbg !10059
+  %50 = load i32, ptr %14, align 4, !dbg !10060
+    #dbg_value(i32 %50, !9929, !DIExpression(), !10019)
+  %51 = trunc i32 %50 to i8, !dbg !10060
+  %52 = load i32, ptr %15, align 4, !dbg !10061
+    #dbg_value(i32 %52, !9930, !DIExpression(), !10019)
+  %53 = trunc i32 %52 to i8, !dbg !10061
+  call void @MOZ_APNG_write_frame_head(ptr noundef %43, ptr noundef %45, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef %46, i32 noundef %47, i16 noundef zeroext %49, i16 noundef zeroext 1000, i8 noundef zeroext %51, i8 noundef zeroext %53) #25, !dbg !10062
+  br label %54, !dbg !10063
+
+54:                                               ; preds = %41, %37
+  %55 = icmp eq i32 %6, 0, !dbg !10064
+  %56 = mul i32 %3, 3
+  %57 = icmp ult i32 %5, %56
+  %58 = and i1 %57, %55, !dbg !10066
+  br i1 %58, label %306, label %59, !dbg !10066
+
+59:                                               ; preds = %54
+  %60 = add nsw i32 %6, -1, !dbg !10067
+  %61 = icmp ult i32 %60, 2, !dbg !10067
+  %62 = shl i32 %3, 2
+  %63 = icmp ult i32 %5, %62
+  %64 = and i1 %63, %61, !dbg !10067
+  br i1 %64, label %306, label %65, !dbg !10067
+
+65:                                               ; preds = %59
+  %66 = icmp eq i32 %6, 2
+  %67 = load ptr, ptr %22, align 8, !dbg !10068
+  %68 = load i32, ptr %12, align 4, !dbg !10069
+    #dbg_value(i32 %68, !9927, !DIExpression(), !10019)
+  call void @MOZ_PNG_set_filter(ptr noundef %67, i32 noundef 0, i32 noundef %68) #25, !dbg !10070
+  br i1 %66, label %69, label %158, !dbg !10071
+
+69:                                               ; preds = %65
+  %70 = zext i32 %62 to i64, !dbg !10072
+    #dbg_value(i64 %70, !10073, !DIExpression(), !10083)
+    #dbg_value(i64 %70, !10085, !DIExpression(), !10094)
+    #dbg_value(ptr poison, !10093, !DIExpression(), !10094)
+  %71 = call ptr @calloc(i64 1, i64 %70), !dbg !10096
+    #dbg_value(ptr %71, !9934, !DIExpression(), !10097)
+    #dbg_value(ptr undef, !9993, !DIExpression(), !9997)
+  %72 = icmp eq ptr %71, null, !dbg !10098
+  %73 = add i32 %26, -73, !dbg !10019
+  br i1 %72, label %306, label %74, !dbg !10099
+
+74:                                               ; preds = %69
+    #dbg_value(i32 0, !9937, !DIExpression(), !10100)
+  %75 = icmp eq i32 %4, 0, !dbg !10101
+  br i1 %75, label %295, label %76, !dbg !10103
+
+76:                                               ; preds = %74
+  %77 = load i8, ptr %11, align 1, !range !10053, !noundef !722
+  %78 = trunc nuw i8 %77 to i1
+  %79 = select i1 %78, i32 4, i32 3
+  %80 = icmp eq i32 %3, 0
+  %81 = zext nneg i32 %79 to i64
+  %82 = zext i32 %3 to i64
+  br i1 %80, label %83, label %84
+
+83:                                               ; preds = %76
+  br label %86, !dbg !10103
+
+84:                                               ; preds = %76
+  %85 = zext i32 %4 to i64, !dbg !10101
+  br label %91, !dbg !10103
+
+86:                                               ; preds = %83, %86
+  %87 = phi i32 [ %4, %83 ], [ %89, %86 ]
+    #dbg_value(!DIArgList(i32 %87, i32 %4), !9937, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_stack_value), !10100)
+    #dbg_value(i8 %77, !9926, !DIExpression(), !10019)
+    #dbg_value(ptr %0, !10104, !DIExpression(), !10120)
+    #dbg_value(!DIArgList(i32 %87, ptr %1, i32 %5, i32 %4), !10107, !DIExpression(DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 3, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_LLVM_arg, 2, DW_OP_mul, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_plus, DW_OP_stack_value), !10120)
+    #dbg_value(ptr %71, !10108, !DIExpression(), !10120)
+    #dbg_value(i32 %3, !10109, !DIExpression(), !10120)
+    #dbg_value(i1 %78, !10110, !DIExpression(DW_OP_LLVM_convert, 1, DW_ATE_unsigned, DW_OP_LLVM_convert, 8, DW_ATE_unsigned, DW_OP_stack_value), !10120)
+    #dbg_value(i32 %79, !10111, !DIExpression(), !10120)
+    #dbg_value(i32 0, !10112, !DIExpression(), !10123)
+  %88 = load ptr, ptr %22, align 8, !dbg !10124
+  call void @MOZ_PNG_write_row(ptr noundef %88, ptr noundef nonnull %71) #25, !dbg !10125
+    #dbg_value(!DIArgList(i32 %87, i32 %4), !9937, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), !10100)
+  %89 = add i32 %87, -1, !dbg !10101
+  %90 = icmp eq i32 %89, 0, !dbg !10101
+  br i1 %90, label %295, label %86, !dbg !10103, !llvm.loop !10126
+
+91:                                               ; preds = %84, %153
+  %92 = phi i32 [ 0, %84 ], [ %156, %153 ]
+  %93 = phi i64 [ 0, %84 ], [ %155, %153 ]
+  %94 = zext i32 %92 to i64, !dbg !10129
+  %95 = getelementptr nuw i8, ptr %1, i64 %94, !dbg !10129
+    #dbg_value(i64 %93, !9937, !DIExpression(), !10100)
+    #dbg_value(i8 %77, !9926, !DIExpression(), !10019)
+    #dbg_value(ptr %0, !10104, !DIExpression(), !10120)
+    #dbg_value(!DIArgList(ptr %1, i32 %5, i64 %93), !10107, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 2, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_mul, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_plus, DW_OP_stack_value), !10120)
+    #dbg_value(ptr %71, !10108, !DIExpression(), !10120)
+    #dbg_value(i32 %3, !10109, !DIExpression(), !10120)
+    #dbg_value(i1 %78, !10110, !DIExpression(DW_OP_LLVM_convert, 1, DW_ATE_unsigned, DW_OP_LLVM_convert, 8, DW_ATE_unsigned, DW_OP_stack_value), !10120)
+    #dbg_value(i32 %79, !10111, !DIExpression(), !10120)
+    #dbg_value(i32 0, !10112, !DIExpression(), !10123)
+  br label %96, !dbg !10130
+
+96:                                               ; preds = %148, %91
+  %97 = phi ptr [ %108, %148 ], [ %95, %91 ]
+  %98 = phi i32 [ %151, %148 ], [ 0, %91 ]
+  %99 = phi i64 [ %150, %148 ], [ %82, %91 ]
+    #dbg_value(!DIArgList(i64 %99, i32 %3), !10112, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_stack_value), !10123)
+    #dbg_value(i8 poison, !10114, !DIExpression(), !10131)
+  %100 = zext i32 %98 to i64, !dbg !10132
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 %100, !dbg !10132
+    #dbg_value(ptr %101, !10118, !DIExpression(), !10131)
+  %102 = load i32, ptr %97, align 4, !dbg !10133
+  %103 = lshr i32 %102, 24, !dbg !10134
+  %104 = trunc nuw i32 %103 to i8, !dbg !10135
+    #dbg_value(i8 %104, !10119, !DIExpression(), !10131)
+  %105 = getelementptr i8, ptr %101, i64 %81, !dbg !10136
+  %106 = getelementptr i8, ptr %105, i64 -1, !dbg !10136
+  store i8 %104, ptr %106, align 1, !dbg !10137
+  %107 = icmp eq i32 %103, 255, !dbg !10138
+  %108 = getelementptr i8, ptr %97, i64 4, !dbg !10138
+  br i1 %107, label %109, label %117, !dbg !10138
+
+109:                                              ; preds = %96
+  %110 = lshr i32 %102, 16, !dbg !10140
+  %111 = trunc i32 %110 to i8, !dbg !10142
+  store i8 %111, ptr %101, align 1, !dbg !10143
+  %112 = lshr i32 %102, 8, !dbg !10144
+  %113 = trunc i32 %112 to i8, !dbg !10145
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 1, !dbg !10146
+  store i8 %113, ptr %114, align 1, !dbg !10147
+  %115 = trunc i32 %102 to i8, !dbg !10148
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 2, !dbg !10149
+  store i8 %115, ptr %116, align 1, !dbg !10150
+  br label %148, !dbg !10151
+
+117:                                              ; preds = %96
+  %118 = icmp ult i32 %102, 16777216, !dbg !10152
+  br i1 %118, label %119, label %122, !dbg !10152
+
+119:                                              ; preds = %117
+  %120 = getelementptr inbounds nuw i8, ptr %101, i64 2, !dbg !10154
+  store i8 0, ptr %120, align 1, !dbg !10156
+  %121 = getelementptr inbounds nuw i8, ptr %101, i64 1, !dbg !10157
+  store i8 0, ptr %121, align 1, !dbg !10158
+  store i8 0, ptr %101, align 1, !dbg !10159
+  br label %148, !dbg !10160
+
+122:                                              ; preds = %117
+  %123 = lshr i32 %102, 24, !dbg !10134
+  %124 = lshr i32 %102, 16, !dbg !10161
+  %125 = and i32 %124, 255, !dbg !10161
+  %126 = mul nuw nsw i32 %125, 255, !dbg !10163
+  %127 = lshr i32 %102, 25, !dbg !10164
+  %128 = add nuw nsw i32 %126, %127, !dbg !10165
+  %129 = trunc nuw i32 %128 to i16, !dbg !10166
+  %130 = trunc nuw nsw i32 %123 to i16, !dbg !10166
+  %131 = udiv i16 %129, %130, !dbg !10166
+  %132 = trunc i16 %131 to i8, !dbg !10167
+  store i8 %132, ptr %101, align 1, !dbg !10168
+  %133 = lshr i32 %102, 8, !dbg !10169
+  %134 = and i32 %133, 255, !dbg !10169
+  %135 = mul nuw nsw i32 %134, 255, !dbg !10170
+  %136 = add nuw nsw i32 %135, %127, !dbg !10171
+  %137 = trunc nuw i32 %136 to i16, !dbg !10172
+  %138 = udiv i16 %137, %130, !dbg !10172
+  %139 = trunc i16 %138 to i8, !dbg !10173
+  %140 = getelementptr inbounds nuw i8, ptr %101, i64 1, !dbg !10174
+  store i8 %139, ptr %140, align 1, !dbg !10175
+  %141 = and i32 %102, 255, !dbg !10176
+  %142 = mul nuw nsw i32 %141, 255, !dbg !10177
+  %143 = add nuw nsw i32 %142, %127, !dbg !10178
+  %144 = trunc nuw i32 %143 to i16, !dbg !10179
+  %145 = udiv i16 %144, %130, !dbg !10179
+  %146 = trunc i16 %145 to i8, !dbg !10180
+  %147 = getelementptr inbounds nuw i8, ptr %101, i64 2, !dbg !10181
+  store i8 %146, ptr %147, align 1, !dbg !10182
+  br label %148
+
+148:                                              ; preds = %122, %119, %109
+  %149 = trunc i64 %81 to i32
+    #dbg_value(!DIArgList(i64 %99, i32 %3), !10112, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), !10123)
+  %150 = add nsw i64 %99, -1, !dbg !10183
+  %151 = add i32 %98, %149, !dbg !10183
+  %152 = icmp eq i64 %150, 0, !dbg !10183
+  br i1 %152, label %153, label %96, !dbg !10130, !llvm.loop !10184
+
+153:                                              ; preds = %148
+  %154 = load ptr, ptr %22, align 8, !dbg !10124
+  call void @MOZ_PNG_write_row(ptr noundef %154, ptr noundef nonnull %71) #25, !dbg !10125
+  %155 = add nuw nsw i64 %93, 1, !dbg !10186
+    #dbg_value(i64 %155, !9937, !DIExpression(), !10100)
+  %156 = add i32 %92, %5, !dbg !10103
+  %157 = icmp eq i64 %155, %85, !dbg !10101
+  br i1 %157, label %295, label %91, !dbg !10103, !llvm.loop !10126
+
+158:                                              ; preds = %65
+  %159 = icmp ne i32 %6, 1
+  %160 = load i8, ptr %11, align 1, !range !10053
+    #dbg_value(i8 %160, !9926, !DIExpression(), !10019)
+  %161 = trunc nuw i8 %160 to i1
+  %162 = select i1 %159, i1 true, i1 %161, !dbg !10187
+  br i1 %162, label %163, label %167, !dbg !10187
+
+163:                                              ; preds = %158
+    #dbg_value(i32 0, !9944, !DIExpression(), !10188)
+  %164 = icmp eq i32 %4, 0, !dbg !10189
+  br i1 %164, label %297, label %165, !dbg !10191
+
+165:                                              ; preds = %163
+  %166 = zext i32 %4 to i64, !dbg !10189
+  br label %286, !dbg !10191
+
+167:                                              ; preds = %158
+  %168 = zext i32 %62 to i64, !dbg !10192
+    #dbg_value(i64 %168, !10073, !DIExpression(), !10193)
+    #dbg_value(i64 %168, !10085, !DIExpression(), !10195)
+    #dbg_value(ptr poison, !10093, !DIExpression(), !10195)
+  %169 = call ptr @calloc(i64 1, i64 %168), !dbg !10197
+    #dbg_value(ptr %169, !9939, !DIExpression(), !10198)
+    #dbg_value(ptr undef, !9993, !DIExpression(), !10016)
+  %170 = icmp eq ptr %169, null, !dbg !10199
+  %171 = add i32 %26, -73, !dbg !10019
+  br i1 %170, label %306, label %172, !dbg !10200
+
+172:                                              ; preds = %167
+    #dbg_value(i32 0, !9942, !DIExpression(), !10201)
+  %173 = icmp eq i32 %4, 0, !dbg !10202
+  br i1 %173, label %295, label %174, !dbg !10204
+
+174:                                              ; preds = %172
+  %175 = icmp eq i32 %3, 0
+  %176 = zext i32 %3 to i64
+  br i1 %175, label %177, label %178
+
+177:                                              ; preds = %174
+  br label %194, !dbg !10204
+
+178:                                              ; preds = %174
+  %179 = zext i32 %4 to i64, !dbg !10202
+  %180 = add nsw i64 %176, -1, !dbg !10204
+  %181 = trunc i64 %180 to i32
+  %182 = icmp ugt i32 %181, 1431655765
+  %183 = icmp ugt i64 %180, 4294967295
+  %184 = or i1 %182, %183
+  %185 = and i64 %176, 15
+  %186 = icmp eq i64 %185, 0
+  %187 = select i1 %186, i64 16, i64 %185
+  %188 = sub i64 %176, %187
+  %189 = and i64 %176, 7
+  %190 = icmp eq i64 %189, 0
+  %191 = select i1 %190, i64 8, i64 %189
+  %192 = sub nsw i64 %176, %191
+  %193 = sub i64 %191, %176, !dbg !10205
+  br label %199, !dbg !10204
+
+194:                                              ; preds = %177, %194
+  %195 = phi i32 [ %4, %177 ], [ %197, %194 ]
+    #dbg_value(!DIArgList(i32 %195, i32 %4), !9942, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_stack_value), !10201)
+    #dbg_value(ptr %0, !10209, !DIExpression(), !10220)
+    #dbg_value(!DIArgList(i32 %195, ptr %1, i32 %5, i32 %4), !10210, !DIExpression(DW_OP_LLVM_arg, 1, DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 3, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_LLVM_arg, 2, DW_OP_mul, DW_OP_LLVM_convert, 32, DW_ATE_unsigned, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_plus, DW_OP_stack_value), !10220)
+    #dbg_value(ptr %169, !10211, !DIExpression(), !10220)
+    #dbg_value(i32 %3, !10212, !DIExpression(), !10220)
+    #dbg_value(i32 0, !10213, !DIExpression(), !10221)
+  %196 = load ptr, ptr %22, align 8, !dbg !10222
+  call void @MOZ_PNG_write_row(ptr noundef %196, ptr noundef nonnull %169) #25, !dbg !10223
+    #dbg_value(!DIArgList(i32 %195, i32 %4), !9942, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), !10201)
+  %197 = add i32 %195, -1, !dbg !10202
+  %198 = icmp eq i32 %197, 0, !dbg !10202
+  br i1 %198, label %295, label %194, !dbg !10204, !llvm.loop !10224
+
+199:                                              ; preds = %178, %282
+  %200 = phi i64 [ 0, %178 ], [ %284, %282 ]
+  %201 = icmp ult i32 %3, 9
+    #dbg_value(i64 %200, !9942, !DIExpression(), !10201)
+  %202 = trunc nuw i64 %200 to i32, !dbg !10226
+  %203 = mul i32 %5, %202, !dbg !10226
+  %204 = zext i32 %203 to i64, !dbg !10227
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 %204, !dbg !10227
+    #dbg_value(ptr %0, !10209, !DIExpression(), !10220)
+    #dbg_value(ptr %205, !10210, !DIExpression(), !10220)
+    #dbg_value(ptr %169, !10211, !DIExpression(), !10220)
+    #dbg_value(i32 %3, !10212, !DIExpression(), !10220)
+    #dbg_value(i32 0, !10213, !DIExpression(), !10221)
+  %206 = select i1 %201, i1 true, i1 %184, !dbg !10205
+  br i1 %206, label %258, label %207, !dbg !10205
+
+207:                                              ; preds = %199
+  %208 = icmp ult i32 %3, 17
+  br i1 %208, label %232, label %209, !dbg !10205
+
+209:                                              ; preds = %207
+  br label %210, !dbg !10205
+
+210:                                              ; preds = %209, %210
+  %211 = phi i64 [ 0, %209 ], [ %228, %210 ], !dbg !10228
+  %212 = phi i64 [ 0, %209 ], [ %227, %210 ], !dbg !10228
+  %213 = phi i64 [ %188, %209 ], [ %226, %210 ], !dbg !10228
+  %214 = and i64 %211, 4294967232, !dbg !10229
+  %215 = getelementptr inbounds nuw i8, ptr %205, i64 %214, !dbg !10229
+  %216 = and i64 %212, 4294967280, !dbg !10230
+  %217 = getelementptr inbounds nuw i8, ptr %169, i64 %216, !dbg !10230
+  %218 = load <64 x i8>, ptr %215, align 1, !dbg !10231
+  %219 = shufflevector <64 x i8> %218, <64 x i8> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28, i32 32, i32 36, i32 40, i32 44, i32 48, i32 52, i32 56, i32 60>, !dbg !10231
+  %220 = shufflevector <64 x i8> %218, <64 x i8> poison, <16 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29, i32 33, i32 37, i32 41, i32 45, i32 49, i32 53, i32 57, i32 61>, !dbg !10231
+  %221 = shufflevector <16 x i8> %219, <16 x i8> %220, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>, !dbg !10232
+  %222 = shufflevector <64 x i8> %218, <64 x i8> poison, <32 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30, i32 34, i32 38, i32 42, i32 46, i32 50, i32 54, i32 58, i32 62, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>, !dbg !10232
+  %223 = shufflevector <32 x i8> %221, <32 x i8> %222, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>, !dbg !10232
+  %224 = shufflevector <32 x i8> %221, <32 x i8> %222, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>, !dbg !10232
+  %225 = shufflevector <32 x i8> %221, <32 x i8> %222, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>, !dbg !10232
+  call void @llvm.aarch64.neon.st3.v16i8.p0(<16 x i8> %223, <16 x i8> %224, <16 x i8> %225, ptr %217), !dbg !10232
+  %226 = add i64 %213, -16, !dbg !10228
+  %227 = add i64 %212, 48, !dbg !10228
+  %228 = add i64 %211, 64, !dbg !10228
+  %229 = icmp eq i64 %226, 0, !dbg !10228
+  br i1 %229, label %230, label %210, !dbg !10228, !llvm.loop !10233
+
+230:                                              ; preds = %210
+  %231 = icmp ult i64 %187, 9
+  br i1 %231, label %258, label %232, !dbg !10205
+
+232:                                              ; preds = %230, %207
+  %233 = phi i64 [ 0, %207 ], [ %188, %230 ]
+  %234 = add i64 %193, %233, !dbg !10205
+  %235 = mul nsw i64 %233, 3, !dbg !10205
+  %236 = shl nsw i64 %233, 2, !dbg !10205
+  br label %237, !dbg !10205
+
+237:                                              ; preds = %232, %237
+  %238 = phi i64 [ %236, %232 ], [ %256, %237 ], !dbg !10228
+  %239 = phi i64 [ %235, %232 ], [ %255, %237 ], !dbg !10228
+  %240 = phi i64 [ %234, %232 ], [ %254, %237 ], !dbg !10228
+  %241 = and i64 %238, 4294967292, !dbg !10229
+  %242 = getelementptr inbounds nuw i8, ptr %205, i64 %241, !dbg !10229
+  %243 = and i64 %239, 4294967295, !dbg !10230
+  %244 = getelementptr inbounds nuw i8, ptr %169, i64 %243, !dbg !10230
+  %245 = call { <8 x i8>, <8 x i8>, <8 x i8>, <8 x i8> } @llvm.aarch64.neon.ld4.v8i8.p0(ptr %242), !dbg !10231
+  %246 = extractvalue { <8 x i8>, <8 x i8>, <8 x i8>, <8 x i8> } %245, 2, !dbg !10231
+  %247 = extractvalue { <8 x i8>, <8 x i8>, <8 x i8>, <8 x i8> } %245, 1, !dbg !10231
+  %248 = extractvalue { <8 x i8>, <8 x i8>, <8 x i8>, <8 x i8> } %245, 0, !dbg !10231
+  %249 = shufflevector <8 x i8> %248, <8 x i8> %247, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>, !dbg !10232
+  %250 = shufflevector <8 x i8> %246, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>, !dbg !10232
+  %251 = shufflevector <16 x i8> %249, <16 x i8> %250, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, !dbg !10232
+  %252 = shufflevector <16 x i8> %249, <16 x i8> %250, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>, !dbg !10232
+  %253 = shufflevector <16 x i8> %249, <16 x i8> %250, <8 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>, !dbg !10232
+  call void @llvm.aarch64.neon.st3.v8i8.p0(<8 x i8> %251, <8 x i8> %252, <8 x i8> %253, ptr %244), !dbg !10232
+  %254 = add i64 %240, 8, !dbg !10228
+  %255 = add i64 %239, 24, !dbg !10228
+  %256 = add i64 %238, 32, !dbg !10228
+  %257 = icmp eq i64 %254, 0, !dbg !10228
+  br i1 %257, label %258, label %237, !dbg !10228, !llvm.loop !10237
+
+258:                                              ; preds = %237, %199, %230
+  %259 = phi i64 [ %188, %230 ], [ 0, %199 ], [ %192, %237 ]
+  %260 = sub i64 %176, %259, !dbg !10205
+  %261 = mul nsw i64 %259, 3, !dbg !10205
+  %262 = shl nsw i64 %259, 2, !dbg !10205
+  br label %263, !dbg !10205
+
+263:                                              ; preds = %258, %263
+  %264 = phi i64 [ %262, %258 ], [ %280, %263 ]
+  %265 = phi i64 [ %261, %258 ], [ %279, %263 ]
+  %266 = phi i64 [ %260, %258 ], [ %278, %263 ]
+    #dbg_value(!DIArgList(i64 %266, i32 %3, i64 %259), !10213, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_consts, 18446744073709551615, DW_OP_LLVM_arg, 2, DW_OP_mul, DW_OP_plus, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_LLVM_arg, 2, DW_OP_plus, DW_OP_stack_value), !10221)
+  %267 = and i64 %264, 4294967292, !dbg !10229
+  %268 = getelementptr inbounds nuw i8, ptr %205, i64 %267, !dbg !10229
+    #dbg_value(ptr %268, !10214, !DIExpression(), !10238)
+  %269 = and i64 %265, 4294967295, !dbg !10230
+  %270 = getelementptr inbounds nuw i8, ptr %169, i64 %269, !dbg !10230
+    #dbg_value(ptr %270, !10217, !DIExpression(), !10238)
+  %271 = load i8, ptr %268, align 1, !dbg !10231
+  store i8 %271, ptr %270, align 1, !dbg !10239
+  %272 = getelementptr inbounds nuw i8, ptr %268, i64 1, !dbg !10240
+  %273 = load i8, ptr %272, align 1, !dbg !10240
+  %274 = getelementptr inbounds nuw i8, ptr %270, i64 1, !dbg !10241
+  store i8 %273, ptr %274, align 1, !dbg !10242
+  %275 = getelementptr inbounds nuw i8, ptr %268, i64 2, !dbg !10243
+  %276 = load i8, ptr %275, align 1, !dbg !10243
+  %277 = getelementptr inbounds nuw i8, ptr %270, i64 2, !dbg !10244
+  store i8 %276, ptr %277, align 1, !dbg !10232
+    #dbg_value(!DIArgList(i64 %266, i32 %3, i64 %259), !10213, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_LLVM_convert, 64, DW_ATE_unsigned, DW_OP_consts, 18446744073709551615, DW_OP_LLVM_arg, 2, DW_OP_mul, DW_OP_plus, DW_OP_minus, DW_OP_consts, 18446744073709551615, DW_OP_div, DW_OP_consts, 1, DW_OP_LLVM_arg, 2, DW_OP_plus, DW_OP_plus, DW_OP_stack_value), !10221)
+  %278 = add i64 %266, -1, !dbg !10245
+  %279 = add i64 %265, 3, !dbg !10245
+  %280 = add i64 %264, 4, !dbg !10245
+  %281 = icmp eq i64 %278, 0, !dbg !10245
+  br i1 %281, label %282, label %263, !dbg !10205, !llvm.loop !10246
+
+282:                                              ; preds = %263
+  %283 = load ptr, ptr %22, align 8, !dbg !10222
+  call void @MOZ_PNG_write_row(ptr noundef %283, ptr noundef nonnull %169) #25, !dbg !10223
+  %284 = add nuw nsw i64 %200, 1, !dbg !10247
+    #dbg_value(i64 %284, !9942, !DIExpression(), !10201)
+  %285 = icmp eq i64 %284, %179, !dbg !10202
+  br i1 %285, label %295, label %199, !dbg !10204, !llvm.loop !10224
+
+286:                                              ; preds = %165, %286
+  %287 = phi i64 [ %166, %165 ], [ %293, %286 ]
+  %288 = phi i32 [ 0, %165 ], [ %292, %286 ]
+    #dbg_value(!DIArgList(i32 %288, i32 %5), !9944, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_div, DW_OP_stack_value), !10188)
+  %289 = load ptr, ptr %22, align 8, !dbg !10248
+  %290 = zext i32 %288 to i64, !dbg !10250
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 %290, !dbg !10250
+  call void @MOZ_PNG_write_row(ptr noundef %289, ptr noundef %291) #25, !dbg !10251
+    #dbg_value(!DIArgList(i32 %288, i32 %5), !9944, !DIExpression(DW_OP_LLVM_arg, 0, DW_OP_LLVM_arg, 1, DW_OP_div, DW_OP_consts, 1, DW_OP_plus, DW_OP_stack_value), !10188)
+  %292 = add i32 %288, %5, !dbg !10189
+  %293 = add nsw i64 %287, -1, !dbg !10189
+  %294 = icmp eq i64 %293, 0, !dbg !10189
+  br i1 %294, label %297, label %286, !dbg !10191, !llvm.loop !10252
+
+295:                                              ; preds = %282, %194, %153, %86, %172, %74
+  %296 = phi ptr [ %71, %74 ], [ %169, %172 ], [ %71, %86 ], [ %71, %153 ], [ %169, %194 ], [ %169, %282 ]
+  call void @free(ptr noundef nonnull %296), !dbg !10254
+  br label %297, !dbg !10263
+
+297:                                              ; preds = %286, %295, %163
+  %298 = getelementptr inbounds i8, ptr %0, i64 33, !dbg !10263
+  %299 = load i8, ptr %298, align 1, !dbg !10263, !range !10053, !noundef !722
+  %300 = trunc nuw i8 %299 to i1, !dbg !10263
+  br i1 %300, label %301, label %306, !dbg !10263
+
+301:                                              ; preds = %297
+  %302 = getelementptr inbounds i8, ptr %0, i64 16, !dbg !10265
+  %303 = load ptr, ptr %302, align 8, !dbg !10265
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 24, !dbg !10267
+  %305 = load ptr, ptr %304, align 8, !dbg !10267
+  call void @MOZ_APNG_write_frame_tail(ptr noundef %303, ptr noundef %305) #25, !dbg !10268
+  br label %306, !dbg !10269
+
+306:                                              ; preds = %167, %69, %34, %59, %54, %301, %297, %25, %21, %8, %32
+  %307 = phi i32 [ -2147467259, %32 ], [ -1041039359, %8 ], [ -2142830590, %21 ], [ %26, %25 ], [ %35, %34 ], [ %26, %59 ], [ %26, %54 ], [ 0, %301 ], [ 0, %297 ], [ %73, %69 ], [ %171, %167 ], !dbg !10019
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #25, !dbg !10270
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #25, !dbg !10270
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #25, !dbg !10270
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #25, !dbg !10270
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #25, !dbg !10270
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #25, !dbg !10270
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #25, !dbg !10270
+  ret i32 %307, !dbg !10270
+}
+******

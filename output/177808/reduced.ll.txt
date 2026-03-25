@@ -1,0 +1,31 @@
+target datalayout = "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-windows-gnu"
+
+define void @_ZN11aribcaption23TextRendererDirectWrite7EndDrawERNS_17TextRenderContextE(i32 %0, i32 %1) {
+  br label %11
+
+3:                                                ; preds = %12, %3
+  %4 = phi i64 [ %6, %3 ], [ 0, %12 ]
+  %5 = load i32, ptr null, align 4
+  store i32 0, ptr null, align 4
+  %6 = add i64 %4, 1
+  %7 = call i32 @llvm.smin.i32(i32 %0, i32 %1)
+  %8 = and i32 %7, 3
+  %9 = zext i32 %8 to i64
+  %10 = icmp eq i64 %4, %9
+  br i1 %10, label %13, label %3
+
+11:                                               ; preds = %11, %2
+  br i1 false, label %11, label %12
+
+12:                                               ; preds = %11
+  br label %3
+
+13:                                               ; preds = %3
+  ret void
+}
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #0
+
+attributes #0 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

@@ -1,0 +1,75 @@
+0.      Program arguments: clang++ -std=c++23 -g -Wall -Wextra -pedantic -pedantic-errors -ftemplate-backtrace-limit=4 -fdiagnostics-show-category=name -Wno-gcc-compat -Wno-trigraphs -I mcsl -I app -I mcsl/core/header -I mcsl/math/header -I mcsl/utils/header -I mcsl/contig/header -I mcsl/string/header -I mcsl/keywords/header -I app/phases/lexer/header -I app/phases/parser/header -I app/structures/header -I app/data/header -I app/_lib/header -I app/elements/header -c mcsl/contig/header/buf.hpp -o _build/mcsl/contig/header/buf.hpp.pch
+1.      mcsl/contig/header/buf.hpp:53:154: current parser token ':'
+ #0 0x00007c1c701a63bf llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) build-llvm/tools/clang/stage2-bins/llvm/lib/Support/Unix/Signals.inc:723:13
+ #1 0x00007c1c701a44f9 llvm::sys::RunSignalHandlers() build-llvm/tools/clang/stage2-bins/llvm/lib/Support/Signals.cpp:106:18
+ #2 0x00007c1c700f0227 HandleCrash build-llvm/tools/clang/stage2-bins/llvm/lib/Support/CrashRecoveryContext.cpp:73:5
+ #3 0x00007c1c700f0227 CrashRecoverySignalHandler build-llvm/tools/clang/stage2-bins/llvm/lib/Support/CrashRecoveryContext.cpp:390:51
+ #4 0x00007c1c6ec45320 (/lib/x86_64-linux-gnu/libc.so.6+0x45320)
+ #5 0x00007c1c787628c9 clang::LocalInstantiationScope::findInstantiationOf(clang::Decl const*) build-llvm/tools/clang/stage2-bins/clang/include/clang/AST/Decl.h:0:12
+ #6 0x00007c1c787ce7f2 memcpy /usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:10
+ #7 0x00007c1c787ce7f2 asInt build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/PointerIntPair.h:41:5
+ #8 0x00007c1c787ce7f2 operator long build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/PointerIntPair.h:45:48
+ #9 0x00007c1c787ce7f2 getInt build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/PointerIntPair.h:96:57
+#10 0x00007c1c787ce7f2 isPossible<llvm::SmallVector<clang::VarDecl *, 4U> *> build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/PointerUnion.h:230:18
+#11 0x00007c1c787ce7f2 isPossible build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/PointerUnion.h:248:12
+#12 0x00007c1c787ce7f2 isPossible build-llvm/tools/clang/stage2-bins/llvm/include/llvm/Support/Casting.h:396:12
+#13 0x00007c1c787ce7f2 isa<llvm::SmallVector<clang::VarDecl *, 4U> *, llvm::PointerUnion<clang::Decl *, llvm::SmallVector<clang::VarDecl *, 4U> *> > build-llvm/tools/clang/stage2-bins/llvm/include/llvm/Support/Casting.h:549:10
+#14 0x00007c1c787ce7f2 is<llvm::SmallVector<clang::VarDecl *, 4U> *> build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/PointerUnion.h:150:57
+#15 0x00007c1c787ce7f2 clang::Sema::CheckParameterPacksForExpansion(clang::SourceLocation, clang::SourceRange, llvm::ArrayRef<std::pair<llvm::PointerUnion<clang::TemplateTypeParmType const*, clang::NamedDecl*>, clang::SourceLocation>>, clang::MultiLevelTemplateArgumentList const&, bool&, bool&, std::optional<unsigned int>&) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaTemplateVariadic.cpp:719:26
+#16 0x00007c1c78765270 TransformSizeOfPackExpr build-llvm/tools/clang/stage2-bins/clang/lib/Sema/TreeTransform.h:14040:9
+#17 0x00007c1c7876f42d TransformBinaryOperator build-llvm/tools/clang/stage2-bins/clang/lib/Sema/TreeTransform.h:0:33
+#18 0x00007c1c78766186 TransformParenExpr build-llvm/tools/clang/stage2-bins/clang/lib/Sema/TreeTransform.h:0:37
+#19 0x00007c1c78760be1 clang::Sema::SubstConstraintExprWithoutSatisfaction(clang::Expr*, clang::MultiLevelTemplateArgumentList const&) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaTemplateInstantiate.cpp:4137:23
+#20 0x00007c1c78125d9f SubstituteConstraintExpressionWithoutSatisfaction build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaConcept.cpp:805:33
+#21 0x00007c1c78125b38 clang::Sema::AreConstraintExpressionsEqual(clang::NamedDecl const*, clang::Expr const*, clang::Sema::TemplateCompareNewDeclInfo const&, clang::Expr const*) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaConcept.cpp:819:21
+#22 0x00007c1c785bbe55 IsOverloadOrOverrideImpl build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaOverload.cpp:1462:9
+#23 0x00007c1c785bb4b4 clang::Sema::CheckOverload(clang::Scope*, clang::FunctionDecl*, clang::LookupResult const&, clang::NamedDecl*&, bool) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaOverload.cpp:1160:11
+#24 0x00007c1c7818cecf clang::Sema::CheckFunctionDeclaration(clang::Scope*, clang::FunctionDecl*, clang::LookupResult&, bool, bool) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaDecl.cpp:0:15
+#25 0x00007c1c78181526 setRedeclaration build-llvm/tools/clang/stage2-bins/clang/include/clang/Sema/DeclSpec.h:2682:51
+#26 0x00007c1c78181526 clang::Sema::ActOnFunctionDeclarator(clang::Scope*, clang::Declarator&, clang::DeclContext*, clang::TypeSourceInfo*, clang::LookupResult&, llvm::MutableArrayRef<clang::TemplateParameterList*>, bool&) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaDecl.cpp:10589:9
+#27 0x00007c1c7817cd56 clang::Sema::HandleDeclarator(clang::Scope*, clang::Declarator&, llvm::MutableArrayRef<clang::TemplateParameterList*>) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaDecl.cpp:0:11
+#28 0x00007c1c7819b28b clang::Sema::ActOnStartOfFunctionDef(clang::Scope*, clang::Declarator&, llvm::MutableArrayRef<clang::TemplateParameterList*>, clang::Sema::SkipBodyInfo*, clang::Sema::FnBodyKind) build-llvm/tools/clang/stage2-bins/clang/lib/Sema/SemaDecl.cpp:15453:15
+#29 0x00007c1c77863e0e clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:1440:23
+#30 0x00007c1c77851294 clang::Parser::ParseSingleDeclarationAfterTemplate(clang::DeclaratorContext, clang::Parser::ParsedTemplateInfo const&, clang::ParsingDeclRAIIObject&, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseTemplate.cpp:361:12
+#31 0x00007c1c7784fa56 clang::Parser::ParseTemplateDeclarationOrSpecialization(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseTemplate.cpp:0:0
+#32 0x00007c1c7784f3d5 ObjCDeclContextSwitch build-llvm/tools/clang/stage2-bins/clang/include/clang/Parse/Parser.h:1059:11
+#33 0x00007c1c7784f3d5 clang::Parser::ParseDeclarationStartingWithTemplate(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseTemplate.cpp:42:25
+#34 0x00007c1c777ab2cd clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseDecl.cpp:1960:10
+#35 0x00007c1c7786148f clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:0:0
+#36 0x00007c1c7785ff7b clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/Parser.cpp:760:10
+#37 0x00007c1c7779747e clang::ParseAST(clang::Sema&, bool, bool) build-llvm/tools/clang/stage2-bins/clang/lib/Parse/ParseAST.cpp:162:5
+#38 0x00007c1c7960662c clang::FrontendAction::Execute() build-llvm/tools/clang/stage2-bins/clang/lib/Frontend/FrontendAction.cpp:1073:10
+#39 0x00007c1c795830b4 getPtr build-llvm/tools/clang/stage2-bins/llvm/include/llvm/Support/Error.h:279:12
+#40 0x00007c1c795830b4 operator bool build-llvm/tools/clang/stage2-bins/llvm/include/llvm/Support/Error.h:239:16
+#41 0x00007c1c795830b4 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) build-llvm/tools/clang/stage2-bins/clang/lib/Frontend/CompilerInstance.cpp:1057:23
+#42 0x00007c1c7968263d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) build-llvm/tools/clang/stage2-bins/clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp:272:25
+#43 0x00005adde2c7642e cc1_main(llvm::ArrayRef<char const*>, char const*, void*) build-llvm/tools/clang/stage2-bins/clang/tools/driver/cc1_main.cpp:294:15
+#44 0x00005adde2c73894 ExecuteCC1Tool build-llvm/tools/clang/stage2-bins/clang/tools/driver/driver.cpp:365:12
+#45 0x00007c1c79233972 operator() build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Job.cpp:440:30
+#46 0x00007c1c79233972 callback_fn<(lambda at clang/lib/Driver/Job.cpp:440:22)> build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/STLFunctionalExtras.h:45:12
+#47 0x00007c1c700eff77 operator() build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/STLFunctionalExtras.h:0:12
+#48 0x00007c1c700eff77 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) build-llvm/tools/clang/stage2-bins/llvm/lib/Support/CrashRecoveryContext.cpp:426:3
+#49 0x00007c1c79233237 clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Job.cpp:440:7
+#50 0x00007c1c791fb518 clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Compilation.cpp:199:15
+#51 0x00007c1c791fb77f clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Compilation.cpp:253:13
+#52 0x00007c1c79217c20 empty build-llvm/tools/clang/stage2-bins/llvm/include/llvm/ADT/SmallVector.h:94:46
+#53 0x00007c1c79217c20 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) build-llvm/tools/clang/stage2-bins/clang/lib/Driver/Driver.cpp:1921:23
+#54 0x00005adde2c731ec clang_main(int, char**, llvm::ToolContext const&) build-llvm/tools/clang/stage2-bins/clang/tools/driver/driver.cpp:540:21
+#55 0x00005adde2c80383 main build-llvm/tools/clang/stage2-bins/build-llvm/tools/clang/stage2-bins/tools/clang/tools/driver/clang-driver.cpp:17:10
+#56 0x00007c1c6ec2a1ca __libc_start_call_main ./csu/../sysdeps/nptl/libc_start_call_main.h:74:3
+#57 0x00007c1c6ec2a28b call_init ./csu/../csu/libc-start.c:128:20
+#58 0x00007c1c6ec2a28b __libc_start_main ./csu/../csu/libc-start.c:347:5
+#59 0x00005adde2c70255 _start (/usr/lib/llvm-18/bin/clang+0xe255)
+clang++: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+clang++: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang++: note: diagnostic msg: /tmp/buf-c54075.hh
+clang++: note: diagnostic msg: /tmp/buf-c54075.sh
+clang++: note: diagnostic msg: 

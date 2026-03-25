@@ -1,0 +1,141 @@
+---
+$ git describe
+llvmorg-23-init-7561-g603f1e91c1e9
+---
+$ ./build/bin/mlir-opt mlir/test/mlir-runner/async-error.mlir '-pass-pipeline=builtin.module(async-to-async-runtime,func.func(async-runtime-ref-counting,async-runtime-ref-counting-opt),convert-async-to-llvm,func.func(convert-linalg-to-loops,convert-scf-to-cf),convert-vector-to-llvm,func.func(convert-arith-to-llvm),convert-func-to-llvm,convert-cf-to-llvm,reconcile-unrealized-casts)' > /tmp/async-error-lowered.mlir
+---
+$  gdb --args ./build/bin/mlir-runner /tmp/async-error-lowered.mlir -e main -entry-point-result=void -O0 -shared-libs=./build/lib/libmlir_c_runner_utils.so -shared-libs=./build/lib/libmlir_runner_utils.so -shared-libs=./build/
+lib/libmlir_async_runtime.so                                                                                                                                                                                                                                  
+GNU gdb (Fedora Linux) 16.3-1.fc42                                                                                                                                                                                                                            
+[...]                                                                                                                                                                                                                
+Downloading separate debug info for /home/fedora/src/upstream/llvm-project/build/bin/mlir-runner                                                                                                                
+(No debugging symbols found in ./build/bin/mlir-runner)                                                 
+(gdb) set logging on                                                                                    
+Warning: 'set logging on', an alias for the command 'set logging enabled', is deprecated.               
+Use 'set logging enabled on'.                                                                           
+                                                                                                        
+Copying output to gdb.txt.                                                                              
+Copying debug output to gdb.txt.                                                                        
+(gdb) run       
+Starting program: /home/fedora/src/upstream/llvm-project/build/bin/mlir-runner /tmp/async-error-lowered.mlir -e main -entry-point-result=void -O0 -shared-libs=./build/lib/libmlir_c_runner_utils.so -shared-libs=./build/lib/libmlir_runner_utils.so -shared-libs=./build/lib/libmlir_async_runtime.so
+Function(s) ^std::(move|forward|as_const|(__)?addressof) will be skipped when stepping.
+Function(s) ^std::(shared|unique)_ptr<.*>::(get|operator) will be skipped when stepping.
+Function(s) ^std::(basic_string|vector|array|deque|(forward_)?list|(unordered_|flat_)?(multi)?(map|set)|span)<.*>::(c?r?(begin|end)|front|back|data|size|empty) will be skipped when stepping.
+Function(s) ^std::(basic_string|vector|array|deque|span)<.*>::operator.] will be skipped when stepping.
+Python Exception <class 'ModuleNotFoundError'>: No module named 'libstdcxx'
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/lp64d/libthread_db.so.1".
+[New Thread 0x7ffff7a7bf20 (LWP 420524)]
+[New Thread 0x7ffff727af20 (LWP 420525)]
+[New Thread 0x7ffff6a79f20 (LWP 420526)]
+[New Thread 0x7ffff6278f20 (LWP 420527)]
+[New Thread 0x7ffff5608f20 (LWP 420528)]
+
+Thread 6 "llvm-worker-0" received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0x7ffff5608f20 (LWP 420528)]
+0xfffffffff7fbe484 in ?? ()
+Missing rpms, try: dnf --enablerepo='*debug*' install glibc-debuginfo-2.41-9.fc42.riscv64 zlib-ng-compat-debuginfo-2.2.4-1.fc42.riscv64 libzstd-debuginfo-1.5.7-1.fc42.riscv64 libstdc++-debuginfo-15.1.1-1.fc42.riscv64 libgcc-debuginfo-15.1.1-1.fc42.riscv64
+
+Thread 6 (Thread 0x7ffff5608f20 (LWP 420528) "llvm-worker-0"):
+#0  0xfffffffff7fbe484 in ?? ()
+No symbol table info available.
+
+Thread 5 (Thread 0x7ffff6278f20 (LWP 420527) "llvm-worker-3"):
+#0  0x00007ffff7ad3418 in __syscall_cancel_arch () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#1  0x00007ffff7ac9448 in __internal_syscall_cancel () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#2  0x00007ffff7ac96f2 in __futex_abstimed_wait_cancelable64 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#3  0x00007ffff7acb646 in pthread_cond_wait@@GLIBC_2.27 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#4  0x00007ffff7c27258 in std::condition_variable::wait(std::unique_lock<std::mutex>&) () from /lib64/lp64d/libstdc++.so.6
+No symbol table info available.
+#5  0x0000000002087a3e in llvm::StdThreadPool::processTasks(llvm::ThreadPoolTaskGroup*) ()
+No symbol table info available.
+#6  0x000000000208930c in void* llvm::thread::ThreadProxy<std::tuple<llvm::StdThreadPool::grow(int)::$_0> >(void*) ()
+No symbol table info available.
+#7  0x00007ffff7acbe0a in start_thread () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#8  0x00007ffff7b22744 in __thread_start_clone3 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+
+Thread 4 (Thread 0x7ffff6a79f20 (LWP 420526) "llvm-worker-2"):
+#0  0x00007ffff7ad3418 in __syscall_cancel_arch () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#1  0x00007ffff7ac9448 in __internal_syscall_cancel () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#2  0x00007ffff7ac96f2 in __futex_abstimed_wait_cancelable64 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#3  0x00007ffff7acb646 in pthread_cond_wait@@GLIBC_2.27 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#4  0x00007ffff7c27258 in std::condition_variable::wait(std::unique_lock<std::mutex>&) () from /lib64/lp64d/libstdc++.so.6
+No symbol table info available.
+#5  0x0000000002087a3e in llvm::StdThreadPool::processTasks(llvm::ThreadPoolTaskGroup*) ()
+No symbol table info available.
+#6  0x000000000208930c in void* llvm::thread::ThreadProxy<std::tuple<llvm::StdThreadPool::grow(int)::$_0> >(void*) ()
+No symbol table info available.
+#7  0x00007ffff7acbe0a in start_thread () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#8  0x00007ffff7b22744 in __thread_start_clone3 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+
+Thread 3 (Thread 0x7ffff727af20 (LWP 420525) "llvm-worker-1"):
+#0  0x00007ffff7ad3418 in __syscall_cancel_arch () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#1  0x00007ffff7ac9448 in __internal_syscall_cancel () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#2  0x00007ffff7ac96f2 in __futex_abstimed_wait_cancelable64 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#3  0x00007ffff7acb646 in pthread_cond_wait@@GLIBC_2.27 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#4  0x00007ffff7c27258 in std::condition_variable::wait(std::unique_lock<std::mutex>&) () from /lib64/lp64d/libstdc++.so.6
+No symbol table info available.
+#5  0x0000000002087a3e in llvm::StdThreadPool::processTasks(llvm::ThreadPoolTaskGroup*) ()
+No symbol table info available.
+#6  0x000000000208930c in void* llvm::thread::ThreadProxy<std::tuple<llvm::StdThreadPool::grow(int)::$_0> >(void*) ()
+No symbol table info available.
+#7  0x00007ffff7acbe0a in start_thread () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#8  0x00007ffff7b22744 in __thread_start_clone3 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+
+Thread 2 (Thread 0x7ffff7a7bf20 (LWP 420524) "llvm-worker-0"):
+#0  0x00007ffff7ad3418 in __syscall_cancel_arch () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#1  0x00007ffff7ac9448 in __internal_syscall_cancel () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#2  0x00007ffff7ac96f2 in __futex_abstimed_wait_cancelable64 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#3  0x00007ffff7acb646 in pthread_cond_wait@@GLIBC_2.27 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#4  0x00007ffff7c27258 in std::condition_variable::wait(std::unique_lock<std::mutex>&) () from /lib64/lp64d/libstdc++.so.6
+No symbol table info available.
+#5  0x0000000002087a3e in llvm::StdThreadPool::processTasks(llvm::ThreadPoolTaskGroup*) ()
+No symbol table info available.
+#6  0x000000000208930c in void* llvm::thread::ThreadProxy<std::tuple<llvm::StdThreadPool::grow(int)::$_0> >(void*) ()
+No symbol table info available.
+#7  0x00007ffff7acbe0a in start_thread () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#8  0x00007ffff7b22744 in __thread_start_clone3 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+
+Thread 1 (Thread 0x7ffff7e19020 (LWP 420522) "mlir-runner"):
+#0  0x00007ffff7ad3418 in __syscall_cancel_arch () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#1  0x00007ffff7ac9448 in __internal_syscall_cancel () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#2  0x00007ffff7ac96f2 in __futex_abstimed_wait_cancelable64 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#3  0x00007ffff7acb646 in pthread_cond_wait@@GLIBC_2.27 () from /lib64/lp64d/libc.so.6
+No symbol table info available.
+#4  0x00007ffff7c27258 in std::condition_variable::wait(std::unique_lock<std::mutex>&) () from /lib64/lp64d/libstdc++.so.6
+No symbol table info available.
+#5  0x00007ffff5893ec4 in mlirAsyncRuntimeAwaitToken () from /home/fedora/src/upstream/llvm-project/./build/lib/libmlir_async_runtime.so
+No symbol table info available.
+#6  0x00007ffff7fbe01c in main ()
+No symbol table info available.
+#7  0x00007ffff7fbe49e in _mlir_main ()
+No symbol table info available.
+#8  0x00007fffffffd328 in ?? ()
+No symbol table info available.

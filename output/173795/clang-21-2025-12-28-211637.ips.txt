@@ -1,0 +1,165 @@
+{"app_name":"clang-21","timestamp":"2025-12-28 21:16:37.00 +0200","app_version":"21.1.8","slice_uuid":"de7485f5-1655-38a7-bf27-ca33977997bc","build_version":"21.1","platform":1,"share_with_app_devs":0,"is_first_party":1,"bug_type":"309","os_version":"macOS 26.3 (25D5087f)","roots_installed":0,"incident_id":"D1E67662-CA5C-4519-A9A3-B2ABC0AD0858","name":"clang-21"}
+{
+  "uptime" : 180000,
+  "procRole" : "Unspecified",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Mac15,3",
+  "coalitionID" : 697,
+  "osVersion" : {
+    "train" : "macOS 26.3",
+    "build" : "25D5087f",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2025-12-28 21:16:36.6116 +0200",
+  "codeSigningMonitor" : 2,
+  "incident" : "D1E67662-CA5C-4519-A9A3-B2ABC0AD0858",
+  "pid" : 10990,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "procLaunch" : "2025-12-28 21:16:36.2478 +0200",
+  "procStartAbsTime" : 4478131728398,
+  "procExitAbsTime" : 4478140444047,
+  "procName" : "clang-21",
+  "procPath" : "\/opt\/homebrew\/*\/clang-21",
+  "bundleInfo" : {"CFBundleVersion":"21.1","CFBundleShortVersionString":"21.1.8"},
+  "parentProc" : "Exited process",
+  "parentPid" : 10989,
+  "coalitionName" : "com.apple.Terminal",
+  "crashReporterKey" : "474EFD24-1207-D342-5A5A-C00A299034CB",
+  "appleIntelligenceStatus" : {"reasons":["assetIsNotReady","notOptedIn"],"state":"unavailable"},
+  "developerMode" : 1,
+  "bootProgressRegister" : "0x3f000000",
+  "responsiblePid" : 70880,
+  "responsibleProc" : "Terminal",
+  "codeSigningID" : "clang-21",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570556929,
+  "codeSigningValidationCategory" : 10,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"\/yYA8UEIAFQfAwjrwSIAVJQGQPloAkD5CBVA+eADE6oAAT\/WCOx8kg==","atPC":"CAFA+QgFQPkI7XySCAFA+QgRQLnpHoBSCQEJCj+JAHGAFwBUCR0AEg=="},
+  "bootSessionUUID" : "029E7B1C-541F-4AFD-893D-083EBD90C8A7",
+  "wakeTime" : 28818,
+  "sleepWakeUUID" : "C281E2D9-D140-4688-9729-36795999C6D0",
+  "sip" : "enabled",
+  "vmRegionInfo" : "0 is not in any region.  Bytes before following region: 4339007488\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      UNUSED SPACE AT START\n--->  \n      __TEXT                      102a00000-102a14000    [   80K] r-x\/r-x SM=COW  \/opt\/homebrew\/*\/clang-21",
+  "exception" : {"codes":"0x0000000000000001, 0x0000000000000000","rawCodes":[1,0],"type":"EXC_BAD_ACCESS","signal":"SIGSEGV","subtype":"KERN_INVALID_ADDRESS at 0x0000000000000000"},
+  "termination" : {"flags":0,"code":11,"namespace":"SIGNAL","indicator":"Segmentation fault: 11","byProc":"exc handler","byPid":10990},
+  "vmregioninfo" : "0 is not in any region.  Bytes before following region: 4339007488\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      UNUSED SPACE AT START\n--->  \n      __TEXT                      102a00000-102a14000    [   80K] r-x\/r-x SM=COW  \/opt\/homebrew\/*\/clang-21",
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":2968359,"threadState":{"x":[{"value":0},{"value":9},{"value":0},{"value":255},{"value":6127821864},{"value":6127822264},{"value":18446744072631617535},{"value":18446726482597246976},{"value":0},{"value":17222072750247837801},{"value":24},{"value":34507580488},{"value":24},{"value":3},{"value":34501121664},{"value":5},{"value":6765272816,"symbolLocation":0,"symbol":"_platform_memcmp"},{"value":6127822256},{"value":0},{"value":34499540328},{"value":34499937600},{"value":6127823200},{"value":9},{"value":34501511464},{"value":9},{"value":34501121664},{"value":34501121664},{"value":34501423072},{"value":12}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4436939080},"cpsr":{"value":1610616832},"fp":{"value":6127823168},"sp":{"value":6127823008},"esr":{"value":2449473542,"description":"(Data Abort) byte read Translation fault"},"pc":{"value":4436939084,"matchesCrashFrame":1},"far":{"value":0}},"queue":"com.apple.main-thread","frames":[{"imageOffset":29364556,"symbol":"clang::ento::SymExprVisitor<(anonymous namespace)::SimpleSValBuilder::simplifySValOnce(llvm::IntrusiveRefCntPtr<clang::ento::ProgramState const>, clang::ento::SVal)::Simplifier, clang::ento::SVal>::Visit(clang::ento::SymExpr const*)","symbolLocation":936,"imageIndex":1},{"imageOffset":29363248,"symbol":"(anonymous namespace)::SimpleSValBuilder::simplifySValOnce(llvm::IntrusiveRefCntPtr<clang::ento::ProgramState const>, clang::ento::SVal)","symbolLocation":96,"imageIndex":1},{"imageOffset":29354680,"symbol":"(anonymous namespace)::SimpleSValBuilder::simplifySVal(llvm::IntrusiveRefCntPtr<clang::ento::ProgramState const>, clang::ento::SVal)","symbolLocation":72,"imageIndex":1},{"imageOffset":29338528,"symbol":"(anonymous namespace)::SimpleSValBuilder::evalBinOpNN(llvm::IntrusiveRefCntPtr<clang::ento::ProgramState const>, clang::BinaryOperatorKind, clang::ento::NonLoc, clang::ento::NonLoc, clang::QualType)","symbolLocation":140,"imageIndex":1},{"imageOffset":29387016,"symbol":"clang::ento::SValBuilder::evalBinOp(llvm::IntrusiveRefCntPtr<clang::ento::ProgramState const>, clang::BinaryOperatorKind, clang::ento::SVal, clang::ento::SVal, clang::QualType)","symbolLocation":180,"imageIndex":1},{"imageOffset":41859512,"symbol":"(anonymous namespace)::BuiltinFunctionChecker::handleOverflowBuiltin(clang::ento::CallEvent const&, clang::ento::CheckerContext&, clang::BinaryOperatorKind, clang::QualType) const","symbolLocation":536,"imageIndex":1},{"imageOffset":29533648,"symbol":"bool clang::ento::eval::Call::_evalCall<(anonymous namespace)::BuiltinFunctionChecker>(void*, clang::ento::CallEvent const&, clang::ento::CheckerContext&)","symbolLocation":700,"imageIndex":1},{"imageOffset":28543956,"symbol":"clang::ento::CheckerManager::runCheckersForEvalCall(clang::ento::ExplodedNodeSet&, clang::ento::ExplodedNodeSet const&, clang::ento::CallEvent const&, clang::ento::ExprEngine&, clang::ento::EvalCallOptions const&)","symbolLocation":324,"imageIndex":1},{"imageOffset":28916544,"symbol":"clang::ento::ExprEngine::evalCall(clang::ento::ExplodedNodeSet&, clang::ento::ExplodedNode*, clang::ento::CallEvent const&)","symbolLocation":296,"imageIndex":1},{"imageOffset":28915804,"symbol":"clang::ento::ExprEngine::VisitCallExpr(clang::CallExpr const*, clang::ento::ExplodedNode*, clang::ento::ExplodedNodeSet&)","symbolLocation":380,"imageIndex":1},{"imageOffset":28702096,"symbol":"clang::ento::ExprEngine::Visit(clang::Stmt const*, clang::ento::ExplodedNode*, clang::ento::ExplodedNodeSet&)","symbolLocation":2696,"imageIndex":1},{"imageOffset":28688672,"symbol":"clang::ento::ExprEngine::ProcessStmt(clang::Stmt const*, clang::ento::ExplodedNode*)","symbolLocation":468,"imageIndex":1},{"imageOffset":28565292,"symbol":"clang::ento::CoreEngine::dispatchWorkItem(clang::ento::ExplodedNode*, clang::ProgramPoint, clang::ento::WorkListUnit const&)","symbolLocation":312,"imageIndex":1},{"imageOffset":28563900,"symbol":"clang::ento::CoreEngine::ExecuteWorkList(clang::LocationContext const*, unsigned int, llvm::IntrusiveRefCntPtr<clang::ento::ProgramState const>)","symbolLocation":776,"imageIndex":1},{"imageOffset":31534356,"symbol":"(anonymous namespace)::AnalysisConsumer::HandleCode(clang::Decl*, unsigned int, clang::ento::ExprEngine::InliningModes, llvm::DenseSet<clang::Decl const*, llvm::DenseMapInfo<clang::Decl const*, void>>*)","symbolLocation":872,"imageIndex":1},{"imageOffset":31528240,"symbol":"(anonymous namespace)::AnalysisConsumer::HandleTranslationUnit(clang::ASTContext&)","symbolLocation":5076,"imageIndex":1},{"imageOffset":1932680,"symbol":"clang::ParseAST(clang::Sema&, bool, bool)","symbolLocation":1732,"imageIndex":1},{"imageOffset":27383112,"symbol":"clang::FrontendAction::Execute()","symbolLocation":44,"imageIndex":1},{"imageOffset":26954420,"symbol":"clang::CompilerInstance::ExecuteAction(clang::FrontendAction&)","symbolLocation":384,"imageIndex":1},{"imageOffset":27600892,"symbol":"clang::ExecuteCompilerInvocation(clang::CompilerInstance*)","symbolLocation":148,"imageIndex":1},{"imageOffset":21408,"symbol":"cc1_main(llvm::ArrayRef<char const*>, char const*, void*)","symbolLocation":1704,"imageIndex":0},{"imageOffset":13648,"symbol":"ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&)","symbolLocation":228,"imageIndex":0},{"imageOffset":6868,"symbol":"clang_main(int, char**, llvm::ToolContext const&)","symbolLocation":432,"imageIndex":0},{"imageOffset":55324,"symbol":"main","symbolLocation":88,"imageIndex":0},{"imageOffset":36180,"symbol":"start","symbolLocation":7184,"imageIndex":5}]}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4339007488,
+    "size" : 81920,
+    "uuid" : "de7485f5-1655-38a7-bf27-ca33977997bc",
+    "path" : "\/opt\/homebrew\/*\/clang-21",
+    "name" : "clang-21"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4407574528,
+    "size" : 47316992,
+    "uuid" : "b2605dda-758f-3545-91dc-b4254810a8f5",
+    "path" : "\/opt\/homebrew\/*\/libclang-cpp.dylib",
+    "name" : "libclang-cpp.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4626710528,
+    "size" : 123863040,
+    "uuid" : "c75d9b89-d366-34e1-b58a-8e264557bf52",
+    "path" : "\/opt\/homebrew\/*\/libLLVM.dylib",
+    "name" : "libLLVM.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4355784704,
+    "size" : 11632640,
+    "uuid" : "09146072-b19c-35c4-9327-9027b93f8be9",
+    "path" : "\/opt\/homebrew\/*\/libz3.4.15.4.0.dylib",
+    "name" : "libz3.4.15.4.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4340629504,
+    "size" : 573440,
+    "uuid" : "afd03688-5fac-3b3d-96aa-9d88c034ff23",
+    "path" : "\/opt\/homebrew\/*\/libzstd.1.5.7.dylib",
+    "name" : "libzstd.1.5.7.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6761238528,
+    "size" : 651264,
+    "uuid" : "c273e728-b84b-3d23-b12b-de4feeb85c6d",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6765268992,
+    "size" : 33968,
+    "uuid" : "82dc38ad-44d1-3e48-b34f-b8bd21da73de",
+    "path" : "\/usr\/lib\/system\/libsystem_platform.dylib",
+    "name" : "libsystem_platform.dylib"
+  }
+],
+  "sharedCache" : {
+  "base" : 6760153088,
+  "size" : 5755650048,
+  "uuid" : "34cd3331-c00c-3ff0-b440-0507747f4ddf"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=1.1G resident=0K(0%) swapped_out_or_unallocated=1.1G(100%)\nWritable regions: Total=106.2M written=417K(0%) resident=417K(0%) swapped_out=0K(0%) unallocated=105.8M(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nActivity Tracing                   256K        1 \nKernel Alloc Once                   32K        1 \nMALLOC                            96.8M       15 \nMALLOC guard page                 3184K        4 \nSTACK GUARD                       56.0M        1 \nStack                             8192K        2 \n__AUTH                            1302K      145 \n__AUTH_CONST                      17.1M      335 \n__CTF                               824        1 \n__DATA                            5166K      298 \n__DATA_CONST                      19.7M      339 \n__DATA_DIRTY                      1290K      280 \n__FONT_DATA                        2352        1 \n__LINKEDIT                       631.4M        6 \n__OBJC_RO                         78.4M        1 \n__OBJC_RW                         2571K        1 \n__TEXT                           459.0M      348 \n__TPRO_CONST                       128K        2 \nmapped file                       5808K        1 \npage table in kernel               417K        1 \nshared memory                       96K        3 \n===========                     =======  ======= \nTOTAL                              1.4G     1786 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "83d7b7aea8243fb2e0e7b713d945c1c457acecf0",
+  "bug_type" : "309",
+  "roots_installed" : 0,
+  "trmStatus" : 1,
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "5ffde50ce2aacd000d47a95f",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 250000495
+    },
+    {
+      "rolloutId" : "64b21a7351cbb02ce3442e4e",
+      "factorPackIds" : [
+        "6647f0f7b6a75d3dc32993e7"
+      ],
+      "deploymentId" : 250000041
+    }
+  ],
+  "experiments" : [
+    {
+      "treatmentId" : "f1a24342-3ce3-41e4-8929-fad9391fad7e",
+      "experimentId" : "68630523e1874a7adc676345",
+      "deploymentId" : 500000001
+    }
+  ]
+}
+}

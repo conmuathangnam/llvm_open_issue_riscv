@@ -1,0 +1,162 @@
+; ModuleID = 'fs'
+source_filename = "/home/aldrinmathew/dev/qat/bin/../std/fs/fs.lib.qat"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"qat'lib_std:lib_fs:type_IStream" = type { ptr }
+%"qat'maybe:[qat'lib_std:lib_fs:type_choice_FileError]" = type { i1, i1 }
+%"qat'text" = type { ptr, i64 }
+
+@"qat'text'264" = private unnamed_addr constant [2 x i8] c"r\00", align 1
+
+define void @"qat'lib_std:lib_fs:type_IStream:constructor_default"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  store ptr null, ptr %2, align 8
+  ret void
+}
+
+define void @"qat'lib_std:lib_fs:type_IStream:constructor_move"(ptr %0, ptr %1) {
+"0b":
+  %other = alloca ptr, align 8
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  store ptr %1, ptr %other, align 8
+  %3 = load ptr, ptr %other, align 8
+  %4 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %3, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %3, i32 0, i32 0
+  store ptr null, ptr %7, align 8
+  ret void
+}
+
+define void @"qat'lib_std:lib_fs:type_IStream:operator_move"(ptr %0, ptr %1) {
+"0b":
+  %other = alloca ptr, align 8
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  store ptr %1, ptr %other, align 8
+  call void @"qat'lib_std:lib_fs:type_IStream:variation_close"(ptr %2)
+  %3 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %2, i32 0, i32 0
+  %4 = load ptr, ptr %other, align 8
+  %5 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %other, align 8
+  %8 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %7, i32 0, i32 0
+  store ptr null, ptr %8, align 8
+  ret void
+}
+
+define void @"qat'lib_std:lib_fs:type_IStream:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = sub i64 %4, 0
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %"0b_0b", label %"1b"
+
+"1b":                                             ; preds = %"0b_0b", %"0b"
+  store %"qat'lib_std:lib_fs:type_IStream" zeroinitializer, ptr %1, align 8
+  ret void
+
+"0b_0b":                                          ; preds = %"0b"
+  %7 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 @fclose(ptr %8)
+  br label %"1b"
+}
+
+define i1 @"qat'lib_std:lib_fs:type_IStream:method_is_open"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = sub i64 %4, 0
+  %6 = icmp ne i64 %5, 0
+  ret i1 %6
+}
+
+define i1 @"qat'lib_std:lib_fs:type_IStream:method_is_closed"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = sub i64 %4, 0
+  %6 = icmp eq i64 %5, 0
+  ret i1 %6
+}
+
+define %"qat'maybe:[qat'lib_std:lib_fs:type_choice_FileError]" @"qat'lib_std:lib_fs:type_IStream:variation_change_path"(ptr %0, %"qat'text" %1) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  call void @"qat'lib_std:lib_fs:type_IStream:variation_close"(ptr %2)
+  %3 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %2, i32 0, i32 0
+  %4 = extractvalue %"qat'text" %1, 0
+  %5 = call ptr @fopen(ptr %4, ptr @"qat'text'264")
+  store ptr %5, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %2, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = sub i64 %8, 0
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"0b_0b", label %"1b"
+
+"1b":                                             ; preds = %"0b"
+  ret %"qat'maybe:[qat'lib_std:lib_fs:type_choice_FileError]" zeroinitializer
+
+"0b_0b":                                          ; preds = %"0b"
+  ret %"qat'maybe:[qat'lib_std:lib_fs:type_choice_FileError]" zeroinitializer
+}
+
+define void @"qat'lib_std:lib_fs:type_IStream:variation_close"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %5 = sub i64 %4, 0
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %"0b_0b", label %"1b"
+
+"1b":                                             ; preds = %"0b_0b", %"0b"
+  ret void
+
+"0b_0b":                                          ; preds = %"0b"
+  %7 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 @fclose(ptr %8)
+  %10 = getelementptr inbounds nuw %"qat'lib_std:lib_fs:type_IStream", ptr %1, i32 0, i32 0
+  store ptr null, ptr %10, align 8
+  br label %"1b"
+}
+
+declare ptr @fopen(ptr, ptr)
+
+declare i32 @fclose(ptr)
+
+!llvm.module.flags = !{!0, !1}
+
+!0 = !{i32 1, !"Code Model", i32 1}
+!1 = !{i32 2, !"SDK Version", [3 x i32] [i32 0, i32 9, i32 0]}

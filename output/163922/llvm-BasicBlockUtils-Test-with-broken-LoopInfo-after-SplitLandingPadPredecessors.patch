@@ -1,0 +1,67 @@
+    [BasicBlockUtils] Test with broken LoopInfo after SplitLandingPadPredecessors(). NFC
+    
+    SplitLandingPadPredecessors() results in an irreducible loop
+    and makes LoopInfo invalid. Verification results in a crash:
+      Assertion `CB != OutsideLoopPreds[i] && "Loop has multiple entry points!"' failed.
+
+diff --git a/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp b/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp
+index e58daed88785..5068dd6cf653 100644
+--- a/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp
++++ b/llvm/unittests/Transforms/Utils/BasicBlockUtilsTest.cpp
+@@ -26,6 +26,8 @@
+ #include "llvm/Support/SourceMgr.h"
+ #include "gtest/gtest.h"
+ 
++#define DEBUG_TYPE "basic-block-utils-tests"
++
+ using namespace llvm;
+ 
+ static std::unique_ptr<Module> parseIR(LLVMContext &C, const char *IR) {
+@@ -400,6 +402,47 @@ bb1:
+   EXPECT_TRUE(DT.verify());
+ }
+ 
++TEST(BasicBlockUtils, SplitLandingPadPredecessors) {
++  LLVMContext C;
++  std::unique_ptr<Module> M = parseIR(C, R"IR(
++declare void @foo()
++
++define void @split-lp-predecessors-test() personality ptr null {
++entry:
++  invoke void @foo()
++          to label %loop unwind label %catch_dest
++
++loop:
++  invoke void @foo()
++          to label %latch unwind label %catch_dest
++
++latch:
++  br label %loop
++
++catch_dest:
++  %lp = landingpad i32
++          cleanup
++  invoke void @foo()
++          to label %exit unwind label %catch_dest
++
++exit:
++  ret void
++}
++)IR");
++  Function *F = M->getFunction("split-lp-predecessors-test");
++  DominatorTree DT(*F);
++  LoopInfo LI(DT);
++
++  EXPECT_TRUE(DT.verify());
++  LI.verify(DT);
++  SplitBlockPredecessors(getBasicBlockByName(*F, "catch_dest"),
++                         {getBasicBlockByName(*F, "loop")}, "", &DT, &LI);
++
++  EXPECT_TRUE(DT.verify());
++  LLVM_DEBUG(F->dump(); LI.print(dbgs()));
++  EXPECT_DEATH({LI.verify(DT);}, "Assertion.*Loop has multiple entry points!");
++}
++
+ TEST(BasicBlockUtils, SplitCriticalEdge) {
+   LLVMContext C;
+   std::unique_ptr<Module> M = parseIR(C, R"IR(

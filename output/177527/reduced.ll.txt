@@ -1,0 +1,613 @@
+; ModuleID = '/c/Users/meinersbur/src/llvm/main/re-aad68e-j-before.ll'
+source_filename = "..\\re-aad68e.c"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+@a = external global i16
+@b = external global [1 x [64 x i16]]
+@af = external global [1 x [64 x i16]]
+@c = external global [1 x i32]
+@ad = external global [1 x [4 x i16]]
+
+; Function Attrs: nofree norecurse noreturn nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
+define void @j(i32 noundef %n, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %q, ptr noundef readonly captures(none) %r, ptr noundef readonly captures(none) %s, i8 %0, i8 %.fr, i1 %tobool.not, i8 %1, i32 %cond, i32 %conv1, i8 %2, i32 %3, i32 %.fr280, i8 %4, i8 %5, i16 %6, i16 %add210, i16 %t.0, i32 %conv3, ptr %b, ptr %ad, i64 %idxprom, ptr %af, ptr %7, i8 %spec.select, i1 %cmp43253, i1 %8, i8 %v.0264, i64 %idxprom107, ptr %c, ptr %arrayidx137) #0 {
+entry:
+  %9 = load i8, ptr null, align 1
+  %.fr1 = freeze i8 %0
+  %tobool.not2 = icmp eq i8 %.fr, 0
+  %cond3 = select i1 %tobool.not, i32 1, i32 0
+  %10 = load i8, ptr null, align 1
+  %conv14 = sext i8 %1 to i32
+  %cmp.not = icmp ult i32 %cond, %conv1
+  tail call void @llvm.assume(i1 %cmp.not)
+  %11 = load i8, ptr null, align 1
+  %12 = icmp ne i8 %2, 0
+  %tobool15.not = icmp eq i8 0, 0
+  %spec.select5 = select i1 true, i8 0, i8 1
+  %13 = load ptr, ptr null, align 8
+  %14 = load i8, ptr null, align 1
+  %conv63 = sext i8 1 to i64
+  %15 = load i32, ptr null, align 4
+  %.fr2806 = freeze i32 %3
+  %tobool82.not = icmp eq i32 %.fr280, 0
+  %16 = icmp eq i8 %4, 0
+  %17 = load i8, ptr null, align 1
+  %tobool145.not = icmp eq i8 %5, 0
+  %arrayidx158 = getelementptr inbounds nuw i8, ptr %s, i64 397
+  %18 = load ptr, ptr null, align 8
+  %conv208 = sext i8 1 to i16
+  %19 = load i16, ptr null, align 2
+  %cmp432537 = icmp slt i16 %6, 0
+  %tobool184.not = icmp eq i16 %6, 0
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.cond.cleanup, %entry
+  %t.08 = phi i16 [ %add210, %for.cond.cleanup ], [ 0, %entry ]
+  %conv39 = zext i16 %t.0 to i32
+  %add = add i32 %n, %conv3
+  %20 = trunc i32 %add to i8
+  %u.0266 = add i8 %20, 1
+  %tobool7.not267 = icmp eq i8 0, 0
+  br i1 true, label %for.cond.cleanup, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond
+  tail call void @llvm.assume(i1 %12)
+  %idxprom10 = sext i16 %t.0 to i64
+  %arrayidx100 = getelementptr inbounds [64 x i16], ptr %b, i64 %idxprom10
+  %arrayidx13711 = getelementptr inbounds [4 x i16], ptr %ad, i64 %idxprom
+  %arrayidx167 = getelementptr inbounds [4 x i32], ptr null, i64 %idxprom10
+  %arrayidx172 = getelementptr inbounds [64 x i16], ptr %af, i64 %idxprom10
+  %arrayidx149 = getelementptr inbounds i8, ptr %7, i64 %idxprom10
+  %arrayidx102.1 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 8
+  %arrayidx102.2 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 16
+  %arrayidx102.3 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 24
+  %arrayidx102.4 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 32
+  %arrayidx102.us.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 8
+  %arrayidx102.us.us.2 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 16
+  %arrayidx102.us.us.3 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 24
+  %arrayidx102.us.us.4 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 32
+  %arrayidx102.us.us.us.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 8
+  %arrayidx102.us.us.us.us.2 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 16
+  %arrayidx102.us.us.us.us.3 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 24
+  %arrayidx102.us.us.us.us.4 = getelementptr inbounds nuw i8, ptr %arrayidx100, i64 32
+  tail call void @llvm.assume(i1 %tobool184.not)
+  br label %for.body
+
+for.cond.cleanup:                                 ; preds = %for.cond
+  %add21012 = add i16 %t.0, 1
+  br label %for.cond
+
+for.body:                                         ; preds = %for.cond22.for.cond193.preheader_crit_edge, %for.body.lr.ph
+  %u.0269 = phi i8 [ %u.0266, %for.body.lr.ph ], [ %u.0, %for.cond22.for.cond193.preheader_crit_edge ]
+  %conv138 = sext i8 %u.0269 to i32
+  %mul = mul nsw i32 1, 1
+  %idxprom169 = sext i32 1 to i64
+  %arrayidx170 = getelementptr inbounds i32, ptr %arrayidx167, i64 %idxprom169
+  br label %for.body25
+
+for.cond22.for.cond193.preheader_crit_edge:       ; preds = %for.cond.cleanup79
+  %u.0 = add i8 %u.0269, 1
+  br label %for.body
+
+for.body25:                                       ; preds = %for.cond.cleanup79, %for.body
+  %v.026413 = phi i8 [ %spec.select, %for.body ], [ 1, %for.cond.cleanup79 ]
+  br i1 false, label %cond.false60, label %cond.true53
+
+cond.true53:                                      ; preds = %for.body25
+  br label %cond.end67
+
+cond.false60:                                     ; preds = %for.body25
+  br label %cond.end67
+
+cond.end67:                                       ; preds = %cond.false60, %cond.true53
+  %cond68 = phi i64 [ 0, %cond.true53 ], [ 1, %cond.false60 ]
+  %21 = and i64 1, 1
+  %conv75 = select i1 %cmp43253, i64 0, i64 1
+  br label %cond.true81.lr.ph
+
+cond.true81.lr.ph:                                ; preds = %cond.end67
+  tail call void @llvm.assume(i1 %tobool82.not)
+  tail call void @llvm.assume(i1 %8)
+  %idxprom10714 = sext i8 %v.0264 to i64
+  %invariant.gep257 = getelementptr i32, ptr %r, i64 %idxprom107
+  %arrayidx135 = getelementptr inbounds i32, ptr %c, i64 %idxprom107
+  %idxprom141 = sext i32 %conv138 to i64
+  %arrayidx142 = getelementptr inbounds i16, ptr %arrayidx137, i64 %idxprom141
+  %arrayidx115 = getelementptr inbounds i64, ptr %q, i64 %idxprom10714
+  %invariant.gep262 = getelementptr [8 x i32], ptr %p, i64 %idxprom107
+  %gep258.us.us.us.us.1 = getelementptr i8, ptr %invariant.gep257, i64 1024
+  %gep258.us.us.us.us.2 = getelementptr i8, ptr %invariant.gep257, i64 2048
+  %gep258.us.us.us.us.3 = getelementptr i8, ptr %invariant.gep257, i64 3072
+  %gep258.us.us.us.us.4 = getelementptr i8, ptr %invariant.gep257, i64 4096
+  br i1 %tobool145.not, label %cond.true81.lr.ph.split.us, label %cond.true81
+
+cond.true81.lr.ph.split.us:                       ; preds = %cond.true81.lr.ph
+  br i1 %tobool.not2, label %cond.true81.us.us, label %cond.true81.us
+
+cond.true81.us.us:                                ; preds = %cond.end164.us.us.us.us.4, %cond.true81.lr.ph.split.us
+  %w.0261.us.us = phi i64 [ %add180.us.us, %cond.end164.us.us.us.us.4 ], [ %conv75, %cond.true81.lr.ph.split.us ]
+  %arrayidx174.idx.us.us = shl nuw nsw i64 %w.0261.us.us, 1
+  %arrayidx174.us.us = getelementptr inbounds nuw i8, ptr %arrayidx172, i64 %arrayidx174.idx.us.us
+  %arrayidx152.us.us = getelementptr inbounds nuw i32, ptr %13, i64 %w.0261.us.us
+  store i16 0, ptr %arrayidx100, align 2
+  %22 = load i32, ptr %invariant.gep257, align 4
+  %tobool109.not.us.us.us.us = icmp eq i32 %22, 0
+  br i1 %tobool109.not.us.us.us.us, label %cond.end131.us.us.us.us, label %cond.true110.us.us.us.us
+
+cond.true110.us.us.us.us:                         ; preds = %cond.true81.us.us
+  %23 = load i64, ptr %arrayidx115, align 8
+  %24 = trunc i64 0 to i32
+  br label %cond.end131.us.us.us.us
+
+cond.end131.us.us.us.us:                          ; preds = %cond.true110.us.us.us.us, %cond.true81.us.us
+  %cond132.us.us.us.us = phi i32 [ 1, %cond.true110.us.us.us.us ], [ 0, %cond.true81.us.us ]
+  store i32 %cond132.us.us.us.us, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %25 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us.us.us = sext i8 0 to i32
+  %tobool160.not.us.us.us.us = icmp eq i8 %25, 0
+  br i1 %tobool160.not.us.us.us.us, label %cond.false162.us.us.us.us, label %cond.end164.us.us.us.us
+
+cond.false162.us.us.us.us:                        ; preds = %cond.end131.us.us.us.us
+  br label %cond.end164.us.us.us.us
+
+cond.end164.us.us.us.us:                          ; preds = %cond.false162.us.us.us.us, %cond.end131.us.us.us.us
+  %cond165.us.us.us.us = phi i32 [ 0, %cond.false162.us.us.us.us ], [ 1, %cond.end131.us.us.us.us ]
+  store i32 %cond165.us.us.us.us, ptr null, align 4
+  store i16 0, ptr %arrayidx174.us.us, align 2
+  store i16 0, ptr %arrayidx102.us.us.us.us.1, align 2
+  %26 = load i32, ptr %gep258.us.us.us.us.1, align 4
+  %tobool109.not.us.us.us.us.1 = icmp eq i32 %26, 0
+  br i1 %tobool109.not.us.us.us.us.1, label %cond.end131.us.us.us.us.1, label %cond.true110.us.us.us.us.1
+
+cond.true110.us.us.us.us.1:                       ; preds = %cond.end164.us.us.us.us
+  %27 = load i64, ptr %arrayidx115, align 8
+  %28 = trunc i64 0 to i32
+  br label %cond.end131.us.us.us.us.1
+
+cond.end131.us.us.us.us.1:                        ; preds = %cond.true110.us.us.us.us.1, %cond.end164.us.us.us.us
+  %cond132.us.us.us.us.1 = phi i32 [ 1, %cond.true110.us.us.us.us.1 ], [ 0, %cond.end164.us.us.us.us ]
+  store i32 %cond132.us.us.us.us.1, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %29 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us.us.us.1 = sext i8 0 to i32
+  %tobool160.not.us.us.us.us.1 = icmp eq i8 %29, 0
+  br i1 %tobool160.not.us.us.us.us.1, label %cond.false162.us.us.us.us.1, label %cond.end164.us.us.us.us.1
+
+cond.false162.us.us.us.us.1:                      ; preds = %cond.end131.us.us.us.us.1
+  br label %cond.end164.us.us.us.us.1
+
+cond.end164.us.us.us.us.1:                        ; preds = %cond.false162.us.us.us.us.1, %cond.end131.us.us.us.us.1
+  %cond165.us.us.us.us.1 = phi i32 [ 0, %cond.false162.us.us.us.us.1 ], [ 1, %cond.end131.us.us.us.us.1 ]
+  store i32 %cond165.us.us.us.us.1, ptr null, align 4
+  store i16 0, ptr %arrayidx174.us.us, align 2
+  store i16 0, ptr %arrayidx102.us.us.us.us.2, align 2
+  %30 = load i32, ptr %gep258.us.us.us.us.2, align 4
+  %tobool109.not.us.us.us.us.2 = icmp eq i32 %30, 0
+  br i1 %tobool109.not.us.us.us.us.2, label %cond.end131.us.us.us.us.2, label %cond.true110.us.us.us.us.2
+
+cond.true110.us.us.us.us.2:                       ; preds = %cond.end164.us.us.us.us.1
+  %31 = load i64, ptr %arrayidx115, align 8
+  %32 = trunc i64 0 to i32
+  br label %cond.end131.us.us.us.us.2
+
+cond.end131.us.us.us.us.2:                        ; preds = %cond.true110.us.us.us.us.2, %cond.end164.us.us.us.us.1
+  %cond132.us.us.us.us.2 = phi i32 [ 1, %cond.true110.us.us.us.us.2 ], [ 0, %cond.end164.us.us.us.us.1 ]
+  store i32 %cond132.us.us.us.us.2, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %33 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us.us.us.2 = sext i8 0 to i32
+  %tobool160.not.us.us.us.us.2 = icmp eq i8 %33, 0
+  br i1 %tobool160.not.us.us.us.us.2, label %cond.false162.us.us.us.us.2, label %cond.end164.us.us.us.us.2
+
+cond.false162.us.us.us.us.2:                      ; preds = %cond.end131.us.us.us.us.2
+  br label %cond.end164.us.us.us.us.2
+
+cond.end164.us.us.us.us.2:                        ; preds = %cond.false162.us.us.us.us.2, %cond.end131.us.us.us.us.2
+  %cond165.us.us.us.us.2 = phi i32 [ 0, %cond.false162.us.us.us.us.2 ], [ 1, %cond.end131.us.us.us.us.2 ]
+  store i32 %cond165.us.us.us.us.2, ptr null, align 4
+  store i16 0, ptr %arrayidx174.us.us, align 2
+  store i16 0, ptr %arrayidx102.us.us.us.us.3, align 2
+  %34 = load i32, ptr %gep258.us.us.us.us.3, align 4
+  %tobool109.not.us.us.us.us.3 = icmp eq i32 %34, 0
+  br i1 %tobool109.not.us.us.us.us.3, label %cond.end131.us.us.us.us.3, label %cond.true110.us.us.us.us.3
+
+cond.true110.us.us.us.us.3:                       ; preds = %cond.end164.us.us.us.us.2
+  %35 = load i64, ptr %arrayidx115, align 8
+  %36 = trunc i64 0 to i32
+  br label %cond.end131.us.us.us.us.3
+
+cond.end131.us.us.us.us.3:                        ; preds = %cond.true110.us.us.us.us.3, %cond.end164.us.us.us.us.2
+  %cond132.us.us.us.us.3 = phi i32 [ 1, %cond.true110.us.us.us.us.3 ], [ 0, %cond.end164.us.us.us.us.2 ]
+  store i32 %cond132.us.us.us.us.3, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %37 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us.us.us.3 = sext i8 0 to i32
+  %tobool160.not.us.us.us.us.3 = icmp eq i8 %37, 0
+  br i1 %tobool160.not.us.us.us.us.3, label %cond.false162.us.us.us.us.3, label %cond.end164.us.us.us.us.3
+
+cond.false162.us.us.us.us.3:                      ; preds = %cond.end131.us.us.us.us.3
+  br label %cond.end164.us.us.us.us.3
+
+cond.end164.us.us.us.us.3:                        ; preds = %cond.false162.us.us.us.us.3, %cond.end131.us.us.us.us.3
+  %cond165.us.us.us.us.3 = phi i32 [ 0, %cond.false162.us.us.us.us.3 ], [ 1, %cond.end131.us.us.us.us.3 ]
+  store i32 %cond165.us.us.us.us.3, ptr null, align 4
+  store i16 0, ptr %arrayidx174.us.us, align 2
+  store i16 0, ptr %arrayidx102.us.us.us.us.4, align 2
+  %38 = load i32, ptr %gep258.us.us.us.us.4, align 4
+  %tobool109.not.us.us.us.us.4 = icmp eq i32 %38, 0
+  br i1 %tobool109.not.us.us.us.us.4, label %cond.end131.us.us.us.us.4, label %cond.true110.us.us.us.us.4
+
+cond.true110.us.us.us.us.4:                       ; preds = %cond.end164.us.us.us.us.3
+  %39 = load i64, ptr %arrayidx115, align 8
+  %40 = trunc i64 0 to i32
+  br label %cond.end131.us.us.us.us.4
+
+cond.end131.us.us.us.us.4:                        ; preds = %cond.true110.us.us.us.us.4, %cond.end164.us.us.us.us.3
+  %cond132.us.us.us.us.4 = phi i32 [ 1, %cond.true110.us.us.us.us.4 ], [ 0, %cond.end164.us.us.us.us.3 ]
+  store i32 %cond132.us.us.us.us.4, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %41 = load i32, ptr %arrayidx152.us.us, align 4
+  %42 = load i8, ptr %arrayidx158, align 1
+  %tobool160.not.us.us.us.us.4 = icmp eq i8 %42, 0
+  br i1 %tobool160.not.us.us.us.us.4, label %cond.false162.us.us.us.us.4, label %cond.end164.us.us.us.us.4
+
+cond.false162.us.us.us.us.4:                      ; preds = %cond.end131.us.us.us.us.4
+  %rem.us.us.us.us.4 = srem i32 0, 0
+  br label %cond.end164.us.us.us.us.4
+
+cond.end164.us.us.us.us.4:                        ; preds = %cond.false162.us.us.us.us.4, %cond.end131.us.us.us.us.4
+  %cond165.us.us.us.us.4 = phi i32 [ 1, %cond.false162.us.us.us.us.4 ], [ 0, %cond.end131.us.us.us.us.4 ]
+  store i32 %cond165.us.us.us.us.4, ptr null, align 4
+  store i16 0, ptr %arrayidx174.us.us, align 2
+  %add180.us.us = add nuw nsw i64 %w.0261.us.us, 4
+  %cmp77.us.us = icmp samesign ult i64 %w.0261.us.us, 14
+  br i1 %cmp77.us.us, label %cond.true81.us.us, label %for.cond76.for.cond.cleanup79_crit_edge.split.us, !llvm.loop !0
+
+cond.true81.us:                                   ; preds = %cond.end164.us.us.4, %cond.true81.lr.ph.split.us
+  %w.0261.us = phi i64 [ %add180.us, %cond.end164.us.us.4 ], [ %conv75, %cond.true81.lr.ph.split.us ]
+  %gep.us = getelementptr [8 x [8 x i32]], ptr %invariant.gep262, i64 %w.0261.us
+  %arrayidx126.us = getelementptr inbounds nuw i8, ptr %gep.us, i64 12
+  %arrayidx152.us = getelementptr inbounds nuw i32, ptr %13, i64 %w.0261.us
+  store i16 0, ptr %arrayidx100, align 2
+  %43 = load i32, ptr %invariant.gep257, align 4
+  %tobool109.not.us.us = icmp eq i32 %43, 0
+  br i1 %tobool109.not.us.us, label %cond.false116.us.us, label %cond.true110.us.us
+
+cond.true110.us.us:                               ; preds = %cond.true81.us
+  %44 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.us.us
+
+cond.false116.us.us:                              ; preds = %cond.true81.us
+  %45 = load i32, ptr %arrayidx126.us, align 4
+  br label %cond.end131.us.us
+
+cond.end131.us.us:                                ; preds = %cond.false116.us.us, %cond.true110.us.us
+  %cond132.us.us = phi i32 [ 0, %cond.true110.us.us ], [ 1, %cond.false116.us.us ]
+  store i32 %cond132.us.us, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %46 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us = sext i8 0 to i32
+  %tobool160.not.us.us = icmp eq i8 %46, 0
+  br i1 %tobool160.not.us.us, label %cond.false162.us.us, label %cond.end164.us.us
+
+cond.false162.us.us:                              ; preds = %cond.end131.us.us
+  br label %cond.end164.us.us
+
+cond.end164.us.us:                                ; preds = %cond.false162.us.us, %cond.end131.us.us
+  %cond165.us.us = phi i32 [ 0, %cond.false162.us.us ], [ 1, %cond.end131.us.us ]
+  store i32 %cond165.us.us, ptr null, align 4
+  store i16 0, ptr %arrayidx172, align 2
+  store i16 0, ptr %arrayidx102.us.us.1, align 2
+  %47 = load i32, ptr %gep258.us.us.us.us.1, align 4
+  %tobool109.not.us.us.1 = icmp eq i32 %47, 0
+  br i1 %tobool109.not.us.us.1, label %cond.false116.us.us.1, label %cond.true110.us.us.1
+
+cond.true110.us.us.1:                             ; preds = %cond.end164.us.us
+  %48 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.us.us.1
+
+cond.false116.us.us.1:                            ; preds = %cond.end164.us.us
+  %49 = load i32, ptr %arrayidx126.us, align 4
+  br label %cond.end131.us.us.1
+
+cond.end131.us.us.1:                              ; preds = %cond.false116.us.us.1, %cond.true110.us.us.1
+  %cond132.us.us.1 = phi i32 [ 0, %cond.true110.us.us.1 ], [ 1, %cond.false116.us.us.1 ]
+  store i32 %cond132.us.us.1, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %50 = load i8, ptr %arrayidx158, align 1
+  %tobool160.not.us.us.1 = icmp eq i8 %50, 0
+  br i1 %tobool160.not.us.us.1, label %cond.false162.us.us.1, label %cond.end164.us.us.1
+
+cond.false162.us.us.1:                            ; preds = %cond.end131.us.us.1
+  %rem.us.us.1 = srem i32 0, 0
+  br label %cond.end164.us.us.1
+
+cond.end164.us.us.1:                              ; preds = %cond.false162.us.us.1, %cond.end131.us.us.1
+  %cond165.us.us.1 = phi i32 [ 1, %cond.false162.us.us.1 ], [ 0, %cond.end131.us.us.1 ]
+  store i32 %cond165.us.us.1, ptr null, align 4
+  store i16 0, ptr %arrayidx172, align 2
+  store i16 0, ptr %arrayidx102.us.us.2, align 2
+  %51 = load i32, ptr %gep258.us.us.us.us.2, align 4
+  %tobool109.not.us.us.2 = icmp eq i32 %51, 0
+  br i1 %tobool109.not.us.us.2, label %cond.false116.us.us.2, label %cond.true110.us.us.2
+
+cond.true110.us.us.2:                             ; preds = %cond.end164.us.us.1
+  %52 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.us.us.2
+
+cond.false116.us.us.2:                            ; preds = %cond.end164.us.us.1
+  %53 = load i32, ptr %arrayidx126.us, align 4
+  br label %cond.end131.us.us.2
+
+cond.end131.us.us.2:                              ; preds = %cond.false116.us.us.2, %cond.true110.us.us.2
+  %cond132.us.us.2 = phi i32 [ 0, %cond.true110.us.us.2 ], [ 1, %cond.false116.us.us.2 ]
+  store i32 %cond132.us.us.2, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %54 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us.2 = sext i8 0 to i32
+  %tobool160.not.us.us.2 = icmp eq i8 %54, 0
+  br i1 %tobool160.not.us.us.2, label %cond.false162.us.us.2, label %cond.end164.us.us.2
+
+cond.false162.us.us.2:                            ; preds = %cond.end131.us.us.2
+  br label %cond.end164.us.us.2
+
+cond.end164.us.us.2:                              ; preds = %cond.false162.us.us.2, %cond.end131.us.us.2
+  %cond165.us.us.2 = phi i32 [ 0, %cond.false162.us.us.2 ], [ 1, %cond.end131.us.us.2 ]
+  store i32 %cond165.us.us.2, ptr null, align 4
+  store i16 0, ptr %arrayidx172, align 2
+  store i16 0, ptr %arrayidx102.us.us.3, align 2
+  %55 = load i32, ptr %gep258.us.us.us.us.3, align 4
+  %tobool109.not.us.us.3 = icmp eq i32 %55, 0
+  br i1 %tobool109.not.us.us.3, label %cond.false116.us.us.3, label %cond.true110.us.us.3
+
+cond.true110.us.us.3:                             ; preds = %cond.end164.us.us.2
+  %56 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.us.us.3
+
+cond.false116.us.us.3:                            ; preds = %cond.end164.us.us.2
+  %57 = load i32, ptr %arrayidx126.us, align 4
+  br label %cond.end131.us.us.3
+
+cond.end131.us.us.3:                              ; preds = %cond.false116.us.us.3, %cond.true110.us.us.3
+  %cond132.us.us.3 = phi i32 [ 0, %cond.true110.us.us.3 ], [ 1, %cond.false116.us.us.3 ]
+  store i32 %cond132.us.us.3, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %58 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us.3 = sext i8 0 to i32
+  %tobool160.not.us.us.3 = icmp eq i8 %58, 0
+  br i1 %tobool160.not.us.us.3, label %cond.false162.us.us.3, label %cond.end164.us.us.3
+
+cond.false162.us.us.3:                            ; preds = %cond.end131.us.us.3
+  br label %cond.end164.us.us.3
+
+cond.end164.us.us.3:                              ; preds = %cond.false162.us.us.3, %cond.end131.us.us.3
+  %cond165.us.us.3 = phi i32 [ 0, %cond.false162.us.us.3 ], [ 1, %cond.end131.us.us.3 ]
+  store i32 %cond165.us.us.3, ptr null, align 4
+  store i16 0, ptr %arrayidx172, align 2
+  store i16 0, ptr %arrayidx102.us.us.4, align 2
+  %59 = load i32, ptr %gep258.us.us.us.us.4, align 4
+  %tobool109.not.us.us.4 = icmp eq i32 %59, 0
+  br i1 %tobool109.not.us.us.4, label %cond.false116.us.us.4, label %cond.true110.us.us.4
+
+cond.true110.us.us.4:                             ; preds = %cond.end164.us.us.3
+  %60 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.us.us.4
+
+cond.false116.us.us.4:                            ; preds = %cond.end164.us.us.3
+  %61 = load i32, ptr %arrayidx126.us, align 4
+  br label %cond.end131.us.us.4
+
+cond.end131.us.us.4:                              ; preds = %cond.false116.us.us.4, %cond.true110.us.us.4
+  %cond132.us.us.4 = phi i32 [ 0, %cond.true110.us.us.4 ], [ 1, %cond.false116.us.us.4 ]
+  store i32 %cond132.us.us.4, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %62 = load i32, ptr %arrayidx152.us, align 4
+  %63 = load i8, ptr %arrayidx158, align 1
+  %conv159.us.us.4 = sext i8 0 to i32
+  %tobool160.not.us.us.4 = icmp eq i8 %63, 0
+  br i1 %tobool160.not.us.us.4, label %cond.false162.us.us.4, label %cond.end164.us.us.4
+
+cond.false162.us.us.4:                            ; preds = %cond.end131.us.us.4
+  br label %cond.end164.us.us.4
+
+cond.end164.us.us.4:                              ; preds = %cond.false162.us.us.4, %cond.end131.us.us.4
+  %cond165.us.us.4 = phi i32 [ 0, %cond.false162.us.us.4 ], [ 1, %cond.end131.us.us.4 ]
+  store i32 %cond165.us.us.4, ptr null, align 4
+  store i16 0, ptr %arrayidx172, align 2
+  %add180.us = add nuw nsw i64 %w.0261.us, 4
+  %cmp77.us = icmp samesign ult i64 %w.0261.us, 14
+  br i1 %cmp77.us, label %cond.true81.us, label %for.cond76.for.cond.cleanup79_crit_edge.split.us, !llvm.loop !0
+
+for.cond76.for.cond.cleanup79_crit_edge.split.us: ; preds = %cond.end164.us.us.4, %cond.end164.us.us.us.us.4
+  %.us-phi263 = phi i32 [ %41, %cond.end164.us.us.us.us.4 ], [ %62, %cond.end164.us.us.4 ]
+  %conv155.us.le.us.le = trunc i32 1 to i16
+  store i16 1, ptr @a, align 2
+  br label %for.cond.cleanup79
+
+for.cond.cleanup79:                               ; preds = %cond.end164.4, %for.cond76.for.cond.cleanup79_crit_edge.split.us
+  %add190 = add i8 1, 1
+  br i1 false, label %for.cond22.for.cond193.preheader_crit_edge, label %for.body25
+
+cond.true81:                                      ; preds = %cond.end164.4, %cond.true81.lr.ph
+  %w.0261 = phi i64 [ %add180, %cond.end164.4 ], [ %conv75, %cond.true81.lr.ph ]
+  %arrayidx174.idx = shl nuw nsw i64 %w.0261, 1
+  %arrayidx174 = getelementptr inbounds nuw i8, ptr %arrayidx172, i64 %arrayidx174.idx
+  %gep = getelementptr [8 x [8 x i32]], ptr %invariant.gep262, i64 %w.0261
+  %arrayidx126 = getelementptr inbounds nuw i8, ptr %gep, i64 12
+  store i16 0, ptr %arrayidx100, align 2
+  %64 = load i32, ptr %invariant.gep257, align 4
+  %tobool109.not = icmp eq i32 %64, 0
+  br i1 %tobool109.not, label %cond.true122, label %cond.true110
+
+cond.true110:                                     ; preds = %cond.true81
+  %65 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131
+
+cond.true122:                                     ; preds = %cond.true81
+  %66 = load i32, ptr %arrayidx126, align 4
+  br label %cond.end131
+
+cond.end131:                                      ; preds = %cond.true122, %cond.true110
+  %cond132 = phi i32 [ 0, %cond.true110 ], [ 1, %cond.true122 ]
+  store i32 %cond132, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %67 = load i8, ptr %arrayidx149, align 1
+  %conv155 = sext i8 %67 to i16
+  store i16 %conv155, ptr @a, align 2
+  %68 = load i8, ptr %arrayidx158, align 1
+  %conv159 = sext i8 0 to i32
+  %tobool160.not = icmp eq i8 %68, 0
+  br i1 %tobool160.not, label %cond.false162, label %cond.end164
+
+cond.false162:                                    ; preds = %cond.end131
+  br label %cond.end164
+
+cond.end164:                                      ; preds = %cond.false162, %cond.end131
+  %cond165 = phi i32 [ 0, %cond.false162 ], [ 1, %cond.end131 ]
+  store i32 %cond165, ptr %arrayidx170, align 4
+  store i16 0, ptr %arrayidx174, align 2
+  store i16 0, ptr %arrayidx102.1, align 2
+  %69 = load i32, ptr %gep258.us.us.us.us.1, align 4
+  %tobool109.not.1 = icmp eq i32 %69, 0
+  br i1 %tobool109.not.1, label %cond.true122.1, label %cond.true110.1
+
+cond.true110.1:                                   ; preds = %cond.end164
+  %70 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.1
+
+cond.true122.1:                                   ; preds = %cond.end164
+  %71 = load i32, ptr %arrayidx126, align 4
+  br label %cond.end131.1
+
+cond.end131.1:                                    ; preds = %cond.true122.1, %cond.true110.1
+  %cond132.1 = phi i32 [ 0, %cond.true110.1 ], [ 1, %cond.true122.1 ]
+  store i32 %cond132.1, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %72 = load i8, ptr %arrayidx149, align 1
+  %conv155.1 = sext i8 %72 to i16
+  store i16 %conv155.1, ptr @a, align 2
+  %73 = load i8, ptr %arrayidx158, align 1
+  %conv159.1 = sext i8 0 to i32
+  %tobool160.not.1 = icmp eq i8 %73, 0
+  br i1 %tobool160.not.1, label %cond.false162.1, label %cond.end164.1
+
+cond.false162.1:                                  ; preds = %cond.end131.1
+  br label %cond.end164.1
+
+cond.end164.1:                                    ; preds = %cond.false162.1, %cond.end131.1
+  %cond165.1 = phi i32 [ 0, %cond.false162.1 ], [ 1, %cond.end131.1 ]
+  store i32 %cond165.1, ptr %arrayidx170, align 4
+  store i16 0, ptr %arrayidx174, align 2
+  store i16 0, ptr %arrayidx102.2, align 2
+  %74 = load i32, ptr %gep258.us.us.us.us.2, align 4
+  %tobool109.not.2 = icmp eq i32 %74, 0
+  br i1 %tobool109.not.2, label %cond.true122.2, label %cond.true110.2
+
+cond.true110.2:                                   ; preds = %cond.end164.1
+  %75 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.2
+
+cond.true122.2:                                   ; preds = %cond.end164.1
+  %76 = load i32, ptr %arrayidx126, align 4
+  br label %cond.end131.2
+
+cond.end131.2:                                    ; preds = %cond.true122.2, %cond.true110.2
+  %cond132.2 = phi i32 [ 0, %cond.true110.2 ], [ 1, %cond.true122.2 ]
+  store i32 %cond132.2, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %77 = load i8, ptr %arrayidx149, align 1
+  %conv155.2 = sext i8 %77 to i16
+  store i16 %conv155.2, ptr @a, align 2
+  %78 = load i8, ptr %arrayidx158, align 1
+  %tobool160.not.2 = icmp eq i8 %78, 0
+  br i1 %tobool160.not.2, label %cond.false162.2, label %cond.end164.2
+
+cond.false162.2:                                  ; preds = %cond.end131.2
+  %rem.2 = srem i32 0, 0
+  br label %cond.end164.2
+
+cond.end164.2:                                    ; preds = %cond.false162.2, %cond.end131.2
+  %cond165.2 = phi i32 [ 1, %cond.false162.2 ], [ 0, %cond.end131.2 ]
+  store i32 %cond165.2, ptr %arrayidx170, align 4
+  store i16 0, ptr %arrayidx174, align 2
+  store i16 0, ptr %arrayidx102.3, align 2
+  %79 = load i32, ptr %gep258.us.us.us.us.3, align 4
+  %tobool109.not.3 = icmp eq i32 %79, 0
+  br i1 %tobool109.not.3, label %cond.true122.3, label %cond.true110.3
+
+cond.true110.3:                                   ; preds = %cond.end164.2
+  %80 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.3
+
+cond.true122.3:                                   ; preds = %cond.end164.2
+  %81 = load i32, ptr %arrayidx126, align 4
+  br label %cond.end131.3
+
+cond.end131.3:                                    ; preds = %cond.true122.3, %cond.true110.3
+  %cond132.3 = phi i32 [ 0, %cond.true110.3 ], [ 1, %cond.true122.3 ]
+  store i32 %cond132.3, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %82 = load i8, ptr %arrayidx149, align 1
+  %conv155.3 = sext i8 %82 to i16
+  store i16 %conv155.3, ptr @a, align 2
+  %83 = load i8, ptr %arrayidx158, align 1
+  %conv159.3 = sext i8 0 to i32
+  %tobool160.not.3 = icmp eq i8 %83, 0
+  br i1 %tobool160.not.3, label %cond.false162.3, label %cond.end164.3
+
+cond.false162.3:                                  ; preds = %cond.end131.3
+  br label %cond.end164.3
+
+cond.end164.3:                                    ; preds = %cond.false162.3, %cond.end131.3
+  %cond165.3 = phi i32 [ 0, %cond.false162.3 ], [ 1, %cond.end131.3 ]
+  store i32 %cond165.3, ptr %arrayidx170, align 4
+  store i16 0, ptr %arrayidx174, align 2
+  store i16 0, ptr %arrayidx102.4, align 2
+  %84 = load i32, ptr %gep258.us.us.us.us.4, align 4
+  %tobool109.not.4 = icmp eq i32 %84, 0
+  br i1 %tobool109.not.4, label %cond.true122.4, label %cond.true110.4
+
+cond.true110.4:                                   ; preds = %cond.end164.3
+  %85 = load i64, ptr %arrayidx115, align 8
+  br label %cond.end131.4
+
+cond.true122.4:                                   ; preds = %cond.end164.3
+  %86 = load i32, ptr %arrayidx126, align 4
+  br label %cond.end131.4
+
+cond.end131.4:                                    ; preds = %cond.true122.4, %cond.true110.4
+  %cond132.4 = phi i32 [ 0, %cond.true110.4 ], [ 1, %cond.true122.4 ]
+  store i32 %cond132.4, ptr %arrayidx135, align 4
+  store i16 0, ptr %arrayidx142, align 2
+  %87 = load i8, ptr %arrayidx149, align 1
+  %conv155.4 = sext i8 %87 to i16
+  store i16 %conv155.4, ptr @a, align 2
+  %88 = load i8, ptr %arrayidx158, align 1
+  %conv159.4 = sext i8 0 to i32
+  %tobool160.not.4 = icmp eq i8 %88, 0
+  br i1 %tobool160.not.4, label %cond.false162.4, label %cond.end164.4
+
+cond.false162.4:                                  ; preds = %cond.end131.4
+  br label %cond.end164.4
+
+cond.end164.4:                                    ; preds = %cond.false162.4, %cond.end131.4
+  %cond165.4 = phi i32 [ 0, %cond.false162.4 ], [ 1, %cond.end131.4 ]
+  store i32 %cond165.4, ptr %arrayidx170, align 4
+  store i16 0, ptr %arrayidx174, align 2
+  %add180 = add nuw nsw i64 %w.0261, 4
+  %cmp77 = icmp samesign ult i64 %w.0261, 14
+  br i1 %cmp77, label %cond.true81, label %for.cond.cleanup79, !llvm.loop !0
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #1
+
+; uselistorder directives
+uselistorder ptr @llvm.assume, { 4, 3, 2, 1, 0 }
+
+attributes #0 = { nofree norecurse noreturn nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+
+!0 = distinct !{!0, !1}
+!1 = !{!"llvm.loop.mustprogress"}

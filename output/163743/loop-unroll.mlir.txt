@@ -1,0 +1,82 @@
+// RUN: mlir-opt %s -test-loop-unrolling='unroll-factor=2' | FileCheck %s --check-prefix UNROLL-BY-2
+
+// -----
+
+func.func @unroll_twos_complement_min_bit_width_bound() -> (i32, i32) {
+  %0 = arith.constant 7 : i32
+  %lb = arith.constant 0 : i2
+  %ub = arith.constant 2 : i2
+  %step = arith.constant 1 : i2
+  %result:2 = scf.for unsigned %i0 = %lb to %ub step %step iter_args(%arg0 = %0, %arg1 = %0) -> (i32, i32) : i2{
+    %add = arith.addi %arg0, %arg1 : i32
+    %mul = arith.muli %arg0, %arg1 : i32
+    scf.yield %add, %mul : i32, i32
+  }
+  return %result#0, %result#1 : i32, i32
+}
+
+// UNROLL-BY-2-LABEL:   func.func @unroll_twos_complement_min_bit_width_bound() -> (i32, i32) {
+// UNROLL-BY-2-DAG:       %[[CONSTANT_0:.*]] = arith.constant 7 : i32
+// UNROLL-BY-2-DAG:       %[[CONSTANT_1:.*]] = arith.constant 0 : i2
+// UNROLL-BY-2-DAG:       %[[CONSTANT_2:.*]] = arith.constant -2 : i2
+// UNROLL-BY-2-DAG:       %[[CONSTANT_3:.*]] = arith.constant 1 : i2
+// UNROLL-BY-2-DAG:       %[[CONSTANT_4:.*]] = arith.constant -2 : i2
+// UNROLL-BY-2:           %[[ADDI_0:.*]] = arith.addi %[[CONSTANT_0]], %[[CONSTANT_0]] : i32
+// UNROLL-BY-2:           %[[MULI_0:.*]] = arith.muli %[[CONSTANT_0]], %[[CONSTANT_0]] : i32
+// UNROLL-BY-2:           %[[ADDI_1:.*]] = arith.addi %[[ADDI_0]], %[[MULI_0]] : i32
+// UNROLL-BY-2:           %[[MULI_1:.*]] = arith.muli %[[ADDI_0]], %[[MULI_0]] : i32
+// UNROLL-BY-2:           return %[[ADDI_1]], %[[MULI_1]] : i32, i32
+
+// -----
+
+func.func @unroll_pow2_trip_count() -> (i32, i32) {
+  %0 = arith.constant 7 : i32
+  %lb = arith.constant 0 : i3
+  %ub = arith.constant 4 : i3
+  %step = arith.constant 1 : i3
+  %result:2 = scf.for unsigned %i0 = %lb to %ub step %step iter_args(%arg0 = %0, %arg1 = %0) -> (i32, i32) : i3{
+    %add = arith.addi %arg0, %arg1 : i32
+    %mul = arith.muli %arg0, %arg1 : i32
+    scf.yield %add, %mul : i32, i32
+  }
+  return %result#0, %result#1 : i32, i32
+}
+
+// UNROLL-BY-2-LABEL:   func.func @unroll_pow2_trip_count() -> (i32, i32) {
+// UNROLL-BY-2-DAG:       %[[CONSTANT_0:.*]] = arith.constant 7 : i32
+// UNROLL-BY-2-DAG:       %[[CONSTANT_1:.*]] = arith.constant 0 : i3
+// UNROLL-BY-2-DAG:       %[[CONSTANT_2:.*]] = arith.constant -4 : i3
+// UNROLL-BY-2-DAG:       %[[CONSTANT_3:.*]] = arith.constant 1 : i3
+// UNROLL-BY-2-DAG:       %[[CONSTANT_4:.*]] = arith.constant 2 : i3
+// UNROLL-BY-2:           %[[FOR_0:.*]]:2 = scf.for unsigned %[[VAL_0:.*]] = %[[CONSTANT_1]] to %[[CONSTANT_2]] step %[[CONSTANT_4]] iter_args(%[[VAL_1:.*]] = %[[CONSTANT_0]], %[[VAL_2:.*]] = %[[CONSTANT_0]]) -> (i32, i32)  : i3 {
+// UNROLL-BY-2:             %[[ADDI_0:.*]] = arith.addi %[[VAL_1]], %[[VAL_2]] : i32
+// UNROLL-BY-2:             %[[MULI_0:.*]] = arith.muli %[[VAL_1]], %[[VAL_2]] : i32
+// UNROLL-BY-2:             %[[ADDI_1:.*]] = arith.addi %[[ADDI_0]], %[[MULI_0]] : i32
+// UNROLL-BY-2:             %[[MULI_1:.*]] = arith.muli %[[ADDI_0]], %[[MULI_0]] : i32
+// UNROLL-BY-2:             scf.yield %[[ADDI_1]], %[[MULI_1]] : i32, i32
+// UNROLL-BY-2:           }
+// UNROLL-BY-2:           return %[[FOR_0]]#0, %[[FOR_0]]#1 : i32, i32
+
+// -----
+
+func.func @unroll_trip_count_1_min_bit_width() -> (i32, i32) {
+  %0 = arith.constant 7 : i32
+  %lb = arith.constant 0 : i1
+  %ub = arith.constant 1 : i1
+  %step = arith.constant 1 : i1
+  %result:2 = scf.for unsigned %i0 = %lb to %ub step %step iter_args(%arg0 = %0, %arg1 = %0) -> (i32, i32) : i1{
+    %add = arith.addi %arg0, %arg1 : i32
+    %mul = arith.muli %arg0, %arg1 : i32
+    scf.yield %add, %mul : i32, i32
+  }
+  return %result#0, %result#1 : i32, i32
+}
+
+// UNROLL-BY-2-LABEL:   func.func @unroll_trip_count_1_min_bit_width() -> (i32, i32) {
+// UNROLL-BY-2-DAG:       %[[CONSTANT_0:.*]] = arith.constant 7 : i32
+// UNROLL-BY-2-DAG:       %[[CONSTANT_1:.*]] = arith.constant false
+// UNROLL-BY-2-DAG:       %[[CONSTANT_2:.*]] = arith.constant true
+// UNROLL-BY-2-DAG:       %[[CONSTANT_3:.*]] = arith.constant true
+// UNROLL-BY-2:           %[[ADDI_0:.*]] = arith.addi %[[CONSTANT_0]], %[[CONSTANT_0]] : i32
+// UNROLL-BY-2:           %[[MULI_0:.*]] = arith.muli %[[CONSTANT_0]], %[[CONSTANT_0]] : i32
+// UNROLL-BY-2:           return %[[ADDI_0]], %[[MULI_0]] : i32, i32

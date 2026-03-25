@@ -1,0 +1,79 @@
+% /path/to/clang-21 -moutline -O1 -c -o QOK.s reduced.bc
+clang-21: /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:178: LexicalScope *llvm::LexicalScopes::getOrCreateRegularScope(const DILocalScope *): Assertion `cast<DISubprogram>(Scope)->describes(&MF->getFunction())' failed.
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: /home/nvidia/shastings/llvm/install2/bin/clang-21 -moutline -O1 -c -o QOK.s reduced.bc
+1.	Code generation
+2.	Running pass 'Function Pass Manager' on module 'reduced.bc'.
+3.	Running pass 'AArch64 Assembly Printer' on function '@OUTLINED_FUNCTION_0'
+ #0 0x0000af4588841dc0 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) /home/nvidia/shastings/llvm-project/llvm/lib/Support/Unix/Signals.inc:834:13
+ #1 0x0000af458883fcd8 std::atomic<CallbackAndCookie::Status>::store(CallbackAndCookie::Status, std::memory_order) /usr/lib/gcc/aarch64-linux-gnu/11/../../../../include/c++/11/atomic:271:2
+ #2 0x0000af458883fcd8 llvm::sys::RunSignalHandlers() /home/nvidia/shastings/llvm-project/llvm/lib/Support/Signals.cpp:106:16
+ #3 0x0000af45887b1d24 (anonymous namespace)::CrashRecoveryContextImpl::HandleCrash(int, unsigned long) /home/nvidia/shastings/llvm-project/llvm/lib/Support/CrashRecoveryContext.cpp:73:5
+ #4 0x0000af45887b1d24 CrashRecoverySignalHandler(int) /home/nvidia/shastings/llvm-project/llvm/lib/Support/CrashRecoveryContext.cpp:390:51
+ #5 0x0000e0cc559809d0 (linux-vdso.so.1+0x9d0)
+ #6 0x0000e0cc554f2008 (/lib/aarch64-linux-gnu/libc.so.6+0x82008)
+ #7 0x0000e0cc554aa83c gsignal (/lib/aarch64-linux-gnu/libc.so.6+0x3a83c)
+ #8 0x0000e0cc55497134 abort (/lib/aarch64-linux-gnu/libc.so.6+0x27134)
+ #9 0x0000e0cc554a4114 (/lib/aarch64-linux-gnu/libc.so.6+0x34114)
+#10 0x0000e0cc554a418c (/lib/aarch64-linux-gnu/libc.so.6+0x3418c)
+#11 0x0000af458810befc llvm::LexicalScopes::getOrCreateRegularScope(llvm::DILocalScope const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:179:5
+#12 0x0000af458810bb34 llvm::LexicalScopes::getOrCreateInlinedScope(llvm::DILocalScope const*, llvm::DILocation const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:0:14
+#13 0x0000af458810bb8c llvm::LexicalScopes::getOrCreateInlinedScope(llvm::DILocalScope const*, llvm::DILocation const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:0:14
+#14 0x0000af458810bb8c llvm::LexicalScopes::getOrCreateInlinedScope(llvm::DILocalScope const*, llvm::DILocation const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:0:14
+#15 0x0000af458810bb8c llvm::LexicalScopes::getOrCreateInlinedScope(llvm::DILocalScope const*, llvm::DILocation const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:0:14
+#16 0x0000af458810bb8c llvm::LexicalScopes::getOrCreateInlinedScope(llvm::DILocalScope const*, llvm::DILocation const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:0:14
+#17 0x0000af458810bb8c llvm::LexicalScopes::getOrCreateInlinedScope(llvm::DILocalScope const*, llvm::DILocation const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:0:14
+#18 0x0000af458810afe0 llvm::LexicalScopes::extractLexicalScopes(llvm::SmallVectorImpl<std::pair<llvm::MachineInstr const*, llvm::MachineInstr const*>>&, llvm::DenseMap<llvm::MachineInstr const*, llvm::LexicalScope*, llvm::DenseMapInfo<llvm::MachineInstr const*, void>, llvm::detail::DenseMapPair<llvm::MachineInstr const*, llvm::LexicalScope*>>&) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:117:35
+#19 0x0000af458810aee0 llvm::LexicalScopes::initialize(llvm::MachineFunction const&) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/LexicalScopes.cpp:61:7
+#20 0x0000af458932e2dc llvm::LexicalScopes::empty() /home/nvidia/shastings/llvm-project/llvm/include/llvm/CodeGen/LexicalScopes.h:154:25
+#21 0x0000af458932e2dc llvm::DebugHandlerBase::beginFunction(llvm::MachineFunction const*) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/AsmPrinter/DebugHandlerBase.cpp:273:15
+#22 0x0000af4589313adc llvm::AsmPrinter::emitFunctionHeader() /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp:1068:37
+#23 0x0000af4589316150 llvm::AsmPrinter::emitFunctionBody() /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/AsmPrinter/AsmPrinter.cpp:1793:3
+#24 0x0000af4586374dcc (anonymous namespace)::AArch64AsmPrinter::runOnMachineFunction(llvm::MachineFunction&) /home/nvidia/shastings/llvm-project/llvm/lib/Target/AArch64/AArch64AsmPrinter.cpp:266:5
+#25 0x0000af4587e27ec0 llvm::MachineFunctionPass::runOnFunction(llvm::Function&) /home/nvidia/shastings/llvm-project/llvm/lib/CodeGen/MachineFunctionPass.cpp:108:10
+#26 0x0000af45882c9368 llvm::FPPassManager::runOnFunction(llvm::Function&) /home/nvidia/shastings/llvm-project/llvm/lib/IR/LegacyPassManager.cpp:1398:27
+#27 0x0000af45882ce98c llvm::FPPassManager::runOnModule(llvm::Module&) /home/nvidia/shastings/llvm-project/llvm/lib/IR/LegacyPassManager.cpp:1443:20
+#28 0x0000af45882c994c (anonymous namespace)::MPPassManager::runOnModule(llvm::Module&) /home/nvidia/shastings/llvm-project/llvm/lib/IR/LegacyPassManager.cpp:1513:27
+#29 0x0000af45882c994c llvm::legacy::PassManagerImpl::run(llvm::Module&) /home/nvidia/shastings/llvm-project/llvm/lib/IR/LegacyPassManager.cpp:531:44
+#30 0x0000af4588a14454 (anonymous namespace)::EmitAssemblyHelper::RunCodegenPipeline(clang::BackendAction, std::unique_ptr<llvm::raw_pwrite_stream, std::default_delete<llvm::raw_pwrite_stream>>&, std::unique_ptr<llvm::ToolOutputFile, std::default_delete<llvm::ToolOutputFile>>&) /home/nvidia/shastings/llvm-project/clang/lib/CodeGen/BackendUtil.cpp:1261:9
+#31 0x0000af4588a14454 (anonymous namespace)::EmitAssemblyHelper::emitAssembly(clang::BackendAction, std::unique_ptr<llvm::raw_pwrite_stream, std::default_delete<llvm::raw_pwrite_stream>>, clang::BackendConsumer*) /home/nvidia/shastings/llvm-project/clang/lib/CodeGen/BackendUtil.cpp:1284:3
+#32 0x0000af4588a14454 clang::emitBackendOutput(clang::CompilerInstance&, clang::CodeGenOptions&, llvm::StringRef, llvm::Module*, clang::BackendAction, llvm::IntrusiveRefCntPtr<llvm::vfs::FileSystem>, std::unique_ptr<llvm::raw_pwrite_stream, std::default_delete<llvm::raw_pwrite_stream>>, clang::BackendConsumer*) /home/nvidia/shastings/llvm-project/clang/lib/CodeGen/BackendUtil.cpp:1449:13
+#33 0x0000af4588eaec6c std::unique_ptr<llvm::raw_pwrite_stream, std::default_delete<llvm::raw_pwrite_stream>>::~unique_ptr() /usr/lib/gcc/aarch64-linux-gnu/11/../../../../include/c++/11/bits/unique_ptr.h:360:6
+#34 0x0000af4588eaec6c clang::CodeGenAction::ExecuteAction() /home/nvidia/shastings/llvm-project/clang/lib/CodeGen/CodeGenAction.cpp:1187:3
+#35 0x0000af45890c8948 clang::FrontendAction::Execute() /home/nvidia/shastings/llvm-project/clang/lib/Frontend/FrontendAction.cpp:1225:10
+#36 0x0000af4589052fb8 llvm::Error::getPtr() const /home/nvidia/shastings/llvm-project/llvm/include/llvm/Support/Error.h:278:42
+#37 0x0000af4589052fb8 llvm::Error::operator bool() /home/nvidia/shastings/llvm-project/llvm/include/llvm/Support/Error.h:241:16
+#38 0x0000af4589052fb8 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) /home/nvidia/shastings/llvm-project/clang/lib/Frontend/CompilerInstance.cpp:1055:23
+#39 0x0000af4589195da8 std::__shared_ptr<clang::CompilerInvocation, (__gnu_cxx::_Lock_policy)2>::get() const /usr/lib/gcc/aarch64-linux-gnu/11/../../../../include/c++/11/bits/shared_ptr_base.h:1296:16
+#40 0x0000af4589195da8 std::__shared_ptr_access<clang::CompilerInvocation, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const /usr/lib/gcc/aarch64-linux-gnu/11/../../../../include/c++/11/bits/shared_ptr_base.h:993:66
+#41 0x0000af4589195da8 std::__shared_ptr_access<clang::CompilerInvocation, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const /usr/lib/gcc/aarch64-linux-gnu/11/../../../../include/c++/11/bits/shared_ptr_base.h:987:9
+#42 0x0000af4589195da8 clang::CompilerInstance::getFrontendOpts() /home/nvidia/shastings/llvm-project/clang/include/clang/Frontend/CompilerInstance.h:304:12
+#43 0x0000af4589195da8 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) /home/nvidia/shastings/llvm-project/clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp:300:14
+#44 0x0000af458636a7d4 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) /home/nvidia/shastings/llvm-project/clang/tools/driver/cc1_main.cpp:297:15
+#45 0x0000af458636719c ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&) /home/nvidia/shastings/llvm-project/clang/tools/driver/driver.cpp:223:12
+#46 0x0000af4588efe82c clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const::$_0::operator()() const /home/nvidia/shastings/llvm-project/clang/lib/Driver/Job.cpp:436:30
+#47 0x0000af4588efe82c void llvm::function_ref<void ()>::callback_fn<clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const::$_0>(long) /home/nvidia/shastings/llvm-project/llvm/include/llvm/ADT/STLFunctionalExtras.h:46:12
+#48 0x0000af45887b1990 llvm::function_ref<void ()>::operator()() const /home/nvidia/shastings/llvm-project/llvm/include/llvm/ADT/STLFunctionalExtras.h:0:12
+#49 0x0000af45887b1990 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) /home/nvidia/shastings/llvm-project/llvm/lib/Support/CrashRecoveryContext.cpp:426:3
+#50 0x0000af4588efe654 clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const /home/nvidia/shastings/llvm-project/clang/lib/Driver/Job.cpp:436:7
+#51 0x0000af4588ec7ca4 std::_Function_base::_M_empty() const /usr/lib/gcc/aarch64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:247:37
+#52 0x0000af4588ec7ca4 std::function<void (clang::driver::Command const&, int)>::operator bool() const /usr/lib/gcc/aarch64-linux-gnu/11/../../../../include/c++/11/bits/std_function.h:573:17
+#53 0x0000af4588ec7ca4 clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const /home/nvidia/shastings/llvm-project/clang/lib/Driver/Compilation.cpp:197:7
+#54 0x0000af4588ec7e94 clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const /home/nvidia/shastings/llvm-project/clang/lib/Driver/Compilation.cpp:251:13
+#55 0x0000af4588ee0198 llvm::SmallVectorBase<unsigned int>::empty() const /home/nvidia/shastings/llvm-project/llvm/include/llvm/ADT/SmallVector.h:82:46
+#56 0x0000af4588ee0198 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) /home/nvidia/shastings/llvm-project/clang/lib/Driver/Driver.cpp:2246:23
+#57 0x0000af45863667b0 llvm::SmallVectorBase<unsigned int>::size() const /home/nvidia/shastings/llvm-project/llvm/include/llvm/ADT/SmallVector.h:79:32
+#58 0x0000af45863667b0 llvm::SmallVectorTemplateCommon<std::pair<int, clang::driver::Command const*>, void>::end() /home/nvidia/shastings/llvm-project/llvm/include/llvm/ADT/SmallVector.h:270:37
+#59 0x0000af45863667b0 clang_main(int, char**, llvm::ToolContext const&) /home/nvidia/shastings/llvm-project/clang/tools/driver/driver.cpp:408:24
+#60 0x0000af4586374914 main /home/nvidia/shastings/llvm/build/tools/clang/tools/driver/clang-driver.cpp:17:10
+#61 0x0000e0cc55497400 (/lib/aarch64-linux-gnu/libc.so.6+0x27400)
+#62 0x0000e0cc554974d8 __libc_start_main (/lib/aarch64-linux-gnu/libc.so.6+0x274d8)
+#63 0x0000af4586365070 _start (/home/nvidia/shastings/llvm/install2/bin/clang-21+0xeb5070)
+clang-21: error: clang frontend command failed with exit code 134 (use -v to see invocation)
+clang version 21.1.8 (https://github.com/llvm/llvm-project.git 2078da43e25a4623cab2d0d60decddf709aaea28)
+Target: aarch64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/nvidia/shastings/llvm/install2/bin
+Build config: +assertions
+clang-21: note: diagnostic msg: Error generating preprocessed source(s) - no preprocessable inputs.

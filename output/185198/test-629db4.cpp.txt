@@ -1,0 +1,13 @@
+# 1 "<built-in>"
+# 1 "test.cpp"
+struct A{
+    template<typename T>
+    A(void (T::*f)()){}
+};
+
+struct C{
+    A op{&::func};
+    void func(){
+
+    }
+};

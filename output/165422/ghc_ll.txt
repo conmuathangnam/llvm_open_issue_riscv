@@ -1,0 +1,56 @@
+target datalayout = "e-m:e-p:32:32-Fi8-i64:64-v128:64:128-a:0:32-n32-S64"
+target triple = "arm-unknown-linux-gnueabihf"
+declare  ccc i32 @memcmp(i8* , i8* , i32 )
+
+declare  ccc i8* @memcpy(i8* , i8* , i32 )
+
+declare  ccc i8* @memmove(i8* , i8* , i32 )
+
+declare  ccc i8* @memset(i8* , i32 , i32 )
+
+declare  ccc i32 @newSpark(i8* , i8* )
+
+!0 = !{!"root" }
+!1 = !{!"top", !0 }
+!2 = !{!"stack", !1 }
+!3 = !{!"heap", !1 }
+!4 = !{!"rx", !3 }
+!5 = !{!"base", !1 }
+!llvm.module.flags = !{}
+%chn_str_struct = type <{[4 x i8] }>
+%cho_str_struct = type <{[25 x i8] }>
+%chp_str_struct = type <{[16 x i8] }>
+%ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_struct = type <{i32, i32, i32, i32, i64, i32, i32, i32 }>
+%ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs_struct = type <{i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }>
+@chn_str$def = internal constant %chn_str_struct<{[4 x i8] [i8  67, i8  65, i8  70, i8  0 ] }>, section ".rodata.str.chn_str", align 1
+@chn_str = internal alias i8, bitcast (%chn_str_struct*  @chn_str$def to i8*)
+@cho_str$def = internal constant %cho_str_struct<{[25 x i8] [i8  71, i8  72, i8  67, i8  46, i8  78, i8  117, i8  109, i8  46, i8  66, i8  97, i8  99, i8  107, i8  101, i8  110, i8  100, i8  46, i8  83, i8  101, i8  108, i8  101, i8  99, i8  116, i8  101, i8  100, i8  0 ] }>, section ".rodata.str.cho_str", align 1
+@cho_str = internal alias i8, bitcast (%cho_str_struct*  @cho_str$def to i8*)
+@chp_str$def = internal constant %chp_str_struct<{[16 x i8] [i8  60, i8  101, i8  110, i8  116, i8  105, i8  114, i8  101, i8  45, i8  109, i8  111, i8  100, i8  117, i8  108, i8  101, i8  62, i8  0 ] }>, section ".rodata.str.chp_str", align 1
+@chp_str = internal alias i8, bitcast (%chp_str_struct*  @chp_str$def to i8*)
+@ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc$def = internal global %ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_struct<{i32  0, i32 ptrtoint (i8*  @chn_str to i32), i32 ptrtoint (i8*  @cho_str to i32), i32 ptrtoint (i8*  @chp_str to i32), i64  0, i32  0, i32  99, i32  0 }>, section ".data.ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc", align 4
+@ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc =  alias i8, bitcast (%ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_struct*  @ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc$def to i8*)
+@ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs$def = internal global %ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs_struct<{i32  0, i32 ptrtoint (i8*  @ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc to i32), i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0, i32  0 }>, section ".data.ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs", align 4
+@ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs =  alias i8, bitcast (%ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs_struct*  @ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs$def to i8*)
+%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes_struct = type <{[25 x i8] }>
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes$def = internal constant %ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes_struct<{[25 x i8] [i8  71, i8  72, i8  67, i8  46, i8  78, i8  117, i8  109, i8  46, i8  66, i8  97, i8  99, i8  107, i8  101, i8  110, i8  100, i8  46, i8  83, i8  101, i8  108, i8  101, i8  99, i8  116, i8  101, i8  100, i8  0 ] }>, section ".rodata.str.ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes", align 1
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes =  alias i8, bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes$def to i8*)
+%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes_struct = type <{[11 x i8] }>
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes$def = internal constant %ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes_struct<{[11 x i8] [i8  103, i8  104, i8  99, i8  45, i8  98, i8  105, i8  103, i8  110, i8  117, i8  109, i8  0 ] }>, section ".rodata.str.ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes", align 1
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes =  alias i8, bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes$def to i8*)
+%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure_struct = type <{i32, i32, i32, i32 }>
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure$def = internal global %ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure_struct<{i32 ptrtoint (i8*  @ghczmprim_GHCziTypes_TrNameS_con_info to i32), i32 ptrtoint (i8*  @CCS_DONT_CARE to i32), i32  0, i32 ptrtoint (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes$def to i32) }>, section ".data.ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure", align 4
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure =  alias i8, bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure$def to i8*)
+%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure_struct = type <{i32, i32, i32, i32 }>
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure$def = internal global %ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure_struct<{i32 ptrtoint (i8*  @ghczmprim_GHCziTypes_TrNameS_con_info to i32), i32 ptrtoint (i8*  @CCS_DONT_CARE to i32), i32  0, i32 ptrtoint (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes$def to i32) }>, section ".data.ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure", align 4
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure =  alias i8, bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure$def to i8*)
+%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure_struct = type <{i32, i32, i32, i32, i32, i32 }>
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure$def = internal global %ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure_struct<{i32 ptrtoint (i8*  @ghczmprim_GHCziTypes_Module_con_info to i32), i32 ptrtoint (i8*  @CCS_DONT_CARE to i32), i32  0, i32 add (i32 ptrtoint (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure$def to i32),i32  1), i32 add (i32 ptrtoint (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure$def to i32),i32  1), i32  3 }>, section ".data.ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure", align 4
+@ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure =  alias i8, bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure$def to i8*)
+declare  ccc void @ghczmbignum_GHCziNumziBackendziSelected_init__prof_init()
+
+@llvm.global_ctors = appending global [1 x {i32, void ()*, i8* }] [{i32, void ()*, i8* }{i32  65535, void ()*  @ghczmbignum_GHCziNumziBackendziSelected_init__prof_init, i8*  null } ]
+@ghczmprim_GHCziTypes_TrNameS_con_info = external global i8
+@CCS_DONT_CARE = external global i8
+@ghczmprim_GHCziTypes_Module_con_info = external global i8
+@llvm.used = appending constant [10 x i8*] [i8* bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule_closure$def to i8*), i8* bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule1_closure$def to i8*), i8* bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule3_closure$def to i8*), i8* bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule4_bytes$def to i8*), i8* bitcast (%ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes_struct*  @ghczmbignum_GHCziNumziBackendziSelected_zdtrModule2_bytes$def to i8*), i8* bitcast (%ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs_struct*  @ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_ccs$def to i8*), i8* bitcast (%ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc_struct*  @ghczmbignum_GHCziNumziBackendziSelected_CAFs_cc$def to i8*), i8* bitcast (%chp_str_struct*  @chp_str$def to i8*), i8* bitcast (%cho_str_struct*  @cho_str$def to i8*), i8* bitcast (%chn_str_struct*  @chn_str$def to i8*) ], section "llvm.metadata"

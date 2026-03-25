@@ -1,0 +1,290 @@
+SPLITKIT CRASH IMMINENT - MIR DUMP
+========================================
+This dump contains the exact state needed to reproduce the crash.
+Use this to create a MIR test case.
+
+Function: o
+Parent Register: %288
+Child Register: %310
+Def SlotIndex: 2112r
+
+PARENT LiveInterval:
+  Register: %2147483936
+  Main Range: %288 [2112r,3448r:0) 0@2112r  L0000000000000004 [2112r,2220r:0) 0@2112r  weight:1.396313e-02
+  Subranges:
+    LaneMask: 0000000000000004 (0x0004)
+      Range:   L0000000000000004 [2112r,2220r:0) 0@2112r
+      VNInfo at 2112r: 0@2112r (defines at this slot)
+
+CHILD LiveInterval:
+  Register: %2147483958
+  Main Range: %310 EMPTY 0@2212r 1@2112r  L0000000000000002 [2212r,2212d:0) 0@2212r  L0000000000000004 EMPTY  weight:0.000000e+00
+  Subranges:
+    LaneMask: 0000000000000002 (0x0002)
+      Range:   L0000000000000002 [2212r,2212d:0) 0@2212r
+      *** NOT FOUND in parent - WILL CRASH ***
+    LaneMask: 0000000000000004 (0x0004)
+      Range:   L0000000000000004 EMPTY
+      FOUND in parent (mask 0000000000000004)
+
+Register Class: VRM8
+Register Size: 512 bits
+
+Instructions around Def 2112r:
+  Def instruction: undef %288.sub_vrm1_1:vrm8 = INIT_UNDEF
+  Context (5 instructions before):
+      $v0 = COPY %62:vr
+      early-clobber %59:vrm8nov0 = PseudoVSLIDEUP_VI_M8 %59:vrm8nov0(tied-def 0), %222:vrm8nov0, 8, 12, 5, 0
+      undef %222.sub_vrm1_2:vrm8nov0 = INIT_UNDEF
+      early-clobber %307:vrm8 = PseudoVSLIDEUP_VI_M8 undef %307:vrm8(tied-def 0), %287:vrm8, 6, 16, 5, 3
+      VS8R_V %307:vrm8, %stack.1 :: (store (<vscale x 1 x s512>) into %stack.1, align 8)
+  >>> undef %288.sub_vrm1_1:vrm8 = INIT_UNDEF
+      %60:vrm8 = COPY %222:vrm8nov0
+      early-clobber %60:vrm8 = PseudoVSLIDEUP_VI_M8 %60:vrm8(tied-def 0), %222:vrm8nov0, 8, 16, 5, 1
+      undef %222.sub_vrm1_2:vrm8nov0 = INIT_UNDEF
+      %308:vrm8 = VL8RE8_V %stack.1 :: (load (<vscale x 1 x s512>) from %stack.1, align 8)
+
+ALL LiveIntervals in function (for context):
+  %2147483648 (GPR): %0 [16r,5312r:0) 0@16r  weight:5.266854e-04
+  %2147483649 (GPR): %1 [32r,592r:0) 0@32r  weight:9.375000e-03
+  %2147483650 (GPR): %2 [160r,1840r:0) 0@160r  weight:1.201923e-03
+  %2147483651 (GPR): %3 [224r,4736r:0) 0@224r  weight:1.628664e-03
+  %2147483652 (GPR): %4 [176r,5264r:0) 0@176r  weight:3.644315e-04
+  %2147483653 (GPR): %5 [480r,496r:0) 0@480r  weight:INF
+  %2147483654 (GPR): %6 [496r,544r:0) 0@496r  weight:4.464286e-03
+  %2147483655 (GPR): %7 [544r,592r:0) 0@544r  weight:4.464286e-03
+  %2147483656 (GPR): %8 [592r,736r:0) 0@592r  weight:3.676471e-03
+  %2147483657 (GPR): %9 [736r,800r:0) 0@736r  weight:4.310345e-03
+  %2147483658 (GPR): %10 [528r,800r:0) 0@528r  weight:4.464286e-03
+  %2147483659 (GPR): %11 [800r,3360r:0) 0@800r  weight:2.027027e-03
+  %2147483660 (GPR): %12 [96r,144r:0) 0@96r  weight:4.464286e-03
+  %2147483661 (GPR): %13 [144r,208r:0) 0@144r  weight:4.310345e-03
+  %2147483662 (GPR): %14 [208r,304r:0) 0@208r  weight:4.032258e-03
+  %2147483663 (GPR): %15 [304r,656r:0) 0@304r  weight:2.659574e-03
+  %2147483664 (GPR): %16 [560r,608r:0) 0@560r  weight:4.464286e-03
+  %2147483665 (GPR): %17 [608r,656r:0) 0@608r  weight:4.464286e-03
+  %2147483666 (GPR): %18 [656r,688r:0) 0@656r  weight:4.629630e-03
+  %2147483667 (GPR): %19 [688r,1760r:0) 0@688r  weight:3.396739e-03
+  %2147483668 (VR): %20 [112r,448r:0) 0@112r  weight:2.038043e-03
+  %2147483669 (VR): %21 [256r,368r:0) 0@256r  weight:3.906250e-03
+  %2147483670 (VR): %22 [368r,512r:0) 0@368r  weight:3.676471e-03
+  %2147483671 (VR): %23 [512r,672r:0) 0@512r  weight:3.607143e-03
+  %2147483672 (VR): %24 [448r,752r:0) 0@448r  weight:2.840909e-03
+  %2147483681 (VRM2): %33 [128r,288r:0) 0@128r  weight:5.357143e-03
+  %2147483682 (VRM2): %34 [288r,400r:0) 0@288r  weight:7.812500e-03
+  %2147483683 (VRM2): %35 [400r,768r:0) 0@400r  weight:5.208333e-03
+  %2147483684 (VR): %36 [768e,1376r:0) 0@768e  weight:2.001982e-03
+  %2147483685 (VRM2): %37 [272r,1408r:0) 0@272r  weight:2.604167e-03
+  %2147483692 (GPR): %44 [240r,336r:0) 0@240r  weight:3.024193e-03
+  %2147483693 (GPR): %45 [320r,1488r:0) 0@320r  weight:1.275510e-03
+  %2147483694 (VR): %46 [1488r,1616r:0) 0@1488r  weight:1.912879e-03
+  %2147483698 (VRM8NoV0): %50 [1648r,2272r:0) 0@1648r  weight:1.562500e-02
+  %2147483700 (GPR): %52 [624r,640r:0) 0@624r  weight:INF
+  %2147483701 (GPR): %53 [640r,1696r:0) 0@640r  weight:1.373626e-03
+  %2147483702 (VR): %54 [1696r,1856r:0) 0@1696r  weight:1.803571e-03
+  %2147483707 (VRM8NoV0): %59 [1904r,2064e:0)[2064e,3056r:1) 0@1904r 1@2064e  weight:2.061856e-02
+  %2147483708 (VRM8): %60 [2160r,2176e:0)[2176e,2272r:1) 0@2160r 1@2176e  weight:6.312500e-02
+  %2147483709 (GPR): %61 [336r,1920r:0) 0@336r  weight:1.008064e-03
+  %2147483710 (VR): %62 [1920r,1984r:0) 0@1920r  weight:2.176724e-03
+  %2147483713 (VRM8NoV0): %65 [2272r,3296r:0) 0@2272r  weight:1.123596e-02
+  %2147483715 (GPR): %67 [80r,192r:0) 0@80r  weight:3.906250e-03
+  %2147483716 (GPR): %68 [192r,1872r:0) 0@192r  weight:3.846154e-03
+  %2147483717 (GPR): %69 [48r,432r:0) 0@48r  weight:1.275510e-03
+  %2147483720 (VRM4): %72 [432r,576r:0) 0@432r  L0000000000000002 [432r,576r:0) 0@432r  L000000000000001C [432r,576r:0) 0@432r  weight:6.578947e-03
+    L0000000000000002:   L0000000000000002 [432r,576r:0) 0@432r
+    L000000000000001C:   L000000000000001C [432r,576r:0) 0@432r
+  %2147483721 (VRM4): %73 [576r,704r:0) 0@576r  L0000000000000002 [576r,704r:0) 0@576r  L000000000000001C [576r,704r:0) 0@576r  weight:1.630435e-02
+    L0000000000000002:   L0000000000000002 [576r,704r:0) 0@576r
+    L000000000000001C:   L000000000000001C [576r,704r:0) 0@576r
+  %2147483722 (VRM4): %74 [704r,848r:0) 0@704r  L0000000000000002 [704r,848r:0) 0@704r  L000000000000001C [704r,848r:0) 0@704r  weight:2.027027e-02
+    L0000000000000002:   L0000000000000002 [704r,848r:0) 0@704r
+    L000000000000001C:   L000000000000001C [704r,848r:0) 0@704r
+  %2147483732 (VRM8): %84 [896e,912e:0)[912e,944e:1)[944e,992e:2)[992e,1552e:3)[1552e,1728e:4)[1728e,1888e:5)[1888e,1952e:6)[1952e,3056r:7) 0@896e 1@912e 2@944e 3@992e 4@1552e 5@1728e 6@1888e 7@1952e  L0000000000000100 [1952e,3056r:1) 0@x 1@1952e  L0000000000000080 [1888e,3056r:1) 0@x 1@1888e  L0000000000000040 [1728e,3056r:1) 0@x 1@1728e  L0000000000000020 [1552e,3056r:1) 0@x 1@1552e  L0000000000000010 [992e,3056r:1) 0@x 1@992e  L0000000000000004 [912e,3056r:0) 0@912e 1@x  L0000000000000002 [944e,3056r:0) 0@944e  L0000000000000008 [896e,3056r:1) 0@x 1@896e  weight:3.123780e-02
+    L0000000000000100:   L0000000000000100 [1952e,3056r:1) 0@x 1@1952e
+    L0000000000000080:   L0000000000000080 [1888e,3056r:1) 0@x 1@1888e
+    L0000000000000040:   L0000000000000040 [1728e,3056r:1) 0@x 1@1728e
+    L0000000000000020:   L0000000000000020 [1552e,3056r:1) 0@x 1@1552e
+    L0000000000000010:   L0000000000000010 [992e,3056r:1) 0@x 1@992e
+    L0000000000000004:   L0000000000000004 [912e,3056r:0) 0@912e 1@x
+    L0000000000000002:   L0000000000000002 [944e,3056r:0) 0@944e
+    L0000000000000008:   L0000000000000008 [896e,3056r:1) 0@x 1@896e
+  %2147483733 (VRM4): %85 [848r,976r:0) 0@848r  L0000000000000002 [848r,976r:0) 0@848r  L000000000000001C [848r,976r:0) 0@848r  weight:2.205882e-02
+    L0000000000000002:   L0000000000000002 [848r,976r:0) 0@848r
+    L000000000000001C:   L000000000000001C [848r,976r:0) 0@848r
+  %2147483737 (VRM4): %89 [976r,1536r:0) 0@976r  L0000000000000002 [976r,1536r:0) 0@976r  L000000000000001C [976r,1536r:0) 0@976r  weight:1.229508e-02
+    L0000000000000002:   L0000000000000002 [976r,1536r:0) 0@976r
+    L000000000000001C:   L000000000000001C [976r,1536r:0) 0@976r
+  %2147483741 (VRM4): %93 [1536r,1712r:0) 0@1536r  L0000000000000002 [1536r,1712r:0) 0@1536r  L000000000000001C [1536r,1712r:0) 0@1536r  weight:2.027027e-02
+    L0000000000000002:   L0000000000000002 [1536r,1712r:0) 0@1536r
+    L000000000000001C:   L000000000000001C [1536r,1712r:0) 0@1536r
+  %2147483745 (VRM4): %97 [1712r,1888r:0) 0@1712r  L0000000000000002 [1712r,1888r:0) 0@1712r  L000000000000001C [1712r,1872r:0) 0@1712r  weight:2.083333e-02
+    L0000000000000002:   L0000000000000002 [1712r,1888r:0) 0@1712r
+    L000000000000001C:   L000000000000001C [1712r,1872r:0) 0@1712r
+  %2147483749 (VRM4): %101 [1872r,1952r:0) 0@1872r  L0000000000000002 [1872r,1952r:0) 0@1872r  L000000000000001C [1872r,1872d:0) 0@1872r  weight:1.666667e-02
+    L0000000000000002:   L0000000000000002 [1872r,1952r:0) 0@1872r
+    L000000000000001C:   L000000000000001C [1872r,1872d:0) 0@1872r
+  %2147483753 (GPR): %105 [816r,832r:0) 0@816r  weight:INF
+  %2147483754 (GPR): %106 [832r,3024r:0) 0@832r  weight:7.716049e-04
+  %2147483755 (VR): %107 [3024r,3040r:0) 0@3024r  weight:INF
+  %2147483758 (VRM8NoV0): %110 [3056r,3280r:0) 0@3056r  weight:2.564103e-02
+  %2147483762 (GPR): %114 [864r,880r:0) 0@864r  weight:INF
+  %2147483763 (GPR): %115 [880r,3248r:0) 0@880r  weight:7.225433e-04
+  %2147483764 (VR): %116 [3248r,3264r:0) 0@3248r  weight:INF
+  %2147483767 (VRM8NoV0): %119 [3296r,3344r:0) 0@3296r  weight:3.571429e-02
+  %2147483770 (VR): %122 [3344e,3616r:0) 0@3344e  weight:2.971768e-03
+  %2147483776 (VR): %128 [3280e,3616e:0)[3616e,4272r:1) 0@3280e 1@3616e  weight:2.900215e-03
+  %2147483779 (GPR): %131 [928r,3312r:0) 0@928r  weight:7.183908e-04
+  %2147483780 (VR): %132 [3312r,3328r:0) 0@3312r  weight:INF
+  %2147483786 (VRM8NoV0): %138 [3360r,3376e:2)[3376e,3408e:0)[3408e,3456r:1)[3456r,3488e:3)[3488e,3984r:4) 0@3376e 1@3408e 2@3360r 3@3456r 4@3488e  weight:7.812500e-02
+  %2147483789 (VR): %141 [3984e,4608r:0) 0@3984e  weight:1.970732e-03
+  %2147483794 (VRM4): %146 [1392r,1568r:0)[1568r,3440e:1)[3440e,3520e:2)[3520e,4256r:3) 0@1392r 1@1568r 2@3440e 3@3520e  L0000000000000002 [1392r,1568r:2)[1568r,3440e:0)[3440e,3520e:1)[3520e,4256r:3) 0@1568r 1@3440e 2@1392r 3@3520e  L000000000000001C [1392r,3440e:0)[3440e,3520e:1)[3520e,4256r:2) 0@1392r 1@3440e 2@3520e  weight:9.803922e-03
+    L0000000000000002:   L0000000000000002 [1392r,1568r:2)[1568r,3440e:0)[3440e,3520e:1)[3520e,4256r:3) 0@1568r 1@3440e 2@1392r 3@3520e
+    L000000000000001C:   L000000000000001C [1392r,3440e:0)[3440e,3520e:1)[3520e,4256r:2) 0@1392r 1@3440e 2@3520e
+  %2147483796 (VR): %148 [4256e,4656r:0) 0@4256e  weight:2.521848e-03
+  %2147483801 (VRM2): %153 [960r,1520r:0)[1520r,3632e:1)[3632e,4464r:2) 0@960r 1@1520r 2@3632e  L0000000000000002 [960r,1520r:2)[1520r,3632e:0)[3632e,4464r:1) 0@1520r 1@3632e 2@960r  L0000000000000004 [960r,3632e:0)[3632e,4464r:1) 0@960r 1@3632e  weight:3.073771e-03
+    L0000000000000002:   L0000000000000002 [960r,1520r:2)[1520r,3632e:0)[3632e,4464r:1) 0@1520r 1@3632e 2@960r
+    L0000000000000004:   L0000000000000004 [960r,3632e:0)[3632e,4464r:1) 0@960r 1@3632e
+  %2147483802 (VR): %154 [4464e,4704r:0) 0@4464e  weight:3.151326e-03
+  %2147483803 (GPR): %155 [1760r,1776r:0) 0@1760r  weight:INF
+  %2147483804 (GPR): %156 [1776r,5104r:0) 0@1776r  weight:5.364807e-04
+  %2147483805 (GPRNoX0): %157 [1584r,5056r:0) 0@1584r  weight:5.165289e-04
+  %2147483811 (VRM4NoV0): %163 [4624r,4752r:0) 0@4624r  weight:1.515152e-02
+  %2147483814 (VRM2NoV0): %166 [4672r,4784r:0) 0@4672r  weight:7.812500e-03
+  %2147483817 (VRNoV0): %169 [4720r,4976r:0) 0@4720r  weight:3.048780e-03
+  %2147483821 (VRM8): %173 [4752r,4848r:0) 0@4752r  L0000000000000006 [4752r,4848r:0) 0@4752r  L0000000000000018 [4752r,4848r:0) 0@4752r  weight:4.838710e-02
+    L0000000000000006:   L0000000000000006 [4752r,4848r:0) 0@4752r
+    L0000000000000018:   L0000000000000018 [4752r,4848r:0) 0@4752r
+  %2147483826 (VRM8): %178 [4784r,4976r:0) 0@4784r  L0000000000000002 [4784r,4976r:0) 0@4784r  L0000000000000004 [4784r,4960r:0) 0@4784r  weight:4.054054e-02
+    L0000000000000002:   L0000000000000002 [4784r,4976r:0) 0@4784r
+    L0000000000000004:   L0000000000000004 [4784r,4960r:0) 0@4784r
+  %2147483828 (VRM8NoV0): %180 [4560r,4848r:2)[4848r,4960r:0)[4960r,5024r:1)[5024r,5056r:3) 0@4848r 1@4960r 2@4560r 3@5024r  L0000000000000002 [4560r,4848r:2)[4848r,4960r:0)[4960r,5024r:1)[5024r,5056r:3) 0@4848r 1@4960r 2@4560r 3@5024r  L000000000000001C [4560r,4848r:2)[4848r,4960r:0)[4960r,5024r:1)[5024r,5056r:3) 0@4848r 1@4960r 2@4560r 3@5024r  L00000000000001E0 [4560r,4848r:2)[4848r,4960r:0)[4960r,5024r:1)[5024r,5056r:3) 0@4848r 1@4960r 2@4560r 3@5024r  weight:8.035714e-02
+    L0000000000000002:   L0000000000000002 [4560r,4848r:2)[4848r,4960r:0)[4960r,5024r:1)[5024r,5056r:3) 0@4848r 1@4960r 2@4560r 3@5024r
+    L000000000000001C:   L000000000000001C [4560r,4848r:2)[4848r,4960r:0)[4960r,5024r:1)[5024r,5056r:3) 0@4848r 1@4960r 2@4560r 3@5024r
+    L00000000000001E0:   L00000000000001E0 [4560r,4848r:2)[4848r,4960r:0)[4960r,5024r:1)[5024r,5056r:3) 0@4848r 1@4960r 2@4560r 3@5024r
+  %2147483830 (VRM8): %182 [4976r,5024r:0) 0@4976r  L0000000000000002 [4976r,5024r:0) 0@4976r  weight:INF
+    L0000000000000002:   L0000000000000002 [4976r,5024r:0) 0@4976r
+  %2147483834 (VR): %186 [5056r,5072r:0) 0@5056r  weight:INF
+  %2147483835 (GPR): %187 [5072r,5088r:0) 0@5072r  weight:INF
+  %2147483836 (GPR): %188 [5088r,5104r:0) 0@5088r  weight:INF
+  %2147483837 (GPR): %189 [5104r,5184r:0) 0@5104r  weight:INF
+  %2147483838 (VR): %190 [4736r,4864r:0) 0@4736r  weight:3.825758e-03
+  %2147483839 (VR): %191 [384r,4880r:0) 0@384r  weight:2.042484e-04
+  %2147483840 (VRNoV0): %192 [4880r,5216r:0) 0@4880r  weight:2.717391e-03
+  %2147483843 (VR): %195 [5184r,5216r:0) 0@5184r  weight:INF
+  %2147483845 (VR): %197 [5216r,5232r:0) 0@5216r  weight:INF
+  %2147483847 (VR): %199 [5232r,5248r:0) 0@5232r  weight:INF
+  %2147483848 (GPR): %200 [5248r,5264r:0) 0@5248r  weight:INF
+  %2147483849 (GPR): %201 [5264r,5312r:0) 0@5264r  weight:INF
+  %2147483851 (GPR): %203 [1792r,1808r:0) 0@1792r  weight:INF
+  %2147483870 (VRM8NoV0): %222 [1408r,1504r:0)[1504r,2080r:1)[2080r,2192r:2)[2192r,3392r:3)[3392r,3424r:4)[3424r,3440r:5) 0@1408r 1@1504r 2@2080r 3@2192r 4@3392r 5@3424r  L0000000000000010 [3424r,3440r:1) 0@x 1@3424r  L0000000000000006 [1408r,3440r:0) 0@1408r  L0000000000000008 [1504r,2064r:3)[2080r,2176r:1)[2192r,3376r:5)[3392r,3408r:7)[3424r,3440r:9) 0@x 1@2080r 2@x 3@1504r 4@x 5@2192r 6@x 7@3392r 8@x 9@3424r  weight:3.986842e-02
+    L0000000000000010:   L0000000000000010 [3424r,3440r:1) 0@x 1@3424r
+    L0000000000000006:   L0000000000000006 [1408r,3440r:0) 0@1408r
+    L0000000000000008:   L0000000000000008 [1504r,2064r:3)[2080r,2176r:1)[2192r,3376r:5)[3392r,3408r:7)[3424r,3440r:9) 0@x 1@2080r 2@x 3@1504r 4@x 5@2192r 6@x 7@3392r 8@x 9@3424r
+  %2147483895 (VRM8NoV0): %247 [752r,1968r:0)[1968r,2112r:1)[2112r,3472r:2)[3472r,3504r:3)[3504r,3536r:4)[3536r,4736r:5) 0@752r 1@1968r 2@2112r 3@3472r 4@3504r 5@3536r  L0000000000000002 [752r,4736r:0) 0@752r  L0000000000000004 [1968r,2096r:3)[2112r,2220r:1)[3472r,3488r:5)[3504r,3520r:7)[3536r,3632r:9) 0@x 1@2112r 2@x 3@1968r 4@x 5@3472r 6@x 7@3504r 8@x 9@3536r  weight:3.832117e-02
+    L0000000000000002:   L0000000000000002 [752r,4736r:0) 0@752r
+    L0000000000000004:   L0000000000000004 [1968r,2096r:3)[2112r,2220r:1)[3472r,3488r:5)[3504r,3520r:7)[3536r,3632r:9) 0@x 1@2112r 2@x 3@1968r 4@x 5@3472r 6@x 7@3504r 8@x 9@3536r
+  %2147483931 (VR): %283 [4712r,4720r:0) 0@4712r  weight:INF
+  %2147483932 (VR): %284 [352r,352d:0) 0@352r  weight:0.000000e+00
+  %2147483933 (VRM8NoV0): %285 [752r,1952r:0) 0@752r  L0000000000000002 [752r,1952r:0) 0@752r  weight:4.500000e-02
+    L0000000000000002:   L0000000000000002 [752r,1952r:0) 0@752r
+  %2147483934 (VRM8): %286 [3448r,3456r:0) 0@3448r  L0000000000000002 [3448r,3456r:0) 0@3448r  weight:INF
+    L0000000000000002:   L0000000000000002 [3448r,3456r:0) 0@3448r
+  %2147483935 (VRM8): %287 [1968r,2096r:0) 0@1968r  L0000000000000004 [1968r,2096r:0) 0@1968r  weight:3.030303e-02
+    L0000000000000004:   L0000000000000004 [1968r,2096r:0) 0@1968r
+  %2147483936 (VRM8): %288 [2112r,3448r:0) 0@2112r  L0000000000000004 [2112r,2220r:0) 0@2112r  weight:1.396313e-02
+    L0000000000000004:   L0000000000000004 [2112r,2220r:0) 0@2112r
+  %2147483937 (VRM8): %289 [3544r,4736r:0) 0@3544r  L0000000000000002 [3544r,4736r:0) 0@3544r  L0000000000000004 [3544r,3632r:0) 0@3544r  weight:1.522613e-02
+    L0000000000000002:   L0000000000000002 [3544r,4736r:0) 0@3544r
+    L0000000000000004:   L0000000000000004 [3544r,3632r:0) 0@3544r
+  %2147483938 (VRM8): %290 [3472r,3488r:0) 0@3472r  L0000000000000004 [3472r,3488r:0) 0@3472r  weight:INF
+    L0000000000000004:   L0000000000000004 [3472r,3488r:0) 0@3472r
+  %2147483939 (VRM8): %291 [3504r,3520r:0) 0@3504r  L0000000000000004 [3504r,3520r:0) 0@3504r  weight:INF
+    L0000000000000004:   L0000000000000004 [3504r,3520r:0) 0@3504r
+  %2147483940 (VRM8): %292 [3536r,3544r:0) 0@3536r  L0000000000000004 [3536r,3544r:0) 0@3536r  weight:INF
+    L0000000000000004:   L0000000000000004 [3536r,3544r:0) 0@3536r
+  %2147483941 (VRM2): %293 [1528r,3632e:0)[3632e,4464r:1) 0@1528r 1@3632e  L0000000000000004 [1528r,3632e:0)[3632e,4464r:1) 0@1528r 1@3632e  L0000000000000002 [1528r,3632e:0)[3632e,4464r:1) 0@1528r 1@3632e  weight:2.422062e-03
+    L0000000000000004:   L0000000000000004 [1528r,3632e:0)[3632e,4464r:1) 0@1528r 1@3632e
+    L0000000000000002:   L0000000000000002 [1528r,3632e:0)[3632e,4464r:1) 0@1528r 1@3632e
+  %2147483942 (VRM2): %294 [960r,1520r:0)[1520r,1528r:1) 0@960r 1@1520r  L0000000000000004 [960r,1528r:0) 0@960r  L0000000000000002 [960r,1520r:0)[1520r,1528r:1) 0@960r 1@1520r  weight:8.347107e-03
+    L0000000000000004:   L0000000000000004 [960r,1528r:0) 0@960r
+    L0000000000000002:   L0000000000000002 [960r,1520r:0)[1520r,1528r:1) 0@960r 1@1520r
+  %2147483943 (VRM2): %295 [4664r,4672r:0) 0@4664r  weight:INF
+  %2147483944 (VRM2): %296 [416r,416d:0) 0@416r  weight:0.000000e+00
+  %2147483945 (VRM4): %297 [4616r,4624r:0) 0@4616r  weight:INF
+  %2147483946 (VRM4): %298 [1632r,1632d:0) 0@1632r  weight:0.000000e+00
+  %2147483947 (VRM8): %299 [4472r,4560r:0) 0@4472r  weight:INF
+  %2147483948 (VRM8): %300 [1640r,1648r:0) 0@1640r  weight:INF
+  %2147483949 (VRM8): %301 [720r,728r:0) 0@720r  weight:INF
+  %2147483950 (VRM8): %302 [1896r,1904r:0) 0@1896r  weight:INF
+  %2147483951 (VRM8): %303 [3352r,3360r:0) 0@3352r  weight:INF
+  %2147483954 (VRM8): %306 [1888e,1952e:0)[1952e,3056r:1) 0@1888e 1@1952e  L0000000000000100 [1952e,3056r:0) 0@1952e  L0000000000000080 [1888e,3056r:0) 0@1888e  weight:2.039516e-02
+    L0000000000000100:   L0000000000000100 [1952e,3056r:0) 0@1952e
+    L0000000000000080:   L0000000000000080 [1888e,3056r:0) 0@1888e
+  %2147483955 (VRM8): %307 [2096e,2104r:0) 0@2096e  weight:INF
+  %2147483956 (VRM8): %308 [2200r,2220e:1)[2220e,2228r:0) 0@2220e 1@2200r  weight:INF
+  %2147483957 (VRM8): %309 [3288r,3296r:0) 0@3288r  weight:INF
+
+========================================
+END MIR DUMP - About to crash...
+========================================
+
+SubRange for this mask not found
+UNREACHABLE executed at /llvm/lib/CodeGen/SplitKit.cpp:451!
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: /bin/clangac -cc1 -fno-signed-char -fshort-enums -fwchar-type=short -fno-signed-wchar -emit-obj -D__CLANG__ -D_ATT4 -D__HAS_LONGLONG -D__STDC_LIB_EXT1__ -D_REENTRANT=1 -D_MT=1 -Wunknown-pragmas -mllvm -install-dir=/ARC/MetaWare/arc -main-file-name crash.c -x c -target-cpu arcv-rpx -D_ARCVER=0x300 -target-feature +core0 -target-feature +prefer-w-inst -target-feature +rv-store-graduation -mllvm -arc-post-ra-misched=true -mllvm -riscv-expand-post-sched2 -mrelocation-model static -mllvm -single-tls-section -mlong-double-64 -D__STDC_IEC_559__ -mllvm -enable-trunc-shift=0 -fgnuc-version=4.2.1 -nostdsysteminc -nobuiltininc -fno-verbose-asm -Wuninitialized -Wno-logical-op-parentheses -Wunused-variable -mllvm -speculate-one-expensive-inst=0 -mllvm -scev-cheap-expansion-budget=3 -D__CCAC__=120001 -D__MWVER__=202603 -D__MWBUILD__=0 -D__LLVM__=1 -D_AV5RPX -D_ARC -D_ARC5 -D__ARCV__ -triple riscv64-pc-unknown-gnu -D_LE -D_ARC_LE -mllvm -misched-prera-direction=topdown -mllvm -debug -target-feature +relax -mllvm "--comment=-av5rpx -O2 -Zve32x -Zvl64b" -fmetaware -fdeclspec -Werror=int-conversion -Werror=incompatible-pointer-types -Werror=incompatible-function-pointer-types -ferror-limit 20 -ffp-contract=on -D__Xunaligned -D__riscv_misaligned_fast -target-feature +unaligned-scalar-mem -target-feature +m -D__Zm -target-feature +a -D__Za -target-feature +zca -D__Zca -target-feature +zcb -D__Zcb -target-feature +zba -D__Zba -target-feature +zbb -D__Zbb -target-feature +zbs -D__Zbs -target-feature +zifencei -D__Zifencei -target-feature +zihintpause -D__Zihintpause -target-feature +zicsr -D__Zicsr -target-feature +zicbom -D__Zicbom -target-feature +zicbop -D__Zicbop -target-feature +zicboz -D__Zicboz -target-feature +zic64b -D__Zic64b -target-feature +ziccamoa -D__Ziccamoa -target-feature +za64rs -D__Za64rs -target-feature +zicond -D__Zicond -target-feature +zicntr -D__Zicntr -target-feature +zve32x -target-feature +zvl64b -D__Zve32x -D__Zvlen=64 -mllvm -riscv-v-vector-bits-min=64 -mllvm -scalable-vectorization=off -target-feature +exclude-mul-add-fusion64 -target-feature +fusion-bundles -D_GNU_SOURCE -D__PICOLIBC__=1 -faligned-allocation -mllvm -phi-node-folding-threshold=1 -mllvm -simplifycfg-sink-common=0 -mllvm -hoist-common-insts -mllvm -arc-load-store-vectorize -mllvm -riscv-no-cm-push-pop -mllvm -riscv-gep-opt=true -mllvm -tail-dup-size=4 -mllvm -enable-ipra=1 -mllvm -pipeliner-max-stages=1 -O2 -mllvm -opt-level=-O2 -D_Unaligned=__attribute__((__unaligned__)) -D_Packed=__attribute__((__aligned_packed__)) -D_Unpacked=__attribute__((__unpacked__)) -D_Inline=inline -D_CC(x)=__attribute__((x)) -D_FORCE_INLINE=__always_inline__ -D_NO_STACK=__naked__ -D_ASM(x)=__asm(x) -D_Asm=__asm__ -D__Mmedium -vectorize-loops -mllvm -extra-vectorizer-passes -vectorize-slp -mllvm -slp-vectorize-hor-store=true -mllvm -slp-min-reg-size=32 -mllvm -use-noalias-intrinsic-during-inlining=scopes -fno-full-restrict -mllvm -canonicalize-loop-exit=0 -mllvm -unroll-runtime-epilog=false -funderscore "-D_Rarely(x)=__builtin_expect((x) != 0,0)" "-D_Usually(x)=__builtin_expect((x) != 0,1)" -internal-isystem /ARC/MetaWare/arc/lib/src/pico/inc -internal-isystem /ARC/MetaWare/arc/lib/src/pico/libc_g/tinystdio -internal-isystem /ARC/MetaWare/arc/inc/riscv -o crash.o crash.c
+1.	<eof> parser at end of file
+2.	Code generation
+3.	Running pass 'CallGraph Pass Manager' on module 'crash.c'.
+4.	Running pass 'Greedy Register Allocator' on function '@o'
+ #0 0x000055555ecd0ec9 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) /llvm/lib/Support/Unix/Signals.inc:834:11
+ #1 0x000055555ecd13fb PrintStackTraceSignalHandler(void*) /llvm/lib/Support/Unix/Signals.inc:918:1
+ #2 0x000055555eccf54f llvm::sys::RunSignalHandlers() /llvm/lib/Support/Signals.cpp:104:5
+ #3 0x000055555ecd1929 SignalHandler(int, siginfo_t*, void*) /llvm/lib/Support/Unix/Signals.inc:426:38
+ #4 0x00007ffff7bce630 __restore_rt sigaction.c:0:0
+ #5 0x00007ffff6f03387 raise (/lib64/libc.so.6+0x36387)
+ #6 0x00007ffff6f04a78 abort (/lib64/libc.so.6+0x37a78)
+ #7 0x000055555ec08868 /llvm/lib/Support/ErrorHandling.cpp:244:3
+ #8 0x000055555e0076ba (bin/clangac+0x8ab36ba)
+ #9 0x000055555e0089f4 llvm::SplitEditor::addDeadDef(llvm::LiveInterval&, llvm::VNInfo*, bool) /llvm/lib/CodeGen/SplitKit.cpp:631:13
+#10 0x000055555e008fff llvm::SplitEditor::defValue(unsigned int, llvm::VNInfo const*, llvm::SlotIndex, bool) /llvm/lib/CodeGen/SplitKit.cpp:695:10
+#11 0x000055555e00f847 llvm::SplitEditor::finish(llvm::SmallVectorImpl<unsigned int>*) /llvm/lib/CodeGen/SplitKit.cpp:1741:5
+#12 0x000055555df01d24 llvm::RAGreedy::tryInstructionSplit(llvm::LiveInterval const&, llvm::AllocationOrder&, llvm::SmallVectorImpl<llvm::Register>&) /llvm/lib/CodeGen/RegAllocGreedy.cpp:1636:7
+#13 0x000055555df040b2 llvm::RAGreedy::trySplit(llvm::LiveInterval const&, llvm::AllocationOrder&, llvm::SmallVectorImpl<llvm::Register>&, llvm::SmallSet<llvm::Register, 16u, std::__1::less<llvm::Register>> const&) /llvm/lib/CodeGen/RegAllocGreedy.cpp:1985:12
+#14 0x000055555df05c06 llvm::RAGreedy::selectOrSplitImpl(llvm::LiveInterval const&, llvm::SmallVectorImpl<llvm::Register>&, llvm::SmallSet<llvm::Register, 16u, std::__1::less<llvm::Register>>&, llvm::SmallVector<std::__1::pair<llvm::LiveInterval const*, llvm::MCRegister>, 8u>&, unsigned int) /llvm/lib/CodeGen/RegAllocGreedy.cpp:2667:26
+#15 0x000055555df0611e llvm::RAGreedy::selectOrSplit(llvm::LiveInterval const&, llvm::SmallVectorImpl<llvm::Register>&) /llvm/lib/CodeGen/RegAllocGreedy.cpp:2329:7
+#16 0x000055555de8f013 llvm::RegAllocBase::allocatePhysRegs() /llvm/lib/CodeGen/RegAllocBase.cpp:129:35
+#17 0x000055555defbc11 llvm::RAGreedy::run(llvm::MachineFunction&) /llvm/lib/CodeGen/RegAllocGreedy.cpp:2941:3
+#18 0x000055555df08961 (anonymous namespace)::RAGreedyLegacy::runOnMachineFunction(llvm::MachineFunction&) /llvm/lib/CodeGen/RegAllocGreedy.cpp:296:15
+#19 0x000055555dc0a56b llvm::MachineFunctionPass::runOnFunction(llvm::Function&) /llvm/lib/CodeGen/MachineFunctionPass.cpp:123:8
+#20 0x000055555e49fe4f llvm::FPPassManager::runOnFunction(llvm::Function&) /llvm/lib/IR/LegacyPassManager.cpp:1408:23
+#21 0x000055555e16efa1 (anonymous namespace)::CGPassManager::RunPassOnSCC(llvm::Pass*, llvm::CallGraphSCC&, llvm::CallGraph&, bool&, bool&) /llvm/lib/Analysis/CallGraphSCCPass.cpp:179:20
+#22 0x000055555e16e9c9 (anonymous namespace)::CGPassManager::RunAllPassesOnSCC(llvm::CallGraphSCC&, llvm::CallGraph&, bool&) /llvm/lib/Analysis/CallGraphSCCPass.cpp:467:10
+#23 0x000055555e16e3f0 (anonymous namespace)::CGPassManager::runOnModule(llvm::Module&) /llvm/lib/Analysis/CallGraphSCCPass.cpp:533:18
+#24 0x000055555e4a0839 (anonymous namespace)::MPPassManager::runOnModule(llvm::Module&) /llvm/lib/IR/LegacyPassManager.cpp:1532:23
+#25 0x000055555e4a040f llvm::legacy::PassManagerImpl::run(llvm::Module&) /llvm/lib/IR/LegacyPassManager.cpp:541:16
+#26 0x000055555e4a4801 llvm::legacy::PassManager::run(llvm::Module&) /llvm/lib/IR/LegacyPassManager.cpp:1663:3
+#27 0x000055555fade1af (anonymous namespace)::EmitAssemblyHelper::RunCodegenPipeline(clang::BackendAction, std::__1::unique_ptr<llvm::raw_pwrite_stream, std::__1::default_delete<llvm::raw_pwrite_stream>>&, std::__1::unique_ptr<llvm::ToolOutputFile, std::__1::default_delete<llvm::ToolOutputFile>>&) /clang/lib/CodeGen/BackendUtil.cpp:1272:19
+#28 0x000055555fad6c3f (anonymous namespace)::EmitAssemblyHelper::emitAssembly(clang::BackendAction, std::__1::unique_ptr<llvm::raw_pwrite_stream, std::__1::default_delete<llvm::raw_pwrite_stream>>, clang::BackendConsumer*) /clang/lib/CodeGen/BackendUtil.cpp:1298:7
+#29 0x000055555fad6164 clang::emitBackendOutput(clang::CompilerInstance&, clang::CodeGenOptions&, llvm::StringRef, llvm::Module*, clang::BackendAction, llvm::IntrusiveRefCntPtr<llvm::vfs::FileSystem>, std::__1::unique_ptr<llvm::raw_pwrite_stream, std::__1::default_delete<llvm::raw_pwrite_stream>>, clang::BackendConsumer*) /clang/lib/CodeGen/BackendUtil.cpp:1461:3
+#30 0x000055555fb0278b clang::BackendConsumer::HandleTranslationUnit(clang::ASTContext&) /clang/lib/CodeGen/CodeGenAction.cpp:326:3
+#31 0x0000555562ad6b34 clang::ParseAST(clang::Sema&, bool, bool) /clang/lib/Parse/ParseAST.cpp:198:12
+#32 0x00005555602cb649 clang::ASTFrontendAction::ExecuteAction() /clang/lib/Frontend/FrontendAction.cpp:1343:1
+#33 0x000055555fb0634d clang::CodeGenAction::ExecuteAction() /clang/lib/CodeGen/CodeGenAction.cpp:1122:5
+#34 0x00005555602cb096 clang::FrontendAction::Execute() /clang/lib/Frontend/FrontendAction.cpp:1225:7
+#35 0x00005555601ebf5f clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) /clang/lib/Frontend/CompilerInstance.cpp:1057:23
+#36 0x0000555560497cea clang::ExecuteCompilerInvocation(clang::CompilerInstance*) /clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp:299:8
+#37 0x000055555c09db67 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) /clang/tools/driver/cc1_main.cpp:298:13
+#38 0x000055555c06ea1e ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&) /clang/tools/driver/driver.cpp:223:5
+#39 0x000055555c06d837 clang_main(int, char**, llvm::ToolContext const&) /clang/tools/driver/driver.cpp:264:5
+#40 0x000055555c0be995 main /llvm/build_clang/tools/clang/tools/driver/clang-driver.cpp:17:3
+#41 0x00007ffff6eef555 __libc_start_main (/lib64/libc.so.6+0x22555)
+#42 0x000055555c06d329 _start (bin/clangac+0x6b19329)
+
+============================================
+=                                          =
+= ccac version:    21.1.8                  =
+= build timestamp: Jan 28 2026 17:26:42    =
+=                                          =
+============================================
+

@@ -1,0 +1,1083 @@
+source_filename = "/mnt/main/dev/qatlang/qat/./test/main.qat"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+module asm ".text"
+module asm "hello_world: .asciz \22hellothere \\n\22"
+
+%qat.typeid = type { %"qat'text" }
+%"qat'text" = type { ptr, i64 }
+%"qat'type_SomeTy:[qat'i32,10]" = type { i32 }
+%"qat'type_SomeTy:[qat'i64,10]" = type { i64 }
+%"qat'type_SomeTy:[qat'i64,-17]" = type { i64 }
+%"qat'type_mix_MyMixType" = type { i3, i128 }
+%"qat'result:[qat'i32,qat'text]" = type { i1, i128 }
+%"qat'maybe:[qat'i32]" = type { i1, i32 }
+%"qat'type_OneTy:[0]" = type { i64 }
+%"qat'type_StrTy:[\22Hello\22]" = type { ptr }
+%"qat'type_StrTy:[\22hola\22]" = type { ptr }
+%"qat'type_SomeFTy:[0xL0000000000000000BFFE000000000000]" = type { ptr }
+%"qat'lib_std:type_StringBase:[qat'u8]" = type { %"qat'multi:[var qat'u8,heap]", i64 }
+%"qat'multi:[var qat'u8,heap]" = type { ptr, i64 }
+%"qat'type_NewTy" = type { i32 }
+%"qat'lib_std:type_Matrix:[4,2,qat'i32]" = type { [8 x i32] }
+%"qat'lib_std:type_Matrix:[4,4,qat'i32]" = type { [16 x i32] }
+%"qat'lib_std:type_Matrix:[2,2,qat'i32]" = type { [4 x i32] }
+%"qat'lib_std:type_Matrix:[2,4,qat'i32]" = type { [8 x i32] }
+%"qat'type_toggle_GenericToggle:[qat'f64].1" = type { double }
+%"qat'type_TestStructTy:[qat'u64]" = type { i64 }
+%"qat'type_toggle_MyToggleType.0" = type { i32, [4 x i8] }
+%"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]" = type { ptr, i64 }
+%"qat'multi:[qat'nativetype:[bytestring!]]" = type { ptr, i64 }
+%"qat'type_StrTy:[\22hellolo\22]" = type { ptr }
+%"qat'type_StrTy:[\22dfjls\22]" = type { ptr }
+
+@"qat'text'1" = private unnamed_addr constant [42 x i8] c".text\0Ahello_world: .asciz \22hellothere \\n\22\00", align 1
+@"qat'text'97" = private unnamed_addr constant [7 x i8] c"Vec fn\00", align 1
+@"qat'text'98" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'99" = private unnamed_addr constant [15 x i8] c"Ending pointer\00", align 1
+@"qat'text'100" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'101" = private unnamed_addr constant [5 x i8] c"hola\00", align 1
+@"qat'text'102" = private unnamed_addr constant [6 x i8] c"dfjls\00", align 1
+@"qat'text'103" = private unnamed_addr constant [6 x i8] c"dfjls\00", align 1
+@"qat'text'104" = private unnamed_addr constant [6 x i8] c"S is \00", align 1
+@"qat'text'105" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'106" = private unnamed_addr constant [6 x i8] c"a is \00", align 1
+@"qat'text'107" = private unnamed_addr constant [8 x i8] c"%.*s%p\0A\00", align 1
+@"qat'text'108" = private unnamed_addr constant [28 x i8] c"StrTy is destroyed and S = \00", align 1
+@"qat'text'109" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'110" = private unnamed_addr constant [6 x i8] c"S is \00", align 1
+@"qat'text'111" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'112" = private unnamed_addr constant [6 x i8] c"a is \00", align 1
+@"qat'text'113" = private unnamed_addr constant [8 x i8] c"%.*s%p\0A\00", align 1
+@"qat'text'114" = private unnamed_addr constant [28 x i8] c"StrTy is destroyed and S = \00", align 1
+@"qat'text'115" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'116" = private unnamed_addr constant [16 x i8] c"Ending pointer2\00", align 1
+@"qat'text'117" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'118" = private unnamed_addr constant [8 x i8] c"hellolo\00", align 1
+@"qat'text'119" = private unnamed_addr constant [6 x i8] c"dfjls\00", align 1
+@"qat'text'120" = private unnamed_addr constant [6 x i8] c"S is \00", align 1
+@"qat'text'121" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'122" = private unnamed_addr constant [6 x i8] c"a is \00", align 1
+@"qat'text'123" = private unnamed_addr constant [8 x i8] c"%.*s%p\0A\00", align 1
+@"qat'text'124" = private unnamed_addr constant [28 x i8] c"StrTy is destroyed and S = \00", align 1
+@"qat'text'125" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'126" = private unnamed_addr constant [5 x i8] c"\F0\9F\98\8A\00", align 1
+@"qat'text'127" = private unnamed_addr constant [22 x i8] c"UTF-8 encoding test: \00", align 1
+@"qat'text'128" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'129" = private unnamed_addr constant [19 x i8] c"Flag value is none\00", align 1
+@"qat'text'130" = private unnamed_addr constant [23 x i8] c"Flag value is not none\00", align 1
+@"qat'text'131" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'132" = private unnamed_addr constant [25 x i8] c"Maybe variable has value\00", align 1
+@"qat'text'133" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'134" = private unnamed_addr constant [27 x i8] c"Maybe underlying value is \00", align 1
+@"qat'text'135" = private unnamed_addr constant [138 x i8] c"The maybe expression of type maybe:[i32] does not contain a value in it, so failed to affirm that this expression has a value of type i32\00", align 1
+@"qat'text'136" = private unnamed_addr constant [80 x i8] c"\0AFunction main panicked at /mnt/main/dev/qatlang/qat/./test/main.qat:191:35 => \00", align 1
+@"qat'text'137" = private unnamed_addr constant [11 x i8] c"%.*s%.*s\0A\0A\00", align 1
+@"qat'text'138" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'139" = private unnamed_addr constant [23 x i8] c"Inline matching bool: \00", align 1
+@"qat'text'140" = private unnamed_addr constant [6 x i8] c"hello\00", align 1
+@"qat'text'141" = private unnamed_addr constant [4 x i8] c"bye\00", align 1
+@"qat'text'142" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'143" = private unnamed_addr constant [24 x i8] c"Inline matching choice \00", align 1
+@"qat'text'144" = private unnamed_addr constant [6 x i8] c"first\00", align 1
+@"qat'text'145" = private unnamed_addr constant [7 x i8] c"second\00", align 1
+@"qat'text'146" = private unnamed_addr constant [6 x i8] c"third\00", align 1
+@"qat'text'147" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'lib_type:global_info" = external externally_initialized constant [18446744073709551615 x %qat.typeid]
+@"qat'text'149" = private unnamed_addr constant [33 x i8] c"Toggle value, second variant is \00", align 1
+@"qat'text'150" = private unnamed_addr constant [8 x i8] c"%.*s%f\0A\00", align 1
+@"qat'text'151" = private unnamed_addr constant [26 x i8] c"Prerun function value is \00", align 1
+@"qat'text'152" = private unnamed_addr constant [19 x i8] c"Starting value is \00", align 1
+@"qat'text'153" = private unnamed_addr constant [13 x i8] c"Else is true\00", align 1
+@"qat'text'154" = private unnamed_addr constant [20 x i8] c"Hello world in loop\00", align 1
+@"qat'text'155" = private unnamed_addr constant [8 x i8] c"%.*s15\0A\00", align 1
+@"qat'text'156" = private unnamed_addr constant [25 x i8] c"The max value of i64 is \00", align 1
+@"qat'text'157" = private unnamed_addr constant [25 x i8] c"%.*s9223372036854775807\0A\00", align 1
+@"qat'text'158" = private unnamed_addr constant [55 x i8] c".intel_syntax noprefix\0A\09\09\09mov eax, ecx\0A\09\09\09add eax, edx\00", align 1
+@"qat'text'159" = private unnamed_addr constant [3 x i8] c"=r\00", align 1
+@"qat'text'160" = private unnamed_addr constant [2 x i8] c"r\00", align 1
+@"qat'text'161" = private unnamed_addr constant [2 x i8] c"r\00", align 1
+@"qat'text'162" = private unnamed_addr constant [19 x i8] c"Assembly value is \00", align 1
+@"qat'text'163" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'194" = private unnamed_addr constant [21 x i8] c"which qat result is \00", align 1
+@"qat'text'195" = private unnamed_addr constant [11 x i8] c"which  qat\00", align 1
+@"qat'text'196" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'197" = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
+@"qat'text'198" = private unnamed_addr constant [3 x i8] c"Ok\00", align 1
+@"qat'text'199" = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
+@"qat'text'200" = private unnamed_addr constant [15 x i8] c"String matched\00", align 1
+@"qat'text'201" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'202" = private unnamed_addr constant [14 x i8] c"Arg count is \00", align 1
+@"qat'text'203" = private unnamed_addr constant [8 x i8] c"%.*s%u\0A\00", align 1
+@"qat'text'204" = private unnamed_addr constant [18 x i8] c"f64 to string is \00", align 1
+@"qat'text'207" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'208" = private unnamed_addr constant [5 x i8] c"This\00", align 1
+@"qat'text'209" = private unnamed_addr constant [3 x i8] c"10\00", align 1
+@"qat'text'210" = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
+@"qat'text'211" = private unnamed_addr constant [6 x i8] c"Other\00", align 1
+@"qat'text'212" = private unnamed_addr constant [8 x i8] c"Another\00", align 1
+@"qat'text'213" = private unnamed_addr constant [6 x i8] c"Other\00", align 1
+@"qat'text'214" = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
+@"qat'text'215" = private unnamed_addr constant [16 x i8] c"Tuple value is \00", align 1
+@"qat'text'216" = private unnamed_addr constant [17 x i8] c" array value is \00", align 1
+@"qat'text'217" = private unnamed_addr constant [22 x i8] c"%.*s(0; 0)%.*s[0, 2]\0A\00", align 1
+@"qat'text'218" = private unnamed_addr constant [17 x i8] c"String value is \00", align 1
+@"qat'text'219" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'220" = private unnamed_addr constant [6 x i8] c"kjdfs\00", align 1
+@"qat'text'221" = private unnamed_addr constant [4 x i8] c"324\00", align 1
+@"qat'text'222" = private unnamed_addr constant [5 x i8] c"hola\00", align 1
+@"qat'text'223" = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
+@"qat'text'224" = private unnamed_addr constant [6 x i8] c"dfjls\00", align 1
+@"qat'text'225" = private unnamed_addr constant [6 x i8] c"S is \00", align 1
+@"qat'text'226" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'227" = private unnamed_addr constant [6 x i8] c"a is \00", align 1
+@"qat'text'228" = private unnamed_addr constant [8 x i8] c"%.*s%p\0A\00", align 1
+@"qat'text'229" = private unnamed_addr constant [28 x i8] c"StrTy is destroyed and S = \00", align 1
+@"qat'text'230" = private unnamed_addr constant [10 x i8] c"%.*s%.*s\0A\00", align 1
+@"qat'text'231" = private unnamed_addr constant [32 x i8] c"Created OneType. Value of a is \00", align 1
+@"qat'text'232" = private unnamed_addr constant [8 x i8] c"%.*s%u\0A\00", align 1
+@"qat'text'233" = private unnamed_addr constant [21 x i8] c"OneType is destroyed\00", align 1
+@"qat'text'234" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'236" = private unnamed_addr constant [20 x i8] c"Created some type: \00", align 1
+@"qat'text'237" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'238" = private unnamed_addr constant [27 x i8] c"SomeTy is destroyed. a is \00", align 1
+@"qat'text'239" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'240" = private unnamed_addr constant [20 x i8] c"Created some type: \00", align 1
+@"qat'text'241" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'242" = private unnamed_addr constant [27 x i8] c"SomeTy is destroyed. a is \00", align 1
+@"qat'text'243" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'244" = private unnamed_addr constant [20 x i8] c"Created some type: \00", align 1
+@"qat'text'245" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'246" = private unnamed_addr constant [27 x i8] c"SomeTy is destroyed. a is \00", align 1
+@"qat'text'247" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'248" = private unnamed_addr constant [14 x i8] c"Mix is a or b\00", align 1
+@"qat'text'249" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'250" = private unnamed_addr constant [11 x i8] c"match else\00", align 1
+@"qat'text'251" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'252" = private unnamed_addr constant [7 x i8] c"Giving\00", align 1
+@"qat'text'253" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'254" = private unnamed_addr constant [14 x i8] c"Something is \00", align 1
+@"qat'text'255" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'256" = private unnamed_addr constant [6 x i8] c"Other\00", align 1
+@"qat'text'257" = private unnamed_addr constant [8 x i8] c"%.*s%i\0A\00", align 1
+@"qat'text'258" = private unnamed_addr constant [15 x i8] c"Something else\00", align 1
+@"qat'text'259" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'260" = private unnamed_addr constant [22 x i8] c"Doing first for NewTy\00", align 1
+@"qat'text'261" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+@"qat'text'262" = private unnamed_addr constant [23 x i8] c"Doing second for NewTy\00", align 1
+@"qat'text'263" = private unnamed_addr constant [6 x i8] c"%.*s\0A\00", align 1
+
+define void @"qat'fn_vec_fn"(<vscale x 8 x i1> %0) {
+"0b":
+  %1 = call i32 (ptr, ...) @printf(ptr @"qat'text'98", i64 6, ptr @"qat'text'97")
+  ret void
+}
+
+define i32 @"qat'fn_demoFn"() {
+"0b":
+  unreachable
+}
+
+define i32 @main(i32 %0, ptr %1) {
+"0b":
+  %"61_new" = alloca %"qat'type_SomeTy:[qat'i32,10]", align 8
+  %"59_new" = alloca %"qat'type_SomeTy:[qat'i64,10]", align 8
+  %"57_new" = alloca %"qat'type_SomeTy:[qat'i64,10]", align 8
+  %sdsf = alloca i8, align 1
+  %s = alloca %"qat'type_SomeTy:[qat'i32,10]", align 8
+  %o = alloca %"qat'type_SomeTy:[qat'i64,-17]", align 8
+  %m = alloca %"qat'type_mix_MyMixType", align 16
+  %k = alloca i1, align 1
+  %e = alloca i2, align 1
+  %ooo = alloca %"qat'result:[qat'i32,qat'text]", align 16
+  %c = alloca %"qat'maybe:[qat'i32]", align 8
+  %ownedOne = alloca %"qat'type_OneTy:[0]", align 8
+  %dsfs = alloca %"qat'type_OneTy:[0]", align 8
+  %ss = alloca %"qat'type_StrTy:[\22Hello\22]", align 8
+  %sk = alloca %"qat'type_StrTy:[\22hola\22]", align 8
+  %someF = alloca %"qat'type_SomeFTy:[0xL0000000000000000BFFE000000000000]", align 8
+  %strVal = alloca %"qat'text", align 8
+  %ind = alloca i64, align 8
+  %dskjf = alloca i8, align 1
+  %a = alloca { i32, i32 }, align 8
+  %stri = alloca %"qat'lib_std:type_StringBase:[qat'u8]", align 8
+  %"37_new" = alloca %"qat'lib_std:type_StringBase:[qat'u8]", align 8
+  %"35_new" = alloca %"qat'lib_std:type_StringBase:[qat'u8]", align 8
+  %sample = alloca %"qat'text", align 8
+  %vec20 = alloca <6 x i8>, align 8
+  %vec10 = alloca <4 x i8>, align 4
+  %nnn = alloca %"qat'type_NewTy", align 8
+  %mm3 = alloca %"qat'lib_std:type_Matrix:[4,2,qat'i32]", align 8
+  %mm4 = alloca %"qat'lib_std:type_Matrix:[4,4,qat'i32]", align 8
+  %mul = alloca %"qat'lib_std:type_Matrix:[2,2,qat'i32]", align 8
+  %vecresult = alloca <4 x i32>, align 16
+  %vec2 = alloca <4 x i32>, align 16
+  %vec1 = alloca <4 x i32>, align 16
+  %mm = alloca %"qat'lib_std:type_Matrix:[4,4,qat'i32]", align 8
+  %mmt = alloca %"qat'lib_std:type_Matrix:[4,2,qat'i32]", align 8
+  %mm2 = alloca %"qat'lib_std:type_Matrix:[2,4,qat'i32]", align 8
+  %intVal3 = alloca i32, align 4
+  %intVal2 = alloca i64, align 8
+  %intVal = alloca i64, align 8
+  %genTogg = alloca %"qat'type_toggle_GenericToggle:[qat'f64].1", align 8
+  %oneVal = alloca %"qat'type_TestStructTy:[qat'u64]", align 8
+  %toggVal = alloca %"qat'type_toggle_MyToggleType.0", align 8
+  %choiceVal = alloca i2, align 1
+  %maybeVal = alloca %"qat'maybe:[qat'i32]", align 8
+  %flagVal = alloca i8, align 1
+  %boolVal = alloca i1, align 1
+  %utf8Text = alloca %"qat'text", align 8
+  %utf8Char = alloca i21, align 4
+  %ptrTest4 = alloca %"qat'multi:[var qat'u8,heap]", align 8
+  %"8_new" = alloca %"qat'multi:[var qat'u8,heap]", align 8
+  %"qat'index" = alloca i64, align 8
+  %ptrTest3 = alloca %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]", align 8
+  %"5_new" = alloca %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]", align 8
+  %ptrTest2 = alloca ptr, align 8
+  %ptrTest = alloca ptr, align 8
+  %arrFlags = alloca [2 x i8], align 1
+  %args = alloca %"qat'multi:[qat'nativetype:[bytestring!]]", align 8
+  %2 = getelementptr inbounds nuw %"qat'multi:[qat'nativetype:[bytestring!]]", ptr %args, i32 0, i32 0
+  store ptr %1, ptr %2, align 8
+  %3 = zext i32 %0 to i64
+  %4 = getelementptr inbounds nuw %"qat'multi:[qat'nativetype:[bytestring!]]", ptr %args, i32 0, i32 1
+  store i64 %3, ptr %4, align 8
+  %5 = getelementptr inbounds [2 x i8], ptr %arrFlags, i64 0, i64 0
+  store i8 0, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %6, align 1
+  %7 = call ptr @malloc(i64 1)
+  store ptr %7, ptr %ptrTest, align 8
+  %8 = load ptr, ptr %ptrTest, align 8
+  store i8 0, ptr %8, align 1
+  %9 = call i32 (ptr, ...) @printf(ptr @"qat'text'100", i64 14, ptr @"qat'text'99")
+  %10 = call ptr @malloc(i64 8)
+  %11 = ptrtoint ptr %10 to i64
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %"0b_0b", label %"1b"
+
+"0b_0b":                                          ; preds = %"0b"
+  call void @"qat'type_StrTy:[\22hola\22]:constructor_default"(ptr undef)
+  br label %"1b"
+
+"1b":                                             ; preds = %"0b_0b", %"0b"
+  store ptr %10, ptr %ptrTest2, align 8
+  %13 = load ptr, ptr %ptrTest2, align 8
+  call void @"qat'type_StrTy:[\22hola\22]:destructor"(ptr %13)
+  %14 = call i32 (ptr, ...) @printf(ptr @"qat'text'117", i64 15, ptr @"qat'text'116")
+  %15 = call ptr @malloc(i64 160)
+  %16 = getelementptr inbounds nuw %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]", ptr %"5_new", i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds nuw %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]", ptr %"5_new", i32 0, i32 1
+  store i64 20, ptr %17, align 8
+  %18 = load %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]", ptr %"5_new", align 8
+  store %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]" %18, ptr %ptrTest3, align 8
+  %19 = load %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]", ptr %ptrTest3, align 8
+  %20 = extractvalue %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]" %19, 0
+  %21 = extractvalue %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]" %19, 1
+  store i64 0, ptr %"qat'index", align 8
+  %22 = icmp ult i64 0, %21
+  %23 = ptrtoint ptr %20 to i7
+  %24 = icmp ne i7 %23, 0
+  %25 = and i1 %24, %22
+  br i1 %25, label %"1b_0b", label %"2b"
+
+"1b_0b":                                          ; preds = %"1b_0b", %"1b"
+  %26 = load i64, ptr %"qat'index", align 8
+  %27 = getelementptr inbounds %"qat'type_StrTy:[\22hellolo\22]", ptr %20, i64 %26
+  call void @"qat'type_StrTy:[\22hellolo\22]:destructor"(ptr %27)
+  %28 = load i64, ptr %"qat'index", align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %"qat'index", align 8
+  %30 = load i64, ptr %"qat'index", align 8
+  %31 = icmp ult i64 %30, %21
+  br i1 %31, label %"1b_0b", label %"2b"
+
+"2b":                                             ; preds = %"1b_0b", %"1b"
+  %32 = call ptr @malloc(i64 20)
+  %33 = getelementptr inbounds nuw %"qat'multi:[var qat'u8,heap]", ptr %"8_new", i32 0, i32 0
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds nuw %"qat'multi:[var qat'u8,heap]", ptr %"8_new", i32 0, i32 1
+  store i64 20, ptr %34, align 8
+  %35 = load %"qat'multi:[var qat'u8,heap]", ptr %"8_new", align 8
+  store %"qat'multi:[var qat'u8,heap]" %35, ptr %ptrTest4, align 8
+  %36 = load %"qat'multi:[var qat'u8,heap]", ptr %ptrTest4, align 8
+  %37 = extractvalue %"qat'multi:[var qat'u8,heap]" %36, 0
+  %38 = extractvalue %"qat'multi:[var qat'u8,heap]" %36, 1
+  store i64 0, ptr %"qat'index", align 8
+  %39 = icmp ult i64 0, %38
+  %40 = ptrtoint ptr %37 to i7
+  %41 = icmp ne i7 %40, 0
+  %42 = and i1 %41, %39
+  br i1 %42, label %"2b_0b", label %"3b"
+
+"2b_0b":                                          ; preds = %"2b_0b", %"2b"
+  %43 = load i64, ptr %"qat'index", align 8
+  %44 = getelementptr inbounds i8, ptr %37, i64 %43
+  store i8 0, ptr %44, align 1
+  %45 = load i64, ptr %"qat'index", align 8
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %"qat'index", align 8
+  %47 = load i64, ptr %"qat'index", align 8
+  %48 = icmp ult i64 %47, %38
+  br i1 %48, label %"2b_0b", label %"3b"
+
+"3b":                                             ; preds = %"2b_0b", %"2b"
+  store i21 128522, ptr %utf8Char, align 4
+  store %"qat'text" { ptr @"qat'text'126", i64 4 }, ptr %utf8Text, align 8
+  %49 = getelementptr inbounds nuw %"qat'text", ptr %utf8Text, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds nuw %"qat'text", ptr %utf8Text, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 (ptr, ...) @printf(ptr @"qat'text'128", i64 21, ptr @"qat'text'127", i64 %50, ptr %52)
+  store i1 true, ptr %boolVal, align 1
+  store i8 0, ptr %flagVal, align 1
+  %54 = load i8, ptr %flagVal, align 1
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %"3b_0b", label %"3b_1b"
+
+"4b":                                             ; preds = %"3b_1b", %"3b_0b"
+  %56 = phi %"qat'text" [ { ptr @"qat'text'129", i64 18 }, %"3b_0b" ], [ { ptr @"qat'text'130", i64 22 }, %"3b_1b" ]
+  %57 = extractvalue %"qat'text" %56, 1
+  %58 = extractvalue %"qat'text" %56, 0
+  %59 = call i32 (ptr, ...) @printf(ptr @"qat'text'131", i64 %57, ptr %58)
+  %60 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %maybeVal, i32 0, i32 0
+  store i1 true, ptr %60, align 1
+  %61 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %maybeVal, i32 0, i32 1
+  store i32 20, ptr %61, align 4
+  %62 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %maybeVal, i32 0, i32 0
+  %63 = load i1, ptr %62, align 1
+  br i1 %63, label %"4b_0b", label %"5b"
+
+"3b_0b":                                          ; preds = %"3b"
+  br label %"4b"
+
+"3b_1b":                                          ; preds = %"3b"
+  br label %"4b"
+
+"5b":                                             ; preds = %"4b_0b", %"4b"
+  %64 = load %"qat'maybe:[qat'i32]", ptr %maybeVal, align 4
+  %65 = extractvalue %"qat'maybe:[qat'i32]" %64, 0
+  %66 = xor i1 %65, true
+  br i1 %66, label %"5b_0b", label %"6b"
+
+"4b_0b":                                          ; preds = %"4b"
+  %67 = call i32 (ptr, ...) @printf(ptr @"qat'text'133", i64 24, ptr @"qat'text'132")
+  br label %"5b"
+
+"5b_0b":                                          ; preds = %"5b"
+  %68 = call i32 (ptr, ...) @printf(ptr @"qat'text'137", i64 79, ptr @"qat'text'136", i64 137, ptr @"qat'text'135")
+  call void @pthread_exit(ptr null)
+  unreachable
+
+"6b":                                             ; preds = %"5b"
+  %69 = extractvalue %"qat'maybe:[qat'i32]" %64, 1
+  %70 = sext i32 %69 to i64
+  %71 = call i32 (ptr, ...) @printf(ptr @"qat'text'138", i64 26, ptr @"qat'text'134", i64 %70)
+  %72 = load i1, ptr %boolVal, align 1
+  br i1 %72, label %"6b_0b", label %"6b_1b"
+
+"7b":                                             ; preds = %"6b_1b", %"6b_0b"
+  %73 = phi %"qat'text" [ { ptr @"qat'text'140", i64 5 }, %"6b_0b" ], [ { ptr @"qat'text'141", i64 3 }, %"6b_1b" ]
+  %74 = extractvalue %"qat'text" %73, 1
+  %75 = extractvalue %"qat'text" %73, 0
+  %76 = call i32 (ptr, ...) @printf(ptr @"qat'text'142", i64 22, ptr @"qat'text'139", i64 %74, ptr %75)
+  store i2 -2, ptr %choiceVal, align 1
+  %77 = load i2, ptr %choiceVal, align 1
+  %78 = icmp eq i2 %77, 0
+  br i1 %78, label %"7b_0b", label %"7b_1b"
+
+"6b_0b":                                          ; preds = %"6b"
+  br label %"7b"
+
+"6b_1b":                                          ; preds = %"6b"
+  br label %"7b"
+
+"8b":                                             ; preds = %"7b_1b_1b", %"7b_1b_0b", %"7b_0b"
+  %79 = phi %"qat'text" [ { ptr @"qat'text'144", i64 5 }, %"7b_0b" ], [ { ptr @"qat'text'145", i64 6 }, %"7b_1b_0b" ], [ { ptr @"qat'text'146", i64 5 }, %"7b_1b_1b" ]
+  %80 = extractvalue %"qat'text" %79, 1
+  %81 = extractvalue %"qat'text" %79, 0
+  %82 = call i32 (ptr, ...) @printf(ptr @"qat'text'147", i64 23, ptr @"qat'text'143", i64 %80, ptr %81)
+  %83 = getelementptr inbounds nuw %"qat'type_toggle_MyToggleType.0", ptr %toggVal, i32 0, i32 0
+  store i32 10, ptr %83, align 4
+  %84 = getelementptr inbounds nuw %"qat'type_toggle_MyToggleType.0", ptr %toggVal, i32 0, i32 1
+  store [4 x i8] zeroinitializer, ptr %84, align 1
+  %85 = getelementptr inbounds nuw %"qat'type_toggle_MyToggleType.0", ptr %toggVal, i32 0, i32 0
+  store float 0x40091EB860000000, ptr %85, align 4
+  call void @"qat'type_TestStructTy:[qat'u64]:convertor_from:[qat'u64]"(ptr %oneVal, i64 45)
+  %86 = getelementptr inbounds nuw %"qat'type_toggle_GenericToggle:[qat'f64].1", ptr %genTogg, i32 0, i32 0
+  store i64 20, ptr %86, align 8
+  %87 = getelementptr inbounds nuw %"qat'type_toggle_MyToggleType.0", ptr %toggVal, i32 0, i32 0
+  %88 = load float, ptr %87, align 4
+  %89 = fpext float %88 to double
+  %90 = call i32 (ptr, ...) @printf(ptr @"qat'text'150", i64 32, ptr @"qat'text'149", double %89)
+  %91 = call i32 (ptr, ...) @printf(ptr @"qat'text'155", i64 25, ptr @"qat'text'151")
+  %92 = call i32 (ptr, ...) @printf(ptr @"qat'text'157", i64 24, ptr @"qat'text'156")
+  store i64 10, ptr %intVal, align 8
+  store i64 20, ptr %intVal2, align 8
+  %93 = call i32 asm sideeffect ".intel_syntax noprefix\0A\09\09\09mov eax, ecx\0A\09\09\09add eax, edx", "=r,r,r"(i32 0, i32 10)
+  store i32 %93, ptr %intVal3, align 4
+  %94 = load i32, ptr %intVal3, align 4
+  %95 = sext i32 %94 to i64
+  %96 = call i32 (ptr, ...) @printf(ptr @"qat'text'163", i64 18, ptr @"qat'text'162", i64 %95)
+  call void @"qat'lib_std:type_Matrix:[2,4,qat'i32]:convertor_from:[qat'array:[qat'i32,8]]"(ptr %mm2, [8 x i32] [i32 0, i32 1, i32 2, i32 0, i32 5, i32 8, i32 0, i32 2])
+  call void @"qat'lib_std:type_Matrix:[4,2,qat'i32]:convertor_from:[qat'array:[qat'i32,8]]"(ptr %mmt, [8 x i32] [i32 0, i32 1, i32 2, i32 0, i32 5, i32 8, i32 0, i32 2])
+  call void @"qat'lib_std:type_Matrix:[4,4,qat'i32]:convertor_from:[qat'array:[qat'i32,16]]"(ptr %mm, [16 x i32] [i32 0, i32 1, i32 2, i32 0, i32 3, i32 45, i32 2, i32 23, i32 6, i32 9, i32 10, i32 185, i32 4, i32 0, i32 2, i32 5])
+  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %vec1, align 16
+  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %vec2, align 16
+  %97 = load <4 x i32>, ptr %vec1, align 16
+  %98 = load <4 x i32>, ptr %vec2, align 16
+  %99 = call <4 x i32> @llvm.matrix.multiply.v4i32.v4i32.v4i32(<4 x i32> %97, <4 x i32> %98, i32 2, i32 2, i32 2)
+  store <4 x i32> %99, ptr %vecresult, align 16
+  %100 = load %"qat'lib_std:type_Matrix:[2,4,qat'i32]", ptr %mm2, align 4
+  %101 = load %"qat'lib_std:type_Matrix:[4,2,qat'i32]", ptr %mmt, align 4
+  %102 = call %"qat'lib_std:type_Matrix:[2,2,qat'i32]" @"qat'lib_std:fn_multiply_matrix:[i32, 2, 4, 2]:[qat'i32,2,4,2]"(%"qat'lib_std:type_Matrix:[2,4,qat'i32]" %100, %"qat'lib_std:type_Matrix:[4,2,qat'i32]" %101)
+  store %"qat'lib_std:type_Matrix:[2,2,qat'i32]" %102, ptr %mul, align 4
+  call void @"qat'lib_std:type_Matrix:[2,2,qat'i32]:method_print"(ptr %mul)
+  call void @"qat'lib_std:type_Matrix:[4,4,qat'i32]:variation_transpose"(ptr %mm)
+  %103 = call %"qat'lib_std:type_Matrix:[4,4,qat'i32]" @"qat'lib_std:type_Matrix:[4,4,qat'i32]:method_get_transpose"(ptr %mm)
+  store %"qat'lib_std:type_Matrix:[4,4,qat'i32]" %103, ptr %mm4, align 4
+  %104 = call %"qat'lib_std:type_Matrix:[4,2,qat'i32]" @"qat'lib_std:type_Matrix:[2,4,qat'i32]:method_get_transpose"(ptr %mm2)
+  store %"qat'lib_std:type_Matrix:[4,2,qat'i32]" %104, ptr %mm3, align 4
+  store %"qat'type_NewTy" { i32 10 }, ptr %nnn, align 4
+  %105 = load %"qat'type_NewTy", ptr %nnn, align 4
+  call void @"qat'type_NewTy:valuedfn_something"(%"qat'type_NewTy" %105)
+  store <4 x i8> <i8 0, i8 1, i8 3, i8 6>, ptr %vec10, align 4
+  store <6 x i8> <i8 3, i8 5, i8 2, i8 8, i8 0, i8 9>, ptr %vec20, align 8
+  %106 = call i32 @system(ptr @"qat'text'195")
+  %107 = sext i32 %106 to i64
+  %108 = call i32 (ptr, ...) @printf(ptr @"qat'text'196", i64 20, ptr @"qat'text'194", i64 %107)
+  store %"qat'text" { ptr @"qat'text'197", i64 5 }, ptr %sample, align 8
+  %109 = getelementptr inbounds nuw %"qat'text", ptr %sample, i32 0, i32 0
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw %"qat'text", ptr %sample, i32 0, i32 1
+  %112 = load i64, ptr %111, align 8
+  %113 = icmp eq i64 %112, 2
+  br i1 %113, label %"8b_0b", label %"8b_2b"
+
+"7b_0b":                                          ; preds = %"7b"
+  br label %"8b"
+
+"7b_1b":                                          ; preds = %"7b"
+  %114 = icmp eq i2 %77, 1
+  br i1 %114, label %"7b_1b_0b", label %"7b_1b_1b"
+
+"7b_1b_0b":                                       ; preds = %"7b_1b"
+  br label %"8b"
+
+"7b_1b_1b":                                       ; preds = %"7b_1b"
+  br label %"8b"
+
+"9b":                                             ; preds = %"11b_0b", %"11b"
+  %115 = getelementptr inbounds nuw %"qat'multi:[qat'nativetype:[bytestring!]]", ptr %args, i32 0, i32 1
+  %116 = load i64, ptr %115, align 8
+  %117 = call i32 (ptr, ...) @printf(ptr @"qat'text'203", i64 13, ptr @"qat'text'202", i64 %116)
+  %118 = call %"qat'lib_std:type_StringBase:[qat'u8]" @"qat'lib_std:fn_float_to_string:[f64]:[qat'f64]"(double 0x40A2580C710CB296)
+  %119 = extractvalue %"qat'lib_std:type_StringBase:[qat'u8]" %118, 1
+  %120 = extractvalue %"qat'lib_std:type_StringBase:[qat'u8]" %118, 0, 0
+  store %"qat'lib_std:type_StringBase:[qat'u8]" %118, ptr %"35_new", align 8
+  %121 = call i32 (ptr, ...) @printf(ptr @"qat'text'207", i64 17, ptr @"qat'text'204", i64 %119, ptr %120)
+  call void @"qat'lib_std:type_StringBase:[qat'u8]:convertor_from:[qat'text]"(ptr %"37_new", %"qat'text" { ptr @"qat'text'208", i64 4 })
+  %122 = call %"qat'lib_std:type_StringBase:[qat'u8]" @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary(+):[qat'qat'text]"(ptr %"37_new", %"qat'text" { ptr @"qat'text'209", i64 2 })
+  store %"qat'lib_std:type_StringBase:[qat'u8]" %122, ptr %stri, align 8
+  %123 = call ptr @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary_variation(<<):[qat'qat'text]"(ptr %stri, %"qat'text" { ptr @"qat'text'210", i64 5 })
+  %124 = call ptr @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary_variation(<<):[qat'qat'text]"(ptr %123, %"qat'text" { ptr @"qat'text'211", i64 5 })
+  %125 = call ptr @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary_variation(<<):[qat'qat'text]"(ptr %124, %"qat'text" { ptr @"qat'text'212", i64 7 })
+  %126 = call ptr @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary_variation(<<):[qat'qat'text]"(ptr %125, %"qat'text" { ptr @"qat'text'213", i64 5 })
+  %127 = call ptr @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary_variation(<<):[qat'qat'text]"(ptr %126, %"qat'text" { ptr @"qat'text'214", i64 5 })
+  %128 = call i32 (ptr, ...) @printf(ptr @"qat'text'217", i64 15, ptr @"qat'text'215", i64 16, ptr @"qat'text'216")
+  %129 = getelementptr inbounds nuw %"qat'lib_std:type_StringBase:[qat'u8]", ptr %stri, i32 0, i32 1
+  %130 = load i64, ptr %129, align 8
+  %131 = getelementptr inbounds nuw %"qat'lib_std:type_StringBase:[qat'u8]", ptr %stri, i32 0, i32 0
+  %132 = getelementptr inbounds nuw %"qat'multi:[var qat'u8,heap]", ptr %131, i32 0, i32 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = call i32 (ptr, ...) @printf(ptr @"qat'text'219", i64 16, ptr @"qat'text'218", i64 %130, ptr %133)
+  store { i32, i32 } { i32 10, i32 10 }, ptr %a, align 4
+  store i8 102, ptr %dskjf, align 1
+  store i64 10, ptr %ind, align 8
+  store %"qat'text" { ptr @"qat'text'221", i64 3 }, ptr %strVal, align 8
+  store %"qat'type_SomeFTy:[0xL0000000000000000BFFE000000000000]" zeroinitializer, ptr %someF, align 8
+  call void @"qat'type_StrTy:[\22hola\22]:constructor_default"(ptr %sk)
+  call void @"qat'type_StrTy:[\22Hello\22]:constructor_default"(ptr %ss)
+  call void @"qat'type_OneTy:[0]:convertor_from:[qat'u64]"(ptr %dsfs, i64 456)
+  call void @"qat'type_OneTy:[0]:convertor_from:[qat'u64]"(ptr %ownedOne, i64 2342)
+  %135 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %c, i32 0, i32 0
+  store i1 true, ptr %135, align 1
+  %136 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %c, i32 0, i32 1
+  store i32 0, ptr %136, align 4
+  %137 = getelementptr inbounds nuw %"qat'result:[qat'i32,qat'text]", ptr %ooo, i32 0, i32 0
+  store i1 true, ptr %137, align 1
+  %138 = getelementptr inbounds nuw %"qat'result:[qat'i32,qat'text]", ptr %ooo, i32 0, i32 1
+  store i32 0, ptr %138, align 4
+  store i2 0, ptr %e, align 1
+  store i1 false, ptr %k, align 1
+  %139 = getelementptr inbounds nuw %"qat'type_mix_MyMixType", ptr %m, i32 0, i32 0
+  store i3 1, ptr %139, align 1
+  %140 = getelementptr inbounds nuw %"qat'type_mix_MyMixType", ptr %m, i32 0, i32 1
+  store i32 10, ptr %140, align 4
+  call void @"qat'type_SomeTy:[qat'i64,-17]:convertor_from:[qat'i64]"(ptr %o, i64 450)
+  call void @"qat'type_SomeTy:[qat'i32,10]:convertor_from:[qat'i32]"(ptr %s, i32 78)
+  store i8 17, ptr %sdsf, align 1
+  call void @"qat'type_SomeTy:[qat'i64,10]:convertor_from:[qat'i64]"(ptr %"57_new", i64 9888)
+  call void @"qat'type_SomeTy:[qat'i64,10]:convertor_from:[qat'i64]"(ptr %"59_new", i64 7723)
+  call void @"qat'type_SomeTy:[qat'i32,10]:convertor_from:[qat'i32]"(ptr %"61_new", i32 234)
+  %141 = getelementptr inbounds nuw %"qat'type_mix_MyMixType", ptr %m, i32 0, i32 0
+  %142 = load i3, ptr %141, align 1
+  %143 = icmp eq i3 %142, 1
+  %144 = getelementptr inbounds nuw %"qat'type_mix_MyMixType", ptr %m, i32 0, i32 0
+  %145 = load i3, ptr %144, align 1
+  %146 = icmp eq i3 %145, 2
+  %147 = or i1 %143, %146
+  br i1 %147, label %"9b_0b", label %"9b_1b"
+
+"8b_0b":                                          ; preds = %"8b"
+  store i64 0, ptr %"qat'index", align 8
+  br label %"8b_0b_0b"
+
+"8b_1b":                                          ; preds = %"8b_0b_2b"
+  br label %"10b"
+
+"8b_2b":                                          ; preds = %"8b_0b_2b", %"8b"
+  br label %"10b"
+
+"8b_0b_0b":                                       ; preds = %"8b_0b_1b_0b", %"8b_0b"
+  %148 = load i64, ptr %"qat'index", align 8
+  %149 = icmp ult i64 %148, %112
+  br i1 %149, label %"8b_0b_1b", label %"8b_0b_2b"
+
+"8b_0b_1b":                                       ; preds = %"8b_0b_0b"
+  %150 = load i64, ptr %"qat'index", align 8
+  %151 = getelementptr inbounds i8, ptr %110, i64 %150
+  %152 = load i8, ptr %151, align 1
+  %153 = load i64, ptr %"qat'index", align 8
+  %154 = getelementptr inbounds i8, ptr @"qat'text'198", i64 %153
+  %155 = load i8, ptr %154, align 1
+  %156 = icmp eq i8 %152, %155
+  br i1 %156, label %"8b_0b_1b_0b", label %"8b_0b_2b"
+
+"8b_0b_1b_0b":                                    ; preds = %"8b_0b_1b"
+  %157 = load i64, ptr %"qat'index", align 8
+  %158 = add i64 %157, 1
+  store i64 %158, ptr %"qat'index", align 8
+  br label %"8b_0b_0b"
+
+"8b_0b_2b":                                       ; preds = %"8b_0b_1b", %"8b_0b_0b"
+  %159 = load i64, ptr %"qat'index", align 8
+  %160 = icmp eq i64 %112, %159
+  br i1 %160, label %"8b_1b", label %"8b_2b"
+
+"10b":                                            ; preds = %"8b_2b", %"8b_1b"
+  %161 = phi i1 [ true, %"8b_1b" ], [ false, %"8b_2b" ]
+  %162 = getelementptr inbounds nuw %"qat'text", ptr %sample, i32 0, i32 0
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds nuw %"qat'text", ptr %sample, i32 0, i32 1
+  %165 = load i64, ptr %164, align 8
+  %166 = icmp eq i64 %165, 5
+  br i1 %166, label %"10b_0b", label %"10b_2b"
+
+"10b_0b":                                         ; preds = %"10b"
+  store i64 0, ptr %"qat'index", align 8
+  br label %"10b_0b_0b"
+
+"10b_1b":                                         ; preds = %"10b_0b_2b"
+  br label %"11b"
+
+"10b_2b":                                         ; preds = %"10b_0b_2b", %"10b"
+  br label %"11b"
+
+"10b_0b_0b":                                      ; preds = %"10b_0b_1b_0b", %"10b_0b"
+  %167 = load i64, ptr %"qat'index", align 8
+  %168 = icmp ult i64 %167, %165
+  br i1 %168, label %"10b_0b_1b", label %"10b_0b_2b"
+
+"10b_0b_1b":                                      ; preds = %"10b_0b_0b"
+  %169 = load i64, ptr %"qat'index", align 8
+  %170 = getelementptr inbounds i8, ptr %163, i64 %169
+  %171 = load i8, ptr %170, align 1
+  %172 = load i64, ptr %"qat'index", align 8
+  %173 = getelementptr inbounds i8, ptr @"qat'text'199", i64 %172
+  %174 = load i8, ptr %173, align 1
+  %175 = icmp eq i8 %171, %174
+  br i1 %175, label %"10b_0b_1b_0b", label %"10b_0b_2b"
+
+"10b_0b_1b_0b":                                   ; preds = %"10b_0b_1b"
+  %176 = load i64, ptr %"qat'index", align 8
+  %177 = add i64 %176, 1
+  store i64 %177, ptr %"qat'index", align 8
+  br label %"10b_0b_0b"
+
+"10b_0b_2b":                                      ; preds = %"10b_0b_1b", %"10b_0b_0b"
+  %178 = load i64, ptr %"qat'index", align 8
+  %179 = icmp eq i64 %165, %178
+  br i1 %179, label %"10b_1b", label %"10b_2b"
+
+"11b":                                            ; preds = %"10b_2b", %"10b_1b"
+  %180 = phi i1 [ true, %"10b_1b" ], [ false, %"10b_2b" ]
+  %181 = select i1 %161, i1 true, i1 %180
+  br i1 %181, label %"11b_0b", label %"9b"
+
+"11b_0b":                                         ; preds = %"11b"
+  %182 = call i32 (ptr, ...) @printf(ptr @"qat'text'201", i64 14, ptr @"qat'text'200")
+  br label %"9b"
+
+"12b":                                            ; preds = %"9b_2b", %"9b_0b"
+  %183 = call i32 (ptr, ...) @printf(ptr @"qat'text'253", i64 6, ptr @"qat'text'252")
+  store %"qat'multi:[qat'nativetype:[bytestring!]]" zeroinitializer, ptr %args, align 8
+  %184 = getelementptr inbounds [2 x i8], ptr %arrFlags, i64 0, i64 0
+  store i8 0, ptr %184, align 1
+  %185 = getelementptr inbounds i8, ptr %184, i64 1
+  store i8 0, ptr %185, align 1
+  store ptr null, ptr %ptrTest, align 8
+  store ptr null, ptr %ptrTest2, align 8
+  store i64 0, ptr %"qat'index", align 8
+  store %"qat'multi:[var qat'type_StrTy:[\22hellolo\22],heap]" zeroinitializer, ptr %ptrTest3, align 8
+  store %"qat'multi:[var qat'u8,heap]" zeroinitializer, ptr %ptrTest4, align 8
+  store %"qat'text" zeroinitializer, ptr %utf8Text, align 8
+  store i1 false, ptr %boolVal, align 1
+  store i8 0, ptr %flagVal, align 1
+  %186 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %maybeVal, i32 0, i32 0
+  %187 = load i1, ptr %186, align 1
+  br i1 %187, label %"12b_0b", label %"13b"
+
+"9b_0b":                                          ; preds = %"9b"
+  %188 = call i32 (ptr, ...) @printf(ptr @"qat'text'249", i64 13, ptr @"qat'text'248")
+  br label %"12b"
+
+"9b_1b":                                          ; preds = %"9b"
+  br label %"9b_2b"
+
+"9b_2b":                                          ; preds = %"9b_1b"
+  %189 = call i32 (ptr, ...) @printf(ptr @"qat'text'251", i64 10, ptr @"qat'text'250")
+  br label %"12b"
+
+"12b_0b":                                         ; preds = %"12b"
+  %190 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %maybeVal, i32 0, i32 1
+  store i32 0, ptr %190, align 4
+  br label %"13b"
+
+"13b":                                            ; preds = %"12b_0b", %"12b"
+  store i2 0, ptr %choiceVal, align 1
+  store %"qat'type_toggle_MyToggleType.0" zeroinitializer, ptr %toggVal, align 4
+  store %"qat'type_TestStructTy:[qat'u64]" zeroinitializer, ptr %oneVal, align 8
+  store %"qat'type_toggle_GenericToggle:[qat'f64].1" zeroinitializer, ptr %genTogg, align 8
+  store i64 0, ptr %intVal, align 8
+  store i64 0, ptr %intVal2, align 8
+  store i32 0, ptr %intVal3, align 4
+  store %"qat'lib_std:type_Matrix:[2,4,qat'i32]" zeroinitializer, ptr %mm2, align 4
+  store %"qat'lib_std:type_Matrix:[4,2,qat'i32]" zeroinitializer, ptr %mmt, align 4
+  store %"qat'lib_std:type_Matrix:[4,4,qat'i32]" zeroinitializer, ptr %mm, align 4
+  store <4 x i32> zeroinitializer, ptr %vec1, align 16
+  store <4 x i32> zeroinitializer, ptr %vec2, align 16
+  store <4 x i32> zeroinitializer, ptr %vecresult, align 16
+  store %"qat'lib_std:type_Matrix:[2,2,qat'i32]" zeroinitializer, ptr %mul, align 4
+  store %"qat'lib_std:type_Matrix:[4,4,qat'i32]" zeroinitializer, ptr %mm4, align 4
+  store %"qat'lib_std:type_Matrix:[4,2,qat'i32]" zeroinitializer, ptr %mm3, align 4
+  store %"qat'type_NewTy" zeroinitializer, ptr %nnn, align 4
+  store <4 x i8> zeroinitializer, ptr %vec10, align 4
+  store <6 x i8> zeroinitializer, ptr %vec20, align 8
+  store %"qat'text" zeroinitializer, ptr %sample, align 8
+  call void @"qat'lib_std:type_StringBase:[qat'u8]:destructor"(ptr %"35_new")
+  call void @"qat'lib_std:type_StringBase:[qat'u8]:destructor"(ptr %"37_new")
+  call void @"qat'lib_std:type_StringBase:[qat'u8]:destructor"(ptr %stri)
+  store { i32, i32 } zeroinitializer, ptr %a, align 4
+  store i8 0, ptr %dskjf, align 1
+  store i64 0, ptr %ind, align 8
+  store %"qat'text" zeroinitializer, ptr %strVal, align 8
+  store %"qat'type_SomeFTy:[0xL0000000000000000BFFE000000000000]" zeroinitializer, ptr %someF, align 8
+  call void @"qat'type_StrTy:[\22hola\22]:destructor"(ptr %sk)
+  call void @"qat'type_StrTy:[\22Hello\22]:destructor"(ptr %ss)
+  call void @"qat'type_OneTy:[0]:destructor"(ptr %dsfs)
+  call void @"qat'type_OneTy:[0]:destructor"(ptr %ownedOne)
+  %191 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %c, i32 0, i32 0
+  %192 = load i1, ptr %191, align 1
+  br i1 %192, label %"13b_0b", label %"14b"
+
+"13b_0b":                                         ; preds = %"13b"
+  %193 = getelementptr inbounds nuw %"qat'maybe:[qat'i32]", ptr %c, i32 0, i32 1
+  store i32 0, ptr %193, align 4
+  br label %"14b"
+
+"14b":                                            ; preds = %"13b_0b", %"13b"
+  store %"qat'result:[qat'i32,qat'text]" zeroinitializer, ptr %ooo, align 16
+  store i2 0, ptr %e, align 1
+  store i1 false, ptr %k, align 1
+  %194 = getelementptr inbounds nuw %"qat'type_mix_MyMixType", ptr %m, i32 0, i32 0
+  %195 = load i3, ptr %194, align 1
+  %196 = getelementptr inbounds nuw %"qat'type_mix_MyMixType", ptr %m, i32 0, i32 1
+  %197 = icmp eq i3 %195, 1
+  br i1 %197, label %"14b_0b", label %"14b_1b"
+
+"15b":                                            ; preds = %"14b_1b_1b", %"14b_1b_0b", %"14b_0b"
+  call void @"qat'type_SomeTy:[qat'i64,-17]:destructor"(ptr %o)
+  call void @"qat'type_SomeTy:[qat'i32,10]:destructor"(ptr %s)
+  store i8 0, ptr %sdsf, align 1
+  call void @"qat'type_SomeTy:[qat'i64,10]:destructor"(ptr %"57_new")
+  call void @"qat'type_SomeTy:[qat'i64,10]:destructor"(ptr %"59_new")
+  call void @"qat'type_SomeTy:[qat'i32,10]:destructor"(ptr %"61_new")
+  ret i32 0
+
+"14b_0b":                                         ; preds = %"14b"
+  store i32 0, ptr %196, align 4
+  br label %"15b"
+
+"14b_1b":                                         ; preds = %"14b"
+  %198 = icmp eq i3 %195, 2
+  br i1 %198, label %"14b_1b_0b", label %"14b_1b_1b"
+
+"14b_1b_0b":                                      ; preds = %"14b_1b"
+  store %"qat'text" zeroinitializer, ptr %196, align 8
+  br label %"15b"
+
+"14b_1b_1b":                                      ; preds = %"14b_1b"
+  br label %"15b"
+}
+
+declare i32 @printf(ptr, ...)
+
+define void @"qat'type_NewTy:valuedfn_something"(%"qat'type_NewTy" %0) {
+"0b":
+  %1 = extractvalue %"qat'type_NewTy" %0, 0
+  %2 = sext i32 %1 to i64
+  %3 = call i32 (ptr, ...) @printf(ptr @"qat'text'255", i64 13, ptr @"qat'text'254", i64 %2)
+  ret void
+}
+
+define void @"qat'do_type:[qat'type_NewTy]:valuedfn_other"(%"qat'type_NewTy" %0) {
+"0b":
+  %1 = extractvalue %"qat'type_NewTy" %0, 0
+  %2 = sext i32 %1 to i64
+  %3 = call i32 (ptr, ...) @printf(ptr @"qat'text'257", i64 5, ptr @"qat'text'256", i64 %2)
+  ret void
+}
+
+define void @"qat'do_type:[qat'type_NewTy]:method_hello"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'259", i64 14, ptr @"qat'text'258")
+  ret void
+}
+
+define i32 @"qat'do_skill:[qat'skill_Doable]:for_type:[qat'type_NewTy]:method_do_first"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'261", i64 21, ptr @"qat'text'260")
+  ret i32 0
+}
+
+define void @"qat'do_skill:[qat'skill_Doable]:for_type:[qat'type_NewTy]:method_do_second"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'263", i64 22, ptr @"qat'text'262")
+  ret void
+}
+
+declare ptr @malloc(i64)
+
+define void @"qat'type_StrTy:[\22dfjls\22]:constructor_default"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22dfjls\22]", ptr %1, i32 0, i32 0
+  store ptr null, ptr %2, align 8
+  %3 = call i32 (ptr, ...) @printf(ptr @"qat'text'105", i64 5, ptr @"qat'text'104", i64 5, ptr @"qat'text'102")
+  ret void
+}
+
+define void @"qat'type_StrTy:[\22dfjls\22]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'109", i64 27, ptr @"qat'text'108", i64 5, ptr @"qat'text'102")
+  store %"qat'type_StrTy:[\22dfjls\22]" zeroinitializer, ptr %1, align 8
+  ret void
+}
+
+define %"qat'type_StrTy:[\22dfjls\22]" @"qat'type_StrTy:[\22dfjls\22]:method_hello"(ptr %0) {
+"0b":
+  %"2_new" = alloca %"qat'type_StrTy:[\22dfjls\22]", align 8
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22dfjls\22]", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 (ptr, ...) @printf(ptr @"qat'text'107", i64 5, ptr @"qat'text'106", ptr %3)
+  call void @"qat'type_StrTy:[\22dfjls\22]:constructor_default"(ptr %"2_new")
+  %5 = load %"qat'type_StrTy:[\22dfjls\22]", ptr %"2_new", align 8
+  call void @"qat'type_StrTy:[\22dfjls\22]:destructor"(ptr %"2_new")
+  ret %"qat'type_StrTy:[\22dfjls\22]" %5
+}
+
+define void @"qat'type_StrTy:[\22hola\22]:constructor_default"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22hola\22]", ptr %1, i32 0, i32 0
+  store ptr null, ptr %2, align 8
+  %3 = call i32 (ptr, ...) @printf(ptr @"qat'text'111", i64 5, ptr @"qat'text'110", i64 4, ptr @"qat'text'101")
+  ret void
+}
+
+define void @"qat'type_StrTy:[\22hola\22]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'115", i64 27, ptr @"qat'text'114", i64 4, ptr @"qat'text'101")
+  store %"qat'type_StrTy:[\22hola\22]" zeroinitializer, ptr %1, align 8
+  ret void
+}
+
+define %"qat'type_StrTy:[\22hola\22]" @"qat'type_StrTy:[\22hola\22]:method_hello"(ptr %0) {
+"0b":
+  %"2_new" = alloca %"qat'type_StrTy:[\22hola\22]", align 8
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22hola\22]", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 (ptr, ...) @printf(ptr @"qat'text'113", i64 5, ptr @"qat'text'112", ptr %3)
+  call void @"qat'type_StrTy:[\22hola\22]:constructor_default"(ptr %"2_new")
+  %5 = load %"qat'type_StrTy:[\22hola\22]", ptr %"2_new", align 8
+  call void @"qat'type_StrTy:[\22hola\22]:destructor"(ptr %"2_new")
+  ret %"qat'type_StrTy:[\22hola\22]" %5
+}
+
+define void @"qat'type_StrTy:[\22hellolo\22]:constructor_default"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22hellolo\22]", ptr %1, i32 0, i32 0
+  store ptr null, ptr %2, align 8
+  %3 = call i32 (ptr, ...) @printf(ptr @"qat'text'121", i64 5, ptr @"qat'text'120", i64 7, ptr @"qat'text'118")
+  ret void
+}
+
+define void @"qat'type_StrTy:[\22hellolo\22]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'125", i64 27, ptr @"qat'text'124", i64 7, ptr @"qat'text'118")
+  store %"qat'type_StrTy:[\22hellolo\22]" zeroinitializer, ptr %1, align 8
+  ret void
+}
+
+define %"qat'type_StrTy:[\22hellolo\22]" @"qat'type_StrTy:[\22hellolo\22]:method_hello"(ptr %0) {
+"0b":
+  %"2_new" = alloca %"qat'type_StrTy:[\22hellolo\22]", align 8
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22hellolo\22]", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 (ptr, ...) @printf(ptr @"qat'text'123", i64 5, ptr @"qat'text'122", ptr %3)
+  call void @"qat'type_StrTy:[\22hellolo\22]:constructor_default"(ptr %"2_new")
+  %5 = load %"qat'type_StrTy:[\22hellolo\22]", ptr %"2_new", align 8
+  call void @"qat'type_StrTy:[\22hellolo\22]:destructor"(ptr %"2_new")
+  ret %"qat'type_StrTy:[\22hellolo\22]" %5
+}
+
+declare void @pthread_exit(ptr)
+
+define void @"qat'type_TestStructTy:[qat'u64]:convertor_from:[qat'u64]"(ptr %0, i64 %1) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  %3 = getelementptr inbounds nuw %"qat'type_TestStructTy:[qat'u64]", ptr %2, i32 0, i32 0
+  store i64 %1, ptr %3, align 8
+  ret void
+}
+
+declare void @"qat'lib_std:type_Matrix:[2,4,qat'i32]:convertor_from:[qat'array:[qat'i32,8]]"(ptr, [8 x i32])
+
+declare void @"qat'lib_std:type_Matrix:[4,2,qat'i32]:convertor_from:[qat'array:[qat'i32,8]]"(ptr, [8 x i32])
+
+declare void @"qat'lib_std:type_Matrix:[4,4,qat'i32]:convertor_from:[qat'array:[qat'i32,16]]"(ptr, [16 x i32])
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x i32> @llvm.matrix.multiply.v4i32.v4i32.v4i32(<4 x i32>, <4 x i32>, i32 immarg, i32 immarg, i32 immarg) #0
+
+declare %"qat'lib_std:type_Matrix:[2,2,qat'i32]" @"qat'lib_std:fn_multiply_matrix:[i32, 2, 4, 2]:[qat'i32,2,4,2]"(%"qat'lib_std:type_Matrix:[2,4,qat'i32]", %"qat'lib_std:type_Matrix:[4,2,qat'i32]")
+
+declare void @"qat'lib_std:type_Matrix:[2,2,qat'i32]:method_print"(ptr)
+
+declare void @"qat'lib_std:type_Matrix:[4,4,qat'i32]:variation_transpose"(ptr)
+
+declare %"qat'lib_std:type_Matrix:[4,4,qat'i32]" @"qat'lib_std:type_Matrix:[4,4,qat'i32]:method_get_transpose"(ptr)
+
+declare %"qat'lib_std:type_Matrix:[4,2,qat'i32]" @"qat'lib_std:type_Matrix:[2,4,qat'i32]:method_get_transpose"(ptr)
+
+declare i32 @system(ptr)
+
+declare %"qat'lib_std:type_StringBase:[qat'u8]" @"qat'lib_std:fn_float_to_string:[f64]:[qat'f64]"(double)
+
+declare void @"qat'lib_std:type_StringBase:[qat'u8]:convertor_from:[qat'text]"(ptr, %"qat'text")
+
+declare %"qat'lib_std:type_StringBase:[qat'u8]" @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary(+):[qat'qat'text]"(ptr, %"qat'text")
+
+declare ptr @"qat'lib_std:type_StringBase:[qat'u8]:operator_binary_variation(<<):[qat'qat'text]"(ptr, %"qat'text")
+
+define void @"qat'type_StrTy:[\22Hello\22]:constructor_default"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22Hello\22]", ptr %1, i32 0, i32 0
+  store ptr null, ptr %2, align 8
+  %3 = call i32 (ptr, ...) @printf(ptr @"qat'text'226", i64 5, ptr @"qat'text'225", i64 5, ptr @"qat'text'223")
+  ret void
+}
+
+define void @"qat'type_StrTy:[\22Hello\22]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'230", i64 27, ptr @"qat'text'229", i64 5, ptr @"qat'text'223")
+  store %"qat'type_StrTy:[\22Hello\22]" zeroinitializer, ptr %1, align 8
+  ret void
+}
+
+define %"qat'type_StrTy:[\22Hello\22]" @"qat'type_StrTy:[\22Hello\22]:method_hello"(ptr %0) {
+"0b":
+  %"2_new" = alloca %"qat'type_StrTy:[\22Hello\22]", align 8
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_StrTy:[\22Hello\22]", ptr %1, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 (ptr, ...) @printf(ptr @"qat'text'228", i64 5, ptr @"qat'text'227", ptr %3)
+  call void @"qat'type_StrTy:[\22Hello\22]:constructor_default"(ptr %"2_new")
+  %5 = load %"qat'type_StrTy:[\22Hello\22]", ptr %"2_new", align 8
+  call void @"qat'type_StrTy:[\22Hello\22]:destructor"(ptr %"2_new")
+  ret %"qat'type_StrTy:[\22Hello\22]" %5
+}
+
+define void @"qat'type_OneTy:[0]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = call i32 (ptr, ...) @printf(ptr @"qat'text'234", i64 20, ptr @"qat'text'233")
+  store %"qat'type_OneTy:[0]" zeroinitializer, ptr %1, align 8
+  ret void
+}
+
+define void @"qat'type_OneTy:[0]:convertor_from:[qat'u64]"(ptr %0, i64 %1) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  %3 = getelementptr inbounds nuw %"qat'type_OneTy:[0]", ptr %2, i32 0, i32 0
+  store i64 %1, ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"qat'type_OneTy:[0]", ptr %2, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8
+  %6 = call i32 (ptr, ...) @printf(ptr @"qat'text'232", i64 31, ptr @"qat'text'231", i64 %5)
+  ret void
+}
+
+define void @"qat'type_OneTy:[0]:method_hello"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  ret void
+}
+
+define void @"qat'type_SomeTy:[qat'i64,-17]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i64,-17]", ptr %1, i32 0, i32 0
+  %3 = load i64, ptr %2, align 8
+  %4 = call i32 (ptr, ...) @printf(ptr @"qat'text'239", i64 26, ptr @"qat'text'238", i64 %3)
+  store %"qat'type_SomeTy:[qat'i64,-17]" zeroinitializer, ptr %1, align 8
+  ret void
+}
+
+define void @"qat'type_SomeTy:[qat'i64,-17]:convertor_from:[qat'i64]"(ptr %0, i64 %1) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  %3 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i64,-17]", ptr %2, i32 0, i32 0
+  store i64 %1, ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i64,-17]", ptr %2, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8
+  %6 = call i32 (ptr, ...) @printf(ptr @"qat'text'237", i64 19, ptr @"qat'text'236", i64 %5)
+  ret void
+}
+
+define void @"qat'type_SomeTy:[qat'i32,10]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i32,10]", ptr %1, i32 0, i32 0
+  %3 = load i32, ptr %2, align 4
+  %4 = sext i32 %3 to i64
+  %5 = call i32 (ptr, ...) @printf(ptr @"qat'text'243", i64 26, ptr @"qat'text'242", i64 %4)
+  store %"qat'type_SomeTy:[qat'i32,10]" zeroinitializer, ptr %1, align 4
+  ret void
+}
+
+define void @"qat'type_SomeTy:[qat'i32,10]:convertor_from:[qat'i32]"(ptr %0, i32 %1) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  %3 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i32,10]", ptr %2, i32 0, i32 0
+  store i32 %1, ptr %3, align 4
+  %4 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i32,10]", ptr %2, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4
+  %6 = sext i32 %5 to i64
+  %7 = call i32 (ptr, ...) @printf(ptr @"qat'text'241", i64 19, ptr @"qat'text'240", i64 %6)
+  ret void
+}
+
+define void @"qat'type_SomeTy:[qat'i64,10]:destructor"(ptr %0) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %1 = load ptr, ptr %"''", align 8
+  %2 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i64,10]", ptr %1, i32 0, i32 0
+  %3 = load i64, ptr %2, align 8
+  %4 = call i32 (ptr, ...) @printf(ptr @"qat'text'247", i64 26, ptr @"qat'text'246", i64 %3)
+  store %"qat'type_SomeTy:[qat'i64,10]" zeroinitializer, ptr %1, align 8
+  ret void
+}
+
+define void @"qat'type_SomeTy:[qat'i64,10]:convertor_from:[qat'i64]"(ptr %0, i64 %1) {
+"0b":
+  %"''" = alloca ptr, align 8
+  store ptr %0, ptr %"''", align 8
+  %2 = load ptr, ptr %"''", align 8
+  %3 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i64,10]", ptr %2, i32 0, i32 0
+  store i64 %1, ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"qat'type_SomeTy:[qat'i64,10]", ptr %2, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8
+  %6 = call i32 (ptr, ...) @printf(ptr @"qat'text'245", i64 19, ptr @"qat'text'244", i64 %5)
+  ret void
+}
+
+declare void @"qat'lib_std:type_StringBase:[qat'u8]:destructor"(ptr)
+
+attributes #0 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1}
+
+!0 = !{i32 1, !"Code Model", i32 1}
+!1 = !{i32 2, !"SDK Version", [3 x i32] [i32 0, i32 9, i32 0]}

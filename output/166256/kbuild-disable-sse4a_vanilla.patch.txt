@@ -1,0 +1,6 @@
+diff -rU0 linux-6.17.5_orig/arch/x86/Makefile linux-6.17.5_no-sse4a/arch/x86/Makefile
+--- linux-6.17.5_orig/arch/x86/Makefile	2025-10-23 16:24:41.000000000 +0200
++++ linux-6.17.5_no-sse4a/arch/x86/Makefile	2025-10-30 15:53:47.311792815 +0100
+@@ -77 +77 @@
+-KBUILD_CFLAGS += -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx
++KBUILD_CFLAGS += -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a

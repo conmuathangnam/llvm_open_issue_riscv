@@ -1,0 +1,28 @@
+; ModuleID = 'reduced.ll'
+source_filename = "reduced.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+define void @_Z33transform_bypass_rdpcm_v_fallbackPiPKsi(ptr %arg) {
+bb:
+  br label %bb1
+
+bb1:                                              ; preds = %bb8, %bb
+  br label %bb2
+
+bb2:                                              ; preds = %bb2, %bb1
+  %i = phi i64 [ 0, %bb1 ], [ %i6, %bb2 ]
+  %i3 = phi i32 [ 0, %bb1 ], [ %i4, %bb2 ]
+  %i4 = or i32 0, 0
+  %i5 = getelementptr i32, ptr %arg, i64 %i
+  store i32 %i3, ptr %i5, align 4
+  %i6 = add i64 %i, 1
+  %i7 = icmp eq i64 %i, 1
+  br i1 %i7, label %bb8, label %bb2
+
+bb8:                                              ; preds = %bb2
+  br i1 true, label %bb9, label %bb1
+
+bb9:                                              ; preds = %bb8
+  ret void
+}

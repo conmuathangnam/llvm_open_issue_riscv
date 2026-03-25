@@ -1,0 +1,58 @@
+test.cpp:7:11: error: no member named 'func' in the global namespace; did you mean '::C::func'?
+    7 |     A op{&::func};
+      |           ^~~~~~
+      |           ::C::func
+test.cpp:8:10: note: '::C::func' declared here
+    8 |     void func(){
+      |          ^
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.      Program arguments: /opt/LLVM-22.1.0-Linux-X64/bin/clang-22 -c test.cpp
+1.      <eof> parser at end of file
+2.      test.cpp:6:1: parsing struct/union/class body 'C'
+ #0 0x0000557113c05017 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0x8a05017)
+ #1 0x0000557113c04c35 llvm::sys::CleanupOnSignal(unsigned long) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0x8a04c35)
+ #2 0x0000557113bb592e (anonymous namespace)::CrashRecoveryContextImpl::HandleCrash(int, unsigned long) CrashRecoveryContext.cpp:0:0
+ #3 0x0000557113bb5afe CrashRecoverySignalHandler(int) (.llvm.15320821377120032643) CrashRecoveryContext.cpp:0:0
+ #4 0x00007f926a85a050 (/lib/x86_64-linux-gnu/libc.so.6+0x3c050)
+ #5 0x0000557116f5519d clang::MemberPointerType::isSugared() const (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbd5519d)
+ #6 0x00005571169c70ea DeduceTemplateArgumentsByTypeMatch(clang::Sema&, clang::TemplateParameterList*, clang::QualType, clang::QualType, clang::sema::TemplateDeductionInfo&, llvm::SmallVectorImpl<clang::DeducedTemplateArgument>&, unsigned int, PartialOrderingKind, bool, bool*) (.llvm.17434987631688419319) SemaTemplateDeduction.cpp:0:0
+ #7 0x00005571169b82b2 DeduceTemplateArgumentsFromCallArgument(clang::Sema&, clang::TemplateParameterList*, unsigned int, clang::QualType, clang::QualType, clang::Expr::Classification, clang::Expr*, clang::sema::TemplateDeductionInfo&, llvm::SmallVectorImpl<clang::DeducedTemplateArgument>&, llvm::SmallVectorImpl<clang::Sema::OriginalCallArg>&, bool, unsigned int, unsigned int, clang::TemplateSpecCandidateSet*) (.llvm.17434987631688419319) SemaTemplateDeduction.cpp:0:0
+ #8 0x0000557116f70466 clang::Sema::DeduceTemplateArguments(clang::FunctionTemplateDecl*, clang::TemplateArgumentListInfo*, llvm::ArrayRef<clang::Expr*>, clang::FunctionDecl*&, clang::sema::TemplateDeductionInfo&, bool, bool, bool, clang::QualType, clang::Expr::Classification, bool, llvm::function_ref<bool (llvm::ArrayRef<clang::QualType>, bool)>) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbd70466)
+ #9 0x0000557116f6e4ee AddTemplateOverloadCandidateImmediately(clang::Sema&, clang::OverloadCandidateSet&, clang::FunctionTemplateDecl*, clang::DeclAccessPair, clang::TemplateArgumentListInfo*, llvm::ArrayRef<clang::Expr*>, bool, bool, bool, clang::CallExpr::ADLCallKind, clang::OverloadCandidateParamOrder, bool) (.llvm.1530312495864442754) SemaOverload.cpp:0:0
+#10 0x0000557116fcffb0 IsUserDefinedConversion(clang::Sema&, clang::Expr*, clang::QualType, clang::UserDefinedConversionSequence&, clang::OverloadCandidateSet&, clang::Sema::AllowedExplicit, bool) (.llvm.1530312495864442754) SemaOverload.cpp:0:0
+#11 0x0000557116fc87cc TryImplicitConversion(clang::Sema&, clang::Expr*, clang::QualType, bool, clang::Sema::AllowedExplicit, bool, bool, bool, bool) SemaOverload.cpp:0:0
+#12 0x00005571166c2899 clang::Sema::AddOverloadCandidate(clang::FunctionDecl*, clang::DeclAccessPair, llvm::ArrayRef<clang::Expr*>, clang::OverloadCandidateSet&, bool, bool, bool, bool, clang::CallExpr::ADLCallKind, llvm::MutableArrayRef<clang::ImplicitConversionSequence>, clang::OverloadCandidateParamOrder, bool, bool) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb4c2899)
+#13 0x00005571166bf1f0 TryConstructorInitialization(clang::Sema&, clang::InitializedEntity const&, clang::InitializationKind const&, llvm::MutableArrayRef<clang::Expr*>, clang::QualType, clang::QualType, clang::InitializationSequence&, bool, bool) SemaInit.cpp:0:0
+#14 0x00005571166b3230 TryListInitialization(clang::Sema&, clang::InitializedEntity const&, clang::InitializationKind const&, clang::InitListExpr*, clang::InitializationSequence&, bool) SemaInit.cpp:0:0
+#15 0x00005571166bbd6c clang::InitializationSequence::InitializationSequence(clang::Sema&, clang::InitializedEntity const&, clang::InitializationKind const&, llvm::MutableArrayRef<clang::Expr*>, bool, bool) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb4bbd6c)
+#16 0x00005571166d12bd clang::Sema::ConvertMemberDefaultInitExpression(clang::FieldDecl*, clang::Expr*, clang::SourceLocation) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb4d12bd)
+#17 0x000055711660ddc4 clang::Sema::ActOnFinishCXXInClassMemberInitializer(clang::Decl*, clang::SourceLocation, clang::ActionResult<clang::Expr*, true>) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb40ddc4)
+#18 0x00005571164f436e clang::Parser::ParseLexedMemberInitializer(clang::Parser::LateParsedMemberInitializer&) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb2f436e)
+#19 0x0000557117304e69 clang::Parser::ParseClassSpecifier(clang::tok::TokenKind, clang::SourceLocation, clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, bool, clang::Parser::DeclSpecContext, clang::ParsedAttributes&) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xc104e69)
+#20 0x0000557116533298 clang::Parser::ParseDeclarationSpecifiers(clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, clang::Parser::DeclSpecContext, clang::Parser::LateParsedAttrList*, clang::ImplicitTypenameContext) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb333298)
+#21 0x0000557116526b29 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb326b29)
+#22 0x00005571164b3282 clang::ParseAST(clang::Sema&, bool, bool) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb2b3282)
+#23 0x00005571164b2c71 clang::FrontendAction::Execute() (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xb2b2c71)
+#24 0x000055711727d421 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xc07d421)
+#25 0x000055711727d25d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xc07d25d)
+#26 0x000055711727c7dc cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xc07c7dc)
+#27 0x00005571170a4792 ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&, llvm::IntrusiveRefCntPtr<llvm::vfs::FileSystem>) driver.cpp:0:0
+#28 0x00005571170a4666 int llvm::function_ref<int (llvm::SmallVectorImpl<char const*>&)>::callback_fn<clang_main(int, char**, llvm::ToolContext const&)::$_0>(long, llvm::SmallVectorImpl<char const*>&) driver.cpp:0:0
+#29 0x00005571170a4623 void llvm::function_ref<void ()>::callback_fn<clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const::$_0>(long) Job.cpp:0:0
+#30 0x00005571170a45fa llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbea45fa)
+#31 0x00005571170a44d7 clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbea44d7)
+#32 0x00005571170a42f0 clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbea42f0)
+#33 0x00005571170a41f3 clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbea41f3)
+#34 0x00005571170a3e77 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbea3e77)
+#35 0x000055711727a5e7 clang_main(int, char**, llvm::ToolContext const&) (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xc07a5e7)
+#36 0x0000557117279a52 main (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xc079a52)
+#37 0x00007f926a84524a __libc_start_call_main ./csu/../sysdeps/nptl/libc_start_call_main.h:74:3
+#38 0x00007f926a845305 call_init ./csu/../csu/libc-start.c:128:20
+#39 0x00007f926a845305 __libc_start_main ./csu/../csu/libc-start.c:347:5
+#40 0x00005571170602a5 _start (/opt/LLVM-22.1.0-Linux-X64/bin/clang-22+0xbe602a5)
+clang-22: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /opt/LLVM-22.1.0-Linux-X64/bin

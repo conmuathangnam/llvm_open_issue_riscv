@@ -1,0 +1,132 @@
+/home/makmed1337/CF/main.cpp:92:57: error: expected expression
+   92 |                 res += sum * inv(n - totb) * t * cl(sum,)
+      |                                                         ^
+/home/makmed1337/CF/main.cpp:92:53: error: use of undeclared identifier 'sum'
+   92 |                 res += sum * inv(n - totb) * t * cl(sum,)
+      |                                                     ^
+/home/makmed1337/CF/main.cpp:92:58: error: expected ';' after expression
+   92 |                 res += sum * inv(n - totb) * t * cl(sum,)
+      |                                                          ^
+      |                                                          ;
+/home/makmed1337/CF/main.cpp:92:24: error: use of undeclared identifier 'sum'
+   92 |                 res += sum * inv(n - totb) * t * cl(sum,)
+      |                        ^
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: /usr/bin/clang++ --driver-mode=g++ -DLOCAL -I/home/makmed1337/CF/. -g -std=gnu++20 -fsanitize=address,undefined,float-divide-by-zero,local-bounds,nullability,implicit-conversion -g -o CMakeFiles/CF.dir/main.cpp.o -c -std=gnu++23 -DLOCAL -resource-dir=/home/makmed1337/.local/share/nvim/mason/packages/clangd/clangd_20.1.8/lib/clang/20 -- /home/makmed1337/CF/main.cpp
+1.	/home/makmed1337/CF/main.cpp:93:13: current parser token '}'
+2.	/home/makmed1337/CF/main.cpp:76:14: parsing function body 'solve'
+3.	/home/makmed1337/CF/main.cpp:76:14: in compound statement ('{}')
+4.	/home/makmed1337/CF/main.cpp:81:37: in compound statement ('{}')
+5.	/home/makmed1337/CF/main.cpp:82:52: in compound statement ('{}')
+6.	/home/makmed1337/CF/main.cpp:83:45: in compound statement ('{}')
+ #0 0x000014ce250ea01d llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) /usr/src/debug/llvm/llvm-20.1.8.src/lib/Support/Unix/Signals.inc:799:22
+ #1 0x000014ce250e7b77 llvm::sys::RunSignalHandlers() /usr/src/debug/llvm/llvm-20.1.8.src/lib/Support/Signals.cpp:105:20
+ #2 0x000014ce250e7b77 llvm::sys::CleanupOnSignal(unsigned long) /usr/src/debug/llvm/llvm-20.1.8.src/lib/Support/Unix/Signals.inc:369:31
+ #3 0x000014ce24fcbb29 HandleCrash /usr/src/debug/llvm/llvm-20.1.8.src/lib/Support/CrashRecoveryContext.cpp:73:5
+ #4 0x000014ce24fcbb29 CrashRecoverySignalHandler /usr/src/debug/llvm/llvm-20.1.8.src/lib/Support/CrashRecoveryContext.cpp:390:62
+ #5 0x000014ce2403e540 (/usr/lib/libc.so.6+0x3e540)
+ #6 0x000014ce2f59cea6 clang::TypoCorrectionConsumer::getCurrentCorrection() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Sema/SemaInternal.h:151:12
+ #7 0x000014ce2f59cea6 EmitAllDiagnostics /usr/src/debug/clang/clang-20.1.8.src/lib/Sema/SemaExprCXX.cpp:8878:71
+ #8 0x000014ce2f5e560d llvm::SmallDenseMap<clang::IdentifierInfo*, clang::tok::TokenKind, 4u, llvm::DenseMapInfo<clang::IdentifierInfo*, void>, llvm::detail::DenseMapPair<clang::IdentifierInfo*, clang::tok::TokenKind>>::deallocateBuckets() /usr/include/llvm/ADT/DenseMap.h:1169:5
+ #9 0x000014ce2f5e560d llvm::SmallDenseMap<clang::OverloadExpr*, clang::Expr*, 4u, llvm::DenseMapInfo<clang::OverloadExpr*, void>, llvm::detail::DenseMapPair<clang::OverloadExpr*, clang::Expr*>>::~SmallDenseMap() /usr/include/llvm/ADT/DenseMap.h:934:22
+#10 0x000014ce2f5e560d ~TransformTypos /usr/src/debug/clang/clang-20.1.8.src/lib/Sema/SemaExprCXX.cpp:8853:7
+#11 0x000014ce2f5e560d clang::Sema::CorrectDelayedTyposInExpr(clang::Expr*, clang::VarDecl*, bool, llvm::function_ref<clang::ActionResult<clang::Expr*, true> (clang::Expr*)>) (.constprop.0) /usr/src/debug/clang/clang-20.1.8.src/lib/Sema/SemaExprCXX.cpp:9185:19
+#12 0x000014ce2f5e5a48 clang::Sema::ActOnFinishFullExpr(clang::Expr*, clang::SourceLocation, bool, bool, bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Sema/SemaExprCXX.cpp:9239:3
+#13 0x000014ce2f877bb9 clang::Sema::ActOnExprStmt(clang::ActionResult<clang::Expr*, true>, bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Sema/SemaStmt.cpp:54:3
+#14 0x000014ce2e8051cf clang::Parser::ParseExprStatement(clang::Parser::ParsedStmtContext) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:594:32
+#15 0x000014ce2e802d61 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:293:40
+#16 0x000014ce2e803021 clang::Parser::MaybeDestroyTemplateIds() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:328:5
+#17 0x000014ce2e803021 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:127:26
+#18 0x000014ce2e809faf clang::Parser::ParseCompoundStatementBody(bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1267:38
+#19 0x000014ce2e80a744 clang::Parser::ParseScope::Exit() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:1197:24
+#20 0x000014ce2e80a744 clang::Parser::ParseScope::~ParseScope() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:1203:11
+#21 0x000014ce2e80a744 clang::Parser::ParseCompoundStatement(bool, unsigned int) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1061:1
+#22 0x000014ce2e802bb7 clang::Parser::ParseCompoundStatement(bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1026:76
+#23 0x000014ce2e802bb7 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:318:34
+#24 0x000014ce2e803021 clang::Parser::MaybeDestroyTemplateIds() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:328:5
+#25 0x000014ce2e803021 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:127:26
+#26 0x000014ce2e803585 clang::Parser::ParseStatement(clang::SourceLocation*, clang::Parser::ParsedStmtContext) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:50:29
+#27 0x000014ce2e808529 clang::Parser::ParseForStatement(clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:2393:33
+#28 0x000014ce2e8029b2 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:336:45
+#29 0x000014ce2e803021 clang::Parser::MaybeDestroyTemplateIds() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:328:5
+#30 0x000014ce2e803021 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:127:26
+#31 0x000014ce2e809faf clang::Parser::ParseCompoundStatementBody(bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1267:38
+#32 0x000014ce2e80a744 clang::Parser::ParseScope::Exit() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:1197:24
+#33 0x000014ce2e80a744 clang::Parser::ParseScope::~ParseScope() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:1203:11
+#34 0x000014ce2e80a744 clang::Parser::ParseCompoundStatement(bool, unsigned int) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1061:1
+#35 0x000014ce2e802bb7 clang::Parser::ParseCompoundStatement(bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1026:76
+#36 0x000014ce2e802bb7 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:318:34
+#37 0x000014ce2e803021 clang::Parser::MaybeDestroyTemplateIds() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:328:5
+#38 0x000014ce2e803021 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:127:26
+#39 0x000014ce2e803585 clang::Parser::ParseStatement(clang::SourceLocation*, clang::Parser::ParsedStmtContext) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:50:29
+#40 0x000014ce2e808529 clang::Parser::ParseForStatement(clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:2393:33
+#41 0x000014ce2e8029b2 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:336:45
+#42 0x000014ce2e803021 clang::Parser::MaybeDestroyTemplateIds() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:328:5
+#43 0x000014ce2e803021 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:127:26
+#44 0x000014ce2e809faf clang::Parser::ParseCompoundStatementBody(bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1267:38
+#45 0x000014ce2e80a744 clang::Parser::ParseScope::Exit() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:1197:24
+#46 0x000014ce2e80a744 clang::Parser::ParseScope::~ParseScope() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:1203:11
+#47 0x000014ce2e80a744 clang::Parser::ParseCompoundStatement(bool, unsigned int) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1061:1
+#48 0x000014ce2e802bb7 clang::Parser::ParseCompoundStatement(bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1026:76
+#49 0x000014ce2e802bb7 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:318:34
+#50 0x000014ce2e803021 clang::Parser::MaybeDestroyTemplateIds() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:328:5
+#51 0x000014ce2e803021 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:127:26
+#52 0x000014ce2e803585 clang::Parser::ParseStatement(clang::SourceLocation*, clang::Parser::ParsedStmtContext) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:50:29
+#53 0x000014ce2e808529 clang::Parser::ParseForStatement(clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:2393:33
+#54 0x000014ce2e8029b2 clang::Parser::ParseStatementOrDeclarationAfterAttributes(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*, clang::ParsedAttributes&, clang::ParsedAttributes&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:336:45
+#55 0x000014ce2e803021 clang::Parser::MaybeDestroyTemplateIds() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Parse/Parser.h:328:5
+#56 0x000014ce2e803021 clang::Parser::ParseStatementOrDeclaration(llvm::SmallVector<clang::Stmt*, 32u>&, clang::Parser::ParsedStmtContext, clang::SourceLocation*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:127:26
+#57 0x000014ce2e809faf clang::Parser::ParseCompoundStatementBody(bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:1267:38
+#58 0x000014ce2e80c399 clang::Parser::ParseFunctionStatementBody(clang::Decl*, clang::Parser::ParseScope&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseStmt.cpp:2580:3
+#59 0x000014ce2e80d5f4 clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/Parser.cpp:1520:36
+#60 0x000014ce2e74b8e7 clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::ParsedAttributes&, clang::Parser::ParsedTemplateInfo&, clang::SourceLocation*, clang::Parser::ForRangeInit*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseDecl.cpp:2461:40
+#61 0x000014ce2e7eee58 clang::Parser::ParseDeclOrFunctionDefInternal(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec&, clang::AccessSpecifier) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/Parser.cpp:1244:73
+#62 0x000014ce2e7ef864 clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*, clang::AccessSpecifier) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/Parser.cpp:1266:42
+#63 0x000014ce2e800152 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/Parser.cpp:1069:50
+#64 0x000014ce2e800eab clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/Parser.cpp:758:36
+#65 0x000014ce2e7074a9 clang::ParseAST(clang::Sema&, bool, bool) /usr/src/debug/clang/clang-20.1.8.src/lib/Parse/ParseAST.cpp:170:69
+#66 0x000014ce3089f23c clang::CompilerInstance::shouldBuildGlobalModuleIndex() const /usr/src/debug/clang/clang-20.1.8.src/lib/Frontend/CompilerInstance.cpp:88:58
+#67 0x000014ce3089f23c clang::FrontendAction::Execute() /usr/src/debug/clang/clang-20.1.8.src/lib/Frontend/FrontendAction.cpp:1076:38
+#68 0x000014ce30825c57 llvm::Error::getPtr() const /usr/include/llvm/Support/Error.h:282:12
+#69 0x000014ce30825c57 llvm::Error::operator bool() /usr/include/llvm/Support/Error.h:242:22
+#70 0x000014ce30825c57 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) /usr/src/debug/clang/clang-20.1.8.src/lib/Frontend/CompilerInstance.cpp:1056:42
+#71 0x000014ce3090742f std::__shared_ptr<clang::FrontendOptions, (__gnu_cxx::_Lock_policy)2>::get() const /usr/include/c++/15.1.1/bits/shared_ptr_base.h:1673:16
+#72 0x000014ce3090742f std::__shared_ptr_access<clang::FrontendOptions, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const /usr/include/c++/15.1.1/bits/shared_ptr_base.h:1370:69
+#73 0x000014ce3090742f std::__shared_ptr_access<clang::FrontendOptions, (__gnu_cxx::_Lock_policy)2, false, false>::operator*() const /usr/include/c++/15.1.1/bits/shared_ptr_base.h:1358:40
+#74 0x000014ce3090742f clang::CompilerInvocation::getFrontendOpts() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Frontend/CompilerInvocation.h:259:48
+#75 0x000014ce3090742f clang::CompilerInstance::getFrontendOpts() /usr/src/debug/clang/clang-20.1.8.src/include/clang/Frontend/CompilerInstance.h:313:39
+#76 0x000014ce3090742f clang::ExecuteCompilerInvocation(clang::CompilerInstance*) /usr/src/debug/clang/clang-20.1.8.src/lib/FrontendTool/ExecuteCompilerInvocation.cpp:297:29
+#77 0x000055fa5a798a03 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) /usr/src/debug/clang/clang-20.1.8.src/tools/driver/cc1_main.cpp:290:40
+#78 0x000055fa5a79c781 ExecuteCC1Tool /usr/src/debug/clang/clang-20.1.8.src/tools/driver/driver.cpp:218:20
+#79 0x000014ce30448205 operator() /usr/src/debug/clang/clang-20.1.8.src/lib/Driver/Job.cpp:437:32
+#80 0x000014ce30448205 callback_fn<clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef> >, std::string*, bool*) const::<lambda()> > /usr/include/llvm/ADT/STLFunctionalExtras.h:46:52
+#81 0x000014ce24fcbf88 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) /usr/src/debug/llvm/llvm-20.1.8.src/lib/Support/CrashRecoveryContext.cpp:428:1
+#82 0x000014ce30452a15 clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const /usr/src/debug/clang/clang-20.1.8.src/lib/Driver/Job.cpp:441:10
+#83 0x000014ce3047fcfb clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const /usr/src/debug/clang/clang-20.1.8.src/lib/Driver/Compilation.cpp:196:22
+#84 0x000014ce304800ec clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const /usr/src/debug/clang/clang-20.1.8.src/lib/Driver/Compilation.cpp:251:5
+#85 0x000014ce30484895 llvm::SmallVectorBase<unsigned int>::empty() const /usr/include/llvm/ADT/SmallVector.h:81:46
+#86 0x000014ce30484895 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) /usr/src/debug/clang/clang-20.1.8.src/lib/Driver/Driver.cpp:2190:28
+#87 0x000055fa5a79e9e4 llvm::SmallVectorBase<unsigned int>::size() const /usr/include/llvm/ADT/SmallVector.h:78:32
+#88 0x000055fa5a79e9e4 llvm::SmallVectorTemplateCommon<std::pair<int, clang::driver::Command const*>, void>::end() /usr/include/llvm/ADT/SmallVector.h:269:41
+#89 0x000055fa5a79e9e4 clang_main(int, char**, llvm::ToolContext const&) /usr/src/debug/clang/clang-20.1.8.src/tools/driver/driver.cpp:404:26
+#90 0x000055fa5a78f1e0 main /usr/src/debug/clang/clang-20.1.8.src/build/tools/driver/clang-driver.cpp:18:1
+#91 0x000014ce24027675 __libc_start_call_main /usr/src/debug/glibc/glibc/csu/../sysdeps/nptl/libc_start_call_main.h:74:3
+#92 0x000014ce24027729 call_init /usr/src/debug/glibc/glibc/csu/../csu/libc-start.c:128:20
+#93 0x000014ce24027729 __libc_start_main /usr/src/debug/glibc/glibc/csu/../csu/libc-start.c:347:5
+#94 0x000055fa5a78f245 _start (/usr/bin/clang+++0xb245)
+clang++: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+clang version 20.1.8
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+clang++: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang++: note: diagnostic msg: /tmp/main-1c97a3.cpp
+clang++: note: diagnostic msg: /tmp/main-1c97a3.sh
+clang++: note: diagnostic msg: 
+
+********************

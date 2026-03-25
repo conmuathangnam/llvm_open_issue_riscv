@@ -1,0 +1,95 @@
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: /home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang++ -DHAVE_DBUS -DIMOBILEDEVICE_API=0x10300 -DKF6Solid_EXPORTS -DQT_CORE_LIB -DQT_DBUS_LIB -DQT_DEPRECATED_WARNINGS_SINCE=0x70000 -DQT_DISABLE_DEPRECATED_BEFORE=0x60b00 -DQT_GUI_LIB -DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_CAST_TO_ASCII -DQT_NO_DEBUG -DQT_NO_FOREACH -DQT_NO_KEYWORDS -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT -DQT_NO_URL_CAST_FROM_STRING -DQT_STRICT_ITERATORS -DQT_USE_QSTRINGBUILDER -DQT_XML_LIB -DSOLID_DEPRECATED_WARNINGS_SINCE=0x0 -DSOLID_DISABLE_DEPRECATED_BEFORE_AND_AT=0x0 -D_GNU_SOURCE -D_LARGEFILE64_SOURCE -I/volumes/fastdata/kde/build/solid/src/solid -I/volumes/ssddata/kde/src/solid/src/solid -I/volumes/ssddata/kde/src/solid/src/solid/devices -I/volumes/ssddata/kde/src/solid/src/solid/devices/frontend -I/volumes/ssddata/kde/src/solid/src/solid/.. -I/volumes/fastdata/kde/build/solid/src/solid/.. -isystem /volumes/fastdata/kde/build/solid/src/solid/KF6Solid_autogen/include -isystem /usr/include/qt6/QtCore -isystem /usr/include/qt6 -isystem /usr/lib/qt6/mkspecs/linux-g++ -isystem /usr/include/qt6/QtXml -isystem /usr/include/qt6/QtGui -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/qt6/QtDBus -fuse-ld=lld -march=native -mtune=native -flto -fno-operator-names -fno-exceptions -Wno-gnu-zero-variadic-macro-arguments -Wall -Wextra -Wcast-align -Wchar-subscripts -Wformat-security -Wno-long-long -Wpointer-arith -Wundef -Wnon-virtual-dtor -Woverloaded-virtual -Werror=return-type -Werror=init-self -Werror=undef -Wvla -Wdate-time -pedantic -Wzero-as-null-pointer-constant -fdiagnostics-color=always -O2 -g -DNDEBUG -std=c++20 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -fno-direct-access-external-data -MD -MT src/solid/CMakeFiles/KF6Solid.dir/devices/solidnamespace.cpp.o -MF src/solid/CMakeFiles/KF6Solid.dir/devices/solidnamespace.cpp.o.d -o src/solid/CMakeFiles/KF6Solid.dir/devices/solidnamespace.cpp.o -c /volumes/ssddata/kde/src/solid/src/solid/devices/solidnamespace.cpp
+1.	<eof> parser at end of file
+2.	/usr/lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/format:4825:5: instantiating function definition 'std::vformat_to<std::__format::_Sink_iter<wchar_t>>'
+3.	/usr/lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/format:4678:5: instantiating function definition 'std::__format::__do_vformat_to<std::__format::_Sink_iter<wchar_t>, wchar_t, std::basic_format_context<std::__format::_Sink_iter<wchar_t>, wchar_t>>'
+4.	/usr/lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/format:4567:11: instantiating class definition 'std::__format::_Formatting_scanner<std::__format::_Sink_iter<wchar_t>, wchar_t>'
+5.	/usr/lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/format:4581:7: instantiating function definition 'std::__format::_Formatting_scanner<std::__format::_Sink_iter<wchar_t>, wchar_t>::_M_on_chars'
+ #0 0x000056067f413947 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0x8a13947)
+ #1 0x000056067f413565 llvm::sys::CleanupOnSignal(unsigned long) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0x8a13565)
+ #2 0x000056067f3c421e (anonymous namespace)::CrashRecoveryContextImpl::HandleCrash(int, unsigned long) CrashRecoveryContext.cpp:0:0
+ #3 0x000056067f3c43ee CrashRecoverySignalHandler(int) (.llvm.11598114620281210974) CrashRecoveryContext.cpp:0:0
+ #4 0x00007f549844d2d0 (/usr/lib/libc.so.6+0x3e2d0)
+ #5 0x0000560682072efa clang::Sema::getTrivialTemplateArgumentLoc(clang::TemplateArgument const&, clang::QualType, clang::SourceLocation, clang::NamedDecl*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb672efa)
+ #6 0x00005606809c84a7 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraintWithParamMapping&) SemaConcept.cpp:0:0
+ #7 0x00005606809a48d6 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+ #8 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+ #9 0x00005606809a4baf (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#10 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#11 0x00005606809a4baf (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#12 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#13 0x00005606809a4baf (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#14 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#15 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#16 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#17 0x00005606809a4baf (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#18 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#19 0x00005606809a4baf (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#20 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#21 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#22 0x00005606809a4baf (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#23 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#24 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#25 0x00005606809a4838 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#26 0x00005606809a4718 (anonymous namespace)::SubstituteParameterMappings::substitute(clang::NormalizedConstraint&) SemaConcept.cpp:0:0
+#27 0x00005606809a46c0 clang::Sema::getNormalizedAssociatedConstraints(llvm::PointerUnion<clang::NamedDecl const*, clang::concepts::NestedRequirement const*>, llvm::ArrayRef<clang::AssociatedConstraint>) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0x9fa46c0)
+#28 0x00005606809a1b6e CheckConstraintSatisfaction(clang::Sema&, clang::NamedDecl const*, llvm::ArrayRef<clang::AssociatedConstraint>, clang::MultiLevelTemplateArgumentList const&, clang::SourceRange, clang::ConstraintSatisfaction&, clang::Expr**, clang::ConceptReference const*) (.llvm.7178700841123195392) SemaConcept.cpp:0:0
+#29 0x00005606809a18b9 clang::Sema::CheckConstraintSatisfaction(llvm::PointerUnion<clang::NamedDecl const*, clang::concepts::NestedRequirement const*>, llvm::ArrayRef<clang::AssociatedConstraint>, clang::MultiLevelTemplateArgumentList const&, clang::SourceRange, clang::ConstraintSatisfaction&, clang::ConceptReference const*, clang::Expr**) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0x9fa18b9)
+#30 0x0000560683325ce9 void llvm::function_ref<void ()>::callback_fn<clang::Sema::DeduceTemplateArguments(clang::FunctionTemplateDecl*, clang::TemplateArgumentListInfo*, llvm::ArrayRef<clang::Expr*>, clang::FunctionDecl*&, clang::sema::TemplateDeductionInfo&, bool, bool, bool, clang::QualType, clang::Expr::Classification, bool, llvm::function_ref<bool (llvm::ArrayRef<clang::QualType>, bool)>)::$_2>(long) (.llvm.12069087394433614041.cold.0) SemaTemplateDeduction.cpp:0:0
+#31 0x0000560682a014a2 clang::OverloadCandidateSet::BestViableFunction(clang::Sema&, clang::SourceLocation, clang::OverloadCandidate*&) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0014a2)
+#32 0x0000560681ebc8d2 clang::InitializationSequence::InitializationSequence(clang::Sema&, clang::InitializedEntity const&, clang::InitializationKind const&, llvm::MutableArrayRef<clang::Expr*>, bool, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb4bc8d2)
+#33 0x000056068275d751 clang::Sema::AddInitializerToDecl(clang::Decl*, clang::Expr*, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xbd5d751)
+#34 0x00005606826d29c7 clang::Sema::BuildVariableInstantiation(clang::VarDecl*, clang::VarDecl*, clang::MultiLevelTemplateArgumentList const&, llvm::SmallVector<clang::Sema::LateInstantiatedAttribute, 1u>*, clang::DeclContext*, clang::LocalInstantiationScope*, bool, clang::VarTemplateSpecializationDecl*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xbcd29c7)
+#35 0x0000560681cd3d7c clang::TemplateDeclInstantiator::VisitVarDecl(clang::VarDecl*, bool, llvm::ArrayRef<clang::BindingDecl*>*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2d3d7c)
+#36 0x0000560682084f67 void llvm::function_ref<void ()>::callback_fn<clang::Sema::SubstDecl(clang::Decl*, clang::DeclContext*, clang::MultiLevelTemplateArgumentList const&)::$_0>(long) (.llvm.12474164534542517173) SemaTemplateInstantiateDecl.cpp:0:0
+#37 0x0000560682083f72 clang::TreeTransform<(anonymous namespace)::TemplateInstantiator>::TransformDeclStmt(clang::DeclStmt*) (.llvm.1936782630417382231) SemaTemplateInstantiate.cpp:0:0
+#38 0x00005606823d95d6 clang::TreeTransform<(anonymous namespace)::TemplateInstantiator>::TransformCompoundStmt(clang::CompoundStmt*) (.llvm.1936782630417382231) SemaTemplateInstantiate.cpp:0:0
+#39 0x0000560681cc6c57 clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2c6c57)
+#40 0x000056067bee8777 void llvm::function_ref<void ()>::callback_fn<clang::Sema::MarkFunctionReferenced(clang::SourceLocation, clang::FunctionDecl*, bool)::$_0>(long) SemaExpr.cpp:0:0
+#41 0x000056068265bf07 clang::Sema::MarkFunctionReferenced(clang::SourceLocation, clang::FunctionDecl*, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xbc5bf07)
+#42 0x000056068373890e clang::Sema::MarkVirtualMembersReferenced(clang::SourceLocation, clang::CXXRecordDecl const*, bool) (.cold.0) bolt-pseudo.o:0:0
+#43 0x0000560682d768c8 clang::Sema::InstantiateClassTemplateSpecialization(clang::SourceLocation, clang::ClassTemplateSpecializationDecl*, clang::TemplateSpecializationKind, bool, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc3768c8)
+#44 0x0000560681e948ab clang::Sema::RequireCompleteTypeImpl(clang::SourceLocation, clang::QualType, clang::Sema::CompleteTypeKind, clang::Sema::TypeDiagnoser*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb4948ab)
+#45 0x000056068275d2ac clang::Sema::AddInitializerToDecl(clang::Decl*, clang::Expr*, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xbd5d2ac)
+#46 0x00005606826d29c7 clang::Sema::BuildVariableInstantiation(clang::VarDecl*, clang::VarDecl*, clang::MultiLevelTemplateArgumentList const&, llvm::SmallVector<clang::Sema::LateInstantiatedAttribute, 1u>*, clang::DeclContext*, clang::LocalInstantiationScope*, bool, clang::VarTemplateSpecializationDecl*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xbcd29c7)
+#47 0x0000560681cd3d7c clang::TemplateDeclInstantiator::VisitVarDecl(clang::VarDecl*, bool, llvm::ArrayRef<clang::BindingDecl*>*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2d3d7c)
+#48 0x0000560682084f67 void llvm::function_ref<void ()>::callback_fn<clang::Sema::SubstDecl(clang::Decl*, clang::DeclContext*, clang::MultiLevelTemplateArgumentList const&)::$_0>(long) (.llvm.12474164534542517173) SemaTemplateInstantiateDecl.cpp:0:0
+#49 0x0000560682083f72 clang::TreeTransform<(anonymous namespace)::TemplateInstantiator>::TransformDeclStmt(clang::DeclStmt*) (.llvm.1936782630417382231) SemaTemplateInstantiate.cpp:0:0
+#50 0x00005606823d95d6 clang::TreeTransform<(anonymous namespace)::TemplateInstantiator>::TransformCompoundStmt(clang::CompoundStmt*) (.llvm.1936782630417382231) SemaTemplateInstantiate.cpp:0:0
+#51 0x0000560681cc6c57 clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2c6c57)
+#52 0x0000560681cc769e clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2c769e)
+#53 0x0000560681cc5793 clang::Sema::PerformPendingInstantiations(bool, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2c5793)
+#54 0x0000560682e53e32 clang::Sema::ActOnEndOfTranslationUnitFragment(clang::TUFragmentKind) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc453e32)
+#55 0x0000560682e5445e clang::Sema::ActOnEndOfTranslationUnit() (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc45445e)
+#56 0x0000560681cb438e clang::ParseAST(clang::Sema&, bool, bool) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2b438e)
+#57 0x0000560681cb3bf9 clang::FrontendAction::Execute() (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xb2b3bf9)
+#58 0x0000560682acce61 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0cce61)
+#59 0x0000560682accc9d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0ccc9d)
+#60 0x0000560682acc21c cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0cc21c)
+#61 0x0000560682ac8712 ExecuteCC1Tool(llvm::SmallVectorImpl<char const*>&, llvm::ToolContext const&, llvm::IntrusiveRefCntPtr<llvm::vfs::FileSystem>) driver.cpp:0:0
+#62 0x0000560682ac85e6 int llvm::function_ref<int (llvm::SmallVectorImpl<char const*>&)>::callback_fn<clang_main(int, char**, llvm::ToolContext const&)::$_0>(long, llvm::SmallVectorImpl<char const*>&) driver.cpp:0:0
+#63 0x0000560682ac85a3 void llvm::function_ref<void ()>::callback_fn<clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const::$_0>(long) Job.cpp:0:0
+#64 0x0000560682ac857a llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0c857a)
+#65 0x0000560682ac8457 clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0c8457)
+#66 0x0000560682ac8270 clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0c8270)
+#67 0x0000560682ac8173 clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0c8173)
+#68 0x0000560682ac7df7 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0c7df7)
+#69 0x0000560682aca027 clang_main(int, char**, llvm::ToolContext const&) (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0ca027)
+#70 0x0000560682ac9492 main (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xc0c9492)
+#71 0x00007f54984366c1 (/usr/lib/libc.so.6+0x276c1)
+#72 0x00007f54984367f9 __libc_start_main (/usr/lib/libc.so.6+0x277f9)
+#73 0x00005606828d6925 _start (/home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin/clang+++0xbed6925)
+clang++: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+clang version 22.1.0-rc3 (https://github.com/llvm/llvm-project 8530a2cf135c6091438b92b3778d1f23bf77d905)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/paragw/apps/LLVM-22.1.0-rc3-Linux-X64/bin
+clang++: note: diagnostic msg:
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang++: note: diagnostic msg: /tmp/solidnamespace-84c04f.cpp
+clang++: note: diagnostic msg: /tmp/solidnamespace-84c04f.sh
+clang++: note: diagnostic msg:

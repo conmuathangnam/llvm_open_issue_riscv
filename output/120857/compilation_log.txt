@@ -1,0 +1,41 @@
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: /usr/bin/clang++ -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -dumpdir a- -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name clang_issue.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/trofimichael/CLionProjects/cppGit -fcoverage-compilation-dir=/home/trofimichael/CLionProjects/cppGit -resource-dir /usr/lib/clang/18 -internal-isystem /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=c++20 -fdeprecated-macro -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -fno-implicit-modules -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fcolor-diagnostics -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /tmp/clang_issue-191007.o -x c++ clang_issue.cpp
+1.	clang_issue.cpp:8:1: current parser token 'int'
+Stack dump without symbol names (ensure you have llvm-symbolizer in your PATH or set the environment var `LLVM_SYMBOLIZER_PATH` to point to it):
+0  libLLVM.so.18.1      0x00007d94b4fc4d90 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) + 64
+1  libLLVM.so.18.1      0x00007d94b4fc1d4d
+2  libc.so.6            0x00007d94b424c1d0
+3  libclang-cpp.so.18.1 0x00007d94bda384a5 clang::Sema::CheckExplicitlyDefaultedComparison(clang::Scope*, clang::FunctionDecl*, clang::Sema::DefaultedComparisonKind) + 1221
+4  libclang-cpp.so.18.1 0x00007d94bda5f3f6 clang::Sema::SetDeclDefaulted(clang::Decl*, clang::SourceLocation) + 566
+5  libclang-cpp.so.18.1 0x00007d94bd06730c clang::Parser::ParseFunctionDefinition(clang::ParsingDeclarator&, clang::Parser::ParsedTemplateInfo const&, clang::Parser::LateParsedAttrList*) + 3644
+6  libclang-cpp.so.18.1 0x00007d94bcfc4ae0 clang::Parser::ParseDeclGroup(clang::ParsingDeclSpec&, clang::DeclaratorContext, clang::ParsedAttributes&, clang::SourceLocation*, clang::Parser::ForRangeInit*) + 3760
+7  libclang-cpp.so.18.1 0x00007d94bd050773 clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*, clang::AccessSpecifier) + 1107
+8  libclang-cpp.so.18.1 0x00007d94bd0694d2 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) + 642
+9  libclang-cpp.so.18.1 0x00007d94bd06a0eb clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) + 427
+10 libclang-cpp.so.18.1 0x00007d94bcf8d038 clang::ParseAST(clang::Sema&, bool, bool) + 632
+11 libclang-cpp.so.18.1 0x00007d94bea58451 clang::FrontendAction::Execute() + 433
+12 libclang-cpp.so.18.1 0x00007d94be9f9097 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 439
+13 libclang-cpp.so.18.1 0x00007d94beab07fd clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 445
+14 clang++              0x000058181a2533a4 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) + 8900
+15 clang++              0x000058181a25770a
+16 clang++              0x000058181a25828a clang_main(int, char**, llvm::ToolContext const&) + 2058
+17 clang++              0x000058181a24afd5 main + 133
+18 libc.so.6            0x00007d94b4234e08
+19 libc.so.6            0x00007d94b4234ecc __libc_start_main + 140
+20 clang++              0x000058181a24b035 _start + 37
+clang++: error: unable to execute command: Segmentation fault (core dumped)
+clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+clang version 18.1.8
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+clang++: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang++: note: diagnostic msg: /tmp/clang_issue-5b30fa.cpp
+clang++: note: diagnostic msg: /tmp/clang_issue-5b30fa.sh
+clang++: note: diagnostic msg: 
+/usr/bin/bash: line 1: qq: command not found

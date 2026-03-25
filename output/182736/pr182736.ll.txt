@@ -1,0 +1,57 @@
+; RUN: opt  %loadNPMPolly '-passes=polly-custom<simplify-0;optree>' --disable-output < %s | FileCheck %s
+
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+
+define void @func(i32 %j, ptr %n, ptr %o, ptr %e, ptr %a, ptr %b, ptr %c, ptr %d) {
+entry:
+  br label %for.body15.lr.ph
+
+for.cond.cleanup:                                 ; preds = %for.cond.cleanup14
+  ret void
+
+for.body15.lr.ph:                                 ; preds = %for.cond.cleanup14, %entry
+  %conv3114 = phi i64 [ %add84, %for.cond.cleanup14 ], [ 0, %entry ]
+  %arrayidx17 = getelementptr [9 x i16], ptr %n, i64 %conv3114
+  %i = load i16, ptr %arrayidx17, align 2
+  %conv20 = trunc i16 %i to i8
+  store i8 %conv20, ptr %a, align 1
+  store i16 29275, ptr %b, align 2
+  store i16 1, ptr %c, align 2
+  %arrayidx51 = getelementptr [9 x [9 x i16]], ptr %e, i64 %conv3114
+  %arrayidx53 = getelementptr [9 x i16], ptr %arrayidx51, i64 %conv3114
+  store i16 0, ptr %arrayidx53, align 2
+  %arrayidx55.1 = getelementptr i8, ptr %arrayidx53, i64 4
+  store i16 0, ptr %arrayidx55.1, align 2
+  %arrayidx55.2 = getelementptr i8, ptr %arrayidx53, i64 8
+  store i16 0, ptr %arrayidx55.2, align 2
+  %arrayidx55.3 = getelementptr i8, ptr %arrayidx53, i64 12
+  store i16 0, ptr %arrayidx55.3, align 2
+  %arrayidx55.4 = getelementptr i8, ptr %arrayidx53, i64 16
+  store i16 0, ptr %arrayidx55.4, align 2
+  %arrayidx55.5 = getelementptr i8, ptr %arrayidx53, i64 20
+  store i16 0, ptr %arrayidx55.5, align 2
+  %arrayidx55.6 = getelementptr i8, ptr %arrayidx53, i64 24
+  store i16 0, ptr %arrayidx55.6, align 2
+  %arrayidx55.7 = getelementptr i8, ptr %arrayidx53, i64 28
+  store i16 0, ptr %arrayidx55.7, align 2
+  %arrayidx55.8 = getelementptr i8, ptr %arrayidx53, i64 32
+  store i16 0, ptr %arrayidx55.8, align 2
+  %arrayidx55.9 = getelementptr i8, ptr %arrayidx53, i64 36
+  store i16 0, ptr %arrayidx55.9, align 2
+  %arrayidx69 = getelementptr i8, ptr null, i64 %conv3114
+  store i8 0, ptr %arrayidx69, align 1
+  %tobool70.not = icmp eq i32 %j, 0
+  br i1 %tobool70.not, label %cond.false, label %for.cond.cleanup14
+
+for.cond.cleanup14:                               ; preds = %cond.false, %for.body15.lr.ph
+  %cond = phi i16 [ %i1, %cond.false ], [ 0, %for.body15.lr.ph ]
+  store i16 %cond, ptr %d, align 2
+  %add84 = add i64 %conv3114, 1
+  %cmp5 = icmp ult i64 %conv3114, 18
+  br i1 %cmp5, label %for.body15.lr.ph, label %for.cond.cleanup
+
+cond.false:                                       ; preds = %for.body15.lr.ph
+  %arrayidx72 = getelementptr [9 x i16], ptr %o, i64 %conv3114
+  %i1 = load i16, ptr %arrayidx72, align 2
+  br label %for.cond.cleanup14
+}

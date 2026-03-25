@@ -1,0 +1,106 @@
+Process 97182 stopped
+* thread #1, name = 'MainThread', queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+    frame #0: 0x000000015e6aed48 XUL`nsPNGEncoder::AddImageFrame(this=0x00000003091d7ac0, aData="", aLength=<unavailable>, aWidth=48, aHeight=48, aStride=192, aInputFormat=2, aFrameOptions=0x000000016fdf99b0) at nsPNGEncoder.cpp:0:5 [opt]
+   29  	      mIsAnimation(false),
+   30  	      mFinished(false),
+   31  	      mImageBuffer(nullptr),
+-> 32  	      mImageBufferSize(0),
+   33  	      mImageBufferUsed(0),
+   34  	      mImageBufferHash(0),
+   35  	      mImageBufferReadPoint(0),
+Note: this address is compiler-generated code in function nsPNGEncoder::AddImageFrame(unsigned char const*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, nsTSubstring<char16_t> const&) that has no source code associated with it.
+Target 0: (firefox) stopped.
+warning: XUL was compiled with optimization - stepping may behave oddly; variables may not be available.
+(lldb) disassemble -m -pc
+XUL`nsPNGEncoder::AddImageFrame:
+->  0x15e6aed48 <+680>: mov    w9, w9
+
+   297 	      return NS_ERROR_OUT_OF_MEMORY;
+   298 	    }
+** 299 	    for (uint32_t y = 0; y < aHeight; y++) {
+   300 	      ConvertHostARGBRow(&aData[y * aStride], row.get(), aWidth,
+   301 	                         useTransparency);
+
+    0x15e6aed4c <+684>: mov    w8, w8
+    0x15e6aed50 <+688>: stp    x8, x9, [sp, #0x28]
+    0x15e6aed54 <+692>: mov    w28, #0x0 ; =0 
+(lldb) register read x8 x9
+      x8 = 0x0000000000000030
+      x9 = 0x0000003000000030
+(lldb) c
+Process 97182 resuming
+Process 97182 stopped
+* thread #1, name = 'MainThread', queue = 'com.apple.main-thread', stop reason = breakpoint 2.1
+    frame #0: 0x000000015e6aed50 XUL`nsPNGEncoder::AddImageFrame(this=0x00000003091d7ac0, aData="", aLength=<unavailable>, aWidth=48, aHeight=48, aStride=192, aInputFormat=2, aFrameOptions=0x000000016fdf99b0) at nsPNGEncoder.cpp:299:28 [opt]
+   296 	    if (NS_WARN_IF(!row)) {
+   297 	      return NS_ERROR_OUT_OF_MEMORY;
+   298 	    }
+-> 299 	    for (uint32_t y = 0; y < aHeight; y++) {
+   300 	      ConvertHostARGBRow(&aData[y * aStride], row.get(), aWidth,
+   301 	                         useTransparency);
+   302 	      png_write_row(mPNG, row.get());
+Target 0: (firefox) stopped.
+(lldb) disassemble -m -pc
+XUL`nsPNGEncoder::AddImageFrame:
+->  0x15e6aed50 <+688>: stp    x8, x9, [sp, #0x28]
+    0x15e6aed54 <+692>: mov    w28, #0x0 ; =0 
+    0x15e6aed58 <+696>: mov    x27, x23
+    0x15e6aed5c <+700>: b      0x15e6aed80    ; <+736> at nsPNGEncoder.cpp:300:35
+(lldb) register read x8 x9
+      x8 = 0x0000000000000030
+      x9 = 0x0000000000000030
+(lldb) c
+Process 97182 resuming
+Process 97182 stopped
+* thread #1, name = 'MainThread', queue = 'com.apple.main-thread', stop reason = breakpoint 3.1
+    frame #0: 0x000000015e6aed8c XUL`nsPNGEncoder::AddImageFrame(this=0x00000003091d7ac0, aData="", aLength=<unavailable>, aWidth=48, aHeight=48, aStride=192, aInputFormat=2, aFrameOptions=0x000000016fdf99b0) at nsPNGEncoder.cpp:0:35 [opt]
+   29  	      mIsAnimation(false),
+   30  	      mFinished(false),
+   31  	      mImageBuffer(nullptr),
+-> 32  	      mImageBufferSize(0),
+   33  	      mImageBufferUsed(0),
+   34  	      mImageBufferHash(0),
+   35  	      mImageBufferReadPoint(0),
+Note: this address is compiler-generated code in function nsPNGEncoder::AddImageFrame(unsigned char const*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, nsTSubstring<char16_t> const&) that has no source code associated with it.
+Target 0: (firefox) stopped.
+(lldb) disassemble -m -s 0x15e6aed84
+XUL`nsPNGEncoder::AddImageFrame:
+    0x15e6aed84 <+740>: mov    w9, #0x0 ; =0 
+    0x15e6aed88 <+744>: ldr    x8, [sp, #0x30]
+->  0x15e6aed8c <+748>: b      0x15e6aedb4    ; <+788> [inlined] nsPNGEncoder::ConvertHostARGBRow(unsigned char const*, unsigned char*, unsigned int, bool) + 36 at nsPNGEncoder.cpp:731:26
+    0x15e6aed90 <+752>: mov    x13, x12
+
+   734 	    pixelOut[pixelStride - 1] = alpha;  // overwritten below if pixelStride == 3
+   735 	    if (alpha == 255) {
+** 736 	      pixelOut[0] = (pixelIn & 0xff0000) >> 16;
+
+(lldb) register read x8
+      x8 = 0x0000000000000030
+(lldb) c
+Process 97182 resuming
+Process 97182 stopped
+* thread #1, name = 'MainThread', queue = 'com.apple.main-thread', stop reason = breakpoint 4.1
+    frame #0: 0x000000015e6aedb0 XUL`nsPNGEncoder::ConvertHostARGBRow(this=0x00000003091d7ac0, aSrc="", aDest="", aPixelWidth=<unavailable>, aUseTransparency=<unavailable>) at nsPNGEncoder.cpp:729:3 [opt] [inlined]
+   726 	                                      uint32_t aPixelWidth,
+   727 	                                      bool aUseTransparency) {
+   728 	  uint32_t pixelStride = aUseTransparency ? 4 : 3;
+-> 729 	  for (uint32_t x = 0; x < aPixelWidth; x++) {
+   730 	    const uint32_t& pixelIn = ((const uint32_t*)(aSrc))[x];
+   731 	    uint8_t* pixelOut = &aDest[x * pixelStride];
+   732 	
+Target 0: (firefox) stopped.
+(lldb) disassemble -m -s 0x15e6aeda8
+XUL`nsPNGEncoder::ConvertHostARGBRow:
+    0x15e6aeda8 <+776>: add    w9, w9, w27
+    0x15e6aedac <+780>: subs   x8, x8, #0x1
+
+-> 727 	                                      bool aUseTransparency) {
+-> 728 	  uint32_t pixelStride = aUseTransparency ? 4 : 3;
+-> 729 	  for (uint32_t x = 0; x < aPixelWidth; x++) {
+-> 730 	    const uint32_t& pixelIn = ((const uint32_t*)(aSrc))[x];
+
+->  0x15e6aedb0 <+784>: b.eq   0x15e6aed60    ; <+704> at nsPNGEncoder.cpp:302:21
+
+(lldb) register read x8
+      x8 = 0x000000000000002f
+(lldb) br dis

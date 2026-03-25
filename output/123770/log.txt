@@ -1,0 +1,554 @@
+
+[main] Building folder: /home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug main
+[build] Starting build
+[proc] Executing command: /usr/bin/cmake --build /home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug --config Debug --target main --
+[build] [1/2   0% :: 0.003] Re-checking globbed directories...
+[build] [1/24   4% :: 0.540] Scanning '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/_deps/std-src/std.cppm' for CXX dependencies
+[build] [2/24   8% :: 0.561] Generating CXX dyndep file _deps/std-build/CMakeFiles/std.dir/CXX.dd
+[build] [4/24  12% :: 0.588] Generating CXX dyndep file CMakeFiles/main.dir/CXX.dd
+[build] [13/24  16% :: 1.688] Building CXX object CMakeFiles/main.dir/src/units/si/si_area.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/units/si/si_area.cppm.o CMakeFiles/main.dir/units-si_area.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/units/si/si_area.cppm.o -MF CMakeFiles/main.dir/src/units/si/si_area.cppm.o.d @CMakeFiles/main.dir/src/units/si/si_area.cppm.o.modmap -o CMakeFiles/main.dir/src/units/si/si_area.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/units/si/si_area.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	Program arguments: /usr/bin/clang-20 -cc1 -triple x86_64-pc-linux-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name si_area.cppm -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -fcoverage-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -resource-dir /usr/lib/clang/20 -Wall -Wextra -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -Werror=return-local-addr -Wno-c++23-extensions -Wstrict-overflow -pedantic -std=gnu++23 -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fmodules -fimplicit-module-maps -fmodules-cache-path=/home/sigurd/.cache/clang/ModuleCache -fmodule-map-file=/usr/lib/clang/20/include/module.modulemap -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug/modules -fmodules-validate-system-headers -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fcolor-diagnostics -fretain-comments-from-system-headers -emit-module-interface -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/main.dir/src/units/si/si_area.cppm.o -x pcm CMakeFiles/main.dir/units-si_area.pcm
+[build] 1.	<eof> parser at end of file
+[build]  #0 0x0000772922d78ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x0000772922d76a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x0000772922d796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x000077292044c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x0000772928f50bf9 clang::ASTWriter::WriteSubmodules(clang::Module*, clang::ASTContext*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3150bf9)
+[build]  #5 0x0000772928f67d63 clang::ASTWriter::WriteASTCore(clang::Sema*, llvm::StringRef, clang::Module*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3167d63)
+[build]  #6 0x0000772928f6640e clang::ASTWriter::WriteAST(llvm::PointerUnion<clang::Sema*, clang::Preprocessor*>, llvm::StringRef, clang::Module*, llvm::StringRef, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x316640e)
+[build]  #7 0x0000772928fbd7cf clang::PCHGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd7cf)
+[build]  #8 0x0000772928fbd9d1 clang::CXX20ModulesGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd9d1)
+[build]  #9 0x00007729291425ac clang::MultiplexConsumer::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x33425ac)
+[build] #10 0x0000772926e87e88 clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087e88)
+[build] #11 0x0000772929101f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #12 0x000077292907c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #13 0x0000772929183e4d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3383e4d)
+[build] #14 0x0000595babd1b4ba cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/usr/bin/clang-20+0x104ba)
+[build] #15 0x0000595babd184a1 (/usr/bin/clang-20+0xd4a1)
+[build] #16 0x0000595babd1745c clang_main(int, char**, llvm::ToolContext const&) (/usr/bin/clang-20+0xc45c)
+[build] #17 0x0000595babd254da main (/usr/bin/clang-20+0x1a4da)
+[build] #18 0x0000772920434e08 (/usr/bin/../lib/libc.so.6+0x25e08)
+[build] #19 0x0000772920434ecc __libc_start_main (/usr/bin/../lib/libc.so.6+0x25ecc)
+[build] #20 0x0000595babd15e75 _start (/usr/bin/clang-20+0xae75)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: note: diagnostic msg:
+[build] ********************
+[build]
+[build] PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+[build] Preprocessed source(s) and associated run script(s) are located at:
+[build] clang++: note: diagnostic msg: /tmp/si_area-71eeab.cppm
+[build] clang++: note: diagnostic msg: /tmp/si_area-71eeab.cache
+[build] clang++: note: diagnostic msg: /tmp/si_area-71eeab.sh
+[build] clang++: note: diagnostic msg:
+[build]
+[build] ********************
+[build] [13/24  20% :: 2.513] Building CXX object CMakeFiles/main.dir/src/consts/numeric.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/consts/numeric.cppm.o CMakeFiles/main.dir/consts-numeric.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/consts/numeric.cppm.o -MF CMakeFiles/main.dir/src/consts/numeric.cppm.o.d @CMakeFiles/main.dir/src/consts/numeric.cppm.o.modmap -o CMakeFiles/main.dir/src/consts/numeric.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/consts/numeric.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	Program arguments: /usr/bin/clang-20 -cc1 -triple x86_64-pc-linux-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name numeric.cppm -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -fcoverage-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -resource-dir /usr/lib/clang/20 -Wall -Wextra -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -Werror=return-local-addr -Wno-c++23-extensions -Wstrict-overflow -pedantic -std=gnu++23 -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fmodules -fimplicit-module-maps -fmodules-cache-path=/home/sigurd/.cache/clang/ModuleCache -fmodule-map-file=/usr/lib/clang/20/include/module.modulemap -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug/modules -fmodules-validate-system-headers -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fcolor-diagnostics -fretain-comments-from-system-headers -emit-module-interface -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/main.dir/src/consts/numeric.cppm.o -x pcm CMakeFiles/main.dir/consts-numeric.pcm
+[build] 1.	<eof> parser at end of file
+[build]  #0 0x000072c7a7778ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x000072c7a7776a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x000072c7a77796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x000072c7a4e4c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x000072c7ad950bf9 clang::ASTWriter::WriteSubmodules(clang::Module*, clang::ASTContext*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3150bf9)
+[build]  #5 0x000072c7ad967d63 clang::ASTWriter::WriteASTCore(clang::Sema*, llvm::StringRef, clang::Module*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3167d63)
+[build]  #6 0x000072c7ad96640e clang::ASTWriter::WriteAST(llvm::PointerUnion<clang::Sema*, clang::Preprocessor*>, llvm::StringRef, clang::Module*, llvm::StringRef, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x316640e)
+[build]  #7 0x000072c7ad9bd7cf clang::PCHGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd7cf)
+[build]  #8 0x000072c7ad9bd9d1 clang::CXX20ModulesGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd9d1)
+[build]  #9 0x000072c7adb425ac clang::MultiplexConsumer::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x33425ac)
+[build] #10 0x000072c7ab887e88 clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087e88)
+[build] #11 0x000072c7adb01f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #12 0x000072c7ada7c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #13 0x000072c7adb83e4d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3383e4d)
+[build] #14 0x0000567a08a804ba cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/usr/bin/clang-20+0x104ba)
+[build] #15 0x0000567a08a7d4a1 (/usr/bin/clang-20+0xd4a1)
+[build] #16 0x0000567a08a7c45c clang_main(int, char**, llvm::ToolContext const&) (/usr/bin/clang-20+0xc45c)
+[build] #17 0x0000567a08a8a4da main (/usr/bin/clang-20+0x1a4da)
+[build] #18 0x000072c7a4e34e08 (/usr/bin/../lib/libc.so.6+0x25e08)
+[build] #19 0x000072c7a4e34ecc __libc_start_main (/usr/bin/../lib/libc.so.6+0x25ecc)
+[build] #20 0x0000567a08a7ae75 _start (/usr/bin/clang-20+0xae75)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: note: diagnostic msg:
+[build] ********************
+[build]
+[build] PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+[build] Preprocessed source(s) and associated run script(s) are located at:
+[build] clang++: note: diagnostic msg: /tmp/numeric-94a67d.cppm
+[build] clang++: note: diagnostic msg: /tmp/numeric-94a67d.cache
+[build] clang++: note: diagnostic msg: /tmp/numeric-94a67d.sh
+[build] clang++: note: diagnostic msg:
+[build]
+[build] ********************
+[build] [13/24  25% :: 2.514] Building CXX object CMakeFiles/main.dir/src/consts/units.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/consts/units.cppm.o CMakeFiles/main.dir/consts-units.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/consts/units.cppm.o -MF CMakeFiles/main.dir/src/consts/units.cppm.o.d @CMakeFiles/main.dir/src/consts/units.cppm.o.modmap -o CMakeFiles/main.dir/src/consts/units.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/consts/units.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	Program arguments: /usr/bin/clang-20 -cc1 -triple x86_64-pc-linux-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name units.cppm -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -fcoverage-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -resource-dir /usr/lib/clang/20 -Wall -Wextra -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -Werror=return-local-addr -Wno-c++23-extensions -Wstrict-overflow -pedantic -std=gnu++23 -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fmodules -fimplicit-module-maps -fmodules-cache-path=/home/sigurd/.cache/clang/ModuleCache -fmodule-map-file=/usr/lib/clang/20/include/module.modulemap -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug/modules -fmodules-validate-system-headers -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fcolor-diagnostics -fretain-comments-from-system-headers -emit-module-interface -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/main.dir/src/consts/units.cppm.o -x pcm CMakeFiles/main.dir/consts-units.pcm
+[build] 1.	<eof> parser at end of file
+[build]  #0 0x00007d5c17378ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x00007d5c17376a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x00007d5c173796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x00007d5c14a4c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x00007d5c1d550bf9 clang::ASTWriter::WriteSubmodules(clang::Module*, clang::ASTContext*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3150bf9)
+[build]  #5 0x00007d5c1d567d63 clang::ASTWriter::WriteASTCore(clang::Sema*, llvm::StringRef, clang::Module*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3167d63)
+[build]  #6 0x00007d5c1d56640e clang::ASTWriter::WriteAST(llvm::PointerUnion<clang::Sema*, clang::Preprocessor*>, llvm::StringRef, clang::Module*, llvm::StringRef, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x316640e)
+[build]  #7 0x00007d5c1d5bd7cf clang::PCHGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd7cf)
+[build]  #8 0x00007d5c1d5bd9d1 clang::CXX20ModulesGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd9d1)
+[build]  #9 0x00007d5c1d7425ac clang::MultiplexConsumer::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x33425ac)
+[build] #10 0x00007d5c1b487e88 clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087e88)
+[build] #11 0x00007d5c1d701f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #12 0x00007d5c1d67c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #13 0x00007d5c1d783e4d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3383e4d)
+[build] #14 0x00005f2c7d4e14ba cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/usr/bin/clang-20+0x104ba)
+[build] #15 0x00005f2c7d4de4a1 (/usr/bin/clang-20+0xd4a1)
+[build] #16 0x00005f2c7d4dd45c clang_main(int, char**, llvm::ToolContext const&) (/usr/bin/clang-20+0xc45c)
+[build] #17 0x00005f2c7d4eb4da main (/usr/bin/clang-20+0x1a4da)
+[build] #18 0x00007d5c14a34e08 (/usr/bin/../lib/libc.so.6+0x25e08)
+[build] #19 0x00007d5c14a34ecc __libc_start_main (/usr/bin/../lib/libc.so.6+0x25ecc)
+[build] #20 0x00005f2c7d4dbe75 _start (/usr/bin/clang-20+0xae75)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: note: diagnostic msg:
+[build] ********************
+[build]
+[build] PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+[build] Preprocessed source(s) and associated run script(s) are located at:
+[build] clang++: note: diagnostic msg: /tmp/units-f54804.cppm
+[build] clang++: note: diagnostic msg: /tmp/units-f54804.cache
+[build] clang++: note: diagnostic msg: /tmp/units-f54804.sh
+[build] clang++: note: diagnostic msg:
+[build]
+[build] ********************
+[build] [13/24  29% :: 6.842] Building CXX object CMakeFiles/main.dir/src/math.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/math.cppm.o CMakeFiles/main.dir/math.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/math.cppm.o -MF CMakeFiles/main.dir/src/math.cppm.o.d @CMakeFiles/main.dir/src/math.cppm.o.modmap -o CMakeFiles/main.dir/src/math.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/math.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	Program arguments: /usr/bin/clang-20 -cc1 -triple x86_64-pc-linux-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name math.cppm -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -fcoverage-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -resource-dir /usr/lib/clang/20 -Wall -Wextra -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -Werror=return-local-addr -Wno-c++23-extensions -Wstrict-overflow -pedantic -std=gnu++23 -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fmodules -fimplicit-module-maps -fmodules-cache-path=/home/sigurd/.cache/clang/ModuleCache -fmodule-map-file=/usr/lib/clang/20/include/module.modulemap -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug/modules -fmodules-validate-system-headers -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fcolor-diagnostics -fretain-comments-from-system-headers -emit-module-interface -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/main.dir/src/math.cppm.o -x pcm CMakeFiles/main.dir/math.pcm
+[build] 1.	<eof> parser at end of file
+[build]  #0 0x000079ad48b78ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x000079ad48b76a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x000079ad48b796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x000079ad4624c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x000079ad4ed50bf9 clang::ASTWriter::WriteSubmodules(clang::Module*, clang::ASTContext*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3150bf9)
+[build]  #5 0x000079ad4ed67d63 clang::ASTWriter::WriteASTCore(clang::Sema*, llvm::StringRef, clang::Module*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3167d63)
+[build]  #6 0x000079ad4ed6640e clang::ASTWriter::WriteAST(llvm::PointerUnion<clang::Sema*, clang::Preprocessor*>, llvm::StringRef, clang::Module*, llvm::StringRef, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x316640e)
+[build]  #7 0x000079ad4edbd7cf clang::PCHGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd7cf)
+[build]  #8 0x000079ad4edbd9d1 clang::CXX20ModulesGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd9d1)
+[build]  #9 0x000079ad4ef425ac clang::MultiplexConsumer::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x33425ac)
+[build] #10 0x000079ad4cc87e88 clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087e88)
+[build] #11 0x000079ad4ef01f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #12 0x000079ad4ee7c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #13 0x000079ad4ef83e4d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3383e4d)
+[build] #14 0x0000606d19b3d4ba cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/usr/bin/clang-20+0x104ba)
+[build] #15 0x0000606d19b3a4a1 (/usr/bin/clang-20+0xd4a1)
+[build] #16 0x0000606d19b3945c clang_main(int, char**, llvm::ToolContext const&) (/usr/bin/clang-20+0xc45c)
+[build] #17 0x0000606d19b474da main (/usr/bin/clang-20+0x1a4da)
+[build] #18 0x000079ad46234e08 (/usr/bin/../lib/libc.so.6+0x25e08)
+[build] #19 0x000079ad46234ecc __libc_start_main (/usr/bin/../lib/libc.so.6+0x25ecc)
+[build] #20 0x0000606d19b37e75 _start (/usr/bin/clang-20+0xae75)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: note: diagnostic msg:
+[build] ********************
+[build]
+[build] PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+[build] Preprocessed source(s) and associated run script(s) are located at:
+[build] clang++: note: diagnostic msg: /tmp/math-8ef425.cppm
+[build] clang++: note: diagnostic msg: /tmp/math-8ef425.cache
+[build] clang++: note: diagnostic msg: /tmp/math-8ef425.sh
+[build] clang++: note: diagnostic msg:
+[build]
+[build] ********************
+[build] [13/24  33% :: 9.938] Building CXX object _deps/std-build/CMakeFiles/std.dir/std.cppm.o
+[build] [13/24  37% :: 12.510] Building CXX object CMakeFiles/main.dir/src/concepts.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/concepts.cppm.o CMakeFiles/main.dir/concepts.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/concepts.cppm.o -MF CMakeFiles/main.dir/src/concepts.cppm.o.d @CMakeFiles/main.dir/src/concepts.cppm.o.modmap -o CMakeFiles/main.dir/src/concepts.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/concepts.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	Program arguments: /usr/bin/clang-20 -cc1 -triple x86_64-pc-linux-gnu -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name concepts.cppm -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debug-info-kind=constructor -dwarf-version=5 -debugger-tuning=gdb -fdebug-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -fcoverage-compilation-dir=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug -resource-dir /usr/lib/clang/20 -Wall -Wextra -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -Werror=return-local-addr -Wno-c++23-extensions -Wstrict-overflow -pedantic -std=gnu++23 -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fmodules -fimplicit-module-maps -fmodules-cache-path=/home/sigurd/.cache/clang/ModuleCache -fmodule-map-file=/usr/lib/clang/20/include/module.modulemap -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_h\303\270yde_p\303\245_tree/build/debug/modules -fmodules-validate-system-headers -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fcolor-diagnostics -fretain-comments-from-system-headers -emit-module-interface -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/main.dir/src/concepts.cppm.o -x pcm CMakeFiles/main.dir/concepts.pcm
+[build] 1.	<eof> parser at end of file
+[build]  #0 0x00007af6e1978ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x00007af6e1976a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x00007af6e19796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x00007af6df04c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x00007af6e7b50bf9 clang::ASTWriter::WriteSubmodules(clang::Module*, clang::ASTContext*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3150bf9)
+[build]  #5 0x00007af6e7b67d63 clang::ASTWriter::WriteASTCore(clang::Sema*, llvm::StringRef, clang::Module*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3167d63)
+[build]  #6 0x00007af6e7b6640e clang::ASTWriter::WriteAST(llvm::PointerUnion<clang::Sema*, clang::Preprocessor*>, llvm::StringRef, clang::Module*, llvm::StringRef, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x316640e)
+[build]  #7 0x00007af6e7bbd7cf clang::PCHGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd7cf)
+[build]  #8 0x00007af6e7bbd9d1 clang::CXX20ModulesGenerator::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x31bd9d1)
+[build]  #9 0x00007af6e7d425ac clang::MultiplexConsumer::HandleTranslationUnit(clang::ASTContext&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x33425ac)
+[build] #10 0x00007af6e5a87e88 clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087e88)
+[build] #11 0x00007af6e7d01f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #12 0x00007af6e7c7c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #13 0x00007af6e7d83e4d clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x3383e4d)
+[build] #14 0x00005c99c4d294ba cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/usr/bin/clang-20+0x104ba)
+[build] #15 0x00005c99c4d264a1 (/usr/bin/clang-20+0xd4a1)
+[build] #16 0x00005c99c4d2545c clang_main(int, char**, llvm::ToolContext const&) (/usr/bin/clang-20+0xc45c)
+[build] #17 0x00005c99c4d334da main (/usr/bin/clang-20+0x1a4da)
+[build] #18 0x00007af6df034e08 (/usr/bin/../lib/libc.so.6+0x25e08)
+[build] #19 0x00007af6df034ecc __libc_start_main (/usr/bin/../lib/libc.so.6+0x25ecc)
+[build] #20 0x00005c99c4d23e75 _start (/usr/bin/clang-20+0xae75)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: note: diagnostic msg:
+[build] ********************
+[build]
+[build] PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+[build] Preprocessed source(s) and associated run script(s) are located at:
+[build] clang++: note: diagnostic msg: /tmp/concepts-97e12a.cppm
+[build] clang++: note: diagnostic msg: /tmp/concepts-97e12a.cache
+[build] clang++: note: diagnostic msg: /tmp/concepts-97e12a.sh
+[build] clang++: note: diagnostic msg:
+[build]
+[build] ********************
+[build] [13/24  41% :: 38.600] Building CXX object CMakeFiles/main.dir/src/units/length.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/units/length.cppm.o CMakeFiles/main.dir/units-length.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/units/length.cppm.o -MF CMakeFiles/main.dir/src/units/length.cppm.o.d @CMakeFiles/main.dir/src/units/length.cppm.o.modmap -o CMakeFiles/main.dir/src/units/length.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/units/length.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	/usr/include/c++/v1/string:745:56: current parser token 'basic_string_view'
+[build] 1.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:592:39>: parsing namespace 'std'
+[build] 2.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:593:39>: parsing namespace 'std::__1'
+[build] 3.	/usr/include/c++/v1/string:744:1: parsing struct/union/class body 'std::__can_be_converted_to_string_view'
+[build]  #0 0x000077565a978ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x000077565a976a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x000077565a9796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x000077565804c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x0000775660a9cfa4 clang::ASTReader::getOwningModuleFile(clang::Decl const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x309cfa4)
+[build]  #5 0x0000775660b0e55b clang::ASTReader::loadDeferredAttribute(clang::ASTReader::DeferredAttribute const&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x310e55b)
+[build]  #6 0x0000775660aadbc3 clang::ASTReader::finishPendingActions() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30adbc3)
+[build]  #7 0x0000775660ab4c5e clang::ASTReader::FinishedDeserializing() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30b4c5e)
+[build]  #8 0x0000775660a9fd1d clang::ASTReader::FindExternalVisibleDeclsByName(clang::DeclContext const*, clang::DeclarationName, clang::DeclContext const*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x309fd1d)
+[build]  #9 0x000077565ed6f4ec clang::DeclContext::lookupImpl(clang::DeclarationName, clang::DeclContext const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x136f4ec)
+[build] #10 0x000077565fa6977c (/usr/bin/../lib/libclang-cpp.so.20.0+0x206977c)
+[build] #11 0x000077565fa666d0 (/usr/bin/../lib/libclang-cpp.so.20.0+0x20666d0)
+[build] #12 0x000077565fa65ed3 clang::Sema::CppLookupName(clang::LookupResult&, clang::Scope*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2065ed3)
+[build] #13 0x000077565fa69169 clang::Sema::LookupName(clang::LookupResult&, clang::Scope*, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2069169)
+[build] #14 0x000077565fc69631 clang::Sema::LookupTemplateName(clang::LookupResult&, clang::Scope*, clang::CXXScopeSpec&, clang::QualType, bool, clang::Sema::RequiredTemplateKind, clang::Sema::AssumedTemplateKind*, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269631)
+[build] #15 0x000077565fc69147 clang::Sema::isTemplateName(clang::Scope*, clang::CXXScopeSpec&, bool, clang::UnqualifiedId const&, clang::OpaquePtr<clang::QualType>, bool, clang::OpaquePtr<clang::TemplateName>&, bool&, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269147)
+[build] #16 0x000077565eae96ab clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e96ab)
+[build] #17 0x000077565eb68b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #18 0x000077565eb5a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #19 0x000077565eb5bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #20 0x000077565eb57dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #21 0x000077565eb57a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #22 0x000077565eb578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #23 0x000077565eb56593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #24 0x000077565eae9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #25 0x000077565eb68b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #26 0x000077565eb5a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #27 0x000077565eb5bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #28 0x000077565eb57dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #29 0x000077565eb57a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #30 0x000077565eb578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #31 0x000077565eb56593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #32 0x000077565eae9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #33 0x000077565eac4597 clang::Parser::ParseBaseTypeSpecifier(clang::SourceLocation&, clang::SourceLocation&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c4597)
+[build] #34 0x000077565eaca715 clang::Parser::ParseBaseSpecifier(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca715)
+[build] #35 0x000077565eaca27b clang::Parser::ParseBaseClause(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca27b)
+[build] #36 0x000077565eac9993 clang::Parser::ParseCXXMemberSpecification(clang::SourceLocation, clang::SourceLocation, clang::ParsedAttributes&, unsigned int, clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c9993)
+[build] #37 0x000077565eac6db2 clang::Parser::ParseClassSpecifier(clang::tok::TokenKind, clang::SourceLocation, clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, bool, clang::Parser::DeclSpecContext, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c6db2)
+[build] #38 0x000077565eaa4455 clang::Parser::ParseDeclarationSpecifiers(clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, clang::Parser::DeclSpecContext, clang::Parser::LateParsedAttrList*, clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10a4455)
+[build] #39 0x000077565eb53d6d clang::Parser::ParseDeclarationAfterTemplate(clang::DeclaratorContext, clang::Parser::ParsedTemplateInfo&, clang::ParsingDeclRAIIObject&, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153d6d)
+[build] #40 0x000077565eb53052 clang::Parser::ParseTemplateDeclarationOrSpecialization(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153052)
+[build] #41 0x000077565eb529f4 clang::Parser::ParseDeclarationStartingWithTemplate(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11529f4)
+[build] #42 0x000077565ea9e678 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e678)
+[build] #43 0x000077565eb63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #44 0x000077565eabef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #45 0x000077565eabe83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #46 0x000077565ea9ea3c clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109ea3c)
+[build] #47 0x000077565eb63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #48 0x000077565eabef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #49 0x000077565eabe83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #50 0x000077565ea9e894 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e894)
+[build] #51 0x000077565eb63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #52 0x000077565eb62005 clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1162005)
+[build] #53 0x000077565ea87f2d clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087f2d)
+[build] #54 0x0000775660d01f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #55 0x0000775660c7c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #56 0x0000775660c84c09 (/usr/bin/../lib/libclang-cpp.so.20.0+0x3284c09)
+[build] #57 0x000077565a8b6a26 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/usr/bin/../lib/libLLVM.so.20.0+0x26b6a26)
+[build] #58 0x000077565a8b6c0d (/usr/bin/../lib/libLLVM.so.20.0+0x26b6c0d)
+[build] #59 0x000077565a8b6d23 (/usr/bin/../lib/libLLVM.so.20.0+0x26b6d23)
+[build] #60 0x00007756580a339d (/usr/bin/../lib/libc.so.6+0x9439d)
+[build] #61 0x000077565812849c (/usr/bin/../lib/libc.so.6+0x11949c)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: note: diagnostic msg: Error generating preprocessed source(s).
+[build] [13/24  45% :: 39.390] Building CXX object CMakeFiles/main.dir/src/units/si.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/units/si.cppm.o CMakeFiles/main.dir/units-si.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/units/si.cppm.o -MF CMakeFiles/main.dir/src/units/si.cppm.o.d @CMakeFiles/main.dir/src/units/si.cppm.o.modmap -o CMakeFiles/main.dir/src/units/si.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/units/si.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	/usr/include/c++/v1/string:745:56: current parser token 'basic_string_view'
+[build] 1.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:592:39>: parsing namespace 'std'
+[build] 2.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:593:39>: parsing namespace 'std::__1'
+[build] 3.	/usr/include/c++/v1/string:744:1: parsing struct/union/class body 'std::__can_be_converted_to_string_view'
+[build]  #0 0x0000729cf9178ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x0000729cf9176a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x0000729cf91796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x0000729cf684c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x0000729cff29cfa4 clang::ASTReader::getOwningModuleFile(clang::Decl const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x309cfa4)
+[build]  #5 0x0000729cff30e55b clang::ASTReader::loadDeferredAttribute(clang::ASTReader::DeferredAttribute const&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x310e55b)
+[build]  #6 0x0000729cff2adbc3 clang::ASTReader::finishPendingActions() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30adbc3)
+[build]  #7 0x0000729cff2b4c5e clang::ASTReader::FinishedDeserializing() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30b4c5e)
+[build]  #8 0x0000729cff29fd1d clang::ASTReader::FindExternalVisibleDeclsByName(clang::DeclContext const*, clang::DeclarationName, clang::DeclContext const*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x309fd1d)
+[build]  #9 0x0000729cfd56f4ec clang::DeclContext::lookupImpl(clang::DeclarationName, clang::DeclContext const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x136f4ec)
+[build] #10 0x0000729cfe26977c (/usr/bin/../lib/libclang-cpp.so.20.0+0x206977c)
+[build] #11 0x0000729cfe2666d0 (/usr/bin/../lib/libclang-cpp.so.20.0+0x20666d0)
+[build] #12 0x0000729cfe265ed3 clang::Sema::CppLookupName(clang::LookupResult&, clang::Scope*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2065ed3)
+[build] #13 0x0000729cfe269169 clang::Sema::LookupName(clang::LookupResult&, clang::Scope*, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2069169)
+[build] #14 0x0000729cfe469631 clang::Sema::LookupTemplateName(clang::LookupResult&, clang::Scope*, clang::CXXScopeSpec&, clang::QualType, bool, clang::Sema::RequiredTemplateKind, clang::Sema::AssumedTemplateKind*, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269631)
+[build] #15 0x0000729cfe469147 clang::Sema::isTemplateName(clang::Scope*, clang::CXXScopeSpec&, bool, clang::UnqualifiedId const&, clang::OpaquePtr<clang::QualType>, bool, clang::OpaquePtr<clang::TemplateName>&, bool&, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269147)
+[build] #16 0x0000729cfd2e96ab clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e96ab)
+[build] #17 0x0000729cfd368b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #18 0x0000729cfd35a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #19 0x0000729cfd35bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #20 0x0000729cfd357dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #21 0x0000729cfd357a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #22 0x0000729cfd3578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #23 0x0000729cfd356593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #24 0x0000729cfd2e9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #25 0x0000729cfd368b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #26 0x0000729cfd35a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #27 0x0000729cfd35bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #28 0x0000729cfd357dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #29 0x0000729cfd357a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #30 0x0000729cfd3578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #31 0x0000729cfd356593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #32 0x0000729cfd2e9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #33 0x0000729cfd2c4597 clang::Parser::ParseBaseTypeSpecifier(clang::SourceLocation&, clang::SourceLocation&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c4597)
+[build] #34 0x0000729cfd2ca715 clang::Parser::ParseBaseSpecifier(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca715)
+[build] #35 0x0000729cfd2ca27b clang::Parser::ParseBaseClause(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca27b)
+[build] #36 0x0000729cfd2c9993 clang::Parser::ParseCXXMemberSpecification(clang::SourceLocation, clang::SourceLocation, clang::ParsedAttributes&, unsigned int, clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c9993)
+[build] #37 0x0000729cfd2c6db2 clang::Parser::ParseClassSpecifier(clang::tok::TokenKind, clang::SourceLocation, clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, bool, clang::Parser::DeclSpecContext, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c6db2)
+[build] #38 0x0000729cfd2a4455 clang::Parser::ParseDeclarationSpecifiers(clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, clang::Parser::DeclSpecContext, clang::Parser::LateParsedAttrList*, clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10a4455)
+[build] #39 0x0000729cfd353d6d clang::Parser::ParseDeclarationAfterTemplate(clang::DeclaratorContext, clang::Parser::ParsedTemplateInfo&, clang::ParsingDeclRAIIObject&, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153d6d)
+[build] #40 0x0000729cfd353052 clang::Parser::ParseTemplateDeclarationOrSpecialization(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153052)
+[build] #41 0x0000729cfd3529f4 clang::Parser::ParseDeclarationStartingWithTemplate(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11529f4)
+[build] #42 0x0000729cfd29e678 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e678)
+[build] #43 0x0000729cfd363421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #44 0x0000729cfd2bef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #45 0x0000729cfd2be83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #46 0x0000729cfd29ea3c clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109ea3c)
+[build] #47 0x0000729cfd363421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #48 0x0000729cfd2bef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #49 0x0000729cfd2be83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #50 0x0000729cfd29e894 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e894)
+[build] #51 0x0000729cfd363421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #52 0x0000729cfd362005 clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1162005)
+[build] #53 0x0000729cfd287f2d clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087f2d)
+[build] #54 0x0000729cff501f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #55 0x0000729cff47c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #56 0x0000729cff484c09 (/usr/bin/../lib/libclang-cpp.so.20.0+0x3284c09)
+[build] #57 0x0000729cf90b6a26 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/usr/bin/../lib/libLLVM.so.20.0+0x26b6a26)
+[build] #58 0x0000729cf90b6c0d (/usr/bin/../lib/libLLVM.so.20.0+0x26b6c0d)
+[build] #59 0x0000729cf90b6d23 (/usr/bin/../lib/libLLVM.so.20.0+0x26b6d23)
+[build] #60 0x0000729cf68a339d (/usr/bin/../lib/libc.so.6+0x9439d)
+[build] #61 0x0000729cf692849c (/usr/bin/../lib/libc.so.6+0x11949c)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: note: diagnostic msg: Error generating preprocessed source(s).
+[build] [13/24  50% :: 39.675] Building CXX object CMakeFiles/main.dir/src/units/imperial.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/units/imperial.cppm.o CMakeFiles/main.dir/units-imperial.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/units/imperial.cppm.o -MF CMakeFiles/main.dir/src/units/imperial.cppm.o.d @CMakeFiles/main.dir/src/units/imperial.cppm.o.modmap -o CMakeFiles/main.dir/src/units/imperial.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/units/imperial.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	/usr/include/c++/v1/string:745:56: current parser token 'basic_string_view'
+[build] 1.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:592:39>: parsing namespace 'std'
+[build] 2.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:593:39>: parsing namespace 'std::__1'
+[build] 3.	/usr/include/c++/v1/string:744:1: parsing struct/union/class body 'std::__can_be_converted_to_string_view'
+[build]  #0 0x000079d3c4978ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x000079d3c4976a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x000079d3c49796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x000079d3c204c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x000079d3caa9cfa4 clang::ASTReader::getOwningModuleFile(clang::Decl const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x309cfa4)
+[build]  #5 0x000079d3cab0e55b clang::ASTReader::loadDeferredAttribute(clang::ASTReader::DeferredAttribute const&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x310e55b)
+[build]  #6 0x000079d3caaadbc3 clang::ASTReader::finishPendingActions() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30adbc3)
+[build]  #7 0x000079d3caab4c5e clang::ASTReader::FinishedDeserializing() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30b4c5e)
+[build]  #8 0x000079d3caa9fd1d clang::ASTReader::FindExternalVisibleDeclsByName(clang::DeclContext const*, clang::DeclarationName, clang::DeclContext const*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x309fd1d)
+[build]  #9 0x000079d3c8d6f4ec clang::DeclContext::lookupImpl(clang::DeclarationName, clang::DeclContext const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x136f4ec)
+[build] #10 0x000079d3c9a6977c (/usr/bin/../lib/libclang-cpp.so.20.0+0x206977c)
+[build] #11 0x000079d3c9a666d0 (/usr/bin/../lib/libclang-cpp.so.20.0+0x20666d0)
+[build] #12 0x000079d3c9a65ed3 clang::Sema::CppLookupName(clang::LookupResult&, clang::Scope*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2065ed3)
+[build] #13 0x000079d3c9a69169 clang::Sema::LookupName(clang::LookupResult&, clang::Scope*, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2069169)
+[build] #14 0x000079d3c9c69631 clang::Sema::LookupTemplateName(clang::LookupResult&, clang::Scope*, clang::CXXScopeSpec&, clang::QualType, bool, clang::Sema::RequiredTemplateKind, clang::Sema::AssumedTemplateKind*, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269631)
+[build] #15 0x000079d3c9c69147 clang::Sema::isTemplateName(clang::Scope*, clang::CXXScopeSpec&, bool, clang::UnqualifiedId const&, clang::OpaquePtr<clang::QualType>, bool, clang::OpaquePtr<clang::TemplateName>&, bool&, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269147)
+[build] #16 0x000079d3c8ae96ab clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e96ab)
+[build] #17 0x000079d3c8b68b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #18 0x000079d3c8b5a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #19 0x000079d3c8b5bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #20 0x000079d3c8b57dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #21 0x000079d3c8b57a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #22 0x000079d3c8b578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #23 0x000079d3c8b56593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #24 0x000079d3c8ae9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #25 0x000079d3c8b68b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #26 0x000079d3c8b5a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #27 0x000079d3c8b5bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #28 0x000079d3c8b57dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #29 0x000079d3c8b57a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #30 0x000079d3c8b578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #31 0x000079d3c8b56593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #32 0x000079d3c8ae9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #33 0x000079d3c8ac4597 clang::Parser::ParseBaseTypeSpecifier(clang::SourceLocation&, clang::SourceLocation&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c4597)
+[build] #34 0x000079d3c8aca715 clang::Parser::ParseBaseSpecifier(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca715)
+[build] #35 0x000079d3c8aca27b clang::Parser::ParseBaseClause(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca27b)
+[build] #36 0x000079d3c8ac9993 clang::Parser::ParseCXXMemberSpecification(clang::SourceLocation, clang::SourceLocation, clang::ParsedAttributes&, unsigned int, clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c9993)
+[build] #37 0x000079d3c8ac6db2 clang::Parser::ParseClassSpecifier(clang::tok::TokenKind, clang::SourceLocation, clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, bool, clang::Parser::DeclSpecContext, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c6db2)
+[build] #38 0x000079d3c8aa4455 clang::Parser::ParseDeclarationSpecifiers(clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, clang::Parser::DeclSpecContext, clang::Parser::LateParsedAttrList*, clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10a4455)
+[build] #39 0x000079d3c8b53d6d clang::Parser::ParseDeclarationAfterTemplate(clang::DeclaratorContext, clang::Parser::ParsedTemplateInfo&, clang::ParsingDeclRAIIObject&, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153d6d)
+[build] #40 0x000079d3c8b53052 clang::Parser::ParseTemplateDeclarationOrSpecialization(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153052)
+[build] #41 0x000079d3c8b529f4 clang::Parser::ParseDeclarationStartingWithTemplate(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11529f4)
+[build] #42 0x000079d3c8a9e678 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e678)
+[build] #43 0x000079d3c8b63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #44 0x000079d3c8abef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #45 0x000079d3c8abe83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #46 0x000079d3c8a9ea3c clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109ea3c)
+[build] #47 0x000079d3c8b63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #48 0x000079d3c8abef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #49 0x000079d3c8abe83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #50 0x000079d3c8a9e894 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e894)
+[build] #51 0x000079d3c8b63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #52 0x000079d3c8b62005 clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1162005)
+[build] #53 0x000079d3c8a87f2d clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087f2d)
+[build] #54 0x000079d3cad01f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #55 0x000079d3cac7c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #56 0x000079d3cac84c09 (/usr/bin/../lib/libclang-cpp.so.20.0+0x3284c09)
+[build] #57 0x000079d3c48b6a26 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/usr/bin/../lib/libLLVM.so.20.0+0x26b6a26)
+[build] #58 0x000079d3c48b6c0d (/usr/bin/../lib/libLLVM.so.20.0+0x26b6c0d)
+[build] #59 0x000079d3c48b6d23 (/usr/bin/../lib/libLLVM.so.20.0+0x26b6d23)
+[build] #60 0x000079d3c20a339d (/usr/bin/../lib/libc.so.6+0x9439d)
+[build] #61 0x000079d3c212849c (/usr/bin/../lib/libc.so.6+0x11949c)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: note: diagnostic msg: Error generating preprocessed source(s).
+[build] [13/24  54% :: 39.879] Building CXX object CMakeFiles/main.dir/src/units/imperial/imperial_length.cppm.o
+[build] FAILED: CMakeFiles/main.dir/src/units/imperial/imperial_length.cppm.o CMakeFiles/main.dir/units-imperial_length.pcm
+[build] /usr/bin/clang++   -stdlib=libc++ -g -std=gnu++23 -isystem/usr/include/c++/v1 "-isystem/usr/include/c++/v1/*" -Wall -Wextra -pedantic -Wpedantic -Wsign-conversion -Wconversion -Werror=switch -fdiagnostics-color=always -Wdouble-promotion -Wnull-dereference -Winfinite-recursion -Wmisleading-indentation -g -Werror=return-local-addr -Wno-c++23-extensions -Xclang -emit-module-interface -fmodules -stdlib=libc++ -fbuiltin-module-map -fimplicit-module-maps -fprebuilt-module-path=/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug/modules -fretain-comments-from-system-headers -Wstrict-overflow -MD -MT CMakeFiles/main.dir/src/units/imperial/imperial_length.cppm.o -MF CMakeFiles/main.dir/src/units/imperial/imperial_length.cppm.o.d @CMakeFiles/main.dir/src/units/imperial/imperial_length.cppm.o.modmap -o CMakeFiles/main.dir/src/units/imperial/imperial_length.cppm.o -c '/home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/src/units/imperial/imperial_length.cppm'
+[build] PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+[build] Stack dump:
+[build] 0.	/usr/include/c++/v1/string:745:56: current parser token 'basic_string_view'
+[build] 1.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:592:39>: parsing namespace 'std'
+[build] 2.	/usr/include/c++/v1/string:685:1 <Spelling=/usr/include/c++/v1/__config:593:39>: parsing namespace 'std::__1'
+[build] 3.	/usr/include/c++/v1/string:744:1: parsing struct/union/class body 'std::__can_be_converted_to_string_view'
+[build]  #0 0x00007fdfbcb78ea3 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/bin/../lib/libLLVM.so.20.0+0x2778ea3)
+[build]  #1 0x00007fdfbcb76a1f llvm::sys::RunSignalHandlers() (/usr/bin/../lib/libLLVM.so.20.0+0x2776a1f)
+[build]  #2 0x00007fdfbcb796b6 (/usr/bin/../lib/libLLVM.so.20.0+0x27796b6)
+[build]  #3 0x00007fdfba24c1d0 (/usr/bin/../lib/libc.so.6+0x3d1d0)
+[build]  #4 0x00007fdfc2c9cfa4 clang::ASTReader::getOwningModuleFile(clang::Decl const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x309cfa4)
+[build]  #5 0x00007fdfc2d0e55b clang::ASTReader::loadDeferredAttribute(clang::ASTReader::DeferredAttribute const&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x310e55b)
+[build]  #6 0x00007fdfc2cadbc3 clang::ASTReader::finishPendingActions() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30adbc3)
+[build]  #7 0x00007fdfc2cb4c5e clang::ASTReader::FinishedDeserializing() (/usr/bin/../lib/libclang-cpp.so.20.0+0x30b4c5e)
+[build]  #8 0x00007fdfc2c9fd1d clang::ASTReader::FindExternalVisibleDeclsByName(clang::DeclContext const*, clang::DeclarationName, clang::DeclContext const*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x309fd1d)
+[build]  #9 0x00007fdfc0f6f4ec clang::DeclContext::lookupImpl(clang::DeclarationName, clang::DeclContext const*) const (/usr/bin/../lib/libclang-cpp.so.20.0+0x136f4ec)
+[build] #10 0x00007fdfc1c6977c (/usr/bin/../lib/libclang-cpp.so.20.0+0x206977c)
+[build] #11 0x00007fdfc1c666d0 (/usr/bin/../lib/libclang-cpp.so.20.0+0x20666d0)
+[build] #12 0x00007fdfc1c65ed3 clang::Sema::CppLookupName(clang::LookupResult&, clang::Scope*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2065ed3)
+[build] #13 0x00007fdfc1c69169 clang::Sema::LookupName(clang::LookupResult&, clang::Scope*, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2069169)
+[build] #14 0x00007fdfc1e69631 clang::Sema::LookupTemplateName(clang::LookupResult&, clang::Scope*, clang::CXXScopeSpec&, clang::QualType, bool, clang::Sema::RequiredTemplateKind, clang::Sema::AssumedTemplateKind*, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269631)
+[build] #15 0x00007fdfc1e69147 clang::Sema::isTemplateName(clang::Scope*, clang::CXXScopeSpec&, bool, clang::UnqualifiedId const&, clang::OpaquePtr<clang::QualType>, bool, clang::OpaquePtr<clang::TemplateName>&, bool&, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x2269147)
+[build] #16 0x00007fdfc0ce96ab clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e96ab)
+[build] #17 0x00007fdfc0d68b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #18 0x00007fdfc0d5a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #19 0x00007fdfc0d5bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #20 0x00007fdfc0d57dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #21 0x00007fdfc0d57a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #22 0x00007fdfc0d578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #23 0x00007fdfc0d56593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #24 0x00007fdfc0ce9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #25 0x00007fdfc0d68b82 clang::Parser::TryAnnotateTypeOrScopeToken(clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1168b82)
+[build] #26 0x00007fdfc0d5a71a clang::Parser::isCXXDeclarationSpecifier(clang::ImplicitTypenameContext, clang::Parser::TPResult, bool*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115a71a)
+[build] #27 0x00007fdfc0d5bef2 clang::Parser::isCXXTypeId(clang::Parser::TentativeCXXTypeIdContext, bool&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x115bef2)
+[build] #28 0x00007fdfc0d57dc9 clang::Parser::ParseTemplateArgument() (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157dc9)
+[build] #29 0x00007fdfc0d57a03 clang::Parser::ParseTemplateArgumentList(llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::OpaquePtr<clang::TemplateName>, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1157a03)
+[build] #30 0x00007fdfc0d578e9 clang::Parser::ParseTemplateIdAfterTemplateName(bool, clang::SourceLocation&, llvm::SmallVector<clang::ParsedTemplateArgument, 16u>&, clang::SourceLocation&, clang::OpaquePtr<clang::TemplateName>) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11578e9)
+[build] #31 0x00007fdfc0d56593 clang::Parser::AnnotateTemplateIdToken(clang::OpaquePtr<clang::TemplateName>, clang::TemplateNameKind, clang::CXXScopeSpec&, clang::SourceLocation, clang::UnqualifiedId&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1156593)
+[build] #32 0x00007fdfc0ce9879 clang::Parser::ParseOptionalCXXScopeSpecifier(clang::CXXScopeSpec&, clang::OpaquePtr<clang::QualType>, bool, bool, bool*, bool, clang::IdentifierInfo const**, bool, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10e9879)
+[build] #33 0x00007fdfc0cc4597 clang::Parser::ParseBaseTypeSpecifier(clang::SourceLocation&, clang::SourceLocation&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c4597)
+[build] #34 0x00007fdfc0cca715 clang::Parser::ParseBaseSpecifier(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca715)
+[build] #35 0x00007fdfc0cca27b clang::Parser::ParseBaseClause(clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10ca27b)
+[build] #36 0x00007fdfc0cc9993 clang::Parser::ParseCXXMemberSpecification(clang::SourceLocation, clang::SourceLocation, clang::ParsedAttributes&, unsigned int, clang::Decl*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c9993)
+[build] #37 0x00007fdfc0cc6db2 clang::Parser::ParseClassSpecifier(clang::tok::TokenKind, clang::SourceLocation, clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, bool, clang::Parser::DeclSpecContext, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10c6db2)
+[build] #38 0x00007fdfc0ca4455 clang::Parser::ParseDeclarationSpecifiers(clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, clang::Parser::DeclSpecContext, clang::Parser::LateParsedAttrList*, clang::ImplicitTypenameContext) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10a4455)
+[build] #39 0x00007fdfc0d53d6d clang::Parser::ParseDeclarationAfterTemplate(clang::DeclaratorContext, clang::Parser::ParsedTemplateInfo&, clang::ParsingDeclRAIIObject&, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153d6d)
+[build] #40 0x00007fdfc0d53052 clang::Parser::ParseTemplateDeclarationOrSpecialization(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::AccessSpecifier) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1153052)
+[build] #41 0x00007fdfc0d529f4 clang::Parser::ParseDeclarationStartingWithTemplate(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x11529f4)
+[build] #42 0x00007fdfc0c9e678 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e678)
+[build] #43 0x00007fdfc0d63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #44 0x00007fdfc0cbef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #45 0x00007fdfc0cbe83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #46 0x00007fdfc0c9ea3c clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109ea3c)
+[build] #47 0x00007fdfc0d63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #48 0x00007fdfc0cbef5a clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10bef5a)
+[build] #49 0x00007fdfc0cbe83d clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) (/usr/bin/../lib/libclang-cpp.so.20.0+0x10be83d)
+[build] #50 0x00007fdfc0c9e894 clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x109e894)
+[build] #51 0x00007fdfc0d63421 clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1163421)
+[build] #52 0x00007fdfc0d62005 clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1162005)
+[build] #53 0x00007fdfc0c87f2d clang::ParseAST(clang::Sema&, bool, bool) (/usr/bin/../lib/libclang-cpp.so.20.0+0x1087f2d)
+[build] #54 0x00007fdfc2f01f65 clang::FrontendAction::Execute() (/usr/bin/../lib/libclang-cpp.so.20.0+0x3301f65)
+[build] #55 0x00007fdfc2e7c395 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/bin/../lib/libclang-cpp.so.20.0+0x327c395)
+[build] #56 0x00007fdfc2e84c09 (/usr/bin/../lib/libclang-cpp.so.20.0+0x3284c09)
+[build] #57 0x00007fdfbcab6a26 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/usr/bin/../lib/libLLVM.so.20.0+0x26b6a26)
+[build] #58 0x00007fdfbcab6c0d (/usr/bin/../lib/libLLVM.so.20.0+0x26b6c0d)
+[build] #59 0x00007fdfbcab6d23 (/usr/bin/../lib/libLLVM.so.20.0+0x26b6d23)
+[build] #60 0x00007fdfba2a339d (/usr/bin/../lib/libc.so.6+0x9439d)
+[build] #61 0x00007fdfba32849c (/usr/bin/../lib/libc.so.6+0x11949c)
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: error: clang frontend command failed due to signal (use -v to see invocation)
+[build] clang version 20.0.0 (/home/sigurd/.cache/yay/llvm-minimal-git/llvm-project 4b73f6a54884b6a34fbff16b5e24b7a2e480ebcb)
+[build] Target: x86_64-pc-linux-gnu
+[build] Thread model: posix
+[build] InstalledDir: /usr/bin
+[build] clang++: error: unable to execute command: Segmentation fault (core dumped)
+[build] clang++: note: diagnostic msg: Error generating preprocessed source(s).
+[build] ninja: build stopped: subcommand failed.
+[proc] The command: /usr/bin/cmake --build /home/sigurd/Code/c++/programmering2/2-4_høyde_på_tree/build/debug --config Debug --target main -- exited with code: 1
+[driver] Build completed: 00:00:40.010
+[build] Build finished with exit code 1

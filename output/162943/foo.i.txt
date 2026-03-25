@@ -1,0 +1,2028 @@
+#include <type_traits>
+#include <utility>
+#include <cstddef>
+#include <initializer_list>
+#include <vector>
+
+namespace Corrade
+{
+namespace PluginManager
+{
+enum class LoadState: unsigned short;
+class AbstractManager;
+template<class> class AbstractManagingPlugin;
+class AbstractPlugin;
+template<class> class Manager;
+class PluginMetadata;
+}
+}
+typedef long long unsigned int size_t;
+
+namespace Corrade
+{
+namespace Containers
+{
+template<class T, class = void(*)(T*, std::size_t)> class Array;
+template<class> class ArrayView;
+class ArrayTuple;
+template<std::size_t, class> class StaticArrayView;
+template<class T> using ArrayView1 = StaticArrayView<1, T>;
+template<class T> using ArrayView2 = StaticArrayView<2, T>;
+template<class T> using ArrayView3 = StaticArrayView<3, T>;
+template<class T> using ArrayView4 = StaticArrayView<4, T>;
+template<std::size_t, class> class StaticArray;
+template<class T> using Array1 = StaticArray<1, T>;
+template<class T> using Array2 = StaticArray<2, T>;
+template<class T> using Array3 = StaticArray<3, T>;
+template<class T> using Array4 = StaticArray<4, T>;
+template<class T, std::size_t size = 1 << (sizeof(T)*8 - 6)> class BigEnumSet;
+class BitArray;
+template<class> class BasicBitArrayView;
+typedef BasicBitArrayView<const char> BitArrayView;
+typedef BasicBitArrayView<char> MutableBitArrayView;
+template<unsigned, class> class StridedDimensions;
+template<unsigned dimensions> using Size = StridedDimensions<dimensions, std::size_t>;
+typedef Size<1> Size1D;
+typedef Size<2> Size2D;
+typedef Size<3> Size3D;
+typedef Size<4> Size4D;
+template<unsigned dimensions> using Stride = StridedDimensions<dimensions, std::ptrdiff_t>;
+typedef Stride<1> Stride1D;
+typedef Stride<2> Stride2D;
+typedef Stride<3> Stride3D;
+typedef Stride<4> Stride4D;
+template<unsigned, class> class StridedArrayView;
+template<unsigned, class> class StridedIterator;
+template<class T> using StridedArrayView1D = StridedArrayView<1, T>;
+template<class T> using StridedArrayView2D = StridedArrayView<2, T>;
+template<class T> using StridedArrayView3D = StridedArrayView<3, T>;
+template<class T> using StridedArrayView4D = StridedArrayView<4, T>;
+template<unsigned, class> class BasicStridedBitArrayView;
+template<unsigned dimensions> using StridedBitArrayView = BasicStridedBitArrayView<dimensions, const char>;
+typedef StridedBitArrayView<1> StridedBitArrayView1D;
+typedef StridedBitArrayView<2> StridedBitArrayView2D;
+typedef StridedBitArrayView<3> StridedBitArrayView3D;
+typedef StridedBitArrayView<4> StridedBitArrayView4D;
+template<unsigned dimensions> using MutableStridedBitArrayView = BasicStridedBitArrayView<dimensions, char>;
+typedef MutableStridedBitArrayView<1> MutableStridedBitArrayView1D;
+typedef MutableStridedBitArrayView<2> MutableStridedBitArrayView2D;
+typedef MutableStridedBitArrayView<3> MutableStridedBitArrayView3D;
+typedef MutableStridedBitArrayView<4> MutableStridedBitArrayView4D;
+template<class T, typename std::underlying_type<T>::type fullValue = typename std::underlying_type<T>::type(~0)> class EnumSet;
+template<class> class Iterable;
+template<class> class IterableIterator;
+template<class> class LinkedList;
+template<class Derived, class List = LinkedList<Derived>> class LinkedListItem;
+template<class> class Optional;
+template<class, class> class Pair;
+template<class> class Pointer;
+template<class> class Reference;
+template<class> class MoveReference;
+template<class> class AnyReference;
+class FunctionData;
+template<class> class Function;
+class ScopeGuard;
+enum class StringViewFlag: std::size_t;
+typedef EnumSet<StringViewFlag, (std::size_t{3} << (sizeof(std::size_t)*8 - 2))> StringViewFlags;
+class String;
+template<class> class BasicStringView;
+typedef BasicStringView<const char> StringView;
+typedef BasicStringView<char> MutableStringView;
+class StringIterable;
+class StringIterableIterator;
+template<class, class, class> class Triple;
+namespace Implementation
+{
+template<class, class, class = void> struct ArrayViewConverter;
+template<std::size_t, class, class, class = void> struct StaticArrayViewConverter;
+template<class, class = void> struct ErasedStaticArrayViewConverter;
+}
+}
+}
+namespace Corrade
+{
+namespace Utility
+{
+class Arguments;
+template<std::size_t> class HashDigest;
+class Configuration;
+class ConfigurationGroup;
+enum class ConfigurationValueFlag: unsigned char;
+typedef Containers::EnumSet<ConfigurationValueFlag> ConfigurationValueFlags;
+template<class> struct ConfigurationValue;
+class FileWatcher;
+class Debug;
+class Warning;
+class Error;
+class Fatal;
+class Json;
+class JsonToken;
+class JsonTokenData;
+class JsonTokenOffsetSize;
+class JsonObjectItem;
+class JsonArrayItem;
+class JsonView;
+class JsonObjectView;
+class JsonArrayView;
+class JsonIterator;
+class JsonObjectIterator;
+class JsonArrayIterator;
+class JsonWriter;
+class MurmurHash2;
+class Resource;
+class Sha1;
+class Translator;
+template<class> struct TweakableParser;
+enum class TweakableState: unsigned char;
+}
+namespace PluginManager
+{
+namespace Implementation
+{
+struct Plugin;
+} class __attribute__((dllexport)) PluginMetadata
+{
+public:
+    PluginMetadata(const PluginMetadata&) = delete;
+    PluginMetadata(PluginMetadata&&) = delete;
+    PluginMetadata& operator=(const PluginMetadata&) = delete;
+    PluginMetadata& operator=(PluginMetadata&&) = delete;
+    Containers::StringView name() const;
+    Containers::StringIterable depends() const;
+    Containers::StringIterable usedBy() const;
+    Containers::StringIterable provides() const;
+    const Utility::ConfigurationGroup& data() const;
+    Utility::ConfigurationGroup& configuration();
+    const Utility::ConfigurationGroup& configuration() const;
+private:
+    friend Implementation::Plugin;
+    explicit PluginMetadata() {}
+};
+}
+}
+namespace Corrade
+{
+namespace Containers
+{
+namespace Implementation
+{
+template<int priority> struct IterableOverloadPriority: IterableOverloadPriority<priority - 1> {};
+template<> struct IterableOverloadPriority<0> {};
+}
+}
+}
+namespace Corrade
+{
+namespace Utility
+{
+template<class T> constexpr T&& forward(typename std::remove_reference<T>::type& t) noexcept
+{
+    return static_cast<T&&>(t);
+} template<class T> constexpr T&& forward(typename std::remove_reference<T>::type&& t) noexcept
+{
+    static_assert(!std::is_lvalue_reference<T>::value, "T can't be a lvalue reference");
+    return static_cast<T&&>(t);
+} template<class T> constexpr typename std::remove_reference<T>::type&& move(T&& t) noexcept
+{
+    return static_cast<typename std::remove_reference<T>::type&&>(t);
+} template<class T> void swap(T& a, typename std::common_type<T>::type& b) noexcept(std::is_nothrow_move_constructible<T>::value && std::is_nothrow_move_assignable<T>::value)
+{
+    T tmp = static_cast<T&&>(a);
+    a = static_cast<T&&>(b);
+    b = static_cast<T&&>(tmp);
+} template<std::size_t size, class T> void swap(T(&a)[size], typename std::common_type<T(&)[size]>::type b) noexcept(std::is_nothrow_move_constructible<T>::value && std::is_nothrow_move_assignable<T>::value)
+{
+    for(std::size_t i = 0; i != size; ++i)
+    {
+        T tmp = static_cast<T&&>(a[i]);
+        a[i] = static_cast<T&&>(b[i]);
+        b[i] = static_cast<T&&>(tmp);
+    }
+}
+}
+namespace Containers
+{
+namespace Implementation
+{
+template<class> struct ErasedArrayViewConverter;
+template<class> struct StringIterableConverter;
+} class __attribute__((dllimport)) StringIterable
+{
+public:
+    template<class T, typename std::enable_if<std::is_same<std::nullptr_t, T>::value, int>::type = 0> constexpr StringIterable(T) noexcept: _data{}, _context{}, _size{}, _stride{}, _accessor{} {}         constexpr StringIterable() noexcept: _data{}, _context{}, _size{}, _stride{}, _accessor{} {}         template<class U, class = decltype(StringIterable
+            {
+                std::declval<U&&>(), Implementation::IterableOverloadPriority<1> {}
+                                                                             })> StringIterable(U&& data) noexcept: StringIterable
+    {
+        Utility::forward<U>(data), Implementation::IterableOverloadPriority<1> {}
+    } {}                      StringIterable(std::initializer_list<StringView> view) noexcept;
+    explicit StringIterable(const void* data, const void* context, std::size_t size, std::ptrdiff_t stride, StringView(*accessor)(const void*, const void*, std::ptrdiff_t, std::size_t)) noexcept: _data{data}, _context{context}, _size{size}, _stride{stride}, _accessor{accessor} {}         explicit operator bool() const
+    {
+        return _size;
+    }         const void* data() const
+    {
+        return _data;
+    }         const void* context() const
+    {
+        return _context;
+    }         std::size_t size() const
+    {
+        return _size;
+    }         std::ptrdiff_t stride() const
+    {
+        return _stride;
+    }         bool isEmpty() const
+    {
+        return !_size;
+    }         inline StringIterableIterator begin() const;
+    inline StringIterableIterator cbegin() const;
+    inline StringIterableIterator end() const;
+    inline StringIterableIterator cend() const;
+    StringView front() const;
+    StringView back() const;
+    StringView operator[](std::size_t i) const;
+private:
+    explicit StringIterable(ArrayView<const StringView> view, Implementation::IterableOverloadPriority<1>) noexcept;
+    explicit StringIterable(ArrayView<const MutableStringView> view, Implementation::IterableOverloadPriority<1>) noexcept;
+    explicit StringIterable(ArrayView<const String> view, Implementation::IterableOverloadPriority<1>) noexcept;
+    explicit StringIterable(ArrayView<const char* const> view, Implementation::IterableOverloadPriority<1>) noexcept;
+    template<class T, class = decltype(Implementation::StringIterableConverter<typename std::decay<T>::type>::accessor)> explicit StringIterable(ArrayView<T> view, Implementation::IterableOverloadPriority<1>) noexcept: StringIterable
+    {
+        view.data(), nullptr, view.size(), sizeof(T), Implementation::StringIterableConverter<typename std::decay<T>::type>::accessor
+    } {}         template<class T, class U = decltype(Implementation::ErasedArrayViewConverter<typename std::decay<T>::type>::from(std::declval<T&&>())), class = decltype(Implementation::StringIterableConverter<typename U::Type>::accessor)> explicit StringIterable(T&& view, Implementation::IterableOverloadPriority<1>) noexcept: StringIterable
+    {
+        Implementation::ErasedArrayViewConverter<typename std::decay<T>::type>::from(view)
+    } {}         explicit StringIterable(StridedArrayView1D<const StringView> view, Implementation::IterableOverloadPriority<0>) noexcept;
+    explicit StringIterable(StridedArrayView1D<const MutableStringView> view, Implementation::IterableOverloadPriority<0>) noexcept;
+    explicit StringIterable(StridedArrayView1D<const String> view, Implementation::IterableOverloadPriority<0>) noexcept;
+    explicit StringIterable(StridedArrayView1D<const char* const> view, Implementation::IterableOverloadPriority<0>) noexcept;
+    template<class T, class = decltype(Implementation::StringIterableConverter<typename std::decay<T>::type>::accessor)> explicit StringIterable(StridedArrayView1D<T> view, Implementation::IterableOverloadPriority<0>) noexcept: StringIterable
+    {
+        view.data(), nullptr, view.size(), view.stride(), Implementation::StringIterableConverter<typename std::decay<T>::type>::accessor
+    } {}         const void* _data;
+    const void* _context;
+    std::size_t _size;
+    std::ptrdiff_t _stride;
+    StringView(*_accessor)(const void*, const void*, std::ptrdiff_t, std::size_t);
+};
+class __attribute__((dllimport)) StringIterableIterator
+{
+public:
+    bool operator==(const StringIterableIterator& other) const
+    {
+        return _data == other._data && _context == other._context && _stride == other._stride && _i == other._i;
+    }         bool operator!=(const StringIterableIterator& other) const
+    {
+        return _data != other._data || _context != other._context || _stride != other._stride || _i != other._i;
+    }         bool operator<(const StringIterableIterator& other) const
+    {
+        return _data == other._data && _context == other._context && _stride == other._stride && _i < other._i;
+    }         bool operator<=(const StringIterableIterator& other) const
+    {
+        return _data == other._data && _context == other._context && _stride == other._stride && _i <= other._i;
+    }         bool operator>(const StringIterableIterator& other) const
+    {
+        return _data == other._data && _context == other._context && _stride == other._stride && _i > other._i;
+    }         bool operator>=(const StringIterableIterator& other) const
+    {
+        return _data == other._data && _context == other._context && _stride == other._stride && _i >= other._i;
+    }         StringIterableIterator operator+(std::ptrdiff_t i) const
+    {
+        return StringIterableIterator{_data, _context, _stride, _accessor, _i + i};
+    }         StringIterableIterator& operator+=(std::ptrdiff_t i)
+    {
+        _i += i;
+        return *this;
+    }         StringIterableIterator operator-(std::ptrdiff_t i) const
+    {
+        return StringIterableIterator{_data, _context, _stride, _accessor, _i - i};
+    }         StringIterableIterator& operator-=(std::ptrdiff_t i)
+    {
+        _i -= i;
+        return *this;
+    }         std::ptrdiff_t operator-(const StringIterableIterator& it) const
+    {
+        return _i - it._i;
+    }         StringIterableIterator& operator--()
+    {
+        --_i;
+        return *this;
+    }         StringIterableIterator& operator++()
+    {
+        ++_i;
+        return *this;
+    }         StringView operator*() const;
+private:
+    friend StringIterable;
+    explicit StringIterableIterator(const void* data, const void* context, std::ptrdiff_t stride, StringView(*accessor)(const void*, const void*, std::ptrdiff_t, std::size_t), std::size_t i) noexcept:             _data(static_cast<const char*>(data)), _context{context}, _stride{stride}, _accessor{accessor}, _i{i} {}         const char* _data;
+    const void* _context;
+    std::ptrdiff_t _stride;
+    StringView(*_accessor)(const void*, const void*, std::ptrdiff_t, std::size_t);
+    std::size_t _i;
+};
+inline StringIterableIterator operator+(std::ptrdiff_t i, const StringIterableIterator& it)
+{
+    return it + i;
+} inline StringIterableIterator StringIterable::begin() const
+{
+    return StringIterableIterator{_data, _context, _stride, _accessor, 0};
+} inline StringIterableIterator StringIterable::cbegin() const
+{
+    return StringIterableIterator{_data, _context, _stride, _accessor, 0};
+} inline StringIterableIterator StringIterable::end() const
+{
+    return StringIterableIterator{_data, _context, _stride, _accessor, _size};
+} inline StringIterableIterator StringIterable::cend() const
+{
+    return StringIterableIterator{_data, _context, _stride, _accessor, _size};
+}
+}
+}
+
+// -----
+// start
+// ----
+
+namespace Corrade
+{
+struct DefaultInitT
+{
+    struct Init {};
+    constexpr explicit DefaultInitT(Init) {}
+};
+struct ValueInitT
+{
+    struct Init {};
+    constexpr explicit ValueInitT(Init) {}
+};
+struct NoInitT
+{
+    struct Init {};
+    constexpr explicit NoInitT(Init) {}
+};
+struct NoCreateT
+{
+    struct Init {};
+    constexpr explicit NoCreateT(Init) {}
+};
+struct DirectInitT
+{
+    struct Init {};
+    constexpr explicit DirectInitT(Init) {}
+};
+struct InPlaceInitT
+{
+    struct Init {};
+    constexpr explicit InPlaceInitT(Init) {}
+};
+constexpr DefaultInitT DefaultInit{DefaultInitT::Init{}};
+constexpr ValueInitT ValueInit{ValueInitT::Init{}};
+constexpr NoInitT NoInit{NoInitT::Init{}};
+constexpr InPlaceInitT InPlaceInit{InPlaceInitT::Init{}};
+}
+namespace Corrade
+{
+namespace Containers
+{
+template<class T, typename std::underlying_type<T>::type fullValue> class EnumSet
+{
+    static_assert(std::is_enum<T>::value, "EnumSet type must be a strongly typed enum");
+public:         typedef T Type;
+    typedef typename std::underlying_type<T>::type UnderlyingType;
+    enum: UnderlyingType {             FullValue = fullValue         };
+    constexpr EnumSet() noexcept: _value {} {}         constexpr EnumSet(T value) noexcept:             _value(static_cast<UnderlyingType>(value)) {}         constexpr explicit EnumSet(UnderlyingType value) noexcept: _value
+    {
+        value
+    } {}         explicit EnumSet(Corrade::NoInitT) {}         constexpr bool operator==(EnumSet<T, fullValue> other) const
+    {
+        return _value == other._value;
+    }         constexpr bool operator!=(EnumSet<T, fullValue> other) const
+    {
+        return _value != other._value;
+    }         constexpr bool operator>=(EnumSet<T, fullValue> other) const
+    {
+        return (_value & other._value) == other._value;
+    }         constexpr bool operator<=(EnumSet<T, fullValue> other) const
+    {
+        return (_value & other._value) == _value;
+    }         constexpr EnumSet<T, fullValue> operator|(EnumSet<T, fullValue> other) const
+    {
+        return EnumSet<T, fullValue>(_value | other._value);
+    }         EnumSet<T, fullValue>& operator|=(EnumSet<T, fullValue> other)
+    {
+        _value |= other._value;
+        return *this;
+    }         constexpr EnumSet<T, fullValue> operator&(EnumSet<T, fullValue> other) const
+    {
+        return EnumSet<T, fullValue>(_value & other._value);
+    }         EnumSet<T, fullValue>& operator&=(EnumSet<T, fullValue> other)
+    {
+        _value &= other._value;
+        return *this;
+    }         constexpr EnumSet<T, fullValue> operator^(EnumSet<T, fullValue> other) const
+    {
+        return EnumSet<T, fullValue>(_value ^ other._value);
+    }         EnumSet<T, fullValue>& operator^=(EnumSet<T, fullValue> other)
+    {
+        _value ^= other._value;
+        return *this;
+    }         constexpr EnumSet<T, fullValue> operator~() const
+    {
+        return EnumSet<T, fullValue>(fullValue & ~_value);
+    }         constexpr explicit operator bool() const
+    {
+        return _value != 0;
+    }         constexpr explicit operator UnderlyingType() const
+    {
+        return _value;
+    }     private:         UnderlyingType _value;
+};
+template<class T, class = typename std::enable_if<std::is_enum<T>::value>::type > constexpr typename std::underlying_type<T>::type enumCastUnderlyingType(T value)
+{
+    return typename std::underlying_type<T>::type(value);
+} template<class T, typename std::underlying_type<T>::type fullValue> constexpr typename std::underlying_type<T>::type enumCastUnderlyingType(EnumSet<T, fullValue> value)
+{
+    return typename std::underlying_type<T>::type(value);
+}
+}
+namespace Utility
+{
+namespace Implementation
+{
+template<class> struct FloatPrecision;
+template<> struct FloatPrecision<float>
+{
+    enum: int { Digits = 6 };
+    constexpr static float epsilon()
+    {
+        return 1.0e-5f;
+    }
+};
+template<> struct FloatPrecision<double>
+{
+    enum: int { Digits = 15 };
+    constexpr static double epsilon()
+    {
+        return 1.0e-14;
+    }
+};
+template<> struct FloatPrecision<long double>
+{
+    enum: int { Digits = 18 };
+    constexpr static long double epsilon()
+    {
+        return 1.0e-17l;
+    }
+};
+} namespace Implementation
+{
+template<class T> struct FineUnlessEigenDevsAttemptedToDisableBeginByMakingItVoid
+{
+    typedef T Type;
+};
+template<> struct FineUnlessEigenDevsAttemptedToDisableBeginByMakingItVoid<void> {};
+template<class U> class HasMemberBegin
+{
+    template<class T> static char get(T&&, typename FineUnlessEigenDevsAttemptedToDisableBeginByMakingItVoid<decltype(std::declval<T>().begin())>::Type* = nullptr);
+    static short get(...);
+public: enum: bool { value = sizeof(get(std::declval<U>())) == sizeof(char) };
+};
+template<class U> class HasMemberEnd
+{
+    template<class T> static char get(T&&, decltype(std::declval<T>().end())* = nullptr);
+    static short get(...);
+public: enum: bool { value = sizeof(get(std::declval<U>())) == sizeof(char) };
+};
+template<class U> class HasBegin
+{
+    template<class T> static char get(T&&, decltype(begin(std::declval<T>()))* = nullptr);
+    static short get(...);
+public: enum: bool { value = sizeof(get(std::declval<U>())) == sizeof(char) };
+};
+template<class U> class HasEnd
+{
+    template<class T> static char get(T&&, decltype(end(std::declval<T>()))* = nullptr);
+    static short get(...);
+public: enum: bool { value = sizeof(get(std::declval<U>())) == sizeof(char) };
+};
+template<class U> class HasMemberCStr
+{
+    template<class T> static char get(T&&, decltype(std::declval<T>().c_str())* = nullptr);
+    static short get(...);
+public: enum: bool { value = sizeof(get(std::declval<U>())) == sizeof(char) };
+};
+template<class U> class HasMemberSubstr
+{
+    template<class T> static char get(T&&, decltype(std::declval<T>().substr())* = nullptr);
+    static short get(...);
+public: enum: bool { value = sizeof(get(std::declval<U>())) == sizeof(char) };
+};
+} template<class T> using IsIterable = std::integral_constant<bool,     (Implementation::HasMemberBegin<T>::value || Implementation::HasBegin<T>::value) &&     (Implementation::HasMemberEnd<T>::value || Implementation::HasEnd<T>::value)     >;
+template<class T> using IsStringLike = std::integral_constant<bool,     Implementation::HasMemberCStr<T>::value || Implementation::HasMemberSubstr<T>::value || std::is_same<typename std::decay<T>::type, Containers::StringView>::value || std::is_same<typename std::decay<T>::type, Containers::MutableStringView>::value || std::is_same<typename std::decay<T>::type, Containers::String>::value     >;
+}
+}
+namespace Corrade
+{
+namespace Utility
+{
+namespace Implementation
+{
+struct DebugSourceLocation;
+} class __attribute__((dllimport)) Debug
+{
+public:         enum class Flag: unsigned char {             NoNewlineAtTheEnd = 1 << 0,             DisableColors = 1 << 1,             NoSpace = 1 << 2,             Packed = 1 << 3,             Color = 1 << 4,             Hex = 1 << 7         };
+    typedef Containers::EnumSet<Flag> Flags;
+    typedef void(*Modifier)(Debug&);
+    enum class Color: char {             Black = 0,             Red = 1,             Green = 2,             Yellow = 3,             Blue = 4,             Magenta = 5,             Cyan = 6,             White = 7,             Default = 9         };
+    static void nospace(Debug& debug)
+    {
+        debug._immediateFlags |= Flag::NoSpace;
+    }         static void newline(Debug& debug);
+    static void space(Debug& debug)
+    {
+        debug << nospace << " " << nospace;
+    }         static Modifier color(Color color);
+    static Modifier boldColor(Color color);
+    static Modifier invertedColor(Color color);
+    static void resetColor(Debug& debug);
+    static void packed(Debug& debug)
+    {
+        debug._immediateFlags |= Flag::Packed;
+    }         static void color(Debug& debug)
+    {
+        debug._immediateFlags |= Flag::Color;
+    }         static void hex(Debug& debug)
+    {
+        debug._immediateFlags |= Flag::Hex;
+    }         Debug& operator<<(Modifier f)
+    {
+        f(*this);
+        return *this;
+    }         static std::ostream* defaultOutput();
+    static std::ostream* output();
+    static bool isTty(std::ostream* output);
+    static bool isTty();
+    explicit Debug(Flags flags = {});
+    explicit Debug(std::ostream* output, Flags flags = {});
+    explicit Debug(std::nullptr_t, Flags flags = {}): Debug{static_cast<std::ostream*>(nullptr), flags} {}         explicit Debug(Containers::String* output, Flags flags = {});
+    Debug(const Debug&) = delete;
+    Debug(Debug&& other) noexcept;
+    ~Debug();
+    Debug& operator=(const Debug&) = delete;
+    Debug& operator=(Debug&&) = delete;
+    Flags flags() const
+    {
+        return _flags;
+    }         void setFlags(Flags flags)
+    {
+        _flags = flags;
+    }         Flags immediateFlags() const
+    {
+        return _flags|_immediateFlags;
+    }         void setImmediateFlags(Flags flags)
+    {
+        _immediateFlags = flags;
+    }         Debug& operator<<(const char* value);
+    Debug& operator<<(Containers::StringView value);
+    Debug& operator<<(Containers::MutableStringView value);
+    Debug& operator<<(const Containers::String& value);
+    Debug& operator<<(const void* value);
+    Debug& operator<<(bool value);
+    Debug& operator<<(char value);
+    Debug& operator<<(unsigned char value);
+    Debug& operator<<(int value);
+    Debug& operator<<(long value);
+    Debug& operator<<(long long value);
+    Debug& operator<<(unsigned value);
+    Debug& operator<<(unsigned long value);
+    Debug& operator<<(unsigned long long value);
+    Debug& operator<<(float value);
+    Debug& operator<<(double value);
+    Debug& operator<<(long double value);
+    Debug& operator<<(char32_t value);
+    Debug& operator<<(const char32_t* value);
+    Debug& operator<<(std::nullptr_t);
+    template<class T> Debug& print(const T& value);
+protected:         enum class InternalFlag: unsigned char;
+    typedef Containers::EnumSet<InternalFlag> InternalFlags;
+    friend constexpr bool operator==(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) == b;
+    } friend constexpr bool operator!=(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) != b;
+    } friend constexpr bool operator>=(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) >= b;
+    } friend constexpr bool operator<=(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) <= b;
+    } friend constexpr InternalFlags operator|(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return b | a;
+    } friend constexpr InternalFlags operator&(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return b & a;
+    } friend constexpr InternalFlags operator^(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return b ^ a;
+    } friend constexpr InternalFlags operator~(typename InternalFlags::Type a)
+    {
+        return ~InternalFlags(a);
+    }         std::ostream* _output;
+    Flags _flags;
+    Flags _immediateFlags;
+    InternalFlags _internalFlags;
+    void cleanupOnDestruction();
+private:         friend Implementation::DebugSourceLocation;
+    template<Color c, bool bold> static Modifier colorInternal();
+    template<Color c> static Modifier invertedColorInternal();
+    void resetColorInternal();
+    Color _previousColor;
+    int _sourceLocationLine{};
+    const char* _sourceLocationFile{};
+    std::ostream* _previousGlobalOutput;
+};
+__attribute__((dllimport)) Debug& operator<<(Debug& debug, Debug::Color value);
+__attribute__((dllimport)) Debug& operator<<(Debug& debug, Debug::Flag value);
+__attribute__((dllimport)) Debug& operator<<(Debug& debug, Debug::Flags value);
+constexpr bool operator==(Debug::Flags::Type a, Debug::Flags b)
+{
+    return Debug::Flags(a) == b;
+} constexpr bool operator!=(Debug::Flags::Type a, Debug::Flags b)
+{
+    return Debug::Flags(a) != b;
+} constexpr bool operator>=(Debug::Flags::Type a, Debug::Flags b)
+{
+    return Debug::Flags(a) >= b;
+} constexpr bool operator<=(Debug::Flags::Type a, Debug::Flags b)
+{
+    return Debug::Flags(a) <= b;
+} constexpr Debug::Flags operator|(Debug::Flags::Type a, Debug::Flags b)
+{
+    return b | a;
+} constexpr Debug::Flags operator&(Debug::Flags::Type a, Debug::Flags b)
+{
+    return b & a;
+} constexpr Debug::Flags operator^(Debug::Flags::Type a, Debug::Flags b)
+{
+    return b ^ a;
+} constexpr Debug::Flags operator~(Debug::Flags::Type a)
+{
+    return ~Debug::Flags(a);
+} namespace Implementation
+{
+struct __attribute__((dllimport)) DebugSourceLocation
+{
+    DebugSourceLocation(Debug&& debug, const char* file = __builtin_FILE(), int line = __builtin_LINE());
+    Debug* debug;
+};
+} inline Debug& operator!(Implementation::DebugSourceLocation debug)
+{
+    return *debug.debug;
+} template<class T> inline Debug& operator<<(Debug&& debug, const T& value)
+{
+    return debug << value;
+} template<class Iterable, typename std::enable_if<IsIterable<Iterable>::value && !IsStringLike<Iterable>::value, int>::type = 0 > Debug& operator<<(Debug& debug, const Iterable& value)
+{
+    constexpr bool hasNestedContainer = IsIterable<decltype(*value.begin())>::value && !IsStringLike<decltype(*value.begin())>::value;
+    const Debug::Flags prevFlags = debug.flags();
+    debug.setFlags(prevFlags | (debug.immediateFlags() & ~Debug::Flag::NoSpace));
+    const char *beg, *sep, *end;
+    if(debug.immediateFlags() & Debug::Flag::Packed)
+    {
+        beg = end = "";
+        sep = hasNestedContainer ? "\n" : "";
+    }
+    else
+    {
+        beg = "{";
+        end = "}";
+        sep = hasNestedContainer ? ",\n " : ", ";
+    }
+    debug << beg << Debug::nospace;
+    for(auto it = value.begin(); it != value.end(); ++it)
+    {
+        if(it != value.begin())             debug << Debug::nospace << sep << Debug::nospace;
+        debug << *it;
+    }
+    debug << Debug::nospace << end;
+    debug.setFlags(prevFlags);
+    return debug;
+} class __attribute__((dllimport)) Warning: public Debug
+{
+public:         static std::ostream* defaultOutput();
+    static std::ostream* output();
+    static bool isTty();
+    explicit Warning(Flags flags = {});
+    explicit Warning(std::ostream* output, Flags flags = {});
+    explicit Warning(std::nullptr_t output, Flags flags = {}): Warning{static_cast<std::ostream*>(output), flags} {}         explicit Warning(Containers::String* output, Flags flags = {});
+    Warning(const Warning&) = delete;
+    Warning(Warning&&) noexcept = default;
+    ~Warning();
+    Warning& operator=(const Warning&) = delete;
+    Warning& operator=(Warning&&) = delete;
+private:         std::ostream* _previousGlobalWarningOutput;
+};
+class __attribute__((dllimport)) Error: public Debug
+{
+    friend Fatal;
+public:         static std::ostream* defaultOutput();
+    static std::ostream* output();
+    static bool isTty();
+    explicit Error(Flags flags = {});
+    explicit Error(std::ostream* output, Flags flags = {});
+    explicit Error(std::nullptr_t output, Flags flags = {}): Error{static_cast<std::ostream*>(output), flags} {}         explicit Error(Containers::String* output, Flags flags = {});
+    Error(const Error&) = delete;
+    Error(Error&&) noexcept = default;
+    ~Error();
+    Error& operator=(const Error&) = delete;
+    Error& operator=(Error&&) = delete;
+protected:                               void cleanupOnDestruction();
+private:         std::ostream* _previousGlobalErrorOutput;
+};
+class __attribute__((dllimport)) Fatal: public Error
+{
+public:         explicit Fatal(int exitCode = 1, Flags flags = {}): Error{flags}, _exitCode{exitCode} {}         explicit Fatal(Flags flags): Fatal{1, flags} {}         explicit Fatal(std::ostream* output, int exitCode = 1, Flags flags = {}): Error{output, flags}, _exitCode{exitCode} {}         explicit Fatal(std::ostream* output, Flags flags = {}): Fatal{output, 1, flags} {}         explicit Fatal(std::nullptr_t output, int exitCode = 1, Flags flags = {}): Fatal{static_cast<std::ostream*>(output), exitCode, flags} {}         explicit Fatal(std::nullptr_t output, Flags flags = {}): Fatal{static_cast<std::ostream*>(output), flags} {}         explicit Fatal(Containers::String* output, int exitCode = 1, Flags flags = {}): Error{output, flags}, _exitCode{exitCode} {}         explicit Fatal(Containers::String* output, Flags flags = {}): Fatal{output, 1, flags} {}         [[noreturn]]         ~Fatal();
+private:         int _exitCode;
+};
+}
+namespace Containers
+{
+namespace Implementation
+{
+template<class T, class First, class ...Next> inline void construct(T& value, First&& first, Next&& ...next)
+{
+    new(&value) T{Utility::forward<First>(first), Utility::forward<Next>(next)...};
+} template<class T> inline void construct(T& value)
+{
+    new(&value) T();
+}
+}
+}
+}
+namespace Corrade
+{
+namespace Containers
+{
+namespace Implementation
+{
+template<class T, class D> struct CallDeleter
+{
+    void operator()(D deleter, T* data, std::size_t size) const
+    {
+        deleter(data, size);
+    }
+};
+template<class T> struct CallDeleter<T, void(*)(T*, std::size_t)>
+{
+    void operator()(void(*deleter)(T*, std::size_t), T* data, std::size_t size) const
+    {
+        if(deleter) deleter(data, size);
+        else delete[] data;
+    }
+};
+template<class T, typename std::enable_if<         std::is_trivially_constructible<T>::value, int>::type = 0> T* noInitAllocate(std::size_t size)
+{
+    return new T[size];
+}     template<class T, typename std::enable_if<!         std::is_trivially_constructible<T>::value, int>::type = 0> T* noInitAllocate(std::size_t size)
+{
+    return reinterpret_cast<T*>(new char[size*sizeof(T)]);
+}     template<class T, typename std::enable_if<         std::is_trivially_constructible<T>::value, int>::type = 0> auto noInitDeleter() -> void(*)(T*, std::size_t)
+{
+    return nullptr;
+}     template<class T, typename std::enable_if<!         std::is_trivially_constructible<T>::value, int>::type = 0> auto noInitDeleter() -> void(*)(T*, std::size_t)
+{
+    return [](T* data, std::size_t size)
+    {
+        if(data) for(T *it = data, *end = data + size; it != end; ++it)                 it->~T();
+        delete[] reinterpret_cast<char*>(data);
+    };
+}
+} template<class T, class D> class Array
+{
+public:         typedef T Type;
+    typedef D Deleter;
+    template<class U, typename std::enable_if<std::is_same<std::nullptr_t, U>::value, int>::type = 0> Array(U) noexcept: _data{nullptr}, _size{0}, _deleter{} {}                      Array() noexcept: _data(nullptr), _size(0), _deleter{} {}         explicit Array(Corrade::ValueInitT, std::size_t size): _data{size ? new T[size]() : nullptr}, _size{size}, _deleter{nullptr} {}         explicit Array(Corrade::NoInitT, std::size_t size): _data{size ? Implementation::noInitAllocate<T>(size) : nullptr}, _size{size}, _deleter{Implementation::noInitDeleter<T>()} {}         template<class ...Args> explicit Array(Corrade::DirectInitT, std::size_t size, Args&&... args);
+    Array(Corrade::InPlaceInitT, ArrayView<const T> list);
+    Array(Corrade::InPlaceInitT, std::initializer_list<T> list);
+    explicit Array(std::size_t size): Array{Corrade::ValueInit, size} {}         explicit Array(T* data, std::size_t size, D deleter = {}) noexcept: _data{data}, _size{size}, _deleter(deleter) {}         explicit Array(ArrayView<T> view, D deleter) noexcept: Array
+    {
+        view.data(), view.size(), deleter
+    } {}         Array(const Array<T, D>&) = delete;
+    Array(Array<T, D>&& other) noexcept;
+    ~Array()
+    {
+        Implementation::CallDeleter<T, D> {}(_deleter, _data, _size);
+    }         Array<T, D>& operator=(const Array<T, D>&) = delete;
+    Array<T, D>& operator=(Array<T, D>&& other) noexcept;
+    template<class U, class = decltype(Implementation::ArrayViewConverter<T, U>::to(std::declval<ArrayView<T>>()))> operator U()
+    {
+        return Implementation::ArrayViewConverter<T, U>::to(*this);
+    }         template<class U, class = decltype(Implementation::ArrayViewConverter<const T, U>::to(std::declval<ArrayView<const T>>()))> constexpr operator U() const
+    {
+        return Implementation::ArrayViewConverter<const T, U>::to(*this);
+    }         explicit operator bool() const
+    {
+        return _data;
+    }                      operator T*() & { return _data; }                      operator const T*() const &
+    {
+        return _data;
+    }         T* data()
+    {
+        return _data;
+    }         const T* data() const
+    {
+        return _data;
+    }         D deleter() const
+    {
+        return _deleter;
+    }         std::size_t size() const
+    {
+        return _size;
+    }         bool isEmpty() const
+    {
+        return !_size;
+    }         T* begin()
+    {
+        return _data;
+    }         const T* begin() const
+    {
+        return _data;
+    }         const T* cbegin() const
+    {
+        return _data;
+    }         T* end()
+    {
+        return _data+_size;
+    }         const T* end() const
+    {
+        return _data+_size;
+    }         const T* cend() const
+    {
+        return _data+_size;
+    }         T& front();
+    const T& front() const;
+    T& back();
+    const T& back() const;
+    template<class U, typename std::enable_if<std::is_convertible<U, std::size_t>::value, int>::type = 0> T& operator[](U i);
+    template<class U, typename std::enable_if<std::is_convertible<U, std::size_t>::value, int>::type = 0> const T& operator[](U i) const;
+    ArrayView<T> slice(T* begin, T* end)
+    {
+        return ArrayView<T>(*this).slice(begin, end);
+    }         ArrayView<const T> slice(const T* begin, const T* end) const
+    {
+        return ArrayView<const T>(*this).slice(begin, end);
+    }         ArrayView<T> slice(std::size_t begin, std::size_t end)
+    {
+        return ArrayView<T>(*this).slice(begin, end);
+    }         ArrayView<const T> slice(std::size_t begin, std::size_t end) const
+    {
+        return ArrayView<const T>(*this).slice(begin, end);
+    }         template<class U, typename std::enable_if<std::is_convertible<U, T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0> ArrayView<T> sliceSize(U begin, std::size_t size)
+    {
+        return ArrayView<T> {*this}.sliceSize(begin, size);
+    }         template<class U, typename std::enable_if<std::is_convertible<U, const T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0> ArrayView<const T> sliceSize(const U begin, std::size_t size) const
+    {
+        return ArrayView<const T> {*this}.sliceSize(begin, size);
+    }         ArrayView<T> sliceSize(std::size_t begin, std::size_t size)
+    {
+        return ArrayView<T> {*this}.sliceSize(begin, size);
+    }         ArrayView<const T> sliceSize(std::size_t begin, std::size_t size) const
+    {
+        return ArrayView<const T> {*this}.sliceSize(begin, size);
+    }         template<std::size_t size_, class U, typename std::enable_if<std::is_convertible<U, T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0> StaticArrayView<size_, T> slice(U begin)
+    {
+        return ArrayView<T>(*this).template slice<size_>(begin);
+    }         template<std::size_t size_, class U, typename std::enable_if<std::is_convertible<U, const T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0> StaticArrayView<size_, const T> slice(U begin) const
+    {
+        return ArrayView<const T>(*this).template slice<size_>(begin);
+    }         template<std::size_t size_> StaticArrayView<size_, T> slice(std::size_t begin)
+    {
+        return ArrayView<T>(*this).template slice<size_>(begin);
+    }         template<std::size_t size_> StaticArrayView<size_, const T> slice(std::size_t begin) const
+    {
+        return ArrayView<const T>(*this).template slice<size_>(begin);
+    }         template<std::size_t begin_, std::size_t end_> StaticArrayView<end_ - begin_, T> slice()
+    {
+        return ArrayView<T>(*this).template slice<begin_, end_>();
+    }         template<std::size_t begin_, std::size_t end_> StaticArrayView<end_ - begin_, const T> slice() const
+    {
+        return ArrayView<const T>(*this).template slice<begin_, end_>();
+    }         template<std::size_t begin_, std::size_t size_> StaticArrayView<size_, T> sliceSize()
+    {
+        return ArrayView<T>(*this).template sliceSize<begin_, size_>();
+    }         template<std::size_t begin_, std::size_t size_> StaticArrayView<size_, const T> sliceSize() const
+    {
+        return ArrayView<const T>(*this).template sliceSize<begin_, size_>();
+    }         template<class U, typename std::enable_if<std::is_convertible<U, T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0>         ArrayView<T> prefix(U end)
+    {
+        return ArrayView<T>(*this).prefix(end);
+    }         template<class U, typename std::enable_if<std::is_convertible<U, const T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0>         ArrayView<const T> prefix(U end) const
+    {
+        return ArrayView<const T>(*this).prefix(end);
+    }         ArrayView<T> suffix(T* begin)
+    {
+        return ArrayView<T>(*this).suffix(begin);
+    }         ArrayView<const T> suffix(const T* begin) const
+    {
+        return ArrayView<const T>(*this).suffix(begin);
+    }         ArrayView<T> prefix(std::size_t size)
+    {
+        return ArrayView<T>(*this).prefix(size);
+    }         ArrayView<const T> prefix(std::size_t size) const
+    {
+        return ArrayView<const T>(*this).prefix(size);
+    }         template<std::size_t size_> StaticArrayView<size_, T> prefix()
+    {
+        return ArrayView<T>(*this).template prefix<size_>();
+    }         template<std::size_t size_> StaticArrayView<size_, const T> prefix() const
+    {
+        return ArrayView<const T>(*this).template prefix<size_>();
+    }         template<std::size_t size_> StaticArrayView<size_, T> suffix()
+    {
+        return ArrayView<T>(*this).template suffix<size_>();
+    }         template<std::size_t size_> StaticArrayView<size_, const T> suffix() const
+    {
+        return ArrayView<const T>(*this).template suffix<size_>();
+    }         ArrayView<T> exceptPrefix(std::size_t size_)
+    {
+        return ArrayView<T>(*this).exceptPrefix(size_);
+    }         ArrayView<const T> exceptPrefix(std::size_t size_) const
+    {
+        return ArrayView<const T>(*this).exceptPrefix(size_);
+    }         ArrayView<T> exceptSuffix(std::size_t size)
+    {
+        return ArrayView<T>(*this).exceptSuffix(size);
+    }         ArrayView<const T> exceptSuffix(std::size_t size) const
+    {
+        return ArrayView<const T>(*this).exceptSuffix(size);
+    }         T* release();
+private:         T* _data;
+    std::size_t _size;
+    D _deleter;
+};
+template<class T> inline Array<T> array(ArrayView<const T> list)
+{
+    return Array<T> {Corrade::InPlaceInit, list};
+} template<class T> inline Array<T> array(std::initializer_list<T> list)
+{
+    return Array<T> {Corrade::InPlaceInit, list};
+} template<class T, class D> inline ArrayView<T> arrayView(Array<T, D>& array)
+{
+    return ArrayView<T> {array};
+} template<class T, class D> inline ArrayView<const T> arrayView(const Array<T, D>& array)
+{
+    return ArrayView<const T> {array};
+} template<class U, class T, class D> inline ArrayView<U> arrayCast(Array<T, D>& array)
+{
+    return arrayCast<U>(arrayView(array));
+} template<class U, class T, class D> inline ArrayView<const U> arrayCast(const Array<T, D>& array)
+{
+    return arrayCast<const U>(arrayView(array));
+} template<class T> std::size_t arraySize(const Array<T>& view)
+{
+    return view.size();
+} template<class T, class D> inline Array<T, D>::Array(Array<T, D>&& other) noexcept: _data{other._data}, _size{other._size}, _deleter{other._deleter}
+{
+    other._data = nullptr;
+    other._size = 0;
+    other._deleter = D{};
+} template<class T, class D> template<class ...Args> Array<T, D>::Array(Corrade::DirectInitT, std::size_t size, Args&&... args): Array{Corrade::NoInit, size}
+{
+    for(std::size_t i = 0; i != size; ++i)         Implementation::construct(_data[i], Utility::forward<Args>(args)...);
+} template<class T, class D> Array<T, D>::Array(Corrade::InPlaceInitT, const ArrayView<const T> list): Array{Corrade::NoInit, list.size()}
+{
+    std::size_t i = 0;
+    for(const T& item: list)         new(_data + i++) T{item};
+} template<class T, class D> Array<T, D>::Array(Corrade::InPlaceInitT, std::initializer_list<T> list): Array{Corrade::InPlaceInit, arrayView(list)} {} template<class T, class D> inline Array<T, D>& Array<T, D>::operator=(Array<T, D>&& other) noexcept
+{
+    using Utility::swap;
+    swap(_data, other._data);
+    swap(_size, other._size);
+    swap(_deleter, other._deleter);
+    return *this;
+} template<class T, class D> template<class U, typename std::enable_if<std::is_convertible<U, std::size_t>::value, int>::type> const T& Array<T, D>::operator[](const U i) const
+{
+    do
+    {
+        if(!(std::size_t(i) < _size))
+        {
+            Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::Array::operator[](): index" << i << "out of range for" << _size << "elements";
+            std::abort();
+            return _data[0];
+        }
+    }
+    while(false);
+    return _data[i];
+} template<class T, class D> const T& Array<T, D>::front() const
+{
+    do
+    {
+        if(!(_size))
+        {
+            Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::Array::front(): array is empty";
+            std::abort();
+            return _data[0];
+        }
+    }
+    while(false);
+    return _data[0];
+} template<class T, class D> const T& Array<T, D>::back() const
+{
+    do
+    {
+        if(!(_size))
+        {
+            Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::Array::back(): array is empty";
+            std::abort();
+            return _data[_size - 1];
+        }
+    }
+    while(false);
+    return _data[_size - 1];
+} template<class T, class D> template<class U, typename std::enable_if<std::is_convertible<U, std::size_t>::value, int>::type> T& Array<T, D>::operator[](const U i)
+{
+    return const_cast<T&>(static_cast<const Array<T, D>&>(*this)[i]);
+} template<class T, class D> T& Array<T, D>::front()
+{
+    return const_cast<T&>(static_cast<const Array<T, D>&>(*this).front());
+} template<class T, class D> T& Array<T, D>::back()
+{
+    return const_cast<T&>(static_cast<const Array<T, D>&>(*this).back());
+} template<class T, class D> inline T* Array<T, D>::release()
+{
+    T* const data = _data;
+    _data = nullptr;
+    _size = 0;
+    _deleter = D{};
+    return data;
+} namespace Implementation
+{
+template<class U, class T, class D> struct ArrayViewConverter<U, Array<T, D>>
+{
+    template<class V = U, typename std::enable_if<std::is_convertible<T*, V*>::value, int>::type = 0> constexpr static ArrayView<U> from(Array<T, D>& other)
+    {
+        static_assert(sizeof(T) == sizeof(U), "types are not compatible");
+        return {other.data(), other.size()};
+    }     template<class V = U, typename std::enable_if<std::is_convertible<T*, V*>::value, int>::type = 0> constexpr static ArrayView<U> from(Array<T, D>&& other)
+    {
+        static_assert(sizeof(T) == sizeof(U), "types are not compatible");
+        return {other.data(), other.size()};
+    }
+};
+template<class U, class T, class D> struct ArrayViewConverter<const U, Array<T, D>>
+{
+    template<class V = U, typename std::enable_if<std::is_convertible<T*, V*>::value, int>::type = 0> constexpr static ArrayView<const U> from(const Array<T, D>& other)
+    {
+        static_assert(sizeof(T) == sizeof(U), "types are not compatible");
+        return {other.data(), other.size()};
+    }
+};
+template<class U, class T, class D> struct ArrayViewConverter<const U, Array<const T, D>>
+{
+    template<class V = U, typename std::enable_if<std::is_convertible<T*, V*>::value, int>::type = 0> constexpr static ArrayView<const U> from(const Array<const T, D>& other)
+    {
+        static_assert(sizeof(T) == sizeof(U), "types are not compatible");
+        return {other.data(), other.size()};
+    }
+};
+template<class T, class D> struct ErasedArrayViewConverter<Array<T, D>>: ArrayViewConverter<T, Array<T, D>> {};
+template<class T, class D> struct ErasedArrayViewConverter<const Array<T, D>>: ArrayViewConverter<const T, Array<T, D>> {};
+}
+}
+namespace Containers
+{
+namespace Implementation
+{
+template<class, class> struct StringViewConverter;
+template<class T>         inline     T*& dataRef(BasicStringView<T>& view)
+{
+    return view._data;
+}
+} enum class StringViewFlag: std::size_t
+    {
+    Global = std::size_t{1} << (sizeof(std::size_t)*8 - 1),     NullTerminated = std::size_t{1} << (sizeof(std::size_t)*8 - 2)
+};
+namespace Implementation
+{
+enum: std::size_t {         StringViewSizeMask = std::size_t(StringViewFlag::NullTerminated)|std::size_t(StringViewFlag::Global)     };
+} typedef EnumSet<StringViewFlag, Implementation::StringViewSizeMask > StringViewFlags;
+constexpr bool operator==(StringViewFlags::Type a, StringViewFlags b)
+{
+    return StringViewFlags(a) == b;
+} constexpr bool operator!=(StringViewFlags::Type a, StringViewFlags b)
+{
+    return StringViewFlags(a) != b;
+} constexpr bool operator>=(StringViewFlags::Type a, StringViewFlags b)
+{
+    return StringViewFlags(a) >= b;
+} constexpr bool operator<=(StringViewFlags::Type a, StringViewFlags b)
+{
+    return StringViewFlags(a) <= b;
+} constexpr StringViewFlags operator|(StringViewFlags::Type a, StringViewFlags b)
+{
+    return b | a;
+} constexpr StringViewFlags operator&(StringViewFlags::Type a, StringViewFlags b)
+{
+    return b & a;
+} constexpr StringViewFlags operator^(StringViewFlags::Type a, StringViewFlags b)
+{
+    return b ^ a;
+} constexpr StringViewFlags operator~(StringViewFlags::Type a)
+{
+    return ~StringViewFlags(a);
+} __attribute__((dllimport)) Utility::Debug& operator<<(Utility::Debug& debug, StringViewFlag value);
+__attribute__((dllimport)) Utility::Debug& operator<<(Utility::Debug& debug, StringViewFlags value);
+template<class T> class __attribute__((dllimport)) BasicStringView
+{
+public:         template<class U, typename std::enable_if<std::is_same<std::nullptr_t, U>::value, int>::type = 0> constexpr BasicStringView(U) noexcept: _data{}, _sizePlusFlags{std::size_t(StringViewFlag::Global)} {}         constexpr BasicStringView() noexcept: _data{}, _sizePlusFlags{std::size_t(StringViewFlag::Global)} {}         constexpr BasicStringView(T* data, std::size_t size, StringViewFlags flags = {}) noexcept: _data{data}, _sizePlusFlags{(             static_cast<void>((data || !(flags & StringViewFlag::NullTerminated)) ? 0 : ([&]()
+        {
+            Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::StringView: can't use StringViewFlag::NullTerminated with null data";
+            std::abort();
+        }
+        (), 0)),             size|(std::size_t(flags) & Implementation::StringViewSizeMask))} {}                      BasicStringView(String& data) noexcept;
+    template<class U = T, class = typename std::enable_if<std::is_const<U>::value>::type         > BasicStringView(const String& data) noexcept;
+    template<class U, class = typename std::enable_if<!std::is_array<typename std::remove_reference<U&&>::type>::value && !std::is_same<typename std::decay<U&&>::type, BasicStringView<T>>::value && !std::is_same<typename std::decay<U&&>::type, std::nullptr_t>::value, decltype(ArrayView<T>
+             {
+                 std::declval<U&&>()
+                             })>::type> constexpr BasicStringView(U&& data, StringViewFlags flags = {}) noexcept: BasicStringView
+    {
+        flags, ArrayView<T>(data)
+    } {}         template<class U, typename std::enable_if<std::is_same<const U, T>::value, int>::type = 0         > constexpr BasicStringView(BasicStringView<U> mutable_) noexcept: _data{mutable_._data}, _sizePlusFlags{mutable_._sizePlusFlags} {}         template<class U, typename std::enable_if<std::is_pointer<U>::value && std::is_convertible<const U&, T*>::value, int>::type = 0> BasicStringView(U data, StringViewFlags extraFlags = {}) noexcept: BasicStringView
+    {
+        data, extraFlags, nullptr
+    } {}         template<class U, class = decltype(Implementation::StringViewConverter<T, typename std::decay<U&&>::type>::from(std::declval<U&&>()))> constexpr BasicStringView(U&& other) noexcept: BasicStringView
+    {
+        Implementation::StringViewConverter<T, typename std::decay<U&&>::type>::from(Utility::forward<U>(other))
+    } {}         template<class U, class = decltype(Implementation::StringViewConverter<T, U>::to(std::declval<BasicStringView<T>>()))> constexpr operator U() const
+    {
+        return Implementation::StringViewConverter<T, U>::to(*this);
+    }         constexpr explicit operator bool() const
+    {
+        return _data && (_sizePlusFlags & ~Implementation::StringViewSizeMask);
+    }         constexpr StringViewFlags flags() const
+    {
+        return StringViewFlag(_sizePlusFlags & Implementation::StringViewSizeMask);
+    }         constexpr T* data() const
+    {
+        return _data;
+    }         constexpr std::size_t size() const
+    {
+        return _sizePlusFlags & ~Implementation::StringViewSizeMask;
+    }         constexpr bool isEmpty() const
+    {
+        return !(_sizePlusFlags & ~Implementation::StringViewSizeMask);
+    }         constexpr T* begin() const
+    {
+        return _data;
+    }         constexpr T* cbegin() const
+    {
+        return _data;
+    }         constexpr T* end() const
+    {
+        return _data + (_sizePlusFlags & ~Implementation::StringViewSizeMask);
+    }         constexpr T* cend() const
+    {
+        return _data + (_sizePlusFlags & ~Implementation::StringViewSizeMask);
+    }         constexpr T& front() const;
+    constexpr T& back() const;
+    constexpr T& operator[](std::size_t i) const;
+    constexpr BasicStringView<T> slice(T* begin, T* end) const;
+    constexpr BasicStringView<T> slice(std::size_t begin, std::size_t end) const;
+    template<class U, typename std::enable_if<std::is_convertible<U, T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0> constexpr BasicStringView<T> sliceSize(U begin, std::size_t size) const
+    {
+        return slice(begin, begin + size);
+    }         constexpr BasicStringView<T> sliceSize(std::size_t begin, std::size_t size) const
+    {
+        return slice(begin, begin + size);
+    }         template<class U, typename std::enable_if<std::is_convertible<U, T*>::value && !std::is_convertible<U, std::size_t>::value, int>::type = 0> constexpr BasicStringView<T> prefix(U end) const
+    {
+        return static_cast<T*>(end) ? slice(_data, end) : BasicStringView<T> {};
+    }         constexpr BasicStringView<T> suffix(T* begin) const
+    {
+        return _data && !begin ? BasicStringView<T> {} : slice(begin, _data + (_sizePlusFlags & ~Implementation::StringViewSizeMask));
+    }         constexpr BasicStringView<T> prefix(std::size_t size) const
+    {
+        return slice(0, size);
+    }         constexpr BasicStringView<T> exceptPrefix(std::size_t size) const
+    {
+        return slice(size, _sizePlusFlags & ~Implementation::StringViewSizeMask);
+    }         constexpr BasicStringView<T> exceptSuffix(std::size_t size) const
+    {
+        return slice(0, (_sizePlusFlags & ~Implementation::StringViewSizeMask) - size);
+    }         Array<BasicStringView<T>> split(char delimiter) const;
+    Array<BasicStringView<T>> split(StringView delimiter) const;
+    Array<BasicStringView<T>> splitWithoutEmptyParts(char delimiter) const;
+    Array<BasicStringView<T>> splitOnAnyWithoutEmptyParts(StringView delimiters) const;
+    Array<BasicStringView<T>> splitOnWhitespaceWithoutEmptyParts() const;
+    Array3<BasicStringView<T>> partition(char separator) const;
+    Array3<BasicStringView<T>> partition(StringView separator) const;
+    Array3<BasicStringView<T>> partitionLast(char separator) const;
+    Array3<BasicStringView<T>> partitionLast(StringView separator) const;
+    String join(const StringIterable& strings) const;
+    String joinWithoutEmptyParts(const StringIterable& strings) const;
+    bool hasPrefix(StringView prefix) const;
+    bool hasPrefix(char prefix) const;
+    bool hasSuffix(StringView suffix) const;
+    bool hasSuffix(char suffix) const;
+    BasicStringView<T> exceptPrefix(StringView prefix) const;
+    template<typename std::enable_if<std::is_same<typename std::decay<T>::type, char>::value, int>::type = 0> BasicStringView<T> exceptPrefix(T&& prefix) const = delete;
+    BasicStringView<T> exceptSuffix(StringView suffix) const;
+    template<typename std::enable_if<std::is_same<typename std::decay<T>::type, char>::value, int>::type = 0> BasicStringView<T> exceptSuffix(T&& suffix) const = delete;
+    BasicStringView<T> trimmed(StringView characters) const
+    {
+        return trimmedPrefix(characters).trimmedSuffix(characters);
+    }         BasicStringView<T> trimmed() const;
+    BasicStringView<T> trimmedPrefix(StringView characters) const;
+    BasicStringView<T> trimmedPrefix() const;
+    BasicStringView<T> trimmedSuffix(StringView characters) const;
+    BasicStringView<T> trimmedSuffix() const;
+    BasicStringView<T> find(StringView substring) const
+    {
+        return findOr(substring, nullptr);
+    }         BasicStringView<T> find(char character) const
+    {
+        return findOr(character, nullptr);
+    }         BasicStringView<T> findOr(StringView substring, T* fail) const;
+    BasicStringView<T> findOr(char character, T* fail) const;
+    BasicStringView<T> findLast(StringView substring) const
+    {
+        return findLastOr(substring, nullptr);
+    }         BasicStringView<T> findLast(char character) const
+    {
+        return findLastOr(character, nullptr);
+    }         BasicStringView<T> findLastOr(StringView substring, T* fail) const;
+    BasicStringView<T> findLastOr(char character, T* fail) const;
+    bool contains(StringView substring) const;
+    bool contains(char character) const;
+    BasicStringView<T> findAny(StringView characters) const
+    {
+        return findAnyOr(characters, nullptr);
+    }         BasicStringView<T> findAnyOr(StringView characters, T* fail) const;
+    BasicStringView<T> findLastAny(StringView characters) const
+    {
+        return findLastAnyOr(characters, nullptr);
+    }         BasicStringView<T> findLastAnyOr(StringView characters, T* fail) const;
+    bool containsAny(StringView substring) const;
+    std::size_t count(char character) const;
+private:         template<class> friend class BasicStringView;
+    friend String;
+    friend T*& Implementation::dataRef<>(BasicStringView<T>&);
+    friend __attribute__((dllimport)) bool operator==(StringView, StringView);
+    friend __attribute__((dllimport)) bool operator!=(StringView, StringView);
+    friend __attribute__((dllimport)) bool operator<(StringView, StringView);
+    friend __attribute__((dllimport)) bool operator<=(StringView, StringView);
+    friend __attribute__((dllimport)) bool operator>=(StringView, StringView);
+    friend __attribute__((dllimport)) bool operator>(StringView, StringView);
+    friend __attribute__((dllimport)) String operator+(StringView, StringView);
+    friend __attribute__((dllimport)) String operator*(StringView, std::size_t);
+    template<class U, typename std::enable_if<std::is_same<T, U>::value, int>::type = 0> constexpr explicit BasicStringView(StringViewFlags flags, ArrayView<U> data) noexcept: BasicStringView
+    {
+        data.data(), data.size(), flags
+    } {}         explicit BasicStringView(T* data, StringViewFlags flags, std::nullptr_t) noexcept;
+    constexpr explicit BasicStringView(T* data, std::size_t sizePlusFlags, std::nullptr_t) noexcept: _data{data}, _sizePlusFlags{sizePlusFlags} {}         T* _data;
+    std::size_t _sizePlusFlags;
+};
+typedef BasicStringView<const char> StringView;
+typedef BasicStringView<char> MutableStringView;
+__attribute__((dllimport)) bool operator==(StringView a, StringView b);
+__attribute__((dllimport)) bool operator!=(StringView a, StringView b);
+__attribute__((dllimport)) bool operator<(StringView a, StringView b);
+__attribute__((dllimport)) bool operator<=(StringView a, StringView b);
+__attribute__((dllimport)) bool operator>=(StringView a, StringView b);
+__attribute__((dllimport)) bool operator>(StringView a, StringView b);
+__attribute__((dllimport)) String operator+(StringView a, StringView b);
+__attribute__((dllimport)) String operator*(StringView string, std::size_t count);
+__attribute__((dllimport)) String operator*(std::size_t count, StringView string);
+namespace Literals
+{
+inline     namespace StringLiterals
+{
+constexpr StringView operator"" _s(const char* data, std::size_t size)
+{
+    return StringView{data, size, StringViewFlag(std::size_t(StringViewFlag::Global)|std::size_t(StringViewFlag::NullTerminated))};
+}
+}
+} template<class T> constexpr T& BasicStringView<T>::operator[](const std::size_t i) const
+{
+    return static_cast<void>((i < size() + (flags() & StringViewFlag::NullTerminated ? 1 : 0)) ? 0 : ([&]()
+    {
+        Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::StringView::operator[](): index" << i << "out of range for" << size() << (flags() & StringViewFlag::NullTerminated ? "null-terminated bytes" : "bytes");
+        std::abort();
+    }
+    (), 0)), _data[i];
+} template<class T> constexpr T& BasicStringView<T>::front() const
+{
+    return static_cast<void>((size()) ? 0 : ([&]()
+    {
+        Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::StringView::front(): view is empty";
+        std::abort();
+    }
+    (), 0)), _data[0];
+} template<class T> constexpr T& BasicStringView<T>::back() const
+{
+    return static_cast<void>((size()) ? 0 : ([&]()
+    {
+        Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::StringView::back(): view is empty";
+        std::abort();
+    }
+    (), 0)), _data[size() - 1];
+} template<class T> constexpr BasicStringView<T> BasicStringView<T>::slice(T* const begin, T* const end) const
+{
+    return static_cast<void>((_data <= begin && begin <= end && end <= _data + (_sizePlusFlags & ~Implementation::StringViewSizeMask)) ? 0 : ([&]()
+    {
+        Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::StringView::slice(): slice [" << Utility::Debug::nospace << begin - _data << Utility::Debug::nospace << ":" << Utility::Debug::nospace << end - _data << Utility::Debug::nospace << "] out of range for" << (_sizePlusFlags & ~Implementation::StringViewSizeMask) << "elements";
+        std::abort();
+    }
+    (), 0)),         BasicStringView<T> {begin, std::size_t(end - begin)|             (_sizePlusFlags & std::size_t(StringViewFlag::Global))|             ((_sizePlusFlags & std::size_t(StringViewFlag::NullTerminated))*(end == _data + (_sizePlusFlags & ~Implementation::StringViewSizeMask))),             nullptr};
+} template<class T> constexpr BasicStringView<T> BasicStringView<T>::slice(const std::size_t begin, const std::size_t end) const
+{
+    return static_cast<void>((begin <= end && end <= (_sizePlusFlags & ~Implementation::StringViewSizeMask)) ? 0 : ([&]()
+    {
+        Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Containers::StringView::slice(): slice [" << Utility::Debug::nospace << begin << Utility::Debug::nospace << ":" << Utility::Debug::nospace << end << Utility::Debug::nospace << "] out of range for" << (_sizePlusFlags & ~Implementation::StringViewSizeMask) << "elements";
+        std::abort();
+    }
+    (), 0)),         BasicStringView<T> {_data + begin, (end - begin)|             (_sizePlusFlags & std::size_t(StringViewFlag::Global))|             ((_sizePlusFlags & std::size_t(StringViewFlag::NullTerminated))*(end == (_sizePlusFlags & ~Implementation::StringViewSizeMask))),             nullptr};
+} namespace Implementation
+{
+__attribute__((dllimport)) const char* stringFindString(const char* data, std::size_t size, const char* substring, std::size_t substringSize);
+__attribute__((dllimport)) const char* stringFindLastString(const char* data, std::size_t size, const char* substring, std::size_t substringSize);
+__attribute__((dllimport)) extern const char* (stringFindCharacter)(const char* data, std::size_t size, char character);
+__attribute__((dllimport)) const char* stringFindLastCharacter(const char* data, std::size_t size, char character);
+__attribute__((dllimport)) const char* stringFindAny(const char* data, std::size_t size, const char* characters, std::size_t characterCount);
+__attribute__((dllimport)) const char* stringFindLastAny(const char* data, std::size_t size, const char* characters, std::size_t characterCount);
+__attribute__((dllimport)) const char* stringFindNotAny(const char* data, std::size_t size, const char* characters, std::size_t characterCount);
+__attribute__((dllimport)) const char* stringFindLastNotAny(const char* data, std::size_t size, const char* characters, std::size_t characterCount);
+__attribute__((dllimport)) extern std::size_t (stringCountCharacter)(const char* data, std::size_t size, char character);
+} template<class T> inline BasicStringView<T> BasicStringView<T>::trimmedPrefix(const StringView characters) const
+{
+    const std::size_t size = this->size();
+    T* const found = const_cast<T*>(Implementation::stringFindNotAny(_data, size, characters._data, characters.size()));
+    return suffix(found ? found : _data + size);
+} template<class T> inline BasicStringView<T> BasicStringView<T>::trimmedSuffix(const StringView characters) const
+{
+    T* const found = const_cast<T*>(Implementation::stringFindLastNotAny(_data, size(), characters._data, characters.size()));
+    return prefix(found ? found + 1 : _data);
+} template<class T> inline BasicStringView<T> BasicStringView<T>::findOr(const StringView substring, T* const fail) const
+{
+    const std::size_t substringSize = substring.size();
+    if(const char* const found = Implementation::stringFindString(_data, size(), substring._data, substringSize))         return slice(const_cast<T*>(found), const_cast<T*>(found + substringSize));
+    return BasicStringView<T> {fail, 0, nullptr};
+} template<class T> inline BasicStringView<T> BasicStringView<T>::findOr(const char character, T* const fail) const
+{
+    if(const char* const found = Implementation::stringFindCharacter(_data, size(), character))         return slice(const_cast<T*>(found), const_cast<T*>(found + 1));
+    return BasicStringView<T> {fail, 0, nullptr};
+} template<class T> inline BasicStringView<T> BasicStringView<T>::findLastOr(const StringView substring, T* const fail) const
+{
+    const std::size_t substringSize = substring.size();
+    if(const char* const found = Implementation::stringFindLastString(_data, size(), substring._data, substringSize))         return slice(const_cast<T*>(found), const_cast<T*>(found + substringSize));
+    return BasicStringView<T> {fail, 0, nullptr};
+} template<class T> inline BasicStringView<T> BasicStringView<T>::findLastOr(const char character, T* const fail) const
+{
+    if(const char* const found = Implementation::stringFindLastCharacter(_data, size(), character))         return slice(const_cast<T*>(found), const_cast<T*>(found + 1));
+    return BasicStringView<T> {fail, 0, nullptr};
+} template<class T> inline bool BasicStringView<T>::contains(const StringView substring) const
+{
+    return Implementation::stringFindString(_data, size(), substring._data, substring.size());
+} template<class T> inline bool BasicStringView<T>::contains(const char character) const
+{
+    return Implementation::stringFindCharacter(_data, size(), character);
+} template<class T> inline BasicStringView<T> BasicStringView<T>::findAnyOr(const StringView characters, T* const fail) const
+{
+    if(const char* const found = Implementation::stringFindAny(_data, size(), characters._data, characters.size()))         return slice(const_cast<T*>(found), const_cast<T*>(found + 1));
+    return BasicStringView<T> {fail, 0, nullptr};
+} template<class T> inline BasicStringView<T> BasicStringView<T>::findLastAnyOr(const StringView characters, T* const fail) const
+{
+    if(const char* const found = Implementation::stringFindLastAny(_data, size(), characters._data, characters.size()))         return slice(const_cast<T*>(found), const_cast<T*>(found + 1));
+    return BasicStringView<T> {fail, 0, nullptr};
+} template<class T> inline bool BasicStringView<T>::containsAny(const StringView characters) const
+{
+    return Implementation::stringFindAny(_data, size(), characters._data, characters.size());
+} template<class T> inline std::size_t BasicStringView<T>::count(const char character) const
+{
+    return Implementation::stringCountCharacter(_data, size(), character);
+} namespace Implementation
+{
+template<class> struct ErasedArrayViewConverter;
+template<> struct ArrayViewConverter<char, BasicStringView<char>>
+{
+    __attribute__((dllimport)) static ArrayView<char> from(const BasicStringView<char>& other);
+};
+template<> struct ArrayViewConverter<const char, BasicStringView<char>>
+{
+    __attribute__((dllimport)) static ArrayView<const char> from(const BasicStringView<char>& other);
+};
+template<> struct ArrayViewConverter<const char, BasicStringView<const char>>
+{
+    __attribute__((dllimport)) static ArrayView<const char> from(const BasicStringView<const char>& other);
+};
+template<class T> struct ErasedArrayViewConverter<BasicStringView<T>>: ArrayViewConverter<T, BasicStringView<T>> {};
+template<class T> struct ErasedArrayViewConverter<const BasicStringView<T>>: ArrayViewConverter<T, BasicStringView<T>> {};
+}
+}
+}
+namespace Corrade
+{
+namespace Containers
+{
+namespace Implementation
+{
+template<class> struct StringConverter;
+enum: std::size_t {         SmallStringBit = 0x40,         SmallStringSize = sizeof(std::size_t)*3 - 1     };
+} struct AllocatedInitT
+{
+    struct Init {};
+    constexpr explicit AllocatedInitT(Init) {}
+};
+constexpr AllocatedInitT AllocatedInit{AllocatedInitT::Init{}};
+class __attribute__((dllimport)) String
+{
+public:         typedef void(*Deleter)(char*, std::size_t);
+    static String nullTerminatedView(StringView view);
+    static String nullTerminatedView(AllocatedInitT, StringView view);
+    static String nullTerminatedGlobalView(StringView view);
+    static String nullTerminatedGlobalView(AllocatedInitT, StringView view);
+    String() noexcept;
+    String(StringView view);
+    String(ArrayView<const char> view);
+    String(MutableStringView view);
+    String(ArrayView<char> view);
+    template<class T, typename std::enable_if<std::is_convertible<T, const char*>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> String(T data): String
+        {
+            nullptr, nullptr, nullptr, data
+        } {}                      String(const char* data, std::size_t size);
+    explicit String(AllocatedInitT, StringView view);
+    explicit String(AllocatedInitT, ArrayView<const char> view);
+    explicit String(AllocatedInitT, MutableStringView view);
+    explicit String(AllocatedInitT, ArrayView<char> view);
+    explicit String(AllocatedInitT, String&& other);
+    explicit String(AllocatedInitT, const String& other);
+    explicit String(AllocatedInitT, const char* data);
+    explicit String(AllocatedInitT, const char* data, std::size_t size);
+    explicit String(char* data, std::size_t size, Deleter deleter) noexcept;
+    template<class T, typename std::enable_if<std::is_convertible<T, Deleter>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> String(char* data, T deleter) noexcept: String
+    {
+        deleter, nullptr, data
+    } {}         explicit String(const char* data, std::size_t size, Deleter deleter) noexcept: String
+    {
+        const_cast<char*>(data), size, deleter
+    } {}         template<class T, typename std::enable_if<std::is_convertible<T, Deleter>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> String(const char* data, T deleter) noexcept: String
+    {
+        deleter, nullptr, const_cast<char*>(data)
+    } {}         explicit String(std::nullptr_t, std::size_t size, Deleter deleter) = delete;
+    template<class T, typename std::enable_if<std::is_convertible<T, Deleter>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> String(std::nullptr_t, T) noexcept = delete;
+    explicit String(Corrade::ValueInitT, std::size_t size);
+    explicit String(Corrade::NoInitT, std::size_t size);
+    explicit String(Corrade::DirectInitT, std::size_t size, char c);
+    template<class T, class = decltype(Implementation::StringConverter<typename std::decay<T&&>::type>::from(std::declval<T&&>()))> String(T&& other) noexcept: String
+    {
+        Implementation::StringConverter<typename std::decay<T&&>::type>::from(Utility::forward<T>(other))
+    } {}         ~String();
+    String(const String& other);
+    String(String&& other) noexcept;
+    String& operator=(const String& other);
+    String& operator=(String&& other) noexcept;
+    operator ArrayView<const char>() const noexcept;
+    operator ArrayView<const void>() const noexcept;
+    operator ArrayView<char>() noexcept;
+    operator ArrayView<void>() noexcept;
+    operator Array<char>() &&;
+    template<class T, class = decltype(Implementation::StringConverter<T>::to(std::declval<String>()))> operator T() const
+    {
+        return Implementation::StringConverter<T>::to(*this);
+    }         explicit operator bool() const;
+    bool isSmall() const
+    {
+        return _small.size & Implementation::SmallStringBit;
+    }         StringViewFlags viewFlags() const;
+    char* data();
+    const char* data() const;
+    Deleter deleter() const;
+    bool isEmpty() const;
+    std::size_t size() const;
+    char* begin();
+    const char* begin() const;
+    const char* cbegin() const;
+    char* end();
+    const char* end() const;
+    const char* cend() const;
+    char& front();
+    char front() const;
+    char& back();
+    char back() const;
+    char& operator[](std::size_t i);
+    char operator[](std::size_t i) const;
+    MutableStringView slice(char* begin, char* end);
+    StringView slice(const char* begin, const char* end) const;
+    MutableStringView slice(std::size_t begin, std::size_t end);
+    StringView slice(std::size_t begin, std::size_t end) const;
+    template<class T, typename std::enable_if<std::is_convertible<T, char*>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> MutableStringView sliceSize(T begin, std::size_t size)
+    {
+        return sliceSizePointerInternal(begin, size);
+    }         template<class T, typename std::enable_if<std::is_convertible<T, const char*>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> StringView sliceSize(T begin, std::size_t size) const
+    {
+        return sliceSizePointerInternal(begin, size);
+    }         MutableStringView sliceSize(std::size_t begin, std::size_t size);
+    StringView sliceSize(std::size_t begin, std::size_t size) const;
+    template<class T, typename std::enable_if<std::is_convertible<T, char*>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> MutableStringView prefix(T end)
+    {
+        return prefixPointerInternal(end);
+    }         template<class T, typename std::enable_if<std::is_convertible<T, const char*>::value && !std::is_convertible<T, std::size_t>::value, int>::type = 0> StringView prefix(T end) const
+    {
+        return prefixPointerInternal(end);
+    }         MutableStringView suffix(char* begin);
+    StringView suffix(const char* begin) const;
+    MutableStringView prefix(std::size_t size);
+    StringView prefix(std::size_t size) const;
+    MutableStringView exceptPrefix(std::size_t size);
+    StringView exceptPrefix(std::size_t size) const;
+    MutableStringView exceptSuffix(std::size_t size);
+    StringView exceptSuffix(std::size_t size) const;
+    Array<MutableStringView> split(char delimiter);
+    Array<StringView> split(char delimiter) const;
+    Array<MutableStringView> split(StringView delimiter);
+    Array<StringView> split(StringView delimiter) const;
+    Array<MutableStringView> splitWithoutEmptyParts(char delimiter);
+    Array<StringView> splitWithoutEmptyParts(char delimiter) const;
+    Array<MutableStringView> splitOnAnyWithoutEmptyParts(StringView delimiters);
+    Array<StringView> splitOnAnyWithoutEmptyParts(StringView delimiters) const;
+    Array<MutableStringView> splitOnWhitespaceWithoutEmptyParts();
+    Array<StringView> splitOnWhitespaceWithoutEmptyParts() const;
+    Array3<MutableStringView> partition(char separator);
+    Array3<StringView> partition(char separator) const;
+    Array3<MutableStringView> partition(StringView separator);
+    Array3<StringView> partition(StringView separator) const;
+    Array3<MutableStringView> partitionLast(char separator);
+    Array3<StringView> partitionLast(char separator) const;
+    Array3<MutableStringView> partitionLast(StringView separator);
+    Array3<StringView> partitionLast(StringView separator) const;
+    String join(const StringIterable& strings) const;
+    String joinWithoutEmptyParts(const StringIterable& strings) const;
+    bool hasPrefix(StringView prefix) const;
+    bool hasPrefix(char prefix) const;
+    bool hasSuffix(StringView suffix) const;
+    bool hasSuffix(char suffix) const;
+    MutableStringView exceptPrefix(StringView prefix);
+    StringView exceptPrefix(StringView prefix) const;
+    template<class T, typename std::enable_if<std::is_same<typename std::decay<T>::type, char>::value, int>::type = 0> MutableStringView exceptPrefix(T&& prefix) = delete;
+    template<class T, typename std::enable_if<std::is_same<typename std::decay<T>::type, char>::value, int>::type = 0> StringView exceptPrefix(T&& prefix) const = delete;
+    MutableStringView exceptSuffix(StringView suffix);
+    StringView exceptSuffix(StringView suffix) const;
+    template<class T, typename std::enable_if<std::is_same<typename std::decay<T>::type, char>::value, int>::type = 0> MutableStringView exceptSuffix(T&& suffix) = delete;
+    template<class T, typename std::enable_if<std::is_same<typename std::decay<T>::type, char>::value, int>::type = 0> StringView exceptSuffix(T&& suffix) const = delete;
+    MutableStringView trimmed(StringView characters);
+    StringView trimmed(StringView characters) const;
+    MutableStringView trimmed();
+    StringView trimmed() const;
+    MutableStringView trimmedPrefix(StringView characters);
+    StringView trimmedPrefix(StringView characters) const;
+    MutableStringView trimmedPrefix();
+    StringView trimmedPrefix() const;
+    MutableStringView trimmedSuffix(StringView characters);
+    StringView trimmedSuffix(StringView characters) const;
+    MutableStringView trimmedSuffix();
+    StringView trimmedSuffix() const;
+    MutableStringView find(StringView substring);
+    StringView find(StringView substring) const;
+    MutableStringView find(char character);
+    StringView find(char character) const;
+    MutableStringView findOr(StringView substring, char* fail);
+    StringView findOr(StringView substring, const char* fail) const;
+    MutableStringView findOr(char character, char* fail);
+    StringView findOr(char character, const char* fail) const;
+    MutableStringView findLast(StringView substring);
+    StringView findLast(StringView substring) const;
+    MutableStringView findLast(char character);
+    StringView findLast(char character) const;
+    MutableStringView findLastOr(StringView substring, char* fail);
+    StringView findLastOr(StringView substring, const char* fail) const;
+    MutableStringView findLastOr(char character, char* fail);
+    StringView findLastOr(char character, const char* fail) const;
+    bool contains(StringView substring) const;
+    bool contains(char character) const;
+    MutableStringView findAny(StringView characters);
+    StringView findAny(StringView characters) const;
+    MutableStringView findAnyOr(StringView characters, char* fail);
+    StringView findAnyOr(StringView characters, const char* fail) const;
+    MutableStringView findLastAny(StringView characters);
+    StringView findLastAny(StringView characters) const;
+    MutableStringView findLastAnyOr(StringView characters, char* fail);
+    StringView findLastAnyOr(StringView characters, const char* fail) const;
+    bool containsAny(StringView substring) const;
+    std::size_t count(char character) const;
+    char* release();
+private:         explicit String(std::nullptr_t, std::nullptr_t, std::nullptr_t, const char* data);
+    explicit String(Deleter deleter, std::nullptr_t, char* data) noexcept;
+    void construct(Corrade::NoInitT, std::size_t size);
+    void construct(const char* data, std::size_t size);
+    void copyConstruct(const String& other);
+    void destruct();
+    struct Data
+    {
+        const char* data;
+        std::size_t size;
+    };
+    Data dataInternal() const;
+    MutableStringView sliceSizePointerInternal(char* begin, std::size_t size);
+    StringView sliceSizePointerInternal(const char* begin, std::size_t size) const;
+    MutableStringView prefixPointerInternal(char* end);
+    StringView prefixPointerInternal(const char* end) const;
+    struct Small
+    {
+        char data[Implementation::SmallStringSize];
+        unsigned char size;
+    };
+    struct Large
+    {
+        char* data;
+        void(*deleter)(char*, std::size_t);
+        std::size_t size;
+    };
+    union
+    {
+        Small _small;
+        Large _large;
+    };
+};
+}
+namespace Utility
+{
+class __attribute__((dllimport)) ConfigurationGroup
+{
+    friend Configuration;
+public:         template<class T> class BasicGroupIterator;
+    typedef BasicGroupIterator<ConfigurationGroup> MutableGroupIterator;
+    typedef BasicGroupIterator<const ConfigurationGroup> GroupIterator;
+    template<class T> class BasicGroups;
+    typedef BasicGroups<ConfigurationGroup> MutableGroups;
+    typedef BasicGroups<const ConfigurationGroup> Groups;
+    class ValueIterator;
+    class Values;
+    explicit ConfigurationGroup();
+    ConfigurationGroup(const ConfigurationGroup& other);
+    ConfigurationGroup(ConfigurationGroup&& other) noexcept;
+    ~ConfigurationGroup();
+    ConfigurationGroup& operator=(const ConfigurationGroup& other);
+    ConfigurationGroup& operator=(ConfigurationGroup&& other) noexcept;
+    Configuration* configuration()
+    {
+        return _configuration;
+    }         const Configuration* configuration() const
+    {
+        return _configuration;
+    }         bool isEmpty() const
+    {
+        return _values.empty() && _groups.empty();
+    }         MutableGroups groups();
+    Groups groups() const;
+    bool hasGroups() const
+    {
+        return !_groups.empty();
+    }         unsigned int groupCount() const
+    {
+        return static_cast<unsigned int>(_groups.size());
+    }         bool hasGroup(const std::string& name, unsigned int index = 0) const;
+    unsigned int groupCount(const std::string& name) const;
+    ConfigurationGroup* group(const std::string& name, unsigned int index = 0);
+    const ConfigurationGroup* group(const std::string& name, unsigned int index = 0) const;
+    std::vector<ConfigurationGroup*> groups(const std::string& name);
+    std::vector<const ConfigurationGroup*> groups(const std::string& name) const;
+    void addGroup(const std::string& name, ConfigurationGroup* group);
+    ConfigurationGroup* addGroup(const std::string& name);
+    bool removeGroup(const std::string& name, unsigned int index = 0);
+    bool removeGroup(ConfigurationGroup* group);
+    void removeAllGroups(const std::string& name);
+    Values values() const;
+    Values valuesComments() const;
+    bool hasValues() const;
+    unsigned int valueCount() const;
+    bool hasValue(const std::string& key, unsigned int index = 0) const;
+    unsigned int valueCount(const std::string& key) const;
+    template<class T = std::string> T value(const std::string& key, unsigned int index = 0, ConfigurationValueFlags flags = ConfigurationValueFlags()) const;
+    template<class T = std::string> T value(const std::string& key, ConfigurationValueFlags flags) const
+    {
+        return value<T>(key, 0, flags);
+    }         template<class T = std::string> std::vector<T> values(const std::string& key, ConfigurationValueFlags flags = ConfigurationValueFlags()) const;
+    bool setValue(const std::string& key, std::string value, unsigned int index = 0, ConfigurationValueFlags flags = ConfigurationValueFlags())
+    {
+        return setValueInternal(key, std::move(value), index, flags);
+    }         bool setValue(const std::string& key, const char* value, unsigned int index = 0, ConfigurationValueFlags flags = ConfigurationValueFlags())
+    {
+        return setValueInternal(key, value, index, flags);
+    }         bool setValue(const std::string& key, std::string value, ConfigurationValueFlags flags)
+    {
+        return setValue(key, std::move(value), 0, flags);
+    }         bool setValue(const std::string& key, const char* value, ConfigurationValueFlags flags)
+    {
+        return setValue(key, value, 0, flags);
+    }         template<class T> bool setValue(const std::string& key, const T& value, unsigned int index = 0, ConfigurationValueFlags flags = ConfigurationValueFlags())
+    {
+        return setValueInternal(key, ConfigurationValue<T>::toString(value, flags), index, flags);
+    }         template<class T> bool setValue(const std::string& key, const T& value, ConfigurationValueFlags flags)
+    {
+        return setValue<T>(key, value, 0, flags);
+    }         void addValue(std::string key, std::string value, ConfigurationValueFlags flags = ConfigurationValueFlags())
+    {
+        addValueInternal(std::move(key), std::move(value), flags);
+    }         void addValue(std::string key, const char* value, ConfigurationValueFlags flags = ConfigurationValueFlags())
+    {
+        addValueInternal(std::move(key), value, flags);
+    }         template<class T> void addValue(std::string key, const T& value, ConfigurationValueFlags flags = ConfigurationValueFlags())
+    {
+        addValueInternal(std::move(key), ConfigurationValue<T>::toString(value, flags), flags);
+    }         bool removeValue(const std::string& key, unsigned int index = 0);
+    void removeAllValues(const std::string& key);
+    void clear();
+private:         struct Value
+    {
+        std::string key, value;
+    };
+    struct Group
+    {
+        std::string name;
+        ConfigurationGroup* group;
+    };
+    explicit ConfigurationGroup(Configuration* configuration);
+    void setConfigurationPointer(Configuration* configuration);
+    std::vector<Group>::iterator findGroup(const std::string& name, unsigned int index);
+    std::vector<Group>::const_iterator findGroup(const std::string& name, unsigned int index) const;
+    std::vector<Value>::iterator findValue(const std::string& key, unsigned int index);
+    std::vector<Value>::const_iterator findValue(const std::string& key, unsigned int index) const;
+    const std::string* valueInternal(const std::string& key, unsigned int index, ConfigurationValueFlags flags) const;
+    std::vector<const std::string*> valuesInternal(const std::string& key, ConfigurationValueFlags flags) const;
+    bool setValueInternal(const std::string& key, std::string value, unsigned int number, ConfigurationValueFlags flags);
+    void addValueInternal(std::string key, std::string value, ConfigurationValueFlags flags);
+    std::vector<Value> _values;
+    std::vector<Group> _groups;
+    Configuration* _configuration;
+};
+template<class T> class __attribute__((dllimport)) ConfigurationGroup::BasicGroupIterator
+{
+public:         Containers::Pair<Containers::StringView, Containers::Reference<T>> operator*() const;
+    bool operator==(const BasicGroupIterator<T>& other) const
+    {
+        return _group == other._group;
+    }         bool operator!=(const BasicGroupIterator<T>& other) const
+    {
+        return !operator==(other);
+    }         BasicGroupIterator<T>& operator++()
+    {
+        ++_group;
+        return *this;
+    }         BasicGroupIterator<T> operator++(int);
+private:         template<class U> friend class BasicGroups;
+    typedef typename std::conditional<std::is_const<T>::value, const ConfigurationGroup::Group, ConfigurationGroup::Group>::type Group;
+    constexpr explicit BasicGroupIterator(Group* group) noexcept: _group
+    {
+        group
+    } {}         Group* _group;
+};
+template<class T> class ConfigurationGroup::BasicGroups
+{
+public:         BasicGroupIterator<T> begin() const
+    {
+        return BasicGroupIterator<T> {_begin};
+    }         BasicGroupIterator<const T> cbegin() const
+    {
+        return BasicGroupIterator<const T> {_begin};
+    }         BasicGroupIterator<T> end() const
+    {
+        return BasicGroupIterator<T> {_end};
+    }         BasicGroupIterator<const T> cend() const
+    {
+        return BasicGroupIterator<const T> {_end};
+    }     private:         friend ConfigurationGroup;
+    typedef typename std::conditional<std::is_const<T>::value, const ConfigurationGroup::Group, ConfigurationGroup::Group>::type Group;
+    constexpr explicit BasicGroups(Group* begin, Group* end) noexcept: _begin{begin}, _end{end} {}         Group* _begin;
+    Group* _end;
+};
+class __attribute__((dllimport)) ConfigurationGroup::ValueIterator
+{
+public:         Containers::Pair<Containers::StringView, Containers::StringView> operator*() const;
+    bool operator==(const ValueIterator& other) const
+    {
+        return _value == other._value;
+    }         bool operator!=(const ValueIterator& other) const
+    {
+        return !operator==(other);
+    }         ValueIterator& operator++();
+    ValueIterator operator++(int);
+private:         friend Values;
+    constexpr explicit ValueIterator(const Value* value, const Value* end, bool skipComments) noexcept: _value{value}, _end{end}, _skipComments{skipComments} {}         const Value* _value;
+    const Value* _end;
+    bool _skipComments;
+};
+class ConfigurationGroup::Values
+{
+public:         ValueIterator begin() const
+    {
+        return ValueIterator{_begin, _end, _skipComments};
+    }         ValueIterator cbegin() const
+    {
+        return ValueIterator{_begin, _end, _skipComments};
+    }         ValueIterator end() const
+    {
+        return ValueIterator{_end, _end, _skipComments};
+    }         ValueIterator cend() const
+    {
+        return ValueIterator{_end, _end, _skipComments};
+    }     private:         friend ConfigurationGroup;
+    explicit Values(const Value* begin, const Value* end, bool skipComments) noexcept;
+    const Value* _begin;
+    const Value* _end;
+    bool _skipComments;
+};
+template<> bool ConfigurationGroup::setValue(const std::string&, const std::string&, unsigned int, ConfigurationValueFlags) = delete;
+template<> void ConfigurationGroup::addValue(std::string, const std::string&, ConfigurationValueFlags) = delete;
+template<> inline std::string ConfigurationGroup::value(const std::string& key, unsigned int index, const ConfigurationValueFlags flags) const
+{
+    const std::string* value = valueInternal(key, index, flags);
+    return value ? *value : std::string{};
+} template<> inline std::vector<std::string> ConfigurationGroup::values(const std::string& key, const ConfigurationValueFlags flags) const
+{
+    std::vector<const std::string*> stringValues = valuesInternal(key, flags);
+    std::vector<std::string> values;
+    values.reserve(stringValues.size());
+    for(const std::string* i: stringValues)         values.push_back(*i);
+    return values;
+} template<class T> inline T ConfigurationGroup::value(const std::string& key, const unsigned int index, const ConfigurationValueFlags flags) const
+{
+    const std::string* value = valueInternal(key, index, flags);
+    return value ?         ConfigurationValue<T>::fromString(*value, flags) :         ConfigurationValue<T>::fromString(Containers::StringView{}, flags);
+} template<class T> std::vector<T> ConfigurationGroup::values(const std::string& key, const ConfigurationValueFlags flags) const
+{
+    std::vector<const std::string*> stringValues = valuesInternal(key, flags);
+    std::vector<T> values;
+    values.reserve(stringValues.size());
+    for(const std::string* i: stringValues)         values.push_back(ConfigurationValue<T>::fromString(*i, flags));
+    return values;
+}
+}
+}
+namespace Corrade
+{
+namespace Utility
+{
+class __attribute__((dllimport)) Configuration: public ConfigurationGroup
+{
+    friend ConfigurationGroup;
+public:         enum class Flag: std::uint32_t {             PreserveBom = 1 << 0,             ForceUnixEol = 1 << 1,             ForceWindowsEol = 1 << 2,             Truncate = 1 << 3,             SkipComments = 1 << 4,             ReadOnly = 1 << 5         };
+    typedef Containers::EnumSet<Flag> Flags;
+    explicit Configuration(Flags flags = Flags());
+    explicit Configuration(const std::string& filename, Flags flags = Flags());
+    explicit Configuration(std::istream& in, Flags flags = Flags());
+    Configuration(const Configuration&) = delete;
+    Configuration(Configuration&& other) noexcept;
+    ~Configuration();
+    Configuration& operator=(const Configuration&) = delete;
+    Configuration& operator=(Configuration&& other) noexcept;
+    std::string filename() const;
+    void setFilename(std::string filename);
+    bool isValid() const
+    {
+        return bool(_flags & InternalFlag::IsValid);
+    }         bool save(const std::string& filename);
+    void save(std::ostream& out);
+    bool save();
+private:         enum class InternalFlag: std::uint32_t {             PreserveBom = std::uint32_t(Flag::PreserveBom),             ForceUnixEol = std::uint32_t(Flag::ForceUnixEol),             ForceWindowsEol = std::uint32_t(Flag::ForceWindowsEol),             Truncate = std::uint32_t(Flag::Truncate),             SkipComments = std::uint32_t(Flag::SkipComments),             ReadOnly = std::uint32_t(Flag::ReadOnly),             IsValid = 1 << 16,             HasBom = 1 << 17,             WindowsEol = 1 << 18,             Changed = 1 << 19         };
+    typedef Containers::EnumSet<InternalFlag> InternalFlags;
+    friend constexpr bool operator==(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) == b;
+    } friend constexpr bool operator!=(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) != b;
+    } friend constexpr bool operator>=(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) >= b;
+    } friend constexpr bool operator<=(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return InternalFlags(a) <= b;
+    } friend constexpr InternalFlags operator|(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return b | a;
+    } friend constexpr InternalFlags operator&(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return b & a;
+    } friend constexpr InternalFlags operator^(typename InternalFlags::Type a, InternalFlags b)
+    {
+        return b ^ a;
+    } friend constexpr InternalFlags operator~(typename InternalFlags::Type a)
+    {
+        return ~InternalFlags(a);
+    }                               bool parse(Containers::StringView in);
+    std::pair<Containers::StringView, const char*> parse(Containers::StringView in, ConfigurationGroup* group, Containers::StringView fullPath);
+    void save(std::ostream& out, const std::string& eol, ConfigurationGroup* group, const std::string& fullPath) const;
+    std::string _filename;
+    InternalFlags _flags;
+};
+constexpr bool operator==(Configuration::Flags::Type a, Configuration::Flags b)
+{
+    return Configuration::Flags(a) == b;
+} constexpr bool operator!=(Configuration::Flags::Type a, Configuration::Flags b)
+{
+    return Configuration::Flags(a) != b;
+} constexpr bool operator>=(Configuration::Flags::Type a, Configuration::Flags b)
+{
+    return Configuration::Flags(a) >= b;
+} constexpr bool operator<=(Configuration::Flags::Type a, Configuration::Flags b)
+{
+    return Configuration::Flags(a) <= b;
+} constexpr Configuration::Flags operator|(Configuration::Flags::Type a, Configuration::Flags b)
+{
+    return b | a;
+} constexpr Configuration::Flags operator&(Configuration::Flags::Type a, Configuration::Flags b)
+{
+    return b & a;
+} constexpr Configuration::Flags operator^(Configuration::Flags::Type a, Configuration::Flags b)
+{
+    return b ^ a;
+} constexpr Configuration::Flags operator~(Configuration::Flags::Type a)
+{
+    return ~Configuration::Flags(a);
+}
+}
+}
+typedef struct HINSTANCE__* HMODULE;
+namespace Corrade
+{
+namespace PluginManager
+{
+namespace Implementation
+{
+struct StaticPlugin;
+struct Plugin: PluginMetadata
+{
+    LoadState loadState;
+    Utility::Configuration metadata;
+    Containers::String name;
+    Containers::Array<Containers::String> depends;
+    Containers::Array<Containers::String> provides;
+    Containers::Array<Containers::StringView> usedBy;
+    const Utility::ConfigurationGroup* data;
+    Utility::ConfigurationGroup* configuration;
+    void*(*instancer)(AbstractManager&, const Containers::StringView&);
+    void(*finalizer)();
+    union
+    {
+        const StaticPlugin* staticPlugin;
+        HMODULE module;
+    };
+    std::vector<AbstractPlugin*> instances;
+    explicit Plugin(Utility::Configuration&& configuration, Containers::String&& name, void*(*instancer)(AbstractManager&, const Containers::StringView&));
+    explicit Plugin(Containers::StringView name, Containers::StringView metadata);
+    explicit Plugin(const StaticPlugin& staticPlugin, Utility::Configuration&& configuration);
+    Plugin(const Plugin&) = delete;
+    Plugin(Plugin&&) = delete;
+    Plugin& operator=(const Plugin&) = delete;
+    Plugin& operator=(Plugin&&) = delete;
+    ~Plugin() = default;
+};
+}
+}
+namespace PluginManager
+{
+Containers::StringView PluginMetadata::name() const
+{
+    return static_cast<const Implementation::Plugin*>(this)->name;
+} Containers::StringIterable PluginMetadata::depends() const
+{
+    return static_cast<const Implementation::Plugin*>(this)->depends;
+} Containers::StringIterable PluginMetadata::usedBy() const
+{
+    return {};
+} Containers::StringIterable PluginMetadata::provides() const
+{
+    return {};
+} using Utility::ConfigurationGroup;
+const Utility::ConfigurationGroup& PluginMetadata::data() const
+{
+    do
+    {
+        if(!(static_cast<const Implementation::Plugin*>(this)->data))
+        {
+            Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Assertion " "static_cast<const Implementation::Plugin*>(this)->data" " failed at " "D:\\dev\\corrade\\src\\Corrade\\PluginManager\\PluginMetadata.cpp" ":" "55";
+            std::abort();
+        }
+    }
+    while(false);
+    return *static_cast<const Implementation::Plugin*>(this)->data;
+} const Utility::ConfigurationGroup& PluginMetadata::configuration() const
+{
+    do
+    {
+        if(!(static_cast<const Implementation::Plugin*>(this)->configuration))
+        {
+            Corrade::Utility::Error{Corrade::Utility::Error::defaultOutput()} << "Assertion " "static_cast<const Implementation::Plugin*>(this)->configuration" " failed at " "D:\\dev\\corrade\\src\\Corrade\\PluginManager\\PluginMetadata.cpp" ":" "61";
+            std::abort();
+        }
+    }
+    while(false);
+    return *static_cast<const Implementation::Plugin*>(this)->configuration;
+} Utility::ConfigurationGroup& PluginMetadata::configuration()
+{
+    return const_cast<Utility::ConfigurationGroup&>(static_cast<const PluginMetadata&>(*this).configuration());
+}
+}
+}

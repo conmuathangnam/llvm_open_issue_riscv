@@ -1,0 +1,493 @@
+; ModuleID = 'pternlog-bug.C'
+source_filename = "pternlog-bug.C"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-conda-linux-gnu"
+
+module asm ".globl _ZSt21ios_base_library_initv"
+
+%"class.std::mersenne_twister_engine" = type { [624 x i64], i64 }
+%"class.my::class1.8" = type <{ ptr, %"class.my::class2.14", [8 x i8] }>
+%"class.my::class2.14" = type { [8 x i8], %"class.my::class1.20", [8 x i8] }
+%"class.my::class1.20" = type <{ [8 x i8], %"class.my::class1.26", ptr, [8 x i8] }>
+%"class.my::class1.26" = type <{ [8 x i8], %"class.my::class2.32", %"class.my::class3", [8 x i8] }>
+%"class.my::class2.32" = type { [8 x i8], %"class.my::class2.38", %"struct.my::Bind2nd" }
+%"class.my::class2.38" = type <{ ptr, [8 x i8] }>
+%"struct.my::Bind2nd" = type { [4 x i8], float }
+%"class.my::class3" = type { [8 x i8], %"class.my::class2", float, [4 x i8] }
+%"class.my::class2" = type <{ ptr, [8 x i8] }>
+%"class.my::class4" = type { %"class.my::class5" }
+%"class.my::class5" = type { [8 x float] }
+
+$_fn1 = comdat any
+
+$_fn2 = comdat any
+
+$_fn3 = comdat any
+
+$_fn4 = comdat any
+
+@constinit = private unnamed_addr constant [7 x float] [float 0xBFF3AE1480000000, float 0x4002B851E0000000, float 0xC00B9999A0000000, float 0x40123D70A0000000, float 0xC016AE1480000000, float 0x401B1EB860000000, float 0x401F8F5C20000000], align 4
+@_fn1 = linkonce_odr dso_local global %"class.std::mersenne_twister_engine" zeroinitializer, comdat, align 8
+@_gv1 = linkonce_odr dso_local local_unnamed_addr global i64 0, comdat($_fn1), align 8
+@_fn3 = linkonce_odr dso_local global i32 0, comdat, align 4
+@_fn4 = linkonce_odr dso_local global i64 0, comdat, align 8
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init, ptr @_fn1 }]
+@llvm.used = appending global [1 x ptr] [ptr @_fn1], section "llvm.metadata"
+
+; Function Attrs: mustprogress norecurse uwtable
+define dso_local noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %1 = alloca double, align 8
+  %2 = alloca %"class.my::class1.8", align 8
+  %3 = alloca %"class.my::class4", align 32
+  %4 = alloca %"class.my::class4", align 32
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 0, ptr %5, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @constinit, i64 28, i1 false)
+  %6 = load <8 x i32>, ptr %4, align 32
+  %7 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> <i32 1067282596, i32 1067282596, i32 1067282596, i32 1067282596, i32 1067282596, i32 1067282596, i32 1067282596, i32 0>, <8 x i32> %6, <8 x i32> splat (i32 2147483647), i32 228)
+  %8 = insertelement <8 x i32> %6, i32 0, i64 7
+  %9 = and <8 x i32> %8, splat (i32 2147483647)
+  %10 = bitcast <8 x i32> %9 to <8 x float>
+  %11 = fcmp ogt <8 x float> %10, <float 0x3FF3AE1480000000, float 0x3FF3AE1480000000, float 0x3FF3AE1480000000, float 0x3FF3AE1480000000, float 0x3FF3AE1480000000, float 0x3FF3AE1480000000, float 0x3FF3AE1480000000, float 0.000000e+00>
+  %12 = bitcast <8 x i32> %6 to <8 x float>
+  %13 = select <8 x i1> %11, <8 x i32> %7, <8 x i32> %6
+  %14 = bitcast <8 x i32> %13 to <8 x float>
+  %15 = bitcast <8 x i32> %6 to <8 x float>
+  %16 = extractelement <8 x float> %15, i64 0
+  %17 = fmul <8 x float> %15, %15
+  %18 = extractelement <8 x float> %17, i64 0
+  %19 = fcmp ogt float %16, 0.000000e+00
+  %20 = fcmp olt float %16, 0.000000e+00
+  %21 = fmul float %18, 0x3FF3AE1480000000
+  %22 = select i1 %20, float 0xBFF3AE1480000000, float %21
+  %23 = select i1 %19, float 0x3FF3AE1480000000, float %22
+  %24 = extractelement <8 x float> %14, i64 0
+  %25 = fcmp oeq float %24, %23
+  %26 = bitcast <8 x i32> %6 to <8 x float>
+  %27 = extractelement <8 x float> %26, i64 2
+  %28 = bitcast <8 x i32> %6 to <8 x float>
+  %29 = extractelement <8 x float> %28, i64 3
+  %30 = bitcast <8 x i32> %6 to <8 x float>
+  %31 = extractelement <8 x float> %30, i64 4
+  %32 = bitcast <8 x i32> %6 to <8 x float>
+  %33 = extractelement <8 x float> %32, i64 5
+  %34 = bitcast <8 x i32> %6 to <8 x float>
+  %35 = extractelement <8 x float> %34, i64 6
+  br i1 %25, label %36, label %92
+
+36:                                               ; preds = %0
+  %37 = bitcast <8 x i32> %6 to <8 x float>
+  %38 = extractelement <8 x float> %37, i64 1
+  %39 = fmul float %38, %38
+  %40 = fcmp ogt float %38, 0.000000e+00
+  %41 = fcmp olt float %38, 0.000000e+00
+  %42 = fmul float %39, 0x3FF3AE1480000000
+  %43 = select i1 %41, float 0xBFF3AE1480000000, float %42
+  %44 = select i1 %40, float 0x3FF3AE1480000000, float %43
+  %45 = extractelement <8 x float> %14, i64 1
+  %46 = fcmp oeq float %45, %44
+  br i1 %46, label %47, label %92
+
+47:                                               ; preds = %36
+  %48 = fmul float %27, %27
+  %49 = fcmp ogt float %27, 0.000000e+00
+  %50 = fcmp olt float %27, 0.000000e+00
+  %51 = fmul float %48, 0x3FF3AE1480000000
+  %52 = select i1 %50, float 0xBFF3AE1480000000, float %51
+  %53 = select i1 %49, float 0x3FF3AE1480000000, float %52
+  %54 = extractelement <8 x float> %14, i64 2
+  %55 = fcmp oeq float %54, %53
+  br i1 %55, label %56, label %92
+
+56:                                               ; preds = %47
+  %57 = fmul float %29, %29
+  %58 = fcmp ogt float %29, 0.000000e+00
+  %59 = fcmp olt float %29, 0.000000e+00
+  %60 = fmul float %57, 0x3FF3AE1480000000
+  %61 = select i1 %59, float 0xBFF3AE1480000000, float %60
+  %62 = select i1 %58, float 0x3FF3AE1480000000, float %61
+  %63 = extractelement <8 x float> %14, i64 3
+  %64 = fcmp oeq float %63, %62
+  br i1 %64, label %65, label %92
+
+65:                                               ; preds = %56
+  %66 = fmul float %31, %31
+  %67 = fcmp ogt float %31, 0.000000e+00
+  %68 = fcmp olt float %31, 0.000000e+00
+  %69 = fmul float %66, 0x3FF3AE1480000000
+  %70 = select i1 %68, float 0xBFF3AE1480000000, float %69
+  %71 = select i1 %67, float 0x3FF3AE1480000000, float %70
+  %72 = extractelement <8 x float> %14, i64 4
+  %73 = fcmp oeq float %72, %71
+  br i1 %73, label %74, label %92
+
+74:                                               ; preds = %65
+  %75 = fmul float %33, %33
+  %76 = fcmp ogt float %33, 0.000000e+00
+  %77 = fcmp olt float %33, 0.000000e+00
+  %78 = fmul float %75, 0x3FF3AE1480000000
+  %79 = select i1 %77, float 0xBFF3AE1480000000, float %78
+  %80 = select i1 %76, float 0x3FF3AE1480000000, float %79
+  %81 = extractelement <8 x float> %14, i64 5
+  %82 = fcmp oeq float %81, %80
+  br i1 %82, label %83, label %92
+
+83:                                               ; preds = %74
+  %84 = fmul float %35, %35
+  %85 = fcmp ogt float %35, 0.000000e+00
+  %86 = fcmp olt float %35, 0.000000e+00
+  %87 = fmul float %84, 0x3FF3AE1480000000
+  %88 = select i1 %86, float 0xBFF3AE1480000000, float %87
+  %89 = select i1 %85, float 0x3FF3AE1480000000, float %88
+  %90 = extractelement <8 x float> %14, i64 6
+  %91 = fcmp oeq float %90, %89
+  br i1 %91, label %93, label %92
+
+92:                                               ; preds = %0, %36, %47, %56, %65, %74, %83
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  br label %110
+
+93:                                               ; preds = %83
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  %94 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> <i32 1083304837, i32 1083304837, i32 1083304837, i32 1083304837, i32 1083304837, i32 1083304837, i32 1083304837, i32 0>, <8 x i32> %6, <8 x i32> splat (i32 2147483647), i32 228)
+  %95 = bitcast <8 x i32> %94 to <8 x float>
+  %96 = fcmp ogt <8 x float> %10, <float 0x40123D70A0000000, float 0x40123D70A0000000, float 0x40123D70A0000000, float 0x40123D70A0000000, float 0x40123D70A0000000, float 0x40123D70A0000000, float 0x40123D70A0000000, float 0.000000e+00>
+  %97 = insertelement <8 x float> %95, float 0.000000e+00, i64 7
+  %98 = insertelement <8 x float> %12, float 0.000000e+00, i64 7
+  %99 = select <8 x i1> %96, <8 x float> %97, <8 x float> %98
+  store <8 x float> %99, ptr %3, align 32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store float 0x40123D70A0000000, ptr %100, align 4
+  %101 = load double, ptr %1, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  store ptr %3, ptr %2, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store ptr %4, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store double %101, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %4, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store float 0x40123D70A0000000, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store ptr %4, ptr %106, align 8
+  %107 = call noundef zeroext i1 @_fn2(ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %108 = xor i1 %107, true
+  %109 = zext i1 %108 to i32
+  br label %110
+
+110:                                              ; preds = %92, %93
+  %111 = phi i32 [ %109, %93 ], [ 1, %92 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  ret i32 %111
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: nounwind uwtable
+define internal void @__cxx_global_var_init() #3 section ".text.startup" comdat($_fn1) {
+  %1 = load i8, ptr @_gv1, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %70
+
+3:                                                ; preds = %0
+  store i8 1, ptr @_gv1, align 8
+  %4 = load atomic i8, ptr @_fn4 acquire, align 8
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %6, label %13
+
+6:                                                ; preds = %3
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_fn4) #9
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %13, label %9
+
+9:                                                ; preds = %6
+  %10 = tail call i64 @time(ptr noundef null) #9
+  %11 = trunc i64 %10 to i32
+  store i32 %11, ptr @_fn3, align 4
+  %12 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_fn3)
+  tail call void @__cxa_guard_release(ptr nonnull @_fn4) #9
+  br label %13
+
+13:                                               ; preds = %3, %6, %9
+  %14 = load i32, ptr @_fn3, align 4
+  %15 = zext i32 %14 to i64
+  store i64 %15, ptr @_fn1, align 8
+  br label %16
+
+16:                                               ; preds = %16, %13
+  %17 = phi i64 [ %15, %13 ], [ %65, %16 ]
+  %18 = phi i64 [ 1, %13 ], [ %67, %16 ]
+  %19 = lshr i64 %17, 30
+  %20 = xor i64 %19, %17
+  %21 = mul nuw nsw i64 %20, 1812433253
+  %22 = add nuw i64 %21, %18
+  %23 = and i64 %22, 4294967295
+  %24 = getelementptr inbounds nuw [624 x i64], ptr @_fn1, i64 0, i64 %18
+  store i64 %23, ptr %24, align 8
+  %25 = add nuw nsw i64 %18, 1
+  %26 = lshr i64 %23, 30
+  %27 = xor i64 %26, %22
+  %28 = mul i64 %27, 1812433253
+  %29 = add i64 %28, %25
+  %30 = and i64 %29, 4294967295
+  %31 = getelementptr inbounds nuw [624 x i64], ptr @_fn1, i64 0, i64 %25
+  store i64 %30, ptr %31, align 8
+  %32 = add nuw nsw i64 %18, 2
+  %33 = lshr i64 %30, 30
+  %34 = xor i64 %33, %29
+  %35 = mul i64 %34, 1812433253
+  %36 = add i64 %35, %32
+  %37 = and i64 %36, 4294967295
+  %38 = getelementptr inbounds nuw [624 x i64], ptr @_fn1, i64 0, i64 %32
+  store i64 %37, ptr %38, align 8
+  %39 = add nuw nsw i64 %18, 3
+  %40 = lshr i64 %37, 30
+  %41 = xor i64 %40, %36
+  %42 = mul i64 %41, 1812433253
+  %43 = add i64 %42, %39
+  %44 = and i64 %43, 4294967295
+  %45 = getelementptr inbounds nuw [624 x i64], ptr @_fn1, i64 0, i64 %39
+  store i64 %44, ptr %45, align 8
+  %46 = add nuw nsw i64 %18, 4
+  %47 = lshr i64 %44, 30
+  %48 = xor i64 %47, %43
+  %49 = mul i64 %48, 1812433253
+  %50 = add i64 %49, %46
+  %51 = and i64 %50, 4294967295
+  %52 = getelementptr inbounds nuw [624 x i64], ptr @_fn1, i64 0, i64 %46
+  store i64 %51, ptr %52, align 8
+  %53 = add nuw nsw i64 %18, 5
+  %54 = lshr i64 %51, 30
+  %55 = xor i64 %54, %50
+  %56 = mul i64 %55, 1812433253
+  %57 = add i64 %56, %53
+  %58 = and i64 %57, 4294967295
+  %59 = getelementptr inbounds nuw [624 x i64], ptr @_fn1, i64 0, i64 %53
+  store i64 %58, ptr %59, align 8
+  %60 = add nuw nsw i64 %18, 6
+  %61 = lshr i64 %58, 30
+  %62 = xor i64 %61, %57
+  %63 = mul i64 %62, 1812433253
+  %64 = add i64 %63, %60
+  %65 = and i64 %64, 4294967295
+  %66 = getelementptr inbounds nuw [624 x i64], ptr @_fn1, i64 0, i64 %60
+  store i64 %65, ptr %66, align 8
+  %67 = add nuw nsw i64 %18, 7
+  %68 = icmp eq i64 %67, 624
+  br i1 %68, label %69, label %16
+
+69:                                               ; preds = %16
+  store i64 624, ptr getelementptr inbounds nuw (i8, ptr @_fn1, i64 4992), align 8
+  br label %70
+
+70:                                               ; preds = %69, %0
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32>, <8 x i32>, <8 x i32>, i32 immarg) #4
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_fn2(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %6 = load float, ptr %5, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = load float, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %12 = load ptr, ptr %11, align 8
+  %13 = load float, ptr %4, align 4
+  %14 = tail call noundef float @llvm.fabs.f32(float %13)
+  %15 = fcmp ogt float %14, %6
+  %16 = load float, ptr %8, align 4
+  %17 = fmul float %16, %16
+  %18 = fcmp ogt float %16, 0.000000e+00
+  %19 = fcmp olt float %16, 0.000000e+00
+  %20 = select i1 %19, float -1.000000e+00, float %17
+  %21 = select i1 %18, float 1.000000e+00, float %20
+  %22 = fmul float %10, %21
+  %23 = load float, ptr %12, align 4
+  %24 = select i1 %15, float %22, float %23
+  %25 = load float, ptr %2, align 4
+  %26 = fcmp oeq float %25, %24
+  br i1 %26, label %27, label %142
+
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %30 = load float, ptr %29, align 4
+  %31 = tail call noundef float @llvm.fabs.f32(float %30)
+  %32 = fcmp ogt float %31, %6
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %34 = load float, ptr %33, align 4
+  %35 = fmul float %34, %34
+  %36 = fcmp ogt float %34, 0.000000e+00
+  %37 = fcmp olt float %34, 0.000000e+00
+  %38 = select i1 %37, float -1.000000e+00, float %35
+  %39 = select i1 %36, float 1.000000e+00, float %38
+  %40 = fmul float %10, %39
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %42 = load float, ptr %41, align 4
+  %43 = select i1 %32, float %40, float %42
+  %44 = load float, ptr %28, align 4
+  %45 = fcmp oeq float %44, %43
+  br i1 %45, label %46, label %142
+
+46:                                               ; preds = %27
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %49 = load float, ptr %48, align 4
+  %50 = tail call noundef float @llvm.fabs.f32(float %49)
+  %51 = fcmp ogt float %50, %6
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %53 = load float, ptr %52, align 4
+  %54 = fmul float %53, %53
+  %55 = fcmp ogt float %53, 0.000000e+00
+  %56 = fcmp olt float %53, 0.000000e+00
+  %57 = select i1 %56, float -1.000000e+00, float %54
+  %58 = select i1 %55, float 1.000000e+00, float %57
+  %59 = fmul float %10, %58
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %61 = load float, ptr %60, align 4
+  %62 = select i1 %51, float %59, float %61
+  %63 = load float, ptr %47, align 4
+  %64 = fcmp oeq float %63, %62
+  br i1 %64, label %65, label %142
+
+65:                                               ; preds = %46
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %68 = load float, ptr %67, align 4
+  %69 = tail call noundef float @llvm.fabs.f32(float %68)
+  %70 = fcmp ogt float %69, %6
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %72 = load float, ptr %71, align 4
+  %73 = fmul float %72, %72
+  %74 = fcmp ogt float %72, 0.000000e+00
+  %75 = fcmp olt float %72, 0.000000e+00
+  %76 = select i1 %75, float -1.000000e+00, float %73
+  %77 = select i1 %74, float 1.000000e+00, float %76
+  %78 = fmul float %10, %77
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %80 = load float, ptr %79, align 4
+  %81 = select i1 %70, float %78, float %80
+  %82 = load float, ptr %66, align 4
+  %83 = fcmp oeq float %82, %81
+  br i1 %83, label %84, label %142
+
+84:                                               ; preds = %65
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %87 = load float, ptr %86, align 4
+  %88 = tail call noundef float @llvm.fabs.f32(float %87)
+  %89 = fcmp ogt float %88, %6
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %91 = load float, ptr %90, align 4
+  %92 = fmul float %91, %91
+  %93 = fcmp ogt float %91, 0.000000e+00
+  %94 = fcmp olt float %91, 0.000000e+00
+  %95 = select i1 %94, float -1.000000e+00, float %92
+  %96 = select i1 %93, float 1.000000e+00, float %95
+  %97 = fmul float %10, %96
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %99 = load float, ptr %98, align 4
+  %100 = select i1 %89, float %97, float %99
+  %101 = load float, ptr %85, align 4
+  %102 = fcmp oeq float %101, %100
+  br i1 %102, label %103, label %142
+
+103:                                              ; preds = %84
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %106 = load float, ptr %105, align 4
+  %107 = tail call noundef float @llvm.fabs.f32(float %106)
+  %108 = fcmp ogt float %107, %6
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %110 = load float, ptr %109, align 4
+  %111 = fmul float %110, %110
+  %112 = fcmp ogt float %110, 0.000000e+00
+  %113 = fcmp olt float %110, 0.000000e+00
+  %114 = select i1 %113, float -1.000000e+00, float %111
+  %115 = select i1 %112, float 1.000000e+00, float %114
+  %116 = fmul float %10, %115
+  %117 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %118 = load float, ptr %117, align 4
+  %119 = select i1 %108, float %116, float %118
+  %120 = load float, ptr %104, align 4
+  %121 = fcmp oeq float %120, %119
+  br i1 %121, label %122, label %142
+
+122:                                              ; preds = %103
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %125 = load float, ptr %124, align 4
+  %126 = tail call noundef float @llvm.fabs.f32(float %125)
+  %127 = fcmp ogt float %126, %6
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %129 = load float, ptr %128, align 4
+  %130 = fmul float %129, %129
+  %131 = fcmp ogt float %129, 0.000000e+00
+  %132 = fcmp olt float %129, 0.000000e+00
+  %133 = select i1 %132, float -1.000000e+00, float %130
+  %134 = select i1 %131, float 1.000000e+00, float %133
+  %135 = fmul float %10, %134
+  %136 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %137 = load float, ptr %136, align 4
+  %138 = select i1 %127, float %135, float %137
+  %139 = load float, ptr %123, align 4
+  %140 = fcmp oeq float %139, %138
+  br i1 %140, label %141, label %142
+
+141:                                              ; preds = %122
+  br label %142
+
+142:                                              ; preds = %141, %122, %103, %84, %65, %46, %27, %1
+  %143 = phi i1 [ false, %1 ], [ false, %27 ], [ false, %46 ], [ false, %65 ], [ false, %84 ], [ false, %103 ], [ false, %122 ], [ true, %141 ]
+  ret i1 %143
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #6
+
+; Function Attrs: nofree nounwind
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #7
+
+; Function Attrs: nounwind
+declare i64 @time(ptr noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: nofree nounwind
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
+
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="sapphirerapids" "target-features"="+adx,+aes,+amx-bf16,+amx-int8,+amx-tile,+avx,+avx2,+avx512bf16,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512fp16,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+avxvnni,+bmi,+bmi2,+cldemote,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+enqcmd,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+movdir64b,+movdiri,+pclmul,+pconfig,+pku,+popcnt,+prfchw,+ptwrite,+rdpid,+rdrnd,+rdseed,+sahf,+serialize,+sgx,+sha,+shstk,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+tsxldtrk,+uintr,+vaes,+vpclmulqdq,+waitpkg,+wbnoinvd,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="sapphirerapids" "target-features"="+adx,+aes,+amx-bf16,+amx-int8,+amx-tile,+avx,+avx2,+avx512bf16,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512fp16,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+avxvnni,+bmi,+bmi2,+cldemote,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+enqcmd,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+movdir64b,+movdiri,+pclmul,+pconfig,+pku,+popcnt,+prfchw,+ptwrite,+rdpid,+rdrnd,+rdseed,+sahf,+serialize,+sgx,+sha,+shstk,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+tsxldtrk,+uintr,+vaes,+vpclmulqdq,+waitpkg,+wbnoinvd,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="sapphirerapids" "target-features"="+adx,+aes,+amx-bf16,+amx-int8,+amx-tile,+avx,+avx2,+avx512bf16,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512fp16,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+avxvnni,+bmi,+bmi2,+cldemote,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+enqcmd,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+movdir64b,+movdiri,+pclmul,+pconfig,+pku,+popcnt,+prfchw,+ptwrite,+rdpid,+rdrnd,+rdseed,+sahf,+serialize,+sgx,+sha,+shstk,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+tsxldtrk,+uintr,+vaes,+vpclmulqdq,+waitpkg,+wbnoinvd,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="sapphirerapids" "target-features"="+adx,+aes,+amx-bf16,+amx-int8,+amx-tile,+avx,+avx2,+avx512bf16,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512fp16,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+avxvnni,+bmi,+bmi2,+cldemote,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+enqcmd,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+movdir64b,+movdiri,+pclmul,+pconfig,+pku,+popcnt,+prfchw,+ptwrite,+rdpid,+rdrnd,+rdseed,+sahf,+serialize,+sgx,+sha,+shstk,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+tsxldtrk,+uintr,+vaes,+vpclmulqdq,+waitpkg,+wbnoinvd,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #9 = { nounwind }

@@ -1,0 +1,79 @@
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+Stack dump:
+0.	Program arguments: clang++ -c -std=c++20 -emit-llvm -Xclang -disable-llvm-passes repro.cpp
+1.	<eof> parser at end of file
+2.	repro.cpp:17:5: LLVM IR generation of declaration 'main'
+3.	repro.cpp:17:5: Generating code for declaration 'main'
+ #0 0x00007f72f89ca3c6 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/lib/llvm-19/bin/../lib/libLLVM.so.19.1+0xeb73c6)
+ #1 0x00007f72f89c8070 llvm::sys::RunSignalHandlers() (/usr/lib/llvm-19/bin/../lib/libLLVM.so.19.1+0xeb5070)
+ #2 0x00007f72f8910210 (/usr/lib/llvm-19/bin/../lib/libLLVM.so.19.1+0xdfd210)
+ #3 0x00007f72f764f050 (/lib/x86_64-linux-gnu/libc.so.6+0x3c050)
+ #4 0x00007f730169fb5f clang::CodeGen::CodeGenFunction::GetAddressOfBaseClass(clang::CodeGen::Address, clang::CXXRecordDecl const*, clang::CXXBaseSpecifier const* const*, clang::CXXBaseSpecifier const* const*, bool, clang::SourceLocation) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x1fa4b5f)
+ #5 0x00007f73017403b4 (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x20453b4)
+ #6 0x00007f730173ef7d clang::CodeGen::CodeGenFunction::EmitPointerWithAlignment(clang::Expr const*, clang::CodeGen::LValueBaseInfo*, clang::CodeGen::TBAAAccessInfo*, clang::CodeGen::KnownNonNull_t) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2043f7d)
+ #7 0x00007f730176a5d9 clang::CodeGen::CodeGenFunction::EmitCXXMemberOrOperatorMemberCallExpr(clang::CallExpr const*, clang::CXXMethodDecl const*, clang::CodeGen::ReturnValueSlot, bool, clang::NestedNameSpecifier*, bool, clang::Expr const*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x206f5d9)
+ #8 0x00007f7301769819 clang::CodeGen::CodeGenFunction::EmitCXXMemberCallExpr(clang::CXXMemberCallExpr const*, clang::CodeGen::ReturnValueSlot) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x206e819)
+ #9 0x00007f7301757031 clang::CodeGen::CodeGenFunction::EmitCallExpr(clang::CallExpr const*, clang::CodeGen::ReturnValueSlot) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x205c031)
+#10 0x00007f7301743999 clang::CodeGen::CodeGenFunction::EmitCallExprLValue(clang::CallExpr const*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2048999)
+#11 0x00007f7301742aa5 clang::CodeGen::CodeGenFunction::EmitLValueHelper(clang::Expr const*, clang::CodeGen::KnownNonNull_t) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2047aa5)
+#12 0x00007f730174b88c clang::CodeGen::CodeGenFunction::EmitCastLValue(clang::CastExpr const*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x205088c)
+#13 0x00007f7301742a95 clang::CodeGen::CodeGenFunction::EmitLValueHelper(clang::Expr const*, clang::CodeGen::KnownNonNull_t) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2047a95)
+#14 0x00007f730173768d clang::CodeGen::CodeGenFunction::EmitLValue(clang::Expr const*, clang::CodeGen::KnownNonNull_t) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x203c68d)
+#15 0x00007f730176a7a4 clang::CodeGen::CodeGenFunction::EmitCXXMemberOrOperatorMemberCallExpr(clang::CallExpr const*, clang::CXXMethodDecl const*, clang::CodeGen::ReturnValueSlot, bool, clang::NestedNameSpecifier*, bool, clang::Expr const*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x206f7a4)
+#16 0x00007f7301769819 clang::CodeGen::CodeGenFunction::EmitCXXMemberCallExpr(clang::CXXMemberCallExpr const*, clang::CodeGen::ReturnValueSlot) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x206e819)
+#17 0x00007f7301757031 clang::CodeGen::CodeGenFunction::EmitCallExpr(clang::CallExpr const*, clang::CodeGen::ReturnValueSlot) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x205c031)
+#18 0x00007f73017a0a3e (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x20a5a3e)
+#19 0x00007f73017a10bf (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x20a60bf)
+#20 0x00007f730178f59d clang::CodeGen::CodeGenFunction::EmitScalarExpr(clang::Expr const*, bool) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x209459d)
+#21 0x00007f7301737210 clang::CodeGen::CodeGenFunction::EmitAnyExpr(clang::Expr const*, clang::CodeGen::AggValueSlot, bool) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x203c210)
+#22 0x00007f7301737856 clang::CodeGen::CodeGenFunction::EmitAnyExprToTemp(clang::Expr const*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x203c856)
+#23 0x00007f7301692162 clang::CodeGen::CodeGenFunction::EmitCallArg(clang::CodeGen::CallArgList&, clang::Expr const*, clang::QualType) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x1f97162)
+#24 0x00007f730169174f clang::CodeGen::CodeGenFunction::EmitCallArgs(clang::CodeGen::CallArgList&, clang::CodeGen::CodeGenFunction::PrototypeWrapper, llvm::iterator_range<clang::Stmt::CastIterator<clang::Expr, clang::Expr const* const, clang::Stmt const* const>>, clang::CodeGen::CodeGenFunction::AbstractCallee, unsigned int, clang::CodeGen::CodeGenFunction::EvaluationOrder) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x1f9674f)
+#25 0x00007f7301768f7f (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x206df7f)
+#26 0x00007f7301768a75 clang::CodeGen::CodeGenFunction::EmitCXXMemberOrOperatorCall(clang::CXXMethodDecl const*, clang::CodeGen::CGCallee const&, clang::CodeGen::ReturnValueSlot, llvm::Value*, llvm::Value*, clang::QualType, clang::CallExpr const*, clang::CodeGen::CallArgList*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x206da75)
+#27 0x00007f730176b2fb clang::CodeGen::CodeGenFunction::EmitCXXMemberOrOperatorMemberCallExpr(clang::CallExpr const*, clang::CXXMethodDecl const*, clang::CodeGen::ReturnValueSlot, bool, clang::NestedNameSpecifier*, bool, clang::Expr const*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x20702fb)
+#28 0x00007f7301769819 clang::CodeGen::CodeGenFunction::EmitCXXMemberCallExpr(clang::CXXMemberCallExpr const*, clang::CodeGen::ReturnValueSlot) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x206e819)
+#29 0x00007f7301757031 clang::CodeGen::CodeGenFunction::EmitCallExpr(clang::CallExpr const*, clang::CodeGen::ReturnValueSlot) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x205c031)
+#30 0x00007f73017a0a3e (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x20a5a3e)
+#31 0x00007f730178f59d clang::CodeGen::CodeGenFunction::EmitScalarExpr(clang::Expr const*, bool) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x209459d)
+#32 0x00007f730189a3fe clang::CodeGen::CodeGenFunction::EmitReturnStmt(clang::ReturnStmt const&) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x219f3fe)
+#33 0x00007f73018a2b7c clang::CodeGen::CodeGenFunction::EmitCompoundStmtWithoutScope(clang::CompoundStmt const&, bool, clang::CodeGen::AggValueSlot) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x21a7b7c)
+#34 0x00007f7301901063 clang::CodeGen::CodeGenFunction::GenerateCode(clang::GlobalDecl, llvm::Function*, clang::CodeGen::CGFunctionInfo const&) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2206063)
+#35 0x00007f73019228d0 clang::CodeGen::CodeGenModule::EmitGlobalFunctionDefinition(clang::GlobalDecl, llvm::GlobalValue*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x22278d0)
+#36 0x00007f730191c0f4 clang::CodeGen::CodeGenModule::EmitGlobalDefinition(clang::GlobalDecl, llvm::GlobalValue*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x22210f4)
+#37 0x00007f730191fe68 clang::CodeGen::CodeGenModule::EmitGlobal(clang::GlobalDecl) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2224e68)
+#38 0x00007f730191aef1 clang::CodeGen::CodeGenModule::EmitTopLevelDecl(clang::Decl*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x221fef1)
+#39 0x00007f73019bd13c (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x22c213c)
+#40 0x00007f73018f03fe clang::BackendConsumer::HandleTopLevelDecl(clang::DeclGroupRef) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x21f53fe)
+#41 0x00007f730033121a clang::ParseAST(clang::Sema&, bool, bool) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0xc3621a)
+#42 0x00007f73023f87a5 clang::FrontendAction::Execute() (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2cfd7a5)
+#43 0x00007f73023666f4 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2c6b6f4)
+#44 0x00007f730247657e clang::ExecuteCompilerInvocation(clang::CompilerInstance*) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x2d7b57e)
+#45 0x000055bbf1bb9bc9 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) (/usr/lib/llvm-19/bin/clang+0x11bc9)
+#46 0x000055bbf1bb6b55 (/usr/lib/llvm-19/bin/clang+0xeb55)
+#47 0x00007f7301ff9369 (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x28fe369)
+#48 0x00007f72f890ffa8 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) (/usr/lib/llvm-19/bin/../lib/libLLVM.so.19.1+0xdfcfa8)
+#49 0x00007f7301ff8cdd clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x28fdcdd)
+#50 0x00007f7301fbde05 clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x28c2e05)
+#51 0x00007f7301fbe06e clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x28c306e)
+#52 0x00007f7301fdb64c clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) (/usr/lib/llvm-19/bin/../lib/libclang-cpp.so.19.1+0x28e064c)
+#53 0x000055bbf1bb65a1 clang_main(int, char**, llvm::ToolContext const&) (/usr/lib/llvm-19/bin/clang+0xe5a1)
+#54 0x000055bbf1bc4356 main (/usr/lib/llvm-19/bin/clang+0x1c356)
+#55 0x00007f72f763a24a (/lib/x86_64-linux-gnu/libc.so.6+0x2724a)
+#56 0x00007f72f763a305 __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x27305)
+#57 0x000055bbf1bb47b1 _start (/usr/lib/llvm-19/bin/clang+0xc7b1)
+clang++: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+Debian clang version 19.1.7 (++20250114103228+cd708029e0b2-1~exp1~20250114103334.78)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/lib/llvm-19/bin
+clang++: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang++: note: diagnostic msg: /tmp/repro-b39b7a.cpp
+clang++: note: diagnostic msg: /tmp/repro-b39b7a.sh
+clang++: note: diagnostic msg: 
+
+********************

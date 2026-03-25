@@ -1,0 +1,54 @@
+Stack dump:
+0.      Program arguments: ./dep/llvm-project/build/bin/mlir-opt --affine-loop-fusion tofigureoutpipelining.mlir
+ #0 0x0000787506cf9ab8 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) <PATH_TO_LLVM>/llvm-project/llvm/lib/Support/Unix/Signals.inc:834:13
+ #1 0x0000787506cf7743 llvm::sys::RunSignalHandlers() <PATH_TO_LLVM>/llvm-project/llvm/lib/Support/Signals.cpp:105:18
+ #2 0x0000787506cfa841 SignalHandler(int, siginfo_t*, void*) <PATH_TO_LLVM>/llvm-project/llvm/lib/Support/Unix/Signals.inc:426:38
+ #3 0x0000787504045330 (/lib/x86_64-linux-gnu/libc.so.6+0x45330)
+ #4 0x000078750409eb2c __pthread_kill_implementation ./nptl/pthread_kill.c:44:76
+ #5 0x000078750409eb2c __pthread_kill_internal ./nptl/pthread_kill.c:78:10
+ #6 0x000078750409eb2c pthread_kill ./nptl/pthread_kill.c:89:10
+ #7 0x000078750404527e raise ./signal/../sysdeps/posix/raise.c:27:6
+ #8 0x00007875040288ff abort ./stdlib/abort.c:81:7
+ #9 0x000078750402881b _nl_load_domain ./intl/loadmsgcat.c:1177:9
+#10 0x000078750403b517 (/lib/x86_64-linux-gnu/libc.so.6+0x3b517)
+#11 0x000078750ce58f57 llvm::ilist_iterator<llvm::ilist_detail::node_options<mlir::Operation, true, false, void, false, void>, false, false>::operator*() const <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/ADT/ilist_iterator.h:168:5
+#12 0x000078750ce58f57 llvm::ilist_iterator<llvm::ilist_detail::node_options<mlir::Operation, true, false, void, false, void>, false, false>::operator->() const <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/ADT/ilist_iterator.h:171:40
+#13 0x000078750ce58f57 mlir::affine::getFusionComputeCost(mlir::affine::AffineForOp, mlir::affine::LoopNestStats&, mlir::affine::AffineForOp, mlir::affine::LoopNestStats&, mlir::affine::ComputationSliceState const&, long*) <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Utils/LoopFusionUtils.cpp:589:29
+#14 0x000078750ce2b4dc getAdditionalComputeFraction(mlir::affine::AffineForOp, mlir::affine::AffineForOp, unsigned int, llvm::ArrayRef<mlir::affine::ComputationSliceState>, long&, long&) <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:311:7
+#15 0x000078750ce2c3c3 std::_Optional_base_impl<double, std::_Optional_base<double, true, true>>::_M_is_engaged() const /usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/optional:473:58
+#16 0x000078750ce2c3c3 std::optional<double>::operator bool() const /usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/optional:987:22
+#17 0x000078750ce2c3c3 isFusionProfitable(mlir::affine::AffineForOp, llvm::ArrayRef<mlir::Operation*>, mlir::affine::AffineForOp, llvm::ArrayRef<mlir::affine::ComputationSliceState>, unsigned int, unsigned int*, double) <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:549:10
+#18 0x000078750ce28fe8 (anonymous namespace)::GreedyFusion::performFusionsIntoDest(unsigned int, unsigned int) <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:1085:16
+#19 0x000078750ce273fd (anonymous namespace)::GreedyFusion::fuseProducerConsumerNodes(unsigned int) <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:0:7
+#20 0x000078750ce27018 (anonymous namespace)::GreedyFusion::runGreedyFusion() <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:849:5
+#21 0x000078750ce27018 (anonymous namespace)::LoopFusion::runOnBlock(mlir::Block*) <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:1572:12
+#22 0x000078750ce27018 (anonymous namespace)::LoopFusion::runOnOperation()::$_0::operator()(mlir::Operation*) const <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:1583:11
+#23 0x000078750ce27018 void llvm::function_ref<void (mlir::Operation*)>::callback_fn<(anonymous namespace)::LoopFusion::runOnOperation()::$_0>(long, mlir::Operation*) <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/ADT/STLFunctionalExtras.h:46:12
+#24 0x00005ca2f420758e void mlir::detail::walk<mlir::ForwardIterator>(mlir::Operation*, llvm::function_ref<void (mlir::Operation*)>, mlir::WalkOrder) <PATH_TO_LLVM>/llvm-project/mlir/include/mlir/IR/Visitors.h:0:9
+#25 0x000078750ce24aaa (anonymous namespace)::LoopFusion::runOnOperation() <PATH_TO_LLVM>/llvm-project/mlir/lib/Dialect/Affine/Transforms/LoopFusion.cpp:1587:1
+#26 0x000078750ffdfa12 mlir::detail::OpToOpPassAdaptor::run(mlir::Pass*, mlir::Operation*, mlir::AnalysisManager, bool, unsigned int)::$_1::operator()() const <PATH_TO_LLVM>/llvm-project/mlir/lib/Pass/Pass.cpp:0:17
+#27 0x000078750ffdfa12 void llvm::function_ref<void ()>::callback_fn<mlir::detail::OpToOpPassAdaptor::run(mlir::Pass*, mlir::Operation*, mlir::AnalysisManager, bool, unsigned int)::$_1>(long) <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/ADT/STLFunctionalExtras.h:46:12
+#28 0x000078750ffdfa12 llvm::function_ref<void ()>::operator()() const <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/ADT/STLFunctionalExtras.h:69:12
+#29 0x000078750ffdfa12 void mlir::MLIRContext::executeAction<mlir::PassExecutionAction, mlir::Pass&>(llvm::function_ref<void ()>, llvm::ArrayRef<mlir::IRUnit>, mlir::Pass&) <PATH_TO_LLVM>/llvm-project/mlir/include/mlir/IR/MLIRContext.h:280:7
+#30 0x000078750ffdfa12 mlir::detail::OpToOpPassAdaptor::run(mlir::Pass*, mlir::Operation*, mlir::AnalysisManager, bool, unsigned int) <PATH_TO_LLVM>/llvm-project/mlir/lib/Pass/Pass.cpp:551:21
+#31 0x000078750ffe28f0 llvm::LogicalResult::failed() const <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/Support/LogicalResult.h:43:43
+#32 0x000078750ffe28f0 llvm::failed(llvm::LogicalResult) <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/Support/LogicalResult.h:71:58
+#33 0x000078750ffe28f0 mlir::detail::OpToOpPassAdaptor::runPipeline(mlir::OpPassManager&, mlir::Operation*, mlir::AnalysisManager, bool, unsigned int, mlir::PassInstrumentor*, mlir::PassInstrumentation::PipelineParentInfo const*) <PATH_TO_LLVM>/llvm-project/mlir/lib/Pass/Pass.cpp:623:9
+#34 0x000078750ffe28f0 mlir::PassManager::runPasses(mlir::Operation*, mlir::AnalysisManager) <PATH_TO_LLVM>/llvm-project/mlir/lib/Pass/Pass.cpp:937:10
+#35 0x000078750ffe28f0 mlir::PassManager::run(mlir::Operation*) <PATH_TO_LLVM>/llvm-project/mlir/lib/Pass/Pass.cpp:917:60
+#36 0x000078751029c9cb llvm::LogicalResult::failed() const <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/Support/LogicalResult.h:43:43
+#37 0x000078751029c9cb llvm::failed(llvm::LogicalResult) <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/Support/LogicalResult.h:71:58
+#38 0x000078751029c9cb performActions(llvm::raw_ostream&, std::shared_ptr<llvm::SourceMgr> const&, mlir::MLIRContext*, mlir::MlirOptMainConfig const&) <PATH_TO_LLVM>/llvm-project/mlir/lib/Tools/mlir-opt/MlirOptMain.cpp:484:7
+#39 0x000078751029c630 processBuffer(llvm::raw_ostream&, std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, mlir::MlirOptMainConfig const&, mlir::DialectRegistry&, llvm::ThreadPoolInterface*) <PATH_TO_LLVM>/llvm-project/mlir/lib/Tools/mlir-opt/MlirOptMain.cpp:551:12
+#40 0x000078751029c630 mlir::MlirOptMain(llvm::raw_ostream&, std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, mlir::DialectRegistry&, mlir::MlirOptMainConfig const&)::$_0::operator()(std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, llvm::raw_ostream&) const <PATH_TO_LLVM>/llvm-project/mlir/lib/Tools/mlir-opt/MlirOptMain.cpp:635:12
+#41 0x000078751029c630 llvm::LogicalResult llvm::function_ref<llvm::LogicalResult (std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, llvm::raw_ostream&)>::callback_fn<mlir::MlirOptMain(llvm::raw_ostream&, std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, mlir::DialectRegistry&, mlir::MlirOptMainConfig const&)::$_0>(long, std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, llvm::raw_ostream&) <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/ADT/STLFunctionalExtras.h:46:12
+#42 0x000078751003c308 llvm::function_ref<llvm::LogicalResult (std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, llvm::raw_ostream&)>::operator()(std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, llvm::raw_ostream&) const <PATH_TO_LLVM>/llvm-project/llvm/include/llvm/ADT/STLFunctionalExtras.h:69:12
+#43 0x000078751003c308 mlir::splitAndProcessBuffer(std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, llvm::function_ref<llvm::LogicalResult (std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, llvm::raw_ostream&)>, llvm::raw_ostream&, llvm::StringRef, llvm::StringRef) <PATH_TO_LLVM>/llvm-project/mlir/lib/Support/ToolUtilities.cpp:27:12
+#44 0x00007875102968c5 mlir::MlirOptMain(llvm::raw_ostream&, std::unique_ptr<llvm::MemoryBuffer, std::default_delete<llvm::MemoryBuffer>>, mlir::DialectRegistry&, mlir::MlirOptMainConfig const&) <PATH_TO_LLVM>/llvm-project/mlir/lib/Tools/mlir-opt/MlirOptMain.cpp:638:10
+#45 0x0000787510296b78 mlir::MlirOptMain(int, char**, llvm::StringRef, llvm::StringRef, mlir::DialectRegistry&) <PATH_TO_LLVM>/llvm-project/mlir/lib/Tools/mlir-opt/MlirOptMain.cpp:679:14
+#46 0x0000787510296d92 mlir::MlirOptMain(int, char**, llvm::StringRef, mlir::DialectRegistry&) <PATH_TO_LLVM>/llvm-project/mlir/lib/Tools/mlir-opt/MlirOptMain.cpp:695:10
+#47 0x00005ca2f41f69d7 main <PATH_TO_LLVM>/llvm-project/mlir/tools/mlir-opt/mlir-opt.cpp:339:33
+#48 0x000078750402a1ca __libc_start_call_main ./csu/../sysdeps/nptl/libc_start_call_main.h:74:3
+#49 0x000078750402a28b call_init ./csu/../csu/libc-start.c:128:20
+#50 0x000078750402a28b __libc_start_main ./csu/../csu/libc-start.c:347:5
+#51 0x00005ca2f41f6485 _start (./dep/llvm-project/build/bin/mlir-opt+0x6c1485)

@@ -1,0 +1,37 @@
+; RUN: opt  %loadNPMPolly '-passes=polly-custom<scops>' --disable-output < %s | FileCheck %s
+
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+
+define i32 @func(i32 %g, i64 %arg, i1 %tobool36.not.us) {
+entry:
+  br label %for.cond6.preheader.us
+
+cond.false.us:                                    ; preds = %for.cond6.preheader.us
+  ret i32 0
+
+for.body18.us:                                    ; preds = %for.cond6.preheader.us, %cond.end57.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end57.us ], [ %arg, %for.cond6.preheader.us ]
+  %i = and i32 %g, 1
+  %cmp19 = icmp eq i32 %i, 0
+  br i1 %cmp19, label %cond.true21.us, label %cond.false33.us
+
+cond.false33.us:                                  ; preds = %for.body18.us
+  br i1 %tobool36.not.us, label %cond.false38.us, label %cond.end57.us
+
+cond.false38.us:                                  ; preds = %cond.false33.us
+  br i1 false, label %cond.end57.us, label %cond.end57.us
+
+cond.true21.us:                                   ; preds = %for.body18.us
+  br i1 false, label %cond.end57.us, label %cond.end57.us
+
+cond.end57.us:                                    ; preds = %cond.true21.us, %cond.true21.us, %cond.false38.us, %cond.false38.us, %cond.false33.us
+  %indvars.iv.next = add i64 %indvars.iv, 1
+  %cmp15.us = icmp slt i64 %indvars.iv, 0
+  br i1 %cmp15.us, label %for.body18.us, label %for.cond73.preheader.us
+
+for.cond73.preheader.us:                          ; preds = %cond.end57.us
+  br i1 false, label %for.cond6.preheader.us, label %for.cond6.preheader.us
+
+for.cond6.preheader.us:                           ; preds = %for.cond73.preheader.us, %for.cond73.preheader.us, %entry
+  br i1 false, label %cond.false.us, label %for.body18.us
+}

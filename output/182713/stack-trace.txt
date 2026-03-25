@@ -1,0 +1,268 @@
+[61/134] Building CXX object src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o
+FAILED: [code=1] src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o
+/usr/bin/clang++ -DKF6I18nLocaleData_EXPORTS -DKI18NLOCALEDATA_DEPRECATED_WARNINGS_SINCE=0x0 -DKI18NLOCALEDATA_DISABLE_DEPRECATED_BEFORE_AND_AT=0x0 -DKI18N_DEPRECATED_WARNINGS_SINCE=0x0 -DKI18N_DISABLE_DEPRECATED_BEFORE_AND_AT=0x0 -DQT_CORE_LIB -DQT_DEPRECATED_WARNINGS_SINCE=0x70000 -DQT_DISABLE_DEPRECATED_BEFORE=0x60b00 -DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII -DQT_NO_DEBUG -DQT_NO_FOREACH -DQT_NO_KEYWORDS -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT -DQT_NO_URL_CAST_FROM_STRING -DQT_STRICT_ITERATORS -DQT_USE_QSTRINGBUILDER -D_GNU_SOURCE -D_LARGEFILE64_SOURCE -I/volumes/fastdata/kde/build/ki18n/src/localedata -I/volumes/ssddata/kde/src/ki18n/src/localedata -I/volumes/fastdata/kde/build/ki18n -I/volumes/fastdata/kde/build/ki18n/src/i18n -I/volumes/ssddata/kde/src/ki18n/src/i18n -isystem /volumes/fastdata/kde/build/ki18n/src/localedata/KF6I18nLocaleData_autogen/include -isystem /usr/include/qt6/QtCore -isystem /usr/include/qt6 -isystem /usr/lib/qt6/mkspecs/linux-g++ -fuse-ld=lld -march=native -mtune=native -flto -fno-operator-names -fno-exceptions -Wno-gnu-zero-variadic-macro-arguments -Wall -Wextra -Wcast-align -Wchar-subscripts -Wformat-security -Wno-long-long -Wpointer-arith -Wundef -Wnon-virtual-dtor -Woverloaded-virtual -Werror=return-type -Werror=init-self -Werror=undef -Wvla -Wdate-time -pedantic -Wzero-as-null-pointer-constant -fdiagnostics-color=always -O2 -g -DNDEBUG -std=c++20 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -fno-direct-access-external-data -MD -MT src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o -MF src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o.d -o src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o -c /volumes/ssddata/kde/src/ki18n/src/localedata/spatial_index_property.cpp
+clang++: warning: argument unused during compilation: '-fuse-ld=lld' [-Wunused-command-line-argument]
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace, preprocessed source, and associated run script.
+  Stack dump:
+  0.	Program arguments: /usr/bin/clang++ -DKF6I18nLocaleData_EXPORTS -DKI18NLOCALEDATA_DEPRECATED_WARNINGS_SINCE=0x0 -DKI18NLOCALEDATA_DISABLE_DEPRECATED_BEFORE_AND_AT=0x0 -DKI18N_DEPRECATED_WARNINGS_SINCE=0x0 -DKI18N_DISABLE_DEPRECATED_BEFORE_AND_AT=0x0 -DQT_CORE_LIB -DQT_DEPRECATED_WARNINGS_SINCE=0x70000 -DQT_DISABLE_DEPRECATED_BEFORE=0x60b00 -DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII -DQT_NO_DEBUG -DQT_NO_FOREACH -DQT_NO_KEYWORDS -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT -DQT_NO_URL_CAST_FROM_STRING -DQT_STRICT_ITERATORS -DQT_USE_QSTRINGBUILDER -D_GNU_SOURCE -D_LARGEFILE64_SOURCE -I/volumes/fastdata/kde/build/ki18n/src/localedata -I/volumes/ssddata/kde/src/ki18n/src/localedata -I/volumes/fastdata/kde/build/ki18n -I/volumes/fastdata/kde/build/ki18n/src/i18n -I/volumes/ssddata/kde/src/ki18n/src/i18n -isystem /volumes/fastdata/kde/build/ki18n/src/localedata/KF6I18nLocaleData_autogen/include -isystem /usr/include/qt6/QtCore -isystem /usr/include/qt6 -isystem /usr/lib/qt6/mkspecs/linux-g++ -fuse-ld=lld -march=native -mtune=native -flto -fno-operator-names -fno-exceptions -Wno-gnu-zero-variadic-macro-arguments -Wall -Wextra -Wcast-align -Wchar-subscripts -Wformat-security -Wno-long-long -Wpointer-arith -Wundef -Wnon-virtual-dtor -Woverloaded-virtual -Werror=return-type -Werror=init-self -Werror=undef -Wvla -Wdate-time -pedantic -Wzero-as-null-pointer-constant -fdiagnostics-color=always -O2 -g -DNDEBUG -std=c++20 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -fno-direct-access-external-data -MD -MT src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o -MF src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o.d -o src/localedata/CMakeFiles/KF6I18nLocaleData.dir/spatial_index_property.cpp.o -c /volumes/ssddata/kde/src/ki18n/src/localedata/spatial_index_property.cpp
+  1.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/system_error:568:52: current parser token ')'
+  2.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/system_error:50:1: parsing namespace 'std'
+  3.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/system_error:558:3: parsing struct/union/class body 'std::system_error'
+  4.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/bits/basic_string.h:3961:5: instantiating function definition 'std::operator+<char, std::char_traits<char>, std::allocator<char>>'
+  5.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/bits/basic_string.h:2216:7: instantiating function definition 'std::basic_string<char>::insert'
+  6.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/bits/basic_string.h:2458:7: instantiating function definition 'std::basic_string<char>::replace'
+  7.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/bits/basic_string.tcc:543:5: instantiating function definition 'std::basic_string<char>::_M_replace'
+  8.	/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/bits/basic_string.h:458:7: instantiating function definition 'std::basic_string<char>::_S_move'
+    #0 0x00007f2858b081ed llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) /usr/src/debug/llvm/llvm-21.1.8.src/lib/Support/Unix/Signals.inc:834:22
+    #1 0x00007f2858b05cc7 llvm::sys::RunSignalHandlers() /usr/src/debug/llvm/llvm-21.1.8.src/lib/Support/Signals.cpp:104:20
+    #2 0x00007f2858b05cc7 llvm::sys::CleanupOnSignal(unsigned long) /usr/src/debug/llvm/llvm-21.1.8.src/lib/Support/Unix/Signals.inc:373:31
+    #3 0x00007f28589da6b9 HandleCrash /usr/src/debug/llvm/llvm-21.1.8.src/lib/Support/CrashRecoveryContext.cpp:73:5
+    #4 0x00007f28589da6b9 CrashRecoverySignalHandler /usr/src/debug/llvm/llvm-21.1.8.src/lib/Support/CrashRecoveryContext.cpp:390:62
+    #5 0x00007f2857c4d2d0 (/usr/lib/libc.so.6+0x3e2d0)
+    #6 0x00007f28633cc4a6 clang::ImplicitConversionSequence::isInitialized() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Overload.h:760:56
+    #7 0x00007f28633cc4a6 clang::Sema::AddMethodCandidate(clang::CXXMethodDecl*, clang::DeclAccessPair, clang::CXXRecordDecl*, clang::QualType, clang::Expr::Classification, llvm::ArrayRef<clang::Expr*>, clang::OverloadCandidateSet&, bool, bool, llvm::MutableArrayRef<clang::ImplicitConversionSequence>, clang::OverloadCandidateParamOrder, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:7818:53
+    #8 0x00007f28633cd3ad clang::Sema::AddOverloadCandidate(clang::FunctionDecl*, clang::DeclAccessPair, llvm::ArrayRef<clang::Expr*>, clang::OverloadCandidateSet&, bool, bool, bool, bool, clang::CallExpr::ADLCallKind, llvm::MutableArrayRef<clang::ImplicitConversionSequence>, clang::OverloadCandidateParamOrder, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:7062:25
+    #9 0x00007f28633cfd0e AddOverloadedCallCandidate /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:14236:27
+  #10 0x00007f28633cfd0e clang::Sema::AddOverloadedCallCandidates(clang::UnresolvedLookupExpr*, llvm::ArrayRef<clang::Expr*>, clang::OverloadCandidateSet&, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:14298:31
+  #11 0x00007f28633da82b clang::Sema::buildOverloadedCallSet(clang::Scope*, clang::Expr*, clang::UnresolvedLookupExpr*, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::OverloadCandidateSet*, clang::ActionResult<clang::Expr*, true>*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:14606:21
+  #12 0x00007f28633ec059 clang::Sema::BuildOverloadedCallExpr(clang::Scope*, clang::Expr*, clang::UnresolvedLookupExpr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:14816:3
+  #13 0x00007f28630b25dc clang::Sema::BuildCallExpr(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:6661:66
+  #14 0x00007f28630b33d1 clang::Sema::ActOnCallExpr(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:6517:3
+  #15 0x00007f28635a5496 clang::Sema::FPFeaturesStateRAII::~FPFeaturesStateRAII() /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:2905:19
+  #16 0x00007f28635a5496 TransformCallExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13434:1
+  #17 0x00007f2863593225 TransformStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:4312:7
+  #18 0x00007f28635c3126 TransformIfStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8327:38
+  #19 0x00007f28635bec28 TransformCompoundStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8124:5
+  #20 0x00007f28635935d3 llvm::DenseMap<clang::Decl*, clang::Decl*, llvm::DenseMapInfo<clang::Decl*, void>, llvm::detail::DenseMapPair<clang::Decl*, clang::Decl*>>::~DenseMap() /usr/include/llvm/ADT/DenseMap.h:817:50
+  #21 0x00007f28635935d3 ~TreeTransform /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:110:7
+  #22 0x00007f28635935d3 ~TemplateInstantiator /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:1385:9
+  #23 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4459:1
+  #24 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4451:1
+  #25 0x00007f28635ed2c2 clang::ActionResult<clang::Stmt*, true>::get() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:204:47
+  #26 0x00007f28635ed2c2 clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiateDecl.cpp:5854:28
+  #27 0x00007f2861f7cd72 clang::StackExhaustionHandler::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Basic/StackExhaustionHandler.cpp:21:1
+  #28 0x00007f28630d5da1 clang::Sema::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:631:43
+  #29 0x00007f28630d5da1 clang::Sema::MarkFunctionReferenced(clang::SourceLocation, clang::FunctionDecl*, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:18367:32
+  #30 0x00007f28630d6497 clang::Stmt::getStmtClass() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Stmt.h:1484:44
+  #31 0x00007f28630d6497 clang::MemberExpr::classof(clang::Stmt const*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Expr.h:3514:27
+  #32 0x00007f28630d6497 llvm::isa_impl<clang::MemberExpr, clang::Expr, void>::doit(clang::Expr const&) /usr/include/llvm/Support/Casting.h:64:64
+  #33 0x00007f28630d6497 llvm::isa_impl_cl<clang::MemberExpr, clang::Expr const*>::doit(clang::Expr const*) /usr/include/llvm/Support/Casting.h:110:36
+  #34 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr const*, clang::Expr const*>::doit(clang::Expr const* const&) /usr/include/llvm/Support/Casting.h:137:41
+  #35 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr* const, clang::Expr const*>::doit(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:129:13
+  #36 0x00007f28630d6497 llvm::CastIsPossible<clang::MemberExpr, clang::Expr*, void>::isPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:257:62
+  #37 0x00007f28630d6497 llvm::CastInfo<clang::MemberExpr, clang::Expr*, void>::doCastIfPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:493:26
+  #38 0x00007f28630d6497 decltype(auto) llvm::dyn_cast<clang::MemberExpr, clang::Expr>(clang::Expr*) /usr/include/llvm/Support/Casting.h:663:48
+  #39 0x00007f28630d6497 MarkExprReferenced /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:20220:46
+  #40 0x00007f286318a1a5 clang::QualType::getCommonPtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:954:18
+  #41 0x00007f286318a1a5 clang::QualType::getTypePtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:8103:22
+  #42 0x00007f286318a1a5 clang::QualType::operator->() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:996:22
+  #43 0x00007f286318a1a5 clang::Sema::BuildMemberExpr(clang::Expr*, bool, clang::SourceLocation, clang::NestedNameSpecifierLoc, clang::SourceLocation, clang::ValueDecl*, clang::DeclAccessPair, bool, clang::DeclarationNameInfo const&, clang::QualType, clang::ExprValueKind, clang::ExprObjectKind, clang::TemplateArgumentListInfo const*) (.constprop.0) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExprMember.cpp:845:47
+  #44 0x00007f286318df54 clang::Sema::BuildMemberReferenceExpr(clang::Expr*, clang::QualType, clang::SourceLocation, bool, clang::CXXScopeSpec const&, clang::SourceLocation, clang::NamedDecl*, clang::LookupResult&, clang::TemplateArgumentListInfo const*, clang::Scope const*, bool, clang::Sema::ActOnMemberAccessExtraArgs*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExprMember.cpp:1116:65
+  #45 0x00007f28635afdf5 RebuildMemberExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:2965:59
+  #46 0x00007f28635afdf5 TransformMemberExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13514:40
+  #47 0x00007f28635a534c TransformCallExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13404:3
+  #48 0x00007f2863593225 TransformStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:4312:7
+  #49 0x00007f28635c3126 TransformIfStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8327:38
+  #50 0x00007f28635bec28 TransformCompoundStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8124:5
+  #51 0x00007f28635c3126 TransformIfStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8327:38
+  #52 0x00007f28635c3199 TransformIfStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8346:38
+  #53 0x00007f28635bec28 TransformCompoundStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8124:5
+  #54 0x00007f28635c3126 TransformIfStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8327:38
+  #55 0x00007f28635bec28 TransformCompoundStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8124:5
+  #56 0x00007f28635935d3 llvm::DenseMap<clang::Decl*, clang::Decl*, llvm::DenseMapInfo<clang::Decl*, void>, llvm::detail::DenseMapPair<clang::Decl*, clang::Decl*>>::~DenseMap() /usr/include/llvm/ADT/DenseMap.h:817:50
+  #57 0x00007f28635935d3 ~TreeTransform /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:110:7
+  #58 0x00007f28635935d3 ~TemplateInstantiator /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:1385:9
+  #59 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4459:1
+  #60 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4451:1
+  #61 0x00007f28635ed2c2 clang::ActionResult<clang::Stmt*, true>::get() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:204:47
+  #62 0x00007f28635ed2c2 clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiateDecl.cpp:5854:28
+  #63 0x00007f2861f7cd72 clang::StackExhaustionHandler::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Basic/StackExhaustionHandler.cpp:21:1
+  #64 0x00007f28630d5da1 clang::Sema::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:631:43
+  #65 0x00007f28630d5da1 clang::Sema::MarkFunctionReferenced(clang::SourceLocation, clang::FunctionDecl*, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:18367:32
+  #66 0x00007f28630d6497 clang::Stmt::getStmtClass() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Stmt.h:1484:44
+  #67 0x00007f28630d6497 clang::MemberExpr::classof(clang::Stmt const*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Expr.h:3514:27
+  #68 0x00007f28630d6497 llvm::isa_impl<clang::MemberExpr, clang::Expr, void>::doit(clang::Expr const&) /usr/include/llvm/Support/Casting.h:64:64
+  #69 0x00007f28630d6497 llvm::isa_impl_cl<clang::MemberExpr, clang::Expr const*>::doit(clang::Expr const*) /usr/include/llvm/Support/Casting.h:110:36
+  #70 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr const*, clang::Expr const*>::doit(clang::Expr const* const&) /usr/include/llvm/Support/Casting.h:137:41
+  #71 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr* const, clang::Expr const*>::doit(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:129:13
+  #72 0x00007f28630d6497 llvm::CastIsPossible<clang::MemberExpr, clang::Expr*, void>::isPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:257:62
+  #73 0x00007f28630d6497 llvm::CastInfo<clang::MemberExpr, clang::Expr*, void>::doCastIfPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:493:26
+  #74 0x00007f28630d6497 decltype(auto) llvm::dyn_cast<clang::MemberExpr, clang::Expr>(clang::Expr*) /usr/include/llvm/Support/Casting.h:663:48
+  #75 0x00007f28630d6497 MarkExprReferenced /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:20220:46
+  #76 0x00007f286318a1a5 clang::QualType::getCommonPtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:954:18
+  #77 0x00007f286318a1a5 clang::QualType::getTypePtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:8103:22
+  #78 0x00007f286318a1a5 clang::QualType::operator->() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:996:22
+  #79 0x00007f286318a1a5 clang::Sema::BuildMemberExpr(clang::Expr*, bool, clang::SourceLocation, clang::NestedNameSpecifierLoc, clang::SourceLocation, clang::ValueDecl*, clang::DeclAccessPair, bool, clang::DeclarationNameInfo const&, clang::QualType, clang::ExprValueKind, clang::ExprObjectKind, clang::TemplateArgumentListInfo const*) (.constprop.0) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExprMember.cpp:845:47
+  #80 0x00007f286318df54 clang::Sema::BuildMemberReferenceExpr(clang::Expr*, clang::QualType, clang::SourceLocation, bool, clang::CXXScopeSpec const&, clang::SourceLocation, clang::NamedDecl*, clang::LookupResult&, clang::TemplateArgumentListInfo const*, clang::Scope const*, bool, clang::Sema::ActOnMemberAccessExtraArgs*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExprMember.cpp:1116:65
+  #81 0x00007f28635afdf5 RebuildMemberExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:2965:59
+  #82 0x00007f28635afdf5 TransformMemberExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13514:40
+  #83 0x00007f28635a534c TransformCallExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13404:3
+  #84 0x00007f28635a4d78 TransformReturnStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8564:3
+  #85 0x00007f28635bec28 TransformCompoundStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8124:5
+  #86 0x00007f28635935d3 llvm::DenseMap<clang::Decl*, clang::Decl*, llvm::DenseMapInfo<clang::Decl*, void>, llvm::detail::DenseMapPair<clang::Decl*, clang::Decl*>>::~DenseMap() /usr/include/llvm/ADT/DenseMap.h:817:50
+  #87 0x00007f28635935d3 ~TreeTransform /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:110:7
+  #88 0x00007f28635935d3 ~TemplateInstantiator /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:1385:9
+  #89 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4459:1
+  #90 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4451:1
+  #91 0x00007f28635ed2c2 clang::ActionResult<clang::Stmt*, true>::get() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:204:47
+  #92 0x00007f28635ed2c2 clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiateDecl.cpp:5854:28
+  #93 0x00007f2861f7cd72 clang::StackExhaustionHandler::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Basic/StackExhaustionHandler.cpp:21:1
+  #94 0x00007f28630d5da1 clang::Sema::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:631:43
+  #95 0x00007f28630d5da1 clang::Sema::MarkFunctionReferenced(clang::SourceLocation, clang::FunctionDecl*, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:18367:32
+  #96 0x00007f28630d6497 clang::Stmt::getStmtClass() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Stmt.h:1484:44
+  #97 0x00007f28630d6497 clang::MemberExpr::classof(clang::Stmt const*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Expr.h:3514:27
+  #98 0x00007f28630d6497 llvm::isa_impl<clang::MemberExpr, clang::Expr, void>::doit(clang::Expr const&) /usr/include/llvm/Support/Casting.h:64:64
+  #99 0x00007f28630d6497 llvm::isa_impl_cl<clang::MemberExpr, clang::Expr const*>::doit(clang::Expr const*) /usr/include/llvm/Support/Casting.h:110:36
+  #100 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr const*, clang::Expr const*>::doit(clang::Expr const* const&) /usr/include/llvm/Support/Casting.h:137:41
+  #101 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr* const, clang::Expr const*>::doit(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:129:13
+  #102 0x00007f28630d6497 llvm::CastIsPossible<clang::MemberExpr, clang::Expr*, void>::isPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:257:62
+  #103 0x00007f28630d6497 llvm::CastInfo<clang::MemberExpr, clang::Expr*, void>::doCastIfPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:493:26
+  #104 0x00007f28630d6497 decltype(auto) llvm::dyn_cast<clang::MemberExpr, clang::Expr>(clang::Expr*) /usr/include/llvm/Support/Casting.h:663:48
+  #105 0x00007f28630d6497 MarkExprReferenced /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:20220:46
+  #106 0x00007f286318a006 clang::QualType::getCommonPtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:954:18
+  #107 0x00007f286318a006 clang::QualType::getTypePtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:8103:22
+  #108 0x00007f286318a006 clang::QualType::operator->() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:996:22
+  #109 0x00007f286318a006 clang::Sema::BuildMemberExpr(clang::Expr*, bool, clang::SourceLocation, clang::NestedNameSpecifierLoc, clang::SourceLocation, clang::ValueDecl*, clang::DeclAccessPair, bool, clang::DeclarationNameInfo const&, clang::QualType, clang::ExprValueKind, clang::ExprObjectKind, clang::TemplateArgumentListInfo const*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExprMember.cpp:845:47
+  #110 0x00007f28633c1e33 clang::ActionResult<clang::Expr*, true>::operator=(clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:211:11
+  #111 0x00007f28633c1e33 clang::ActionResult<clang::Expr*, true>::ActionResult(clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:192:33
+  #112 0x00007f28633c1e33 clang::Sema::FixOverloadedFunctionReference(clang::Expr*, clang::DeclAccessPair, clang::FunctionDecl*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:17084:27
+  #113 0x00007f28633ed268 clang::Sema::BuildCallToMemberFunction(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:16241:5
+  #114 0x00007f28630b33d1 clang::Sema::ActOnCallExpr(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:6517:3
+  #115 0x00007f28635a5496 clang::Sema::FPFeaturesStateRAII::~FPFeaturesStateRAII() /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:2905:19
+  #116 0x00007f28635a5496 TransformCallExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13434:1
+  #117 0x00007f28635a4d78 TransformReturnStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8564:3
+  #118 0x00007f28635bec28 TransformCompoundStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8124:5
+  #119 0x00007f28635935d3 llvm::DenseMap<clang::Decl*, clang::Decl*, llvm::DenseMapInfo<clang::Decl*, void>, llvm::detail::DenseMapPair<clang::Decl*, clang::Decl*>>::~DenseMap() /usr/include/llvm/ADT/DenseMap.h:817:50
+  #120 0x00007f28635935d3 ~TreeTransform /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:110:7
+  #121 0x00007f28635935d3 ~TemplateInstantiator /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:1385:9
+  #122 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4459:1
+  #123 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4451:1
+  #124 0x00007f28635ed2c2 clang::ActionResult<clang::Stmt*, true>::get() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:204:47
+  #125 0x00007f28635ed2c2 clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiateDecl.cpp:5854:28
+  #126 0x00007f2861f7cd72 clang::StackExhaustionHandler::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Basic/StackExhaustionHandler.cpp:21:1
+  #127 0x00007f28630d5da1 clang::Sema::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:631:43
+  #128 0x00007f28630d5da1 clang::Sema::MarkFunctionReferenced(clang::SourceLocation, clang::FunctionDecl*, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:18367:32
+  #129 0x00007f28630d6497 clang::Stmt::getStmtClass() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Stmt.h:1484:44
+  #130 0x00007f28630d6497 clang::MemberExpr::classof(clang::Stmt const*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Expr.h:3514:27
+  #131 0x00007f28630d6497 llvm::isa_impl<clang::MemberExpr, clang::Expr, void>::doit(clang::Expr const&) /usr/include/llvm/Support/Casting.h:64:64
+  #132 0x00007f28630d6497 llvm::isa_impl_cl<clang::MemberExpr, clang::Expr const*>::doit(clang::Expr const*) /usr/include/llvm/Support/Casting.h:110:36
+  #133 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr const*, clang::Expr const*>::doit(clang::Expr const* const&) /usr/include/llvm/Support/Casting.h:137:41
+  #134 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr* const, clang::Expr const*>::doit(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:129:13
+  #135 0x00007f28630d6497 llvm::CastIsPossible<clang::MemberExpr, clang::Expr*, void>::isPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:257:62
+  #136 0x00007f28630d6497 llvm::CastInfo<clang::MemberExpr, clang::Expr*, void>::doCastIfPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:493:26
+  #137 0x00007f28630d6497 decltype(auto) llvm::dyn_cast<clang::MemberExpr, clang::Expr>(clang::Expr*) /usr/include/llvm/Support/Casting.h:663:48
+  #138 0x00007f28630d6497 MarkExprReferenced /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:20220:46
+  #139 0x00007f286318a006 clang::QualType::getCommonPtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:954:18
+  #140 0x00007f286318a006 clang::QualType::getTypePtr() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:8103:22
+  #141 0x00007f286318a006 clang::QualType::operator->() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Type.h:996:22
+  #142 0x00007f286318a006 clang::Sema::BuildMemberExpr(clang::Expr*, bool, clang::SourceLocation, clang::NestedNameSpecifierLoc, clang::SourceLocation, clang::ValueDecl*, clang::DeclAccessPair, bool, clang::DeclarationNameInfo const&, clang::QualType, clang::ExprValueKind, clang::ExprObjectKind, clang::TemplateArgumentListInfo const*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExprMember.cpp:845:47
+  #143 0x00007f28633c1e33 clang::ActionResult<clang::Expr*, true>::operator=(clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:211:11
+  #144 0x00007f28633c1e33 clang::ActionResult<clang::Expr*, true>::ActionResult(clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:192:33
+  #145 0x00007f28633c1e33 clang::Sema::FixOverloadedFunctionReference(clang::Expr*, clang::DeclAccessPair, clang::FunctionDecl*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:17084:27
+  #146 0x00007f28633ed268 clang::Sema::BuildCallToMemberFunction(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:16241:5
+  #147 0x00007f28630b33d1 clang::Sema::ActOnCallExpr(clang::Scope*, clang::Expr*, clang::SourceLocation, llvm::MutableArrayRef<clang::Expr*>, clang::SourceLocation, clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:6517:3
+  #148 0x00007f28635a5496 clang::Sema::FPFeaturesStateRAII::~FPFeaturesStateRAII() /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:2905:19
+  #149 0x00007f28635a5496 TransformCallExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13434:1
+  #150 0x00007f28635a1070 TransformExprs /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:4549:5
+  #151 0x00007f28635a53c0 TransformCallExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:13410:3
+  #152 0x00007f28635a4d78 TransformReturnStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8564:3
+  #153 0x00007f28635bec28 TransformCompoundStmt /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:8124:5
+  #154 0x00007f28635935d3 llvm::DenseMap<clang::Decl*, clang::Decl*, llvm::DenseMapInfo<clang::Decl*, void>, llvm::detail::DenseMapPair<clang::Decl*, clang::Decl*>>::~DenseMap() /usr/include/llvm/ADT/DenseMap.h:817:50
+  #155 0x00007f28635935d3 ~TreeTransform /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/TreeTransform.h:110:7
+  #156 0x00007f28635935d3 ~TemplateInstantiator /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:1385:9
+  #157 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4459:1
+  #158 0x00007f28635935d3 clang::Sema::SubstStmt(clang::Stmt*, clang::MultiLevelTemplateArgumentList const&) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiate.cpp:4451:1
+  #159 0x00007f28635ed2c2 clang::ActionResult<clang::Stmt*, true>::get() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/Ownership.h:204:47
+  #160 0x00007f28635ed2c2 clang::Sema::InstantiateFunctionDefinition(clang::SourceLocation, clang::FunctionDecl*, bool, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaTemplateInstantiateDecl.cpp:5854:28
+  #161 0x00007f2861f7cd72 clang::StackExhaustionHandler::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Basic/StackExhaustionHandler.cpp:21:1
+  #162 0x00007f28630d5da1 clang::Sema::runWithSufficientStackSpace(clang::SourceLocation, llvm::function_ref<void ()>) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/Sema.cpp:631:43
+  #163 0x00007f28630d5da1 clang::Sema::MarkFunctionReferenced(clang::SourceLocation, clang::FunctionDecl*, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:18367:32
+  #164 0x00007f28630d6497 clang::Stmt::getStmtClass() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Stmt.h:1484:44
+  #165 0x00007f28630d6497 clang::MemberExpr::classof(clang::Stmt const*) /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Expr.h:3514:27
+  #166 0x00007f28630d6497 llvm::isa_impl<clang::MemberExpr, clang::Expr, void>::doit(clang::Expr const&) /usr/include/llvm/Support/Casting.h:64:64
+  #167 0x00007f28630d6497 llvm::isa_impl_cl<clang::MemberExpr, clang::Expr const*>::doit(clang::Expr const*) /usr/include/llvm/Support/Casting.h:110:36
+  #168 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr const*, clang::Expr const*>::doit(clang::Expr const* const&) /usr/include/llvm/Support/Casting.h:137:41
+  #169 0x00007f28630d6497 llvm::isa_impl_wrap<clang::MemberExpr, clang::Expr* const, clang::Expr const*>::doit(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:129:13
+  #170 0x00007f28630d6497 llvm::CastIsPossible<clang::MemberExpr, clang::Expr*, void>::isPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:257:62
+  #171 0x00007f28630d6497 llvm::CastInfo<clang::MemberExpr, clang::Expr*, void>::doCastIfPossible(clang::Expr* const&) /usr/include/llvm/Support/Casting.h:493:26
+  #172 0x00007f28630d6497 decltype(auto) llvm::dyn_cast<clang::MemberExpr, clang::Expr>(clang::Expr*) /usr/include/llvm/Support/Casting.h:663:48
+  #173 0x00007f28630d6497 MarkExprReferenced /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:20220:46
+  #174 0x00007f28633a7417 clang::Expr::getType() const /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/Expr.h:142:37
+  #175 0x00007f28633a7417 CreateFunctionRefExpr /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:82:31
+  #176 0x00007f28633ee985 clang::Sema::CreateOverloadedBinOp(clang::SourceLocation, clang::BinaryOperatorKind, clang::UnresolvedSetImpl const&, clang::Expr*, clang::Expr*, bool, bool, clang::FunctionDecl*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaOverload.cpp:15483:9
+  #177 0x00007f28630b3dcc llvm::SmallVectorTemplateCommon<clang::DeclAccessPair, void>::isSmall() const /usr/include/llvm/ADT/SmallVector.h:144:39
+  #178 0x00007f28630b3dcc llvm::SmallVectorImpl<clang::DeclAccessPair>::~SmallVectorImpl() /usr/include/llvm/ADT/SmallVector.h:604:23
+  #179 0x00007f28630b3dcc llvm::SmallVector<clang::DeclAccessPair, 16u>::~SmallVector() /usr/include/llvm/ADT/SmallVector.h:1204:3
+  #180 0x00007f28630b3dcc clang::UnresolvedSet<16u>::~UnresolvedSet() /usr/src/debug/clang/clang-21.1.8.src/include/clang/AST/UnresolvedSet.h:156:42
+  #181 0x00007f28630b3dcc BuildOverloadedBinOp /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:15485:21
+  #182 0x00007f28630adc45 clang::Sema::ActOnBinOp(clang::Scope*, clang::SourceLocation, clang::tok::TokenKind, clang::Expr*, clang::Expr*) /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/SemaExpr.cpp:15441:1
+  #183 0x00007f28621b9a20 clang::Parser::ParseRHSOfBinaryExpression(clang::ActionResult<clang::Expr*, true>, clang::prec::Level) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseExpr.cpp:533:31
+  #184 0x00007f28621ef375 clang::Parser::ParseExpression(clang::TypoCorrectionTypeBehavior) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseExpr.cpp:49:36
+  #185 0x00007f28621ef375 clang::Parser::ParseParenExpression(clang::ParenParseOption&, bool, clang::ParenExprKind, clang::TypoCorrectionTypeBehavior, clang::OpaquePtr<clang::QualType>&, clang::SourceLocation&) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseExpr.cpp:2925:29
+  #186 0x00007f28621b79e5 clang::Parser::ParseCastExpression(clang::CastParseKind, bool, bool&, clang::TypoCorrectionTypeBehavior, bool, bool*) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseExpr.cpp:763:31
+  #187 0x00007f28621b95b5 clang::Parser::ParseCastExpression(clang::CastParseKind, bool, clang::TypoCorrectionTypeBehavior, bool, bool*) (.constprop.0) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseExpr.cpp:570:3
+  #188 0x00007f28621b98e8 clang::Parser::ParseRHSOfBinaryExpression(clang::ActionResult<clang::Expr*, true>, clang::prec::Level) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseExpr.cpp:461:32
+  #189 0x00007f28621bd8c8 clang::Token::is(clang::tok::TokenKind) const /usr/src/debug/clang/clang-21.1.8.src/include/clang/Lex/Token.h:102:44
+  #190 0x00007f28621bd8c8 clang::Parser::ParseExpressionList(llvm::SmallVectorImpl<clang::Expr*>&, llvm::function_ref<void ()>, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseExpr.cpp:3182:15
+  #191 0x00007f28621cfeb4 clang::Parser::ParseMemInitializer(clang::Decl*) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDeclCXX.cpp:3962:33
+  #192 0x00007f28621d0545 clang::Parser::ParseConstructorInitializer(clang::Decl*) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDeclCXX.cpp:3852:5
+  #193 0x00007f2862176ad0 clang::Parser::ParseLexedMethodDef(clang::Parser::LexedMethod&) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseCXXInlineMethods.cpp:627:5
+  #194 0x00007f28621751bd clang::Parser::ParseLexedMethodDefs(clang::Parser::ParsingClass&) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseCXXInlineMethods.cpp:570:41
+  #195 0x00007f28621e84cb clang::Parser::ParseCXXMemberSpecification(clang::SourceLocation, clang::SourceLocation, clang::ParsedAttributes&, unsigned int, clang::Decl*) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDeclCXX.cpp:3797:21
+  #196 0x00007f28621eafec clang::Parser::ParseClassSpecifier(clang::tok::TokenKind, clang::SourceLocation, clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, bool, clang::Parser::DeclSpecContext, clang::ParsedAttributes&) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDeclCXX.cpp:2178:34
+  #197 0x00007f28621864db clang::Parser::ParseDeclarationSpecifiers(clang::DeclSpec&, clang::Parser::ParsedTemplateInfo&, clang::AccessSpecifier, clang::Parser::DeclSpecContext, clang::Parser::LateParsedAttrList*, clang::ImplicitTypenameContext) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDecl.cpp:4461:7
+  #198 0x00007f286226e61d clang::DeclSpec::hasTagDefinition() const /usr/src/debug/clang/clang-21.1.8.src/lib/Sema/DeclSpec.cpp:460:3
+  #199 0x00007f286226e61d clang::Parser::ParseDeclOrFunctionDefInternal(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec&, clang::AccessSpecifier) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/Parser.cpp:1096:26
+  #200 0x00007f286226f014 clang::Parser::ParseDeclarationOrFunctionDefinition(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*, clang::AccessSpecifier) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/Parser.cpp:1209:42
+  #201 0x00007f2862282a0c clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/Parser.cpp:1032:50
+  #202 0x00007f28621c51c6 clang::AttributePool::~AttributePool() /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/ParsedAttr.h:709:41
+  #203 0x00007f28621c51c6 clang::ParsedAttributes::~ParsedAttributes() /usr/src/debug/clang/clang-21.1.8.src/include/clang/Sema/ParsedAttr.h:937:7
+  #204 0x00007f28621c51c6 clang::Parser::ParseInnerNamespace(llvm::SmallVector<clang::Parser::InnerNamespaceInfo, 4u> const&, unsigned int, clang::SourceLocation&, clang::ParsedAttributes&, clang::BalancedDelimiterTracker&) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDeclCXX.cpp:237:5
+  #205 0x00007f28621cd461 clang::Parser::ParseScope::Exit() /usr/src/debug/clang/clang-21.1.8.src/include/clang/Parse/Parser.h:422:24
+  #206 0x00007f28621cd461 clang::Parser::ParseNamespace(clang::DeclaratorContext, clang::SourceLocation&, clang::SourceLocation) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDeclCXX.cpp:217:22
+  #207 0x00007f286219a05f clang::Parser::ParseDeclaration(clang::DeclaratorContext, clang::SourceLocation&, clang::ParsedAttributes&, clang::ParsedAttributes&, clang::SourceLocation*) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseDecl.cpp:1909:26
+  #208 0x00007f2862282c2c clang::Parser::ParseExternalDeclaration(clang::ParsedAttributes&, clang::ParsedAttributes&, clang::ParsingDeclSpec*) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/Parser.cpp:978:32
+  #209 0x00007f2862283adf clang::Parser::ParseTopLevelDecl(clang::OpaquePtr<clang::DeclGroupRef>&, clang::Sema::ModuleImportState&) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/Parser.cpp:745:36
+  #210 0x00007f28621716c9 clang::ParseAST(clang::Sema&, bool, bool) /usr/src/debug/clang/clang-21.1.8.src/lib/Parse/ParseAST.cpp:169:69
+  #211 0x00007f286424ea9c clang::CompilerInstance::shouldBuildGlobalModuleIndex() const /usr/src/debug/clang/clang-21.1.8.src/lib/Frontend/CompilerInstance.cpp:86:58
+  #212 0x00007f286424ea9c clang::FrontendAction::Execute() /usr/src/debug/clang/clang-21.1.8.src/lib/Frontend/FrontendAction.cpp:1225:38
+  #213 0x00007f28641aff0f llvm::Error::getPtr() const /usr/include/llvm/Support/Error.h:281:12
+  #214 0x00007f28641aff0f llvm::Error::operator bool() /usr/include/llvm/Support/Error.h:241:22
+  #215 0x00007f28641aff0f clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) /usr/src/debug/clang/clang-21.1.8.src/lib/Frontend/CompilerInstance.cpp:1055:42
+  #216 0x00007f28642abcec std::__shared_ptr<clang::FrontendOptions, (__gnu_cxx::_Lock_policy)2>::get() const /usr/include/c++/15.2.1/bits/shared_ptr_base.h:1673:16
+  #217 0x00007f28642abcec std::__shared_ptr_access<clang::FrontendOptions, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const /usr/include/c++/15.2.1/bits/shared_ptr_base.h:1370:69
+  #218 0x00007f28642abcec std::__shared_ptr_access<clang::FrontendOptions, (__gnu_cxx::_Lock_policy)2, false, false>::operator*() const /usr/include/c++/15.2.1/bits/shared_ptr_base.h:1358:40
+  #219 0x00007f28642abcec clang::CompilerInvocation::getFrontendOpts() /usr/src/debug/clang/clang-21.1.8.src/include/clang/Frontend/CompilerInvocation.h:259:48
+  #220 0x00007f28642abcec clang::CompilerInstance::getFrontendOpts() /usr/src/debug/clang/clang-21.1.8.src/include/clang/Frontend/CompilerInstance.h:304:39
+  #221 0x00007f28642abcec clang::ExecuteCompilerInvocation(clang::CompilerInstance*) /usr/src/debug/clang/clang-21.1.8.src/lib/FrontendTool/ExecuteCompilerInvocation.cpp:300:29
+  #222 0x000055f4e48c3e9a cc1_main(llvm::ArrayRef<char const*>, char const*, void*) /usr/src/debug/clang/clang-21.1.8.src/tools/driver/cc1_main.cpp:297:40
+  #223 0x000055f4e48c7b61 ExecuteCC1Tool /usr/src/debug/clang/clang-21.1.8.src/tools/driver/driver.cpp:223:20
+  #224 0x00007f2863df3295 operator() /usr/src/debug/clang/clang-21.1.8.src/lib/Driver/Job.cpp:436:32
+  #225 0x00007f2863df3295 callback_fn<clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef> >, std::string*, bool*) const::<lambda()> > /usr/include/llvm/ADT/STLFunctionalExtras.h:46:52
+  #226 0x00007f28589daaf8 llvm::CrashRecoveryContext::RunSafely(llvm::function_ref<void ()>) /usr/src/debug/llvm/llvm-21.1.8.src/lib/Support/CrashRecoveryContext.cpp:428:1
+  #227 0x00007f2863dfee35 clang::driver::CC1Command::Execute(llvm::ArrayRef<std::optional<llvm::StringRef>>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>>*, bool*) const /usr/src/debug/clang/clang-21.1.8.src/lib/Driver/Job.cpp:440:10
+  #228 0x00007f2863e1228b clang::driver::Compilation::ExecuteCommand(clang::driver::Command const&, clang::driver::Command const*&, bool) const /usr/src/debug/clang/clang-21.1.8.src/lib/Driver/Compilation.cpp:196:22
+  #229 0x00007f2863e1268c clang::driver::Compilation::ExecuteJobs(clang::driver::JobList const&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&, bool) const /usr/src/debug/clang/clang-21.1.8.src/lib/Driver/Compilation.cpp:251:5
+  #230 0x00007f2863e24e65 llvm::SmallVectorBase<unsigned int>::empty() const /usr/include/llvm/ADT/SmallVector.h:82:46
+  #231 0x00007f2863e24e65 clang::driver::Driver::ExecuteCompilation(clang::driver::Compilation&, llvm::SmallVectorImpl<std::pair<int, clang::driver::Command const*>>&) /usr/src/debug/clang/clang-21.1.8.src/lib/Driver/Driver.cpp:2246:28
+  #232 0x000055f4e48c9b85 llvm::SmallVectorBase<unsigned int>::size() const /usr/include/llvm/ADT/SmallVector.h:79:32
+  #233 0x000055f4e48c9b85 llvm::SmallVectorTemplateCommon<std::pair<int, clang::driver::Command const*>, void>::end() /usr/include/llvm/ADT/SmallVector.h:270:41
+  #234 0x000055f4e48c9b85 clang_main(int, char**, llvm::ToolContext const&) /usr/src/debug/clang/clang-21.1.8.src/tools/driver/driver.cpp:408:26
+  #235 0x000055f4e48bb2b0 main /usr/src/debug/clang/clang-21.1.8.src/build/tools/driver/clang-driver.cpp:18:1
+  #236 0x00007f2857c366c1 __libc_start_call_main /usr/src/debug/glibc/glibc/csu/../sysdeps/nptl/libc_start_call_main.h:83:3
+  #237 0x00007f2857c367f9 call_init /usr/src/debug/glibc/glibc/csu/../csu/libc-start.c:128:20
+  #238 0x00007f2857c367f9 __libc_start_main /usr/src/debug/glibc/glibc/csu/../csu/libc-start.c:347:5
+  #239 0x000055f4e48bb315 _start (/usr/bin/clang+++0xb315)
+  clang++: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+  clang version 21.1.8
+  Target: x86_64-pc-linux-gnu
+  Thread model: posix
+  InstalledDir: /usr/bin
+  clang++: note: diagnostic msg:
+  ********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang++: note: diagnostic msg: /tmp/spatial_index_property-cfb94d.cpp
+clang++: note: diagnostic msg: /tmp/spatial_index_property-cfb94d.sh
+clang++: note: diagnostic msg:

@@ -1,0 +1,29 @@
+// RUN: mlir-opt %s --pass-pipeline='builtin.module(any(mem2reg))' | FileCheck %s
+
+// Verifies that mem2reg does not crash when a load result is stored back to the
+// same alloca on one path of a conditional branch. The reaching definition at
+// block end is the load result, and linkMergePoints must handle this correctly
+// even though removeBlockingUses will replace and delete that load.
+
+// CHECK-LABEL: func.func @store_back_to_alloca
+// CHECK-SAME:    (%[[COND:.*]]: i1)
+// CHECK-NEXT:    %[[C0:.*]] = arith.constant 0 : i32
+// CHECK-NEXT:    return %[[C0]] : i32
+func.func @store_back_to_alloca(%cond: i1) -> i32 {
+  %c0 = arith.constant 0 : i32
+  %alloca = memref.alloca() : memref<i32>
+  memref.store %c0, %alloca[] : memref<i32>
+  %loaded = memref.load %alloca[] : memref<i32>
+  cf.cond_br %cond, ^store_back, ^skip
+
+^store_back:
+  memref.store %loaded, %alloca[] : memref<i32>
+  cf.br ^merge
+
+^skip:
+  cf.br ^merge
+
+^merge:
+  %result = memref.load %alloca[] : memref<i32>
+  return %result : i32
+}

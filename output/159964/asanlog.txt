@@ -1,0 +1,22 @@
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==3055424==ERROR: AddressSanitizer: BUS on unknown address (pc 0x7ffff5ea6ee1 bp 0x7fffffffdde0 sp 0x7fffffffd598 T0)
+==3055424==The signal is caused by a WRITE memory access.
+==3055424==Hint: this fault was caused by a dereference of a high value address (see register values below).  Disassemble the provided pc to learn which register was used.
+    #0 0x7ffff5ea6ee1  (/lib/x86_64-linux-gnu/libc.so.6+0x1b1ee1) (BuildId: cd410b710f0f094c6832edd95931006d883af48e)
+    #1 0x5555555f7ccb in __interceptor_strcpy (/usr/local/imagemagick-fuzz/bin/magick+0xa3ccb) (BuildId: a9b5d6e4ac7bfbdb31f07021d1e8fbdc36e30590)
+    #2 0x7ffff62ad6f4  (/usr/lib/llvm-16/lib/libomp.so.5+0x466f4) (BuildId: 942188deb6a36c4e4329baf4ba82177f3832e0e7)
+    #3 0x7ffff629f0fb  (/usr/lib/llvm-16/lib/libomp.so.5+0x380fb) (BuildId: 942188deb6a36c4e4329baf4ba82177f3832e0e7)
+    #4 0x7ffff629f044  (/usr/lib/llvm-16/lib/libomp.so.5+0x38044) (BuildId: 942188deb6a36c4e4329baf4ba82177f3832e0e7)
+    #5 0x7ffff633563c in omp_init_lock (/usr/lib/llvm-16/lib/libomp.so.5+0xce63c) (BuildId: 942188deb6a36c4e4329baf4ba82177f3832e0e7)
+    #6 0x7ffff7456c00 in InitializeMagickMutex /src/ImageMagick/./MagickCore/mutex.h:60:5
+    #7 0x7ffff7456c00 in MagickCoreGenesis /src/ImageMagick/MagickCore/magick.c:1497:3
+    #8 0x55555564b2f7 in MagickMain /src/ImageMagick/utilities/magick.c:133:3
+    #9 0x55555564b2f7 in main /src/ImageMagick/utilities/magick.c:193:10
+    #10 0x7ffff5d1ed8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f) (BuildId: cd410b710f0f094c6832edd95931006d883af48e)
+    #11 0x7ffff5d1ee3f in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29e3f) (BuildId: cd410b710f0f094c6832edd95931006d883af48e)
+    #12 0x5555555744a4 in _start (/usr/local/imagemagick-fuzz/bin/magick+0x204a4) (BuildId: a9b5d6e4ac7bfbdb31f07021d1e8fbdc36e30590)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: BUS (/lib/x86_64-linux-gnu/libc.so.6+0x1b1ee1) (BuildId: cd410b710f0f094c6832edd95931006d883af48e) 
+==3055424==ABORTING

@@ -1,0 +1,15 @@
+# 1 "clang_issue.cpp"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 468 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "clang_issue.cpp" 2
+class BigInteger {
+  friend bool operator==(const BigInteger&, const BigInteger&);
+  friend class Rational;
+};
+
+bool operator==(const BigInteger&, const BigInteger&) = default;
+
+int main() {}

@@ -1,0 +1,286 @@
+/tmp/llvm-repro/repro_final.dSYM/Contents/Resources/DWARF/repro_final:	file format Mach-O arm64
+
+.debug_info contents:
+0x00000000: Compile Unit: length = 0x00000163, format = DWARF32, version = 0x0005, unit_type = DW_UT_compile, abbr_offset = 0x0000, addr_size = 0x08 (next unit at 0x00000167)
+
+0x0000000c: DW_TAG_compile_unit
+              DW_AT_producer	("Apple clang version 17.0.0 (clang-1700.6.3.2)")
+              DW_AT_language	(DW_LANG_C_plus_plus_14)
+              DW_AT_name	("/tmp/llvm-repro/repro_final.cpp")
+              DW_AT_LLVM_sysroot	("/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk")
+              DW_AT_APPLE_sdk	("MacOSX.sdk")
+              DW_AT_str_offsets_base	(0x00000008)
+              DW_AT_stmt_list	(0x00000000)
+              DW_AT_comp_dir	("/Users/bmilanich/modular")
+              DW_AT_low_pc	(0x0000000100000360)
+              DW_AT_high_pc	(0x0000000100000414)
+              DW_AT_addr_base	(0x00000008)
+
+0x00000025:   DW_TAG_class_type
+                DW_AT_calling_convention	(DW_CC_pass_by_value)
+                DW_AT_name	("C")
+                DW_AT_byte_size	(0x04)
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(30)
+
+0x0000002b:     DW_TAG_inheritance
+                  DW_AT_type	(0x0000000000000063 "A::Trait<C>")
+                  DW_AT_data_member_location	(0x00)
+                  DW_AT_accessibility	(DW_ACCESS_public)
+
+0x00000032:     DW_TAG_inheritance
+                  DW_AT_type	(0x0000000000000095 "B::Trait<C>")
+                  DW_AT_data_member_location	(0x00)
+                  DW_AT_accessibility	(DW_ACCESS_public)
+
+0x00000039:     DW_TAG_member
+                  DW_AT_name	("x")
+                  DW_AT_type	(0x00000000000000c1 "int")
+                  DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                  DW_AT_decl_line	(32)
+                  DW_AT_data_member_location	(0x00)
+                  DW_AT_accessibility	(DW_ACCESS_public)
+
+0x00000043:     DW_TAG_subprogram
+                  DW_AT_linkage_name	("_ZNK1C4getXEv")
+                  DW_AT_name	("getX")
+                  DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                  DW_AT_decl_line	(33)
+                  DW_AT_type	(0x00000000000000c1 "int")
+                  DW_AT_declaration	(true)
+                  DW_AT_external	(true)
+                  DW_AT_accessibility	(DW_ACCESS_public)
+
+0x0000004d:       DW_TAG_formal_parameter
+                    DW_AT_type	(0x00000000000000c5 "const C *")
+                    DW_AT_artificial	(true)
+
+0x00000052:       NULL
+
+0x00000053:     DW_TAG_subprogram
+                  DW_AT_name	("C")
+                  DW_AT_declaration	(true)
+                  DW_AT_artificial	(true)
+                  DW_AT_external	(true)
+                  DW_AT_accessibility	(DW_ACCESS_public)
+
+0x00000056:       DW_TAG_formal_parameter
+                    DW_AT_type	(0x000000000000011d "C *")
+                    DW_AT_artificial	(true)
+
+0x0000005b:       NULL
+
+0x0000005c:     NULL
+
+0x0000005d:   DW_TAG_structure_type
+                DW_AT_calling_convention	(DW_CC_pass_by_value)
+                DW_AT_name	("A")
+                DW_AT_byte_size	(0x01)
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(18)
+
+0x00000063:     DW_TAG_structure_type
+                  DW_AT_calling_convention	(DW_CC_pass_by_value)
+                  DW_AT_name	("Trait<C>")
+                  DW_AT_byte_size	(0x01)
+                  DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                  DW_AT_decl_line	(20)
+
+0x00000069:       DW_TAG_template_type_parameter
+                    DW_AT_type	(0x0000000000000025 "C")
+                    DW_AT_name	("U")
+
+0x0000006f:       DW_TAG_inheritance
+                    DW_AT_type	(0x0000000000000077 "Alias<C, Trait>")
+                    DW_AT_data_member_location	(0x00)
+
+0x00000075:       NULL
+
+0x00000076:     NULL
+
+0x00000077:   DW_TAG_typedef
+                DW_AT_type	(0x000000000000007f "Empty<C, A::Trait>")
+                DW_AT_name	("Alias<C, Trait>")
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(16)
+
+0x0000007f:   DW_TAG_structure_type
+                DW_AT_calling_convention	(DW_CC_pass_by_value)
+                DW_AT_name	("Empty<C, A::Trait>")
+                DW_AT_byte_size	(0x01)
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(13)
+
+0x00000085:     DW_TAG_template_type_parameter
+                  DW_AT_type	(0x0000000000000025 "C")
+                  DW_AT_name	("T")
+
+0x0000008b:     DW_TAG_GNU_template_template_param
+                  DW_AT_name	("TT")
+                  DW_AT_GNU_template_name	("A::Trait")
+
+0x0000008e:     NULL
+
+0x0000008f:   DW_TAG_structure_type
+                DW_AT_calling_convention	(DW_CC_pass_by_value)
+                DW_AT_name	("B")
+                DW_AT_byte_size	(0x01)
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(23)
+
+0x00000095:     DW_TAG_structure_type
+                  DW_AT_calling_convention	(DW_CC_pass_by_value)
+                  DW_AT_name	("Trait<C>")
+                  DW_AT_byte_size	(0x01)
+                  DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                  DW_AT_decl_line	(25)
+
+0x0000009b:       DW_TAG_template_type_parameter
+                    DW_AT_type	(0x0000000000000025 "C")
+                    DW_AT_name	("U")
+
+0x000000a1:       DW_TAG_inheritance
+                    DW_AT_type	(0x00000000000000a9 "Alias<C, Trait>")
+                    DW_AT_data_member_location	(0x00)
+
+0x000000a7:       NULL
+
+0x000000a8:     NULL
+
+0x000000a9:   DW_TAG_typedef
+                DW_AT_type	(0x00000000000000b1 "Empty<C, B::Trait>")
+                DW_AT_name	("Alias<C, Trait>")
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(16)
+
+0x000000b1:   DW_TAG_structure_type
+                DW_AT_calling_convention	(DW_CC_pass_by_value)
+                DW_AT_name	("Empty<C, B::Trait>")
+                DW_AT_byte_size	(0x01)
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(13)
+
+0x000000b7:     DW_TAG_template_type_parameter
+                  DW_AT_type	(0x0000000000000025 "C")
+                  DW_AT_name	("T")
+
+0x000000bd:     DW_TAG_GNU_template_template_param
+                  DW_AT_name	("TT")
+                  DW_AT_GNU_template_name	("B::Trait")
+
+0x000000c0:     NULL
+
+0x000000c1:   DW_TAG_base_type
+                DW_AT_name	("int")
+                DW_AT_encoding	(DW_ATE_signed)
+                DW_AT_byte_size	(0x04)
+
+0x000000c5:   DW_TAG_pointer_type
+                DW_AT_type	(0x00000000000000ca "const C")
+
+0x000000ca:   DW_TAG_const_type
+                DW_AT_type	(0x0000000000000025 "C")
+
+0x000000cf:   DW_TAG_subprogram
+                DW_AT_low_pc	(0x0000000100000360)
+                DW_AT_high_pc	(0x0000000100000378)
+                DW_AT_APPLE_omit_frame_ptr	(true)
+                DW_AT_frame_base	(DW_OP_reg31 WSP)
+                DW_AT_object_pointer	(0x000000e0)
+                DW_AT_decl_line	(36)
+                DW_AT_specification	(0x0000000000000043 "_ZNK1C4getXEv")
+
+0x000000e0:     DW_TAG_formal_parameter
+                  DW_AT_location	(DW_OP_fbreg +8)
+                  DW_AT_name	("this")
+                  DW_AT_type	(0x000000000000015c "const C *")
+                  DW_AT_artificial	(true)
+
+0x000000e9:     NULL
+
+0x000000ea:   DW_TAG_subprogram
+                DW_AT_low_pc	(0x0000000100000378)
+                DW_AT_high_pc	(0x0000000100000390)
+                DW_AT_APPLE_omit_frame_ptr	(true)
+                DW_AT_frame_base	(DW_OP_reg31 WSP)
+                DW_AT_linkage_name	("_Z1f1C")
+                DW_AT_name	("f")
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(39)
+                DW_AT_external	(true)
+
+0x000000f6:     DW_TAG_formal_parameter
+                  DW_AT_location	(DW_OP_fbreg +12)
+                  DW_AT_name	("obj")
+                  DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                  DW_AT_decl_line	(39)
+                  DW_AT_type	(0x0000000000000025 "C")
+
+0x00000101:     NULL
+
+0x00000102:   DW_TAG_subprogram
+                DW_AT_low_pc	(0x0000000100000390)
+                DW_AT_high_pc	(0x00000001000003d0)
+                DW_AT_frame_base	(DW_OP_reg29 W29)
+                DW_AT_name	("main")
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(41)
+                DW_AT_type	(0x00000000000000c1 "int")
+                DW_AT_external	(true)
+
+0x00000111:     DW_TAG_variable
+                  DW_AT_location	(DW_OP_fbreg -4)
+                  DW_AT_name	("obj")
+                  DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                  DW_AT_decl_line	(42)
+                  DW_AT_type	(0x0000000000000025 "C")
+
+0x0000011c:     NULL
+
+0x0000011d:   DW_TAG_pointer_type
+                DW_AT_type	(0x0000000000000025 "C")
+
+0x00000122:   DW_TAG_subprogram
+                DW_AT_low_pc	(0x00000001000003d0)
+                DW_AT_high_pc	(0x00000001000003fc)
+                DW_AT_frame_base	(DW_OP_reg29 W29)
+                DW_AT_object_pointer	(0x00000135)
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(30)
+                DW_AT_linkage_name	("_ZN1CC1Ev")
+                DW_AT_specification	(0x0000000000000053 "C")
+
+0x00000135:     DW_TAG_formal_parameter
+                  DW_AT_location	(DW_OP_breg31 WSP+8)
+                  DW_AT_name	("this")
+                  DW_AT_type	(0x0000000000000161 "C *")
+                  DW_AT_artificial	(true)
+
+0x0000013e:     NULL
+
+0x0000013f:   DW_TAG_subprogram
+                DW_AT_low_pc	(0x00000001000003fc)
+                DW_AT_high_pc	(0x0000000100000414)
+                DW_AT_APPLE_omit_frame_ptr	(true)
+                DW_AT_frame_base	(DW_OP_reg31 WSP)
+                DW_AT_object_pointer	(0x00000152)
+                DW_AT_decl_file	("/tmp/llvm-repro/repro_final.cpp")
+                DW_AT_decl_line	(30)
+                DW_AT_linkage_name	("_ZN1CC2Ev")
+                DW_AT_specification	(0x0000000000000053 "C")
+
+0x00000152:     DW_TAG_formal_parameter
+                  DW_AT_location	(DW_OP_fbreg +8)
+                  DW_AT_name	("this")
+                  DW_AT_type	(0x0000000000000161 "C *")
+                  DW_AT_artificial	(true)
+
+0x0000015b:     NULL
+
+0x0000015c:   DW_TAG_pointer_type
+                DW_AT_type	(0x00000000000000ca "const C")
+
+0x00000161:   DW_TAG_pointer_type
+                DW_AT_type	(0x0000000000000025 "C")
+
+0x00000166:   NULL
